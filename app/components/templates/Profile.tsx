@@ -1,7 +1,9 @@
 
 'use client'
 
-import { useSession, signOut } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
+
+
 
 export default function Profile() {
   const { data: session, status } = useSession()
