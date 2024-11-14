@@ -12,7 +12,7 @@ const ProgramsListNews = ({ data }: { data: any }) => {
 
       <div className="flex  justify-between">
         <div className="2xl:w-[400px] w-[320px]  p-2 pb-0">
-          <div style={{ backgroundColor: data.info.tvp_color }} className={`  h-full rounded-tr-[200px] flex flex-col justify-between`} >
+          <div style={{ backgroundColor: data.info.tvp_color }} className={`  h-full  flex flex-col justify-between`} >
             <div className='w-full flex justify-center '>
 
               <OptimizedImage src={data.info.tvp_logo} width={400} height={500} style={{ height: 'auto' }} alt={data.info.program_name}  />

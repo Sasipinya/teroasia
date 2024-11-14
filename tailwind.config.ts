@@ -12,6 +12,13 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      screens: {
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1440px', // กำหนด breakpoint 'xl' ให้มีขนาด 1440px
+        '2xl': '1536px',
+      }
     },
   },
   plugins: [],
