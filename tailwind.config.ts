@@ -13,10 +13,10 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       screens: {
-        'sm': '640px',
-        'md': '768px',
-        'lg': '1024px',
-        'xl': '1440px', // กำหนด breakpoint 'xl' ให้มีขนาด 1440px
+        sm: '640px',
+        md: '768px',
+        lg: '990px', // กำหนด container ให้กว้าง 990px ที่ breakpoint 'lg'
+        xl: '1280px',
         '2xl': '1536px',
       }
     },
