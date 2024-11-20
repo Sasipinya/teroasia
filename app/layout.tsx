@@ -1,6 +1,7 @@
 
 
 import "./globals.css";
+import 'animate.css';
 import { kanit } from "./fonts";
 import Header from "./components/templates/header";
 import Footer from "./components/templates/footer";

@@ -5,12 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons'
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-
 import { shimmer, toBase64 } from '../utils/shimer';
 import { thaiDate } from '../utils/thaidate';
 import NavMenu from './navmenu';
 import SearchModal from './SearchModal';
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import NavbarMobile from './mobile/navmenu';
 
 
 
@@ -27,7 +27,12 @@ export default function Header() {
 
   return (
     <div>
-      <header className="bg-white ">
+       <header className="block md:hidden  bg-white ">
+       <div className="container mx-auto pt-2 pb-0">
+        <NavbarMobile/>
+        </div>
+        </header>
+      <header className="hidden md:block bg-white ">
         <div className="container mx-auto pt-1 pb-0">
           <div className="flex flex-row  items-center">
             <div className="p-2 w-1/3 flex items-center justify-start">
@@ -63,6 +68,7 @@ export default function Header() {
             >
               <FontAwesomeIcon icon={faSearch} className="text-l" />
             </button>
+            
 
             <SearchModal
               isOpen={isModalOpen}

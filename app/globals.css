@@ -49,3 +49,37 @@ body {
   font-size: 10px!important;
   font-weight: bold;
 }
+
+.animate__delay-custom-1{
+  animation-delay: 0.1s;
+}
+.animate__delay-custom-2{
+  animation-delay: 0.2s;
+}
+.animate__delay-custom-3 {
+  animation-delay: 0.3s;
+}
+.animate__delay-custom-4 {
+  animation-delay: 0.4s;
+}
+.animate__delay-custom-5 {
+  animation-delay: 0.5s;
+}
+.animate__delay-custom-6 {
+  animation-delay: 0.6s;
+}
+.animate__delay-custom-7 {
+  animation-delay: 0.7s;
+}
+.animate__delay-custom-8 {
+  animation-delay: 0.8s;
+}
+.animate__delay-custom-9 {
+  animation-delay: 0.8s;
+}
+.animate__delay-custom-10 {
+  animation-delay: 0.8s;
+}
+.animate__delay-custom-11 {
+  animation-delay: 0.8s;
+}
