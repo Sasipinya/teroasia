@@ -8,7 +8,7 @@ import { Calendar, Eye } from 'lucide-react'
 const ProgramsListNews = ({ data }: { data: any }) => {
 
   return (
-    <div className="container mx-auto p-2 text-gray-600 mb-10">
+    <div className="hidden md:block container mx-auto p-2 text-gray-600 mb-10">
 
       <div className="flex  justify-between">
         <div className="2xl:w-[400px] w-[320px]  p-2 pb-0">

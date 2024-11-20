@@ -22,7 +22,7 @@ import { Calendar, Eye } from 'lucide-react';
 function HightlightSliderNews({ data }: { data: any }) {
 
     return (
-        <div className='bg-black'>
+        <div className='hidden md:block bg-black'>
             <div className="container mx-auto my-6 p-2">
                 <div className='flex'>
                     <h3 className="mb-6 text-2xl font-bold text-white mr-4">ข่าวสุขภาพ</h3><div className='flex-1 my-4 border-t border-gray-300'></div>

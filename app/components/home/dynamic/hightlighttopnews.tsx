@@ -7,7 +7,7 @@ import { OptimizedImage } from '../../utils/optimizesimage';
 const HightlightTopNews = ({ data }: { data: any }) => {
 
   return (
-    <div className="container mx-auto">
+    <div className="hidden md:block container mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="flex flex-col justify-start p-2 ">
           <div className='relative'>

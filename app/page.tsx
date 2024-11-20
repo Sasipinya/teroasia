@@ -19,7 +19,6 @@ export default async function Home() {
 
   const res = await fetch('https://backend.teroasia.com/apis2/index.php?a=news_main', { cache: 'no-store', next: { revalidate: 60 } });
   const data = await res.json();
-
   const res_top = await fetch(
     `https://backend.teroasia.com/apis2/index.php?a=get_top_view_set`, { cache: 'no-store', next: { revalidate: 60 } }
   );

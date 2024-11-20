@@ -7,7 +7,7 @@ import { Calendar, Eye } from 'lucide-react'
 function UpdateNews({ data }: { data: any }) {
 
   return (
-    <div className="container mx-auto my-6 p-2">
+    <div className="hidden md:block container mx-auto my-6 p-2">
       <div className="flex">
         <div className="flex-1 ">
           <div className='flex'>

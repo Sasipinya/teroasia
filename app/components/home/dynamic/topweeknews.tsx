@@ -17,7 +17,7 @@ function TopWeekNews({ data }: { data: any }) {
     const [activeTab, setActiveTab] = useState(0);
     return (
 
-        <div className="container mx-auto my-6 p-2">
+        <div className="hidden md:block container mx-auto my-6 p-2">
             <ul className="flex space-x-4">
                 {sortedArr && sortedArr.length > 0 && sortedArr.map((tab: any, index: number) => (
                     <li key={index}>
