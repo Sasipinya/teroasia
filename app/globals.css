@@ -83,3 +83,16 @@ body {
 .animate__delay-custom-11 {
   animation-delay: 0.8s;
 }
+.nav-header-mobile {
+  padding: 10px 0 18px 0;
+}
+
+.nav-header-mobile .swiper-slide {
+    width: -moz-fit-content !important;
+    width: fit-content !important;
+    border-right: 2px solid #e1e1e1;
+    padding-right: 10px;
+}
+.nav-header-mobile .swiper-slide:first-child{
+  margin-left: 10px;
+}

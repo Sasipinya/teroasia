@@ -43,7 +43,7 @@ const NavbarMobile: React.FC = () => {
               <FontAwesomeIcon icon={faSearch} className="text-l h-9 w-10" />
             </button>
             <button
-              className=" hover:text-red-600 text-gray-500 font-bold" aria-label="Login"
+              className=" hover:text-red-600 text-gray-300 font-bold" aria-label="Login"
             >
               <FontAwesomeIcon icon={faUserCircle} className="text-l h-9 w-10" />
             </button>
@@ -72,7 +72,7 @@ const NavbarMobile: React.FC = () => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute top-0 w-full  z-10   origin-top-right rounded-md bg-gray-100  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none  overflow-y-scroll overflow-x-hidden">
+          <Menu.Items className="absolute top-0 w-full  z-10   origin-top-right rounded-md bg-gray-100  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none  ">
             <div className="py-1">
               <div className="flex flex-row justify-between px-4 py-2">
                 <Image src={"/images/logo_tero.png"} alt={"logoteroasia"} width={150} height={48} style={{ height: 'auto', width: 'auto' }} loading="lazy" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(150, 48))}`} />
@@ -81,7 +81,7 @@ const NavbarMobile: React.FC = () => {
                   <FontAwesomeIcon icon={faXmark} className="h-7 w-7 text-black" />
                 </Menu.Button>
               </div>
-              <h3 className='text-xl text-gray-700'>  <FontAwesomeIcon icon={faTv} />  รายการทีวี</h3>
+              <Menu.Item><h3 className='text-xl text-gray-700'>  <FontAwesomeIcon icon={faTv} />  รายการทีวี</h3></Menu.Item>
               <Menu.Item>
                 {({ active }) => (
                   <Link
@@ -91,7 +91,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/tdc.jpg" width={100} height={100} alt="logoprogram" objectFit="cover"
+                    <Image src="/images/tv-program/tdc.jpg" width={100} height={100} alt="logoprogram" 
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -112,7 +112,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/news-02.jpg" width={100} height={100} alt="logoprogram" objectFit="cover"
+                    <Image src="/images/tv-program/news-02.jpg" width={100} height={100} alt="logoprogram" 
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -133,7 +133,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/one.jpg" width={100} height={100} alt="logoprogram" objectFit="cover"
+                    <Image src="/images/tv-program/one.jpg" width={100} height={100} alt="logoprogram" 
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -154,7 +154,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/one-lumpinee.jpg" width={100} height={100} alt="logoprogram" objectFit="cover"
+                    <Image src="/images/tv-program/one-lumpinee.jpg" width={100} height={100} alt="logoprogram" 
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -175,7 +175,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/cartoon.jpg" width={100} height={100} alt="logoprogram" objectFit="cover"
+                    <Image src="/images/tv-program/cartoon.jpg" width={100} height={100} alt="logoprogram" 
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -266,7 +266,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/money.jpg" width={100} height={100} alt="logoprogram" objectFit="cover"
+                    <Image src="/images/tv-program/money.jpg" width={100} height={100} alt="logoprogram" 
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -287,7 +287,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/fairtex.jpg" width={100} height={100} alt="logoprogram" objectFit="cover"
+                    <Image src="/images/tv-program/fairtex.jpg" width={100} height={100} alt="logoprogram" 
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -308,7 +308,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/vnl.jpg" width={100} height={100} alt="logoprogram" objectFit="cover"
+                    <Image src="/images/tv-program/vnl.jpg" width={100} height={100} alt="logoprogram" 
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -329,7 +329,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/kangow.jpg" width={100} height={100} alt="logoprogram" objectFit="cover"
+                    <Image src="/images/tv-program/kangow.jpg" width={100} height={100} alt="logoprogram" 
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -350,7 +350,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/hug.jpg" width={100} height={100} alt="logoprogram" objectFit="cover"
+                    <Image src="/images/tv-program/hug.jpg" width={100} height={100} alt="logoprogram" 
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -371,7 +371,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/beartai.jpg" width={100} height={100} alt="logoprogram" objectFit="cover"
+                    <Image src="/images/tv-program/beartai.jpg" width={100} height={100} alt="logoprogram" 
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -383,7 +383,7 @@ const NavbarMobile: React.FC = () => {
                   </Link>
                 )}
               </Menu.Item>
-              <h3 className='text-xl text-gray-700'>  <FontAwesomeIcon icon={faTv} />  ดนตรี</h3>
+              <Menu.Item><h3 className='text-xl text-gray-700'>  <FontAwesomeIcon icon={faTv} />  ดนตรี</h3></Menu.Item>
 
 
 
@@ -393,12 +393,7 @@ const NavbarMobile: React.FC = () => {
                
                
                
-                <li><Image src="/images/tv-program/beartai.jpg" width={100} height={100} alt="logoprogram" objectFit="cover"
-                    loading="lazy"
-                    placeholder="blur"
-                    blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                      shimmer(100, 100)
-                    )}`} /><a href="/program/Beartai7HD">BEARTAI 7HD ไอทีและยานยนต์</a></li>
+                
             </ul>
 
             <ul>
