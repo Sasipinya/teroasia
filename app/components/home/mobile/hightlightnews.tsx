@@ -51,7 +51,7 @@ const NewsCard: FC<{ news: NewsItem; imageHeight: number; imageWidth: number }> 
       />
     </div>
     <div className="p-4">
-      <h3 className="mb-2 text-lg font-medium">
+      <h3 className="mb-2 text-base font-medium">
         <Link 
           href={`/news/${news.news_id}`}
           className="text-gray-700 hover:text-red-700 transition-colors line-clamp-3"

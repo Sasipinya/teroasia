@@ -43,7 +43,7 @@ const NewsCard: FC<{ news: NewsItem; imageHeight: number; imageWidth: number }> 
     imageHeight,
     imageWidth,
 }) => (
-    <div className="flex flex-row gap-4 rounded-lg border border-gray-200 bg-white py-4 shadow-sm transition-shadow hover:shadow-md">
+    <div className="flex flex-row gap-4 rounded-lg border border-gray-200 bg-white  shadow-sm transition-shadow hover:shadow-md">
         {/* Image Section */}
         <div className="relative w-5/12">
             <Image
@@ -51,7 +51,7 @@ const NewsCard: FC<{ news: NewsItem; imageHeight: number; imageWidth: number }> 
                 alt={news.news_title}
                 width={imageWidth}
                 height={imageHeight}
-                className="h-full w-full rounded-lg object-cover"
+                className="h-full w-full rounded-l-lg object-cover"
                 loading="lazy"
                 placeholder="blur"
                 blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(imageWidth, imageHeight))}`}
@@ -59,10 +59,10 @@ const NewsCard: FC<{ news: NewsItem; imageHeight: number; imageWidth: number }> 
         </div>
 
         {/* Content Section */}
-        <div className="flex w-7/12 flex-col space-y-2">
+        <div className="flex w-7/12 flex-col space-y-2  py-2 pr-3">
             <Link
                 href={`/news/${news.news_id}`}
-                className="text-lg font-medium text-gray-900 hover:text-blue-600 lg:text-lg line-clamp-3"
+                className="text-base font-medium text-gray-900 hover:text-red-700 lg:text-lg line-clamp-3"
             >
                 {news.news_title}
             </Link>
