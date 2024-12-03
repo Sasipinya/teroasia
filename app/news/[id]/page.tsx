@@ -106,7 +106,7 @@ export default async function Page({
             <main className="flex flex-col md:hidden">
                 <TitleNews data={data} />
                 <RenderVideo data={data} />
-                <section className="inner-blog b-details-p pt-10 pb-60">
+                <section className="inner-blog b-details-p ">
                     <div className="container">
                         <div className="row">
                             <div
