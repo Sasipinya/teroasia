@@ -45,9 +45,9 @@ function ShareNews({ data }: { data?: any }) {
     };
     return (
 
-        <>
-            <p className='text-gray-700 text-lg p-2 '>แชร์ข่าวไปที่</p>
-            <div className="p-2  flex items-center justify-start">
+         <div className='bg-blue-100 pb-2 md:pb-0 md:bg-transparent'>
+            <p className='text-gray-700 text-lg p-2 text-center md:text-left'>แชร์ข่าวไปที่</p>
+            <div className="p-2  flex items-center justify-center md:justify-start">
                 <button className="mr-1 w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-blue-500" onClick={(e) =>
                     shareFacebookLike_newtab(data.news_id, window.location.href)
                 }>
@@ -68,7 +68,7 @@ function ShareNews({ data }: { data?: any }) {
                         <FontAwesomeIcon icon={faLink} className="text-l " />
                     </button>
                 </CopyToClipboard>
-            </div>
-        </>)
+            </div></div>
+        )
 }
 export default ShareNews

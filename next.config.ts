@@ -1,12 +1,23 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-      domains: ['teroasia.com','backend.teroasia.com'],
-    },
-    swcMinify: false, 
-    experimental: {
-      forceSwcTransforms: true,
-    },
-};
 
-export default nextConfig;
+
+import type { NextConfig } from 'next'
+
+const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'teroasia.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'backend.teroasia.com',
+      },
+    ],
+  },
+  experimental: {
+    forceSwcTransforms: true,
+  },
+}
+
+export default nextConfig

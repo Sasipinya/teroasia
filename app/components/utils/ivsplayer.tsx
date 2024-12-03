@@ -5,18 +5,19 @@ interface Props {
     data: {
         news_title: string;
         ivs_key: string;
-        ivs_config: {
+        ivs_config?: {
             api_key: string;
             service_provider_key: string;
             vast_ads: string;
         };
     };
 }
+
 declare global {
     interface Window {
-      dataLayer?: Array<any>;
+        dataLayer?: Array<any>;
     }
-  }
+}
 const IVSPlayer: React.FC<Props> = ({ data }) => {
     useEffect(() => {
         const handlePlaylistRendered = (event: Event) => {
@@ -74,20 +75,21 @@ const IVSPlayer: React.FC<Props> = ({ data }) => {
 
         window.addEventListener("ivs.playlist.rendered", handlePlaylistRendered);
         window.addEventListener("ivs.data.ready", handleDataReady);
+        if (data.ivs_config) {
+            let c = '<ivs-player ';
+            c +=
+                'id="ivsplayer01" data-ivs-floating="1" data-ivs-autoplay="1" data-ivs-carousel="bottom" data-ivs-wid="8384fa12-5268"  data-ivs-carousel="none" ';
+            c += 'data-ivs-key="' + data.ivs_config.api_key + '" ';
+            c +=
+                'data-ivs-spid="' + data.ivs_config.service_provider_key + '" ';
+            c += 'data-ivs-vid="' + data.ivs_key + '"  ';
+            c += 'data-ivs-ads="' + data.ivs_config.vast_ads + '" />';
 
-        let c = '<ivs-player ';
-        c +=
-            'id="ivsplayer01" data-ivs-floating="1" data-ivs-autoplay="1" data-ivs-carousel="bottom" data-ivs-wid="8384fa12-5268"  data-ivs-carousel="none" ';
-        c += 'data-ivs-key="' + data.ivs_config.api_key + '" ';
-        c +=
-            'data-ivs-spid="' + data.ivs_config.service_provider_key + '" ';
-        c += 'data-ivs-vid="' + data.ivs_key + '"  ';
-        c += 'data-ivs-ads="' + data.ivs_config.vast_ads + '" />';
-        const container = document.getElementById("ivsplayer01-container");
-        if (container) {
-            container.innerHTML = c;
+            const container = document.getElementById("ivsplayer01-container");
+            if (container) {
+                container.innerHTML = c;
+            }
         }
-
         return () => {
             window.removeEventListener("ivs.playlist.rendered", handlePlaylistRendered);
             window.removeEventListener("ivs.data.ready", handleDataReady);

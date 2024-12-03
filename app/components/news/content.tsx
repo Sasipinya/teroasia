@@ -5,7 +5,7 @@ function ContentNews({ data }: { data?: any }) {
     return (
 
         <>
-            <div className={`${sarabun.className} text-gray-700 w-full pr-3 2xl:text-lg pt-4  border-t`} >
+            <div className={`${sarabun.className} p-3  mx-auto text-gray-700 w-full md:pr-3 2xl:text-lg md:pt-4  md:border-t`} >
                 {parse(data.news_content)}
             </div>
         </>)

@@ -10,9 +10,12 @@ import ContentNews from '@/app/components/news/content';
 import TagsNews from '@/app/components/news/tags';
 import ShareNews from '@/app/components/news/share';
 import RelateNews from '@/app/components/news/relate';
+import TitleNews from '@/app/components/news/mobile/titlenews';
+import Breadcrumb from '@/app/components/news/mobile/breadcrumb';
+import Headtitle from '@/app/components/news/mobile/headtitle';
+import { NumberFormat } from '@/app/components/utils/kformat';
 
 async function fetchNewsItem(id: string) {
-    // Your data fetching logic
     const headersList = headers();
     const xForwardedFor = (await headersList).get('x-forwarded-for');
     var ipAddress = null;
@@ -70,7 +73,8 @@ export default async function Page({
     return (
         <>
             <IVideoSmartScripts />
-            <main className="flex flex-col">
+            {/* Desktop */}
+            <main className="hidden md:flex flex-col">
                 <div className='container mx-auto '>
                     <div className='flex'>
                         <div className='flex-1 flex'>
@@ -85,8 +89,8 @@ export default async function Page({
                                         <TagsNews data={data} />
                                     </div>
                                     <div className='w-2/5'>
-                                        <ShareNews data={data}/>
-                                        <RelateNews data_relate={data_relate}/>
+                                        <ShareNews data={data} />
+                                        <RelateNews data_relate={data_relate} />
                                     </div>
 
                                 </div>
@@ -97,8 +101,90 @@ export default async function Page({
 
                     </div>
                 </div>
-
             </main >
+            {/* Mobile */}
+            <main className="flex flex-col md:hidden">
+                <TitleNews data={data} />
+                <RenderVideo data={data} />
+                <section className="inner-blog b-details-p pt-10 pb-60">
+                    <div className="container">
+                        <div className="row">
+                            <div
+                                className="col-xl-12 col-lg-12 d-flex align-items-center p-3"
+                                style={{ background: "#eeee" }}
+                            >
+                                <Breadcrumb
+                                    title_news={data.news_title}
+                                    logo_program={data.program_mini_icon}
+                                    program_name={data.program_name}
+                                />
+                            </div>
+                            <div className="col-xl-12 col-lg-12">
+                                <div className="blog-detailss-wrap">
+                                    <div className="details__content pb-10">
+                                       
+                                        <Headtitle countnews={NumberFormat(data?.news_count)} datenews={data?.news_strdate} />
+
+                                        {/* <ContentMobile data={result?.news_content} /> */}
+                                        <ContentNews data={data} />
+
+                                        <div className="row">
+                                            <div className="col-xl-12 col-md-12">
+                                                {/* <TagsMobile data={result?.tags} /> */}
+                                                <TagsNews data={data} />
+                                                <div className="Ads-inread">
+                                                    <div id="grf_teroasiacom"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="share-area">
+                                            <ShareNews data={data} />
+                                        </div>
+                                    </div>
+
+                                    <div id="div-gpt-ad-1676444017967-0">
+                                       ADS
+                                    </div>
+
+                                    {/* <RelateMobile data={result_relate} /> */}
+                                    <>
+                                        <div className="related__post">
+                                           
+                                           
+                                                <RelateNews data_relate={data_relate} />
+                                               
+                                         
+                                        </div>
+                                    </>
+                                    {/* <div
+                                        className="gliaplayer-container"
+                                        data-slot="teroasia_desktop"
+                                    ></div>
+                                    <script
+                                        src="https://player.gliacloud.com/player/teroasia_desktop"
+                                        data-media-query="(min-width: 601px)"
+                                        async
+                                    ></script>
+
+                                    <div
+                                        className="gliaplayer-container"
+                                        data-slot="teroasia_mobile"
+                                    ></div>
+                                    <script
+                                        src="https://player.gliacloud.com/player/teroasia_mobile"
+                                        data-media-query="(max-width: 600px)"
+                                        async
+                                    ></script> */}
+
+                                    <div id="div-gpt-ad-1671767027219-0">
+                                      ADS  {/* <GPT adUnitPath="/33368840/HVR_1x1" slotSize={[[1, 1]]} /> */}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
 
         </>
 
