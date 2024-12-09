@@ -75,7 +75,7 @@ const NavbarMobile: React.FC = () => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute left-0 top-0 w-full max-h-[100vh] overflow-y-auto  z-10   origin-top-right rounded-md bg-gray-100  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none  px-3">
+          <Menu.Items className="absolute left-0 top-0 w-[100vw] max-h-[100vh] overflow-y-auto  z-10   origin-top-right rounded-md bg-gray-100  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none  px-3">
             <div className="py-1">
               <div className="flex flex-row justify-between px-4 py-2">
                 <Image src={"/images/logo_tero.png"} alt={"logoteroasia"} width={150} height={48} style={{ height: 'auto', width: 'auto' }} loading="lazy" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(150, 48))}`} />
