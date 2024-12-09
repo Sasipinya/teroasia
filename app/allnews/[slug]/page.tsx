@@ -40,7 +40,7 @@ import Pagination from "@/app/components/allnews/allnews_pagination";
 import { NumberFormat } from '@/app/components/utils/kformat';
 import Link from 'next/link';
 import { Calendar, Eye } from 'lucide-react';
-
+import Head from 'next/head'
 async function getProgramData(slug: string, page: number = 1) {
     const limit = 40;
     const offset = (page - 1) * limit;
@@ -146,10 +146,10 @@ export default async function AllNewsProgram({ params, searchParams }: PageProps
 
     return (
         <>
-            {/* <head>
+            <Head>
                 {prevPage && <link rel="prev" href={prevPage} />}
                 {nextPage && <link rel="next" href={nextPage} />}
-            </head> */}
+            </Head>
 
 
             <div className="container mx-auto px-4 my-3">
