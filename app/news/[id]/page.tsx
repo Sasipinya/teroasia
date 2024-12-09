@@ -82,7 +82,7 @@ export default async function Page({
                                 <div className='flex'>
                                     <RenderVideo data={data} />
                                 </div>
-                                <div className='flex'>
+                                <div className='flex mt-3'>
                                     <div className='w-3/5'>
                                         <InfoNews data={data} />
                                         <ContentNews data={data} />

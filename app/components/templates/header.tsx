@@ -28,9 +28,9 @@ export default function Header() {
   return (
     <div>
        <header className="block md:hidden  bg-white ">
-       <div className="container mx-auto pt-2 pb-0 px-2">
+       
         <NavbarMobile/>
-        </div>
+       
         </header>
       <header className="hidden md:block bg-white ">
         <div className="container mx-auto pt-1 pb-0">

@@ -26,41 +26,44 @@ const NavbarMobile: React.FC = () => {
     <nav className="">
 
       {/* Mobile Menu */}
-      <Menu as="div" className="relative w-full inline-block text-left sm:hidden">
-        <div className='flex items-center justify-between'>
-          <div className='flex items-center'>
-            <Menu.Button className="inline-flex  justify-start rounded-md bg-white bg-opacity-20  text-md font-medium text-red-600  hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-700  focus-visible:ring-opacity-75">
-              <FontAwesomeIcon icon={faBars} className="h-9 w-10 text-red-600" />
-            </Menu.Button>
-            <Image src={"/images/logo_tero.png"} alt={"logoteroasia"} width={133} height={43} style={{ height: '43px', width: '143px' }} loading="lazy" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(150, 48))}`} />
-          </div>
-          <div className='flex'>
-            <button
-              className=" hover:text-red-600 text-gray-500 font-bold" aria-label="Search"
-
-              onClick={handleOpenModal}
-            >
-              <FontAwesomeIcon icon={faSearch} className="text-l h-9 w-10" />
-            </button>
-            <button
-              className=" hover:text-red-600 text-gray-300 font-bold" aria-label="Login"
-            >
-              <FontAwesomeIcon icon={faUserCircle} className="text-l h-9 w-10" />
-            </button>
-          </div>
-          <SearchModal
-            isOpen={isModalOpen}
-            onClose={handleCloseModal}
-            onSearch={handleSearch}
-          />
-
-          {searchTerm && (
-            <div className="mt-4">
-              <p>ผลการค้นหาสำหรับ: {searchTerm}</p>
+      <Menu as="div" className="relative w-full inline-block text-left ">
+        <div className="container mx-auto ">
+          <div className='flex items-center justify-between pt-2 pb-0 px-2'>
+            <div className='flex items-center'>
+              <Menu.Button className="inline-flex  justify-start rounded-md bg-white bg-opacity-20  text-md font-medium text-red-600  hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-700  focus-visible:ring-opacity-75">
+                <FontAwesomeIcon icon={faBars} className="h-9 w-10 text-red-600" />
+              </Menu.Button>
+              <Image src={"/images/logo_tero.png"} alt={"logoteroasia"} width={133} height={43} style={{ height: '43px', width: '143px' }} loading="lazy" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(150, 48))}`} />
             </div>
-          )}
+            <div className='flex'>
+              <button
+                className=" hover:text-red-600 text-gray-500 font-bold" aria-label="Search"
 
+                onClick={handleOpenModal}
+              >
+                <FontAwesomeIcon icon={faSearch} className="text-l h-9 w-10" />
+              </button>
+              <button
+                className=" hover:text-red-600 text-gray-300 font-bold" aria-label="Login"
+              >
+                <FontAwesomeIcon icon={faUserCircle} className="text-l h-9 w-10" />
+              </button>
+            </div>
+            <SearchModal
+              isOpen={isModalOpen}
+              onClose={handleCloseModal}
+              onSearch={handleSearch}
+            />
+
+            {searchTerm && (
+              <div className="mt-4">
+                <p>ผลการค้นหาสำหรับ: {searchTerm}</p>
+              </div>
+            )}
+
+          </div>
         </div>
+
 
         <Transition
           as={Fragment}
@@ -72,7 +75,7 @@ const NavbarMobile: React.FC = () => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute top-0 w-full  z-10   origin-top-right rounded-md bg-gray-100  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none  ">
+          <Menu.Items className="absolute left-0 top-0 w-full max-h-[100vh] overflow-y-auto  z-10   origin-top-right rounded-md bg-gray-100  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none  px-3">
             <div className="py-1">
               <div className="flex flex-row justify-between px-4 py-2">
                 <Image src={"/images/logo_tero.png"} alt={"logoteroasia"} width={150} height={48} style={{ height: 'auto', width: 'auto' }} loading="lazy" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(150, 48))}`} />
@@ -91,7 +94,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/tdc.jpg" width={100} height={100} alt="logoprogram" 
+                    <Image src="/images/tv-program/tdc.jpg" width={100} height={100} alt="logoprogram"
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -112,7 +115,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/news-02.jpg" width={100} height={100} alt="logoprogram" 
+                    <Image src="/images/tv-program/news-02.jpg" width={100} height={100} alt="logoprogram"
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -133,7 +136,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/one.jpg" width={100} height={100} alt="logoprogram" 
+                    <Image src="/images/tv-program/one.jpg" width={100} height={100} alt="logoprogram"
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -154,7 +157,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/one-lumpinee.jpg" width={100} height={100} alt="logoprogram" 
+                    <Image src="/images/tv-program/one-lumpinee.jpg" width={100} height={100} alt="logoprogram"
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -175,7 +178,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/cartoon.jpg" width={100} height={100} alt="logoprogram" 
+                    <Image src="/images/tv-program/cartoon.jpg" width={100} height={100} alt="logoprogram"
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -266,7 +269,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/money.jpg" width={100} height={100} alt="logoprogram" 
+                    <Image src="/images/tv-program/money.jpg" width={100} height={100} alt="logoprogram"
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -287,7 +290,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/fairtex.jpg" width={100} height={100} alt="logoprogram" 
+                    <Image src="/images/tv-program/fairtex.jpg" width={100} height={100} alt="logoprogram"
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -308,7 +311,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/vnl.jpg" width={100} height={100} alt="logoprogram" 
+                    <Image src="/images/tv-program/vnl.jpg" width={100} height={100} alt="logoprogram"
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -329,7 +332,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/kangow.jpg" width={100} height={100} alt="logoprogram" 
+                    <Image src="/images/tv-program/kangow.jpg" width={100} height={100} alt="logoprogram"
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -350,7 +353,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/hug.jpg" width={100} height={100} alt="logoprogram" 
+                    <Image src="/images/tv-program/hug.jpg" width={100} height={100} alt="logoprogram"
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -358,7 +361,7 @@ const NavbarMobile: React.FC = () => {
                       blurDataURL={`data:image/svg+xml;base64,${toBase64(
                         shimmer(100, 100)
                       )}`} />
-                   ขอกอดหน่อย
+                    ขอกอดหน่อย
                   </Link>
                 )}
               </Menu.Item>
@@ -371,7 +374,7 @@ const NavbarMobile: React.FC = () => {
                       'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
                     )}
                   >
-                    <Image src="/images/tv-program/beartai.jpg" width={100} height={100} alt="logoprogram" 
+                    <Image src="/images/tv-program/beartai.jpg" width={100} height={100} alt="logoprogram"
                       className="rounded-2xl mr-3"
                       style={{ height: '100px', width: '100px' }}
                       loading="lazy"
@@ -379,48 +382,144 @@ const NavbarMobile: React.FC = () => {
                       blurDataURL={`data:image/svg+xml;base64,${toBase64(
                         shimmer(100, 100)
                       )}`} />
-                BEARTAI 7HD ไอทีและยานยนต์
+                    BEARTAI 7HD ไอทีและยานยนต์
                   </Link>
                 )}
               </Menu.Item>
-              <Menu.Item><h3 className='text-xl text-gray-700'>  <FontAwesomeIcon icon={faTv} />  ดนตรี</h3></Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <Link
+                    href="http://www.teromusic.com/"
+                    className={classNames(
+                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      'flex items-center px-4 py-2 text-xl animate__animated animate__fadeInLeft animate__delay-custom-1 '
+                    )}
+                  >
+
+                    <FontAwesomeIcon icon={faTv} /> ดนตรี
+                  </Link>
+                )}
+              </Menu.Item>
+              <Menu.Item><h3 className='px-4 py-2 text-xl text-gray-700'>  <FontAwesomeIcon icon={faTv} />  งานแสดง</h3></Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <Link
+                    href="https://corporate.teroasia.com/concerts-events/"
+                    className={classNames(
+                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
+                    )}
+                  >
+
+                    คอนเสิร์ต
+                  </Link>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <Link
+                    href="https://www.thaiticketmajor.com/"
+                    className={classNames(
+                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
+                    )}
+                  >
+
+                    ไทยทิคเก็ตเมเจอร์
+                  </Link>
+                )}
+              </Menu.Item>
+              <Menu.Item><h3 className='px-4 py-2 text-xl text-gray-700'>  <FontAwesomeIcon icon={faTv} />  ASIA</h3></Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <Link
+                    href="https://www.popolay.com"
+                    className={classNames(
+                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
+                    )}
+                  >
+
+                    Popolay (Myanmar)
+                  </Link>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <Link
+                    href="https://thaiwave.club/cn/"
+                    className={classNames(
+                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
+                    )}
+                  >
+
+                    Thaiwave (Chinese & English)
+                  </Link>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <Link
+                    href="https://filmbangkok.asia"
+                    className={classNames(
+                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
+                    )}
+                  >
+
+                    Film Bangkok
+                  </Link>
+                )}
+              </Menu.Item>
+              <Menu.Item><h3 className='px-4 py-2 text-xl text-gray-700'>  <FontAwesomeIcon icon={faTv} />  CORPORATE</h3></Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <Link
+                    href="https://corporate.teroasia.com/"
+                    className={classNames(
+                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
+                    )}
+                  >
+
+                    TERO ENTERTAINMENT
+                  </Link>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <Link
+                    href="/terohealthclinic"
+                    className={classNames(
+                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
+                    )}
+                  >
+
+                    TERO HEALTH CLINIC
+                  </Link>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <Link
+                    href="/advertising"
+                    className={classNames(
+                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      'flex items-center px-4 py-2 text-xl animate__animated animate__fadeInLeft animate__delay-custom-1 '
+                    )}
+                  >
+
+                    <FontAwesomeIcon icon={faTv} /> ติดต่อโฆษณา
+                  </Link>
+                )}
+              </Menu.Item>
 
 
 
 
-              {/* <ul className="mt-4">
-               
-               
-               
-               
-                
-            </ul>
-
-            <ul>
-            <li><a href="http://www.teromusic.com/" target="_blank"><i className="bi bi-file-music"></i> ดนตรี</a></li>
-            </ul>
-            <ul>
-            <li><a href="#"><i className="bi bi-ticket-perforated"></i> งานแสดง</a></li>
-                <li><a href="https://corporate.teroasia.com/concerts-events/" target="_blank" className="ml-4">คอนเสิร์ต</a></li>
-                <li><a href="https://www.thaiticketmajor.com/" target="_blank" className="ml-4">ไทยทิคเก็ตเมเจอร์</a></li>
-            </ul>
-            <ul>
-            <li><a href="https://teroradio.com/" target="_blank"><i className="bi bi-broadcast"></i> วิทยุออนไลน์</a></li>
-            </ul>
-            <ul>
-            <li><a href="#"><i className="bi bi-globe-asia-australia"></i> ASIA</a></li>
-                <li> <a href="https://www.popolay.com" target="_blank" className="ml-4"> Popolay (Myanmar)  </a></li>
-                <li> <a href="https://thaiwave.club/cn/" target="_blank" className="ml-4"> Thaiwave (Chinese & English)  </a></li>
-                <li> <a href="https://filmbangkok.asia" target="_blank" className="ml-4"> Film Bangkok  </a></li>
-            </ul>
-            <ul>
-            <li> <a href="#"><i className="bi bi-globe-asia-australia"></i> CORPORATE</a></li>
-                <li> <a href="https://corporate.teroasia.com/" target="_blank" className="ml-4"> TERO ENTERTAINMENT  </a></li>
-                <li> <a href="/terohealthclinic" target="_blank" className="ml-4"> TERO HEALTH CLINIC  </a></li>
-            </ul>
-            <ul>
-            <li><a href="/advertising" target="_blank"><i className="bi bi-badge-ad"></i> ติดต่อโฆษณา</a></li>
-            </ul> */}
+           
             </div>
           </Menu.Items>
         </Transition>
