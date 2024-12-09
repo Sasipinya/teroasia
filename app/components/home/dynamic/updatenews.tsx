@@ -15,8 +15,8 @@ function UpdateNews({ data }: { data: any }) {
           </div>
 
           {data && data.length > 0 && data.slice(0, 5).map((item: any, index: number) => (
-            <div className=" w-full flex mb-3 " key={index}>
-              <OptimizedImage src={item.image_url} alt={item.news_title} width={300} height={300} style={{ height: 'auto', width: 'auto' }} className='w-50 rounded-tl-md rounded-bl-md   '  />
+            <div className="  flex mb-3 " key={index}>
+              <OptimizedImage src={item.image_url} alt={item.news_title} width={300} height={300} style={{ height: 'auto' }} className='h-30 w-48 object-cover  rounded-tl-md rounded-bl-md   '  />
               <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white   p-4 flex flex-col  justify-between leading-normal rounded-tr-md rounded-br-md flex-1">
                 <div className="mb-8">
                   <span className="  rounded-full  py-1 text-4xl  text-gray-600 mr-1 mb-2">
