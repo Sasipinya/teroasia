@@ -13,7 +13,7 @@ const SectionProgram = ({ data }: { data: any[] }) => {
       {data &&
         data.length > 0 &&
         data.map((item: any, index: number) => (
-          <div className="w-1/3 p-1" key={index}>
+          <div className="w-1/2 md:w-1/3 p-1" key={index}>
             <div className="max-w-sm rounded overflow-hidden border shadow-md">
               <OptimizedImage
                 src={item.image_url}
@@ -27,7 +27,7 @@ const SectionProgram = ({ data }: { data: any[] }) => {
                 <div className="mb-2">
                   <Link
                     href={`/news/${item.news_id}`}
-                    className="2xl:text-lg text-md line-clamp-2 hover:text-red-700 2xl:line-clamp-1"
+                    className="2xl:text-lg text-base  text-gray-700 line-clamp-2 hover:text-red-700 2xl:line-clamp-3"
                   >
                     {item.news_title}
                   </Link>

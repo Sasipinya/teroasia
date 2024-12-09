@@ -54,12 +54,12 @@ export default async function Page({
         <>
 
             <main className="flex flex-col">
-                <div className='container mx-auto'>
+            <div className='container mx-auto px-4 md:p-0'>
                     <div className='flex align-items-center'>
-                        <div><OptimizedImage className={` border  rounded-xl w-[120px] h-[120px]  mr-2 shadow-lg`} src={data.info.program_mini_icon} width={150} height={150} alt={data.info.program_name}  /></div>
-                        <div className='flex flex-col my-auto'>
+                        <div><OptimizedImage className={` border  rounded-xl w-[80px] h-[80px] md:w-[120px] md:h-[120px]    mr-2 shadow-lg`} src={data.info.program_mini_icon} width={150} height={150} alt={data.info.program_name}  /></div>
+                        <div className='flex flex-col my-auto '>
                             <div className='flex'>
-                                <div className='text-gray-700 text-lg  flex align-item-center'> <Link href={`/`}>หน้าหลัก</Link> <ChevronRight className='w-8 h-8' /><Link href={`/program/${data.info.program_slug}`} className='flex font-bold '>{data.info.program_name}</Link> </div>
+                                <div className='text-gray-700 text-base md:text-lg  flex align-item-center'> <Link href={`/`}>หน้าหลัก</Link> <ChevronRight className='w-5 h-5 md:w-8 md:h-8' /><Link href={`/program/${data.info.program_slug}`} className='flex font-bold '>{data.info.program_name}</Link> </div>
                             </div>
                             <div className='flex'>
                                 <ShareProgram data={data} />
@@ -77,7 +77,7 @@ export default async function Page({
                 <div className='container mx-auto'>
                     <SlideNews data={data.news_feature.items} />
                 </div>
-                <div className='container mx-auto text-gray-700 text-3xl'>
+                <div className='container mx-auto text-gray-700 text-xl p-4 md:p-0 md:text-3xl'>
                     {parse(data.info.tvp_profile_html)}
                 </div>
                 <div className='container mx-auto'>
@@ -86,6 +86,7 @@ export default async function Page({
 
 
             </main >
+           
 
         </>
 

@@ -34,25 +34,25 @@ function ShareProgram({ data }: { data?: any }) {
     return (
 
         <>
-            <p className='text-gray-700 text-lg p-2 '>แชร์ลิงค์รายการทีวีนี้ไปที่</p>
+            <p className='text-gray-700 text-base md:text-lg p-2 '>แชร์ลิงค์รายการทีวีนี้ไปที่</p>
             <div className="p-2  flex items-center justify-start">
-                <button className="mr-1 w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-blue-500" onClick={(e) =>
+                <button className="mr-1 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-blue-500" onClick={(e) =>
                     shareFacebookLike_newtab(window.location.href)
                 }>
                     <FontAwesomeIcon icon={faFacebookF} className="text-l " />
                 </button>
-                <button className="mr-1 w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all duration-300 ease-in-out hover:bg-black" onClick={(e) =>
+                <button className="mr-1 w-8 h-8 md:w-10 md:h-10  flex items-center justify-center rounded-full bg-gray-700 hover:transition-all duration-300 ease-in-out hover:bg-black" onClick={(e) =>
                     shareTwitter(data.info.program_name, window.location.href)
                 }>
                     <FontAwesomeIcon icon={faXTwitter} className="text-l " />
                 </button>
-                <button className="mr-1 w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-green-500" onClick={(e) =>
+                <button className="mr-1 w-8 h-8 md:w-10 md:h-10  flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-green-500" onClick={(e) =>
                     shareLine(data.info.program_name, window.location.href)
                 }>
                     <FontAwesomeIcon icon={faLine} className="text-l " />
                 </button>
                 <CopyToClipboard text={data.info.program_name} onCopy={() => setStateCopy(true)}>
-                    <button className=" w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-black">
+                    <button className=" w-8 h-8 md:w-10 md:h-10  flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-black">
                         <FontAwesomeIcon icon={faLink} className="text-l " />
                     </button>
                 </CopyToClipboard>

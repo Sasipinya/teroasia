@@ -36,8 +36,8 @@ function ProgramsListNews({ data }: { data: any }) {
 
   return (
     <div className="container mx-auto p-2 text-gray-600 mb-10">
-      <div className="flex justify-between">
-        <div className="2xl:w-[400px] w-[320px] p-2 pb-0">
+      <div className="flex flex-col md:flex-row justify-between">
+        <div className="w-full 2xl:w-[400px] md:w-[320px] p-2 pb-2 md:pb-0">
           <div
             style={{ backgroundColor: data.info.tvp_color }}
             className={`h-full rounded-tr-[200px] flex flex-col justify-between`}
@@ -68,7 +68,7 @@ function ProgramsListNews({ data }: { data: any }) {
             <div className="flex justify-center mt-3">
               <button
                 type="button"
-                className="btn rounded-3xl text-lg py-2 px-8 bg-red-600 text-white hover:bg-gray-300 hover:text-gray-700"
+                className="btn rounded-3xl text-base md:text-lg py-2 px-8 bg-red-600 text-white hover:bg-gray-300 hover:text-gray-700"
                 onClick={() => setCount((prevState) => prevState + 1)}
               >
                 โหลดข่าวเพิ่มเติม ...

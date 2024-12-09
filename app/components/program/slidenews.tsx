@@ -21,7 +21,7 @@ function SlideNews({ data }: { data: any }) {
 
   return (
 
-    <div className='w-1/2 mx-auto'>
+    <div className='md:w-1/2 mx-auto p-4 md:p-0'>
       <Swiper
         // install Swiper modules
         modules={[Navigation]}

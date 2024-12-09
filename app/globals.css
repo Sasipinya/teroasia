@@ -26,7 +26,31 @@ body {
     text-wrap: balance;
   }
 }
+@media only screen and (max-width: 789px) {
+.swiper-button-next, 
+.swiper-button-prev {
+  background-color: black!important;
+  color: white!important;
+  border-radius: 50%!important;
+  width: 34px!important;
+  height: 34px!important;
+  top: 40% !important;
+}
+
+/* Show the buttons on hover */
+.swiper:hover .swiper-button-next, 
+.swiper:hover .swiper-button-prev {
+  background-color: red!important;
+  color: white!important;
+}
+
+.swiper-button-prev::after, .swiper-button-next::after{
+  font-size: 8px!important;
+  font-weight: bold;
+}
+}
 /* Hide the buttons by default */
+@media only screen and (min-width: 790px) {
 .swiper-button-next, 
 .swiper-button-prev {
   opacity: 0!important;
@@ -48,6 +72,7 @@ body {
 .swiper-button-prev::after, .swiper-button-next::after{
   font-size: 10px!important;
   font-weight: bold;
+}
 }
 
 .animate__delay-custom-1{
