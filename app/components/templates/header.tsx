@@ -47,7 +47,7 @@ export default function Header() {
               </div>
             </div>
             <div className="w-1/3 flex items-center justify-center">
-              <Image src={"/images/logo_tero.png"} alt={"logoteroasia"} width={150} height={48} style={{ height: 'auto' , width:'auto'}} loading="lazy" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(150, 48))}`} />
+              <Image src={"/images/logo_tero.png"} alt={"logoteroasia"} width={150} height={48} style={{ height: '48px' , width:'150px'}} loading="lazy" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(150, 48))}`} />
             </div>
             <div className="w-1/3 flex items-center justify-end">
               <a href="" className="text-gray-600 md:text-black font-semibold">เข้าสู่ระบบ</a>
