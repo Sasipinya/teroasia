@@ -1,9 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { OptimizedImage } from '../utils/optimizesimage';
 import Columnlist from './columlist';
 import getCountNewsInTags from './FetchGetcountnewsintag';
-
 const callFunction = (tag_id: number, count: number) => {
   const pages = [];
   for (let i = 0; i <= count; i++) {
@@ -14,12 +12,12 @@ const callFunction = (tag_id: number, count: number) => {
   }
   return <div className="container">{pages}</div>;
 };
-
 function TagsListNews({ data }: { data: any }) {
   const [count, setCount] = useState(0);
   const [dataCount, setDataCount] = useState(0); 
   const [flagShowButton, setFlagShowButton] = useState('show');
   useEffect(() => {
+
     const fetchData = async () => {
       let dataCountCheck = (await getCountNewsInTags(data.tag_info.tag_id)).data.pages - 1;
       setDataCount(dataCountCheck); 

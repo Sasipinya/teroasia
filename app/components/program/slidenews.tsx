@@ -1,13 +1,7 @@
 'use client';
 import React from 'react';
-import Image from "next/image";
-import { shimmer, toBase64 } from '../utils/shimer';
 import { Navigation } from 'swiper/modules';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -17,10 +11,7 @@ import { NumberFormat } from '../utils/kformat';
 import { OptimizedImage } from '../utils/optimizesimage';
 import { ArrowBigRight, Calendar, Eye } from 'lucide-react';
 function SlideNews({ data }: { data: any }) {
-
-
   return (
-
     <div className='md:w-1/2 mx-auto p-4 md:p-0'>
       <Swiper
         // install Swiper modules
@@ -28,12 +19,13 @@ function SlideNews({ data }: { data: any }) {
         spaceBetween={30}
         slidesPerView={2}
         navigation
-
       >
         {data && data.length > 0 && data.map((item: any, index: number) => (
           <SwiperSlide key={index}>
             <div className="max-w-sm rounded overflow-hidden shadow-lg ">
+              <Link href={`/news/${item.news_id}`} className='cursor-pointer'>
               <OptimizedImage src={item.image_url} alt={item.news_title} width={300} height={100} style={{ height: 'auto' }} className='w-full rounded-md'  />
+              </Link>
               <div className=" py-4">
                 <p className="">
                   <Link href={`/news/${item.news_id}`} className='2xl:text-lg text-md  text-gray-700 line-clamp-2 hover:text-red-700 2xl:line-clamp-1' >{item.news_title}</Link>

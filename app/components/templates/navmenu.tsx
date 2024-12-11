@@ -102,8 +102,8 @@ const NavMenu: React.FC = () => {
       }
     },
     {
-      label: 'OneLumpini',
-      href: '/program/onelumpini',
+      label: 'OneLumpinee',
+      href: '/program/onelumpinee',
       image: {
         src: '/images/logo_menu.jpg',
         alt: 'logoteroasia',

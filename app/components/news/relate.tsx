@@ -11,6 +11,7 @@ function RelateNews({ data_relate }: { data_relate?: any }) {
 
                 {data_relate.data && data_relate.data.length > 0 && data_relate.data.slice(0, 5).map((item: any, index: number) => (
                     <div className="md:flex rounded-md shadow-md border mb-2" key={index}>
+                        <Link href={`/news/${item.news_id}`} >
                         <OptimizedImage
                             src={item.image_url}
                             alt={item.news_title}
@@ -19,7 +20,7 @@ function RelateNews({ data_relate }: { data_relate?: any }) {
                             height={300}
                             style={{ height: 'auto' }}
                             
-                        />
+                        /></Link>
                         <div className="md:my-4 p-3 flex flex-col justify-between">
                             <Link href={`/program/${item.program_slug}`} className='none text-xs md:block 2xl:text-sm md:text-xs  text-gray-600'>{item.program_name}</Link>
 

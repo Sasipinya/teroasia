@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { OptimizedImage } from '../../utils/optimizesimage';
 
 interface NewsItem {
   news_id: string;
@@ -13,24 +14,7 @@ interface HighlightNewsProps {
   data: NewsItem[];
 }
 
-const shimmer = (w: number, h: number): string => `
-  <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-      <linearGradient id="g">
-        <stop stop-color="#e2e2e2" offset="20%" />
-        <stop stop-color="#888" offset="50%" />
-        <stop stop-color="#e2e2e2" offset="70%" />
-      </linearGradient>
-    </defs>
-    <rect width="${w}" height="${h}" fill="#333" />
-    <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
-    <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite" />
-  </svg>`;
 
-const toBase64 = (str: string): string =>
-  typeof window === 'undefined'
-    ? Buffer.from(str).toString('base64')
-    : window.btoa(str);
 
 const NewsCard: FC<{ news: NewsItem; imageHeight: number; imageWidth: number }> = ({
   news,
@@ -39,16 +23,16 @@ const NewsCard: FC<{ news: NewsItem; imageHeight: number; imageWidth: number }> 
 }) => (
   <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md">
     <div className="relative">
-      <Image
+      <Link href={`/news/${news.news_id}`}>
+      <OptimizedImage
         src={news.top_image}
         alt={news.top_title}
         width={imageWidth}
         height={imageHeight}
         className="h-full w-full object-cover"
-        loading="lazy"
-        placeholder="blur"
-        blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(imageWidth, imageHeight))}`}
+    
       />
+      </Link>
     </div>
     <div className="p-4">
       <h3 className="mb-2 text-base font-medium">

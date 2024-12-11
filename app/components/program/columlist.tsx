@@ -15,6 +15,7 @@ const SectionProgram = ({ data }: { data: any[] }) => {
         data.map((item: any, index: number) => (
           <div className="w-1/2 md:w-1/3 p-1" key={index}>
             <div className="max-w-sm rounded overflow-hidden border shadow-md">
+             <Link href={`/news/${item.news_id}`} className='cursor-pointer'>
               <OptimizedImage
                 src={item.image_url}
                 alt={item.news_title}
@@ -23,6 +24,7 @@ const SectionProgram = ({ data }: { data: any[] }) => {
                 className="w-full rounded-tl-md rounded-tr-md"
                 
               />
+              </Link>
               <div className="px-3 py-4">
                 <div className="mb-2">
                   <Link

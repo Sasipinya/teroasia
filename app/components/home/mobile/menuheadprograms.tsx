@@ -16,8 +16,6 @@ interface MenuHeadProgramsProps {
 }
 
 const MenuHeadPrograms: FC<MenuHeadProgramsProps> = ({ items }) => {
-
-  // Swiper configuration
   const swiperConfig: SwiperOptions = {
     modules: [FreeMode],
     spaceBetween: 10,
