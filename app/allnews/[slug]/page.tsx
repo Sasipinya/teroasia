@@ -40,6 +40,7 @@ import Pagination from "@/app/components/allnews/allnews_pagination";
 import { NumberFormat } from '@/app/components/utils/kformat';
 import Link from 'next/link';
 import { Calendar, Eye } from 'lucide-react';
+import Head from 'next/head';
 
 async function getProgramData(slug: string, page: number = 1) {
     const limit = 40;
@@ -56,8 +57,11 @@ async function getProgramData(slug: string, page: number = 1) {
     }
 }
 
-export async function generateMetadata({ params, searchParams }: PageProps): Promise<Metadata> {
-    const response = await getProgramData(params.slug);
+export async function generateMetadata({ params }: {
+    params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+    const slug = (await params).slug
+    const response = await getProgramData(slug);
     if (!response?.data) return { title: 'Not Found' };
 
     const { name } = response.data;
@@ -110,12 +114,12 @@ function NewsGrid({ items, column_md = 3 }: { items: NewsItem[]; column_md?: num
                             </h3>
                             <hr className="my-2" />
                             <div className="flex justify-between items-center text-sm text-gray-600 space-x-4">
-                                
+
                                 <Eye className="w-[16px] h-[16px] text-gray-700 " />   {NumberFormat(item.news_count)}
-                                
-                                
-                                 <Calendar className="w-[16px] h-[16px] text-gray-700 " />{item.news_strdate}
-                               
+
+
+                                <Calendar className="w-[16px] h-[16px] text-gray-700 " />{item.news_strdate}
+
                             </div>
                         </div>
                     </div>
@@ -125,9 +129,16 @@ function NewsGrid({ items, column_md = 3 }: { items: NewsItem[]; column_md?: num
     );
 }
 
-export default async function AllNewsProgram({ params, searchParams }: PageProps) {
-    const page = Number(searchParams.page) || 1;
-    const response = await getProgramData(params.slug, page);
+export default async function Page({
+    params,
+    searchParams,
+}: {
+    params: Promise<{ slug: string }>,
+    searchParams: Promise<{ page?: number }>
+}) {
+    const page = Number((await searchParams)?.page) || 1;
+    const slug = (await params).slug
+    const response = await getProgramData(slug, page);
 
     if (!response?.data) notFound();
     if (response.data.items.length === 0) redirect('https://teroasia.com');
@@ -136,16 +147,20 @@ export default async function AllNewsProgram({ params, searchParams }: PageProps
 
 
     const pageCount = Math.ceil(data.count_by_slug / 40);
- 
+
 
     // Navigation links for SEO
-    const nextPage = page < pageCount ? `/allnews/${params.slug}?page=${page + 1}` : null;
-    const prevPage = page > 1 ? `/allnews/${params.slug}?page=${page - 1}` : null;
+    const nextPage = page < pageCount ? `/allnews/${slug}?page=${page + 1}` : null;
+    const prevPage = page > 1 ? `/allnews/${slug}?page=${page - 1}` : null;
 
 
 
     return (
         <>
+            <Head>
+                {prevPage && <link rel="prev" href={prevPage} />}
+                {nextPage && <link rel="next" href={nextPage} />}
+            </Head>
             {/* <head>
                 {prevPage && <link rel="prev" href={prevPage} />}
                 {nextPage && <link rel="next" href={nextPage} />}
@@ -159,7 +174,7 @@ export default async function AllNewsProgram({ params, searchParams }: PageProps
                 <Pagination
                     data={data.items}
                     count_data={data.count_by_slug}
-                    slug_program={params.slug}
+                    slug_program={slug}
                     page_number={page}
                 />
             </div>
