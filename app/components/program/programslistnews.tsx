@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { OptimizedImage } from '../utils/optimizesimage';
 import Columnlist from './columlist';
 import getCountNewsInProgram from './FetchGetcountnewsinprogram';
+import Link from 'next/link';
 
 const callFunction = (program_id: number, count: number) => {
   const pages = [];
@@ -59,6 +60,11 @@ function ProgramsListNews({ data }: { data: any }) {
               <h2 className="2xl:text-lg text-sm text-white mb-4">
                 {data.info.program_desc}{' '}
               </h2>
+              <Link href={`/allnews/${data.info.program_slug}?page=1`} >
+                  <button className="bg-gray-300 text-black hover:bg-red-600 hover:text-white font-bold py-3 px-10 rounded-3xl ">
+                    ดูทั้งหมด
+                  </button>
+                </Link>
             </div>
           </div>
         </div>
