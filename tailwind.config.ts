@@ -16,8 +16,8 @@ const config: Config = {
         sm: '640px',
         md: '768px',
         lg: '990px', // กำหนด container ให้กว้าง 990px ที่ breakpoint 'lg'
-        xl: '1440px',
-        '2xl': '1536px',
+        xl: '990px',
+        '2xl': '990px',
       }
     },
   },
