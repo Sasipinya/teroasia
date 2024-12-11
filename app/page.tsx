@@ -14,6 +14,7 @@ import MenuHeadPrograms from "./components/home/mobile/menuheadprograms";
 import HighlightNews from "./components/home/mobile/hightlightnews";
 import NewsUpdate from "./components/home/mobile/newsupdate";
 import NewsTopWeek from "./components/home/mobile/newstopweek";
+import { i } from "framer-motion/client";
 export const metadata: Metadata = {
   title: "TeroAsia เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย จากช่อง 7HD ช่อง 7HD เช้านี้ที่หมอชิต ถกไม่เถียง ข่าวเย็นประเด็นร้อน มวย One Championship การ์ตูนดังสุดสัปดาห์",
   description: "TeroAsia เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย จากช่อง 7HD ช่อง 7HD เช้านี้ที่หมอชิต ถกไม่เถียง ข่าวเย็นประเด็นร้อน มวย One Championship การ์ตูนดังสุดสัปดาห์",
@@ -43,22 +44,7 @@ export default async function Home() {
         {data.data.highlight && <HightlightSliderNews data={data.data.highlight} />}
         {data.data.news_update && <UpdateNews data={data.data.news_update[0].items} />}
         {data_topnews.data && <TopWeekNews data={data_topnews.data} />}
-        {data.data.news_by_tvprograms && data.data.news_by_tvprograms.length > 0 && data.data.news_by_tvprograms.map((item: string, index: number) => {
-          const programData = {
-            info: {
-              program_name: item, // assuming the program name is the item string
-              program_permalink: '', // you'll need to fill in the other fields
-              tvp_color: '',
-              tvp_logo: '',
-              program_desc: '',
-              program_slug: '',
-            },
-            items: [], // you'll need to fill in the items array
-          };
-          return (
-            <ProgramsListNews key={index} data={programData} />
-          );
-        })}
+        {data.data.news_by_tvprograms && <ProgramsListNews data={data.data.news_by_tvprograms} />}
         {data.data.old_programs && <ProgramListOther data={data.data.old_programs} />}
         {data.data.concert_and_music && <ConcertandEventNews data={data.data.concert_and_music[0]} />}
         {data.data.concert_and_music && <MusicNews data={data.data.concert_and_music[1]} />}

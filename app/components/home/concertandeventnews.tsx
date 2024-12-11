@@ -11,19 +11,9 @@ import Link from 'next/link';
 import { OptimizedImage } from '../utils/optimizesimage';
 import { Calendar, Eye } from 'lucide-react';
 
-interface ConcertandEventNewsProps {
-    data: {
-        items: {
-            news_id: string;
-            image_url: string;
-            news_title: string;
-            news_strdate: string;
-            news_count: number;
-        }[];
-    };
-}
+ 
 
-function ConcertandEventNews({ data }: ConcertandEventNewsProps) {
+function ConcertandEventNews({ data }: any) {
     return (
         <div className="hidden md:block container mx-auto my-6 p-2">
             <div className='flex'>
@@ -36,10 +26,10 @@ function ConcertandEventNews({ data }: ConcertandEventNewsProps) {
                 slidesPerView={2}
                 navigation
             >
-                {data.items && data.items.length > 0 && data.items.map((item, index) => (
+                {data.items && data.items.length > 0 && data.items.map((item: any, index: number) => (
                     <SwiperSlide key={index}>
                         <div className="flex rounded-md shadow-md border ">
-                            <Link href={`/news/${item.news_id}`} className='cursor-pointer'>
+                           
                                 <OptimizedImage
                                     src={item.image_url}
                                     alt={item.news_title}
@@ -48,7 +38,7 @@ function ConcertandEventNews({ data }: ConcertandEventNewsProps) {
                                     height={300}
                                     style={{ height: 'auto' }}
                                 />
-                            </Link>
+                            
                             <div className="my-4 p-3 flex flex-col justify-between">
                                 <h3><Link href={`/news/${item.news_id}`} className='text-lg text-gray-600 hover:text-red-700 line-clamp-2 cursor-pointer'>{item.news_title}</Link></h3>
                                 <div>
