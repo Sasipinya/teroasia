@@ -129,7 +129,7 @@ const renderHtml = () => {
                     >
                         {movies && movies.length > 0 && movies.map((item: any, index: number) => (
                             <SwiperSlide key={index}>
-                                <Link href="https:/filmbangkok.asia/" target="_blank" className="block cursor-pointer">
+                                <Link href="https://filmbangkok.asia/" target="_blank" className="block cursor-pointer">
                                     <div className="bg-black rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                                         <div className="relative aspect-[3/4]">
                                             <OptimizedImage width={400} height={500} style={{ height: 'auto' }} src={item.image} alt={item.title} className="w-full h-full object-cover" />
