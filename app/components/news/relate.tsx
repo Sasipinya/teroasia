@@ -6,11 +6,11 @@ function RelateNews({ data_relate }: { data_relate?: any }) {
     return (
 
         <>
-            <div className='p-3 md:p-0 mt-10'>
+            <div className='p-3 md:p-0 md:mt-10'>
                 <p className='text-gray-700 text-xl md:text-2xl font-bold mb-3'>ข่าวที่เกี่ยวข้อง</p>
 
                 {data_relate.data && data_relate.data.length > 0 && data_relate.data.slice(0, 5).map((item: any, index: number) => (
-                    <div className="md:flex rounded-md shadow-md border mb-2" key={index}>
+                    <div className=" rounded-md shadow-md border mb-2" key={index}>
                         <Link href={`/news/${item.news_id}`} >
                         <OptimizedImage
                             src={item.image_url}
