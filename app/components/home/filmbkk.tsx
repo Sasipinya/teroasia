@@ -118,13 +118,6 @@ const renderHtml = () => {
                         modules={[Navigation]}
                         spaceBetween={10}
                         slidesPerView={4.5}
-                        breakpoints={{
-
-                            1520: {
-                                slidesPerView: 6.5,
-                                spaceBetween: 10,
-                            },
-                        }}
                         navigation
                     >
                         {movies && movies.length > 0 && movies.map((item: any, index: number) => (

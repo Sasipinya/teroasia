@@ -31,12 +31,6 @@ function ProgramListOther({ data }: ProgramListOtherProps) {
         modules={[Navigation]}
         spaceBetween={50}
         slidesPerView={3}
-        breakpoints={{
-          1520: {
-            slidesPerView: 5,
-            spaceBetween: 30,
-          },
-        }}
         navigation
       >
         {data &&
