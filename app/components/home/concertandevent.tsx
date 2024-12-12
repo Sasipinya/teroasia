@@ -37,36 +37,41 @@ function Concertandevent({ data }: ConcertandeventProps) {
             >
                 {data.items && data.items.length > 0 && data.items.map((item: any, index: number) => (
                     <SwiperSlide key={index}>
-                    <div className="relative h-[260px] bg-cover bg-center rounded-md">
-                        
-                        <div className="absolute inset-0 bg-black/50 rounded-md">
-                            <div className="p-4 h-full flex flex-col justify-end ">
-                                <div className="relative w-full">
-                                    <div className="mb-2">
-                                        <Link href="/program/music" className="inline-block px-2 py-1 bg-pink-600 text-white text-xs rounded uppercase cursor-pointer">music</Link>
-                                    </div>
-
-                                    <h3 className="mb-2 ">
-                                        <Link href={`/news/${item.news_id}`} className=" text-md text-white hover:text-red-600 line-clamp-2 cursor-pointer">
+                        <div className="flex mb-3" >
+                            <Link href={`/news/${item.news_id}`} className='cursor-pointer'>
+                                <OptimizedImage src={item.image_url} alt={item.news_title} width={300} height={300} className='h-full w-48 object-cover rounded-tl-md rounded-bl-md' />
+                            </Link>
+                            <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white p-4 flex flex-col justify-between leading-normal rounded-tr-md rounded-br-md flex-1">
+                                <div className="mb-8">
+                                    <span className="rounded-full py-1 text-4xl text-gray-600 mr-1 mb-2">
+                                        0{index + 1}.
+                                    </span>
+                                    <span className="rounded-full py-1 text-sm font-semibold text-gray-600 mr-1 mb-2">
+                                        {item.news_strdate}
+                                    </span>
+                                    <div >
+                                        <Link href={`/news/${item.news_id}`} className=' text-md text-gray-600 hover:text-red-700 line-clamp-2 cursor-pointer'>
                                             {item.news_title}
                                         </Link>
-                                    </h3>
-
-                                    <div className="flex items-center text-white space-x-4 justify-between">
-                                        <div className="flex items-center  text-xs ml-1">
-                                            <Eye className="w-[16px] h-[16px]" />
-                                            <span className="ml-1"> {NumberFormat(item.news_count)}</span>
-                                        </div>
-                                        <div className="flex items-center  text-xs">
-                                            <Calendar className=" w-[16px] h-[16px]" />
-                                            <span className="ml-1">{item.news_strdate}</span>
-                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flex items-center">
+                                    <div className='mr-3 flex align-items-center'>
+                                        <Eye className="w-[16px] h-[16px] text-gray-700 mr-1" />
+                                        <span className=" text-xs text-gray-700">
+                                            {NumberFormat(item.news_count)}
+                                        </span>
+                                    </div>
+                                    <div className='flex align-items-center'>
+                                        <Calendar className="w-[16px] h-[16px] text-gray-700 mr-1" />
+                                        <span className=" text-xs text-gray-700">
+                                            {item.news_strdate}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </SwiperSlide>
+                    </SwiperSlide>
                 ))}
 
             </Swiper>
