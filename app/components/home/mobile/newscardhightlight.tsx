@@ -8,7 +8,7 @@ interface NewsItem {
     top_title: string;
     date_for_show: string;
   }
-export   const NewsCard: FC<{ news: NewsItem; imageHeight: number; imageWidth: number }> = ({
+export  const NewsCard: FC<{ news: NewsItem; imageHeight: number; imageWidth: number }> = ({
     news,
     imageHeight,
     imageWidth,
