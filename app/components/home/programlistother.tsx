@@ -45,7 +45,7 @@ function ProgramListOther({ data }: ProgramListOtherProps) {
             <SwiperSlide key={index}>
               <div className="max-w-sm rounded overflow-hidden shadow-lg border">
                 <Link
-                  href={`/programs/${item.program_slug}`}
+                  href={`/program/${item.program_slug}`}
                   className="cursor-pointer"
                 >
                   <OptimizedImage
@@ -60,7 +60,7 @@ function ProgramListOther({ data }: ProgramListOtherProps) {
                 <div className="text-center p-3">
                   <h3 className=" text-lg text-gray-600 hover:text-red-700">
                     <Link
-                      href={`/programs/${item.program_slug}`}
+                      href={`/program/${item.program_slug}`}
                       className="cursor-pointer"
                     >
                       {item.program_name}
