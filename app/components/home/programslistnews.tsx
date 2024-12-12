@@ -11,8 +11,8 @@ const ProgramsListNews = ({ data }: { data: any }) => {
   return (
     <div >
       {data.map((program: any, index: number) => (
-         <div className="container mx-auto mb-10">
-        <div key={index} className="flex flex-row justify-between md:flex-row-reverse">
+         <div className="container mx-auto mb-10" key={index}>
+        <div  className="flex flex-row justify-between md:flex-row-reverse">
           <div className="w-full md:w-2/3">
             <div className="flex flex-wrap">
               {program.items &&
