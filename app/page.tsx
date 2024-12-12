@@ -57,10 +57,14 @@ export default async function Home() {
         {data_mobile_dev && (<MenuHeadPrograms items={data_mobile_dev.data.top_navigate} />)}
         {data_mobile_dev && (<MenuCategory data={data_mobile_dev.data} />)}
         <Suspense fallback={<div>Loading...</div>}>
-        {data_mobile_dev.data.top_head_news && (<HighlightNews data={data_mobile_dev.data.top_head_news} />)}
+          {data_mobile_dev.data.top_head_news && (<HighlightNews data={data_mobile_dev.data.top_head_news} />)}
         </Suspense>
-        {data_mobile_dev.data.news_update && (<NewsUpdate data={data_mobile_dev.data.news_update} />)}
-        {data_mobile_dev.data.top_view_week && (<NewsTopWeek data={data_mobile_dev.data.top_view_week} />)}
+        <Suspense fallback={<div>Loading...</div>}>
+          {data_mobile_dev.data.news_update && (<NewsUpdate data={data_mobile_dev.data.news_update} />)}
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          {data_mobile_dev.data.top_view_week && (<NewsTopWeek data={data_mobile_dev.data.top_view_week} />)}
+        </Suspense>
       </main>
 
     </>
