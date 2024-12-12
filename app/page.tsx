@@ -22,18 +22,18 @@ export const metadata: Metadata = {
 
 export default async function Home() {
 
-  const res = await fetch('https://backend.teroasia.com/apis2/index.php?a=news_main', { cache: 'no-store', next: { revalidate: 60 } });
+  const res = await fetch('https://backend.teroasia.com/apis2/index.php?a=news_main', { cache: 'no-store', next: { revalidate: 3600 } });
   const data = await res.json();
   const res_top = await fetch(
-    `https://backend.teroasia.com/apis2/index.php?a=get_top_view_set`, { cache: 'no-store', next: { revalidate: 60 } }
+    `https://backend.teroasia.com/apis2/index.php?a=get_top_view_set`, { cache: 'no-store', next: { revalidate: 3600 } }
   );
   const data_topnews = await res_top.json();
   const resp_mobile = await fetch(
-    `https://backend.teroasia.com/apis2/index.php?a=news_mobile_main`, { cache: 'no-store', next: { revalidate: 60 } }
+    `https://backend.teroasia.com/apis2/index.php?a=news_mobile_main`, { cache: 'no-store', next: { revalidate: 3600 } }
   );
   const data_mobile = await resp_mobile.json();
   const resp_mobile_dev = await fetch(
-    `https://backend.teroasia.com/apis2/index.php?a=news_mobile_main_dev`, { cache: 'no-store', next: { revalidate: 60 } }
+    `https://backend.teroasia.com/apis2/index.php?a=news_mobile_main_dev`, { cache: 'no-store', next: { revalidate: 3600 } }
   );
   const data_mobile_dev = await resp_mobile_dev.json();
   return (
