@@ -46,7 +46,7 @@ export default async function Home() {
         {data_topnews.data && <TopWeekNews data={data_topnews.data} />}
         {data.data.news_by_tvprograms && <ProgramsListNews data={data.data.news_by_tvprograms} />}
         {data.data.old_programs && <ProgramListOther data={data.data.old_programs} />}
-        {data.data.concert_and_music && <ConcertandEventNews data={data.data.concert_and_music[0]} />}
+        {/* {data.data.concert_and_music && <ConcertandEventNews data={data.data.concert_and_music[0]} />} */}
         {data.data.concert_and_music && <MusicNews data={data.data.concert_and_music[1]} />}
         <Filmbkk />
       </main>
