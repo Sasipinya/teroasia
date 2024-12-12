@@ -15,6 +15,7 @@ import HighlightNews from "./components/home/mobile/hightlightnews";
 import NewsUpdate from "./components/home/mobile/newsupdate";
 import NewsTopWeek from "./components/home/mobile/newstopweek";
 import { i } from "framer-motion/client";
+import Concertandevent from "./components/home/concertandevent";
 export const metadata: Metadata = {
   title: "TeroAsia เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย จากช่อง 7HD ช่อง 7HD เช้านี้ที่หมอชิต ถกไม่เถียง ข่าวเย็นประเด็นร้อน มวย One Championship การ์ตูนดังสุดสัปดาห์",
   description: "TeroAsia เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย จากช่อง 7HD ช่อง 7HD เช้านี้ที่หมอชิต ถกไม่เถียง ข่าวเย็นประเด็นร้อน มวย One Championship การ์ตูนดังสุดสัปดาห์",
@@ -46,7 +47,7 @@ export default async function Home() {
         {data_topnews.data && <TopWeekNews data={data_topnews.data} />}
         {data.data.news_by_tvprograms && <ProgramsListNews data={data.data.news_by_tvprograms} />}
         {data.data.old_programs && <ProgramListOther data={data.data.old_programs} />}
-        {/* {data.data.concert_and_music && <ConcertandEventNews data={data.data.concert_and_music[0]} />} */}
+        {data.data.concert_and_music && <Concertandevent data={data.data.concert_and_music[0]} />}
         {data.data.concert_and_music && <MusicNews data={data.data.concert_and_music[1]} />}
         <Filmbkk />
       </main>
