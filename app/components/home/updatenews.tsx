@@ -27,7 +27,7 @@ function UpdateNews({ data }: UpdateNewsProps) {
           {data && data.length > 0 && data.slice(0, 5).map((item, index) => (
             <div className="flex mb-3" key={index}>
               <Link href={`/news/${item.news_id}`} className='cursor-pointer'>
-                <OptimizedImage src={item.image_url} alt={item.news_title} width={300} height={300} style={{ height: 'auto' }} className='h-full w-48 object-cover rounded-tl-md rounded-bl-md' />
+                <OptimizedImage src={item.image_url} alt={item.news_title} width={300} height={300} className='h-full w-48 object-cover rounded-tl-md rounded-bl-md' />
               </Link>
               <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white p-4 flex flex-col justify-between leading-normal rounded-tr-md rounded-br-md flex-1">
                 <div className="mb-8">
