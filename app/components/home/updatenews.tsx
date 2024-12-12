@@ -38,7 +38,7 @@ function UpdateNews({ data }: UpdateNewsProps) {
                     {item.news_strdate}
                   </span>
                   <div className="mt-2 mb-2">
-                    <Link href={`/news/${item.news_id}`} className='2xl:text-lg text-md text-gray-600 hover:text-red-700 line-clamp-2 cursor-pointer'>
+                    <Link href={`/news/${item.news_id}`} className=' text-md text-gray-600 hover:text-red-700 line-clamp-2 cursor-pointer'>
                       {item.news_title}
                     </Link>
                   </div>
@@ -46,13 +46,13 @@ function UpdateNews({ data }: UpdateNewsProps) {
                 <div className="flex items-center">
                   <div className='mr-3 flex align-items-center'>
                     <Eye className="w-[16px] h-[16px] text-gray-700 mr-1" />
-                    <span className="2xl:text-sm text-xs text-gray-700">
+                    <span className=" text-xs text-gray-700">
                       {NumberFormat(item.news_count)}
                     </span>
                   </div>
                   <div className='flex align-items-center'>
                     <Calendar className="w-[16px] h-[16px] text-gray-700 mr-1" />
-                    <span className="2xl:text-sm text-xs text-gray-700">
+                    <span className=" text-xs text-gray-700">
                       {item.news_strdate}
                     </span>
                   </div>

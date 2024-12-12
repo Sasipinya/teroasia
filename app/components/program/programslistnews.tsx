@@ -38,7 +38,7 @@ function ProgramsListNews({ data }: { data: any }) {
   return (
     <div className="container mx-auto p-2 text-gray-600 mb-10">
       <div className="flex flex-col md:flex-row justify-between">
-        <div className="w-full 2xl:w-[400px] md:w-[320px] p-2 pb-2 md:pb-0">
+        <div className="w-full  md:w-[320px] p-2 pb-2 md:pb-0">
           <div
             style={{ backgroundColor: data.info.tvp_color }}
             className={`h-full rounded-tr-[200px] flex flex-col justify-between`}
@@ -54,10 +54,10 @@ function ProgramsListNews({ data }: { data: any }) {
               />
             </div>
             <div className="text-center px-3 mb-5">
-              <h1 className="2xl:text-3xl text-xl font-bold text-white">
+              <h1 className=" text-xl font-bold text-white">
                 {data.info.program_name}
               </h1>
-              <h2 className="2xl:text-lg text-sm text-white mb-4">
+              <h2 className=" text-sm text-white mb-4">
                 {data.info.program_desc}{' '}
               </h2>
               <Link href={`/allnews/${data.info.program_slug}?page=1`} >

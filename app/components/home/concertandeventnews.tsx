@@ -45,14 +45,14 @@ function ConcertandEventNews({ data }: any) {
                                     <div className="py-4 pb-2 flex">
                                         <div className='px-3 py-1 mr-1 mb-2 flex align-items-center'>
                                             <Calendar className="w-[16px] h-[16px] text-gray-600 mr-1" />
-                                            <span className="2xl:text-sm text-xs text-gray-600">{item.news_strdate}</span>
+                                            <span className=" text-xs text-gray-600">{item.news_strdate}</span>
                                         </div>
                                         <div className='px-3 py-1 mb-2 flex align-items-center'>
                                             <Eye className="w-[16px] h-[16px] text-gray-600 mr-1" />
-                                            <span className="2xl:text-sm text-xs text-gray-600">{NumberFormat(item.news_count)}</span>
+                                            <span className=" text-xs text-gray-600">{NumberFormat(item.news_count)}</span>
                                         </div>
                                     </div>
-                                    <Link href={`/news/${item.news_id}`} className="mt-4 btn 2xl:text-sm text-xs text-gray-600 bg-gray-300 hover:bg-red-600 hover:text-white shadow-none rounded-full px-6 py-1 cursor-pointer">
+                                    <Link href={`/news/${item.news_id}`} className="mt-4 btn text-xs text-gray-600 bg-gray-300 hover:bg-red-600 hover:text-white shadow-none rounded-full px-6 py-1 cursor-pointer">
                                         อ่านเพิ่มเติม
                                     </Link>
                                 </div>

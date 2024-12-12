@@ -58,7 +58,7 @@ function ProgramListOther({ data }: ProgramListOtherProps) {
                   />
                 </Link>
                 <div className="text-center p-3">
-                  <h3 className="2xl:text-xl text-lg text-gray-600 hover:text-red-700">
+                  <h3 className=" text-lg text-gray-600 hover:text-red-700">
                     <Link
                       href={`/programs/${item.program_slug}`}
                       className="cursor-pointer"

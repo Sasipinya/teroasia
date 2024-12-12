@@ -28,19 +28,19 @@ function SlideNews({ data }: { data: any }) {
               </Link>
               <div className=" py-4">
                 <p className="">
-                  <Link href={`/news/${item.news_id}`} className='2xl:text-lg text-md  text-gray-700 line-clamp-2 hover:text-red-700 2xl:line-clamp-1' >{item.news_title}</Link>
+                  <Link href={`/news/${item.news_id}`} className=' text-md  text-gray-700 line-clamp-2 hover:text-red-700 ' >{item.news_title}</Link>
                 </p>
               </div>
               <div className=" pt-4 pb-2 flex justify-between">
                 <div className="px-3 py-1 flex mr-1 mb-2">
                   <Calendar className=" w-[16px] h-[16px] text-gray-600 mr-1" />
-                  <span className="    2xl:text-sm text-xs text-gray-600 ">
+                  <span className="     text-xs text-gray-600 ">
                     {item.news_strdate} </span>
 
                 </div>
                 <div className="px-3 py-1 flex mr-1 mb-2">
                   <Eye className="w-[16px] h-[16px] text-xs text-gray-600 mr-1" />
-                  <span className="    2xl:text-sm text-xs text-gray-600 ">
+                  <span className="     text-xs text-gray-600 ">
                     {NumberFormat(item.news_count)} </span>
                 </div>
 

@@ -143,7 +143,7 @@ const renderHtml = () => {
                                                     <div className="text-xs text-red-500">{item.genre}</div>
                                                 </div>
                                             </div>
-                                            <h3 className="2xl:text-lg text-md  text-white ">{item.title}</h3>
+                                            <h3 className=" text-md  text-white ">{item.title}</h3>
                                         </div>
                                     </div>
                                 </Link></SwiperSlide>

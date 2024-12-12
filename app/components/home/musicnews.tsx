@@ -10,8 +10,19 @@ import Link from 'next/link';
 import { NumberFormat } from '../utils/kformat';
 import { Calendar, Eye } from 'lucide-react';
 import { OptimizedImage } from '../utils/optimizesimage';
+interface MusicNewsProps {
+    data: {
+        items: Array<{
+            image_url: string,
+            news_id: number,
+            news_title: string,
+            news_count: number,
+            news_strdate: string
+        }>
+    }
+}
 
-function MusicNews({ data }: { data: any }) {
+function MusicNews({ data }: MusicNewsProps) {
     return (
         <div className="hidden md:block container mx-auto my-6 p-2">
             <div className='flex'>
@@ -34,7 +45,6 @@ function MusicNews({ data }: { data: any }) {
                                 width={300}
                                 height={300}
                                 className={`rounded-md h-full w-full ratio-16/9 object-cover`}
-                                
                             />
                             </Link>
                             <div className="absolute inset-0 bg-black/50 rounded-md">
@@ -45,17 +55,17 @@ function MusicNews({ data }: { data: any }) {
                                         </div>
 
                                         <h3 className="mb-2 ">
-                                            <Link href={`/news/${item.news_id}`} className="2xl:text-lg text-md text-white hover:text-red-600 line-clamp-2 cursor-pointer">
+                                            <Link href={`/news/${item.news_id}`} className=" text-md text-white hover:text-red-600 line-clamp-2 cursor-pointer">
                                                 {item.news_title}
                                             </Link>
                                         </h3>
 
                                         <div className="flex items-center text-white space-x-4 justify-between">
-                                            <div className="flex items-center 2xl:text-sm text-xs ml-1">
+                                            <div className="flex items-center  text-xs ml-1">
                                                 <Eye className="w-[16px] h-[16px]" />
                                                 <span className="ml-1"> {NumberFormat(item.news_count)}</span>
                                             </div>
-                                            <div className="flex items-center 2xl:text-sm text-xs">
+                                            <div className="flex items-center  text-xs">
                                                 <Calendar className=" w-[16px] h-[16px]" />
                                                 <span className="ml-1">{item.news_strdate}</span>
                                             </div>
