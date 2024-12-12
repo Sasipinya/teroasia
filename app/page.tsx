@@ -7,15 +7,14 @@ import MusicNews from "./components/home/musicnews";
 import HightlightSliderNews from "./components/home/hightlightslidernews";
 import TopWeekNews from "./components/home/topweeknews";
 import ProgramsListNews from "./components/home/programslistnews";
-import ConcertandEventNews from "./components/home/concertandeventnews";
+import Concertandevent from "./components/home/concertandevent";
 //Mobile//
 import MenuCategory from "./components/home/mobile/menucategory";
 import MenuHeadPrograms from "./components/home/mobile/menuheadprograms";
 import HighlightNews from "./components/home/mobile/hightlightnews";
 import NewsUpdate from "./components/home/mobile/newsupdate";
 import NewsTopWeek from "./components/home/mobile/newstopweek";
-import { i } from "framer-motion/client";
-import Concertandevent from "./components/home/concertandevent";
+
 export const metadata: Metadata = {
   title: "TeroAsia เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย จากช่อง 7HD ช่อง 7HD เช้านี้ที่หมอชิต ถกไม่เถียง ข่าวเย็นประเด็นร้อน มวย One Championship การ์ตูนดังสุดสัปดาห์",
   description: "TeroAsia เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย จากช่อง 7HD ช่อง 7HD เช้านี้ที่หมอชิต ถกไม่เถียง ข่าวเย็นประเด็นร้อน มวย One Championship การ์ตูนดังสุดสัปดาห์",
