@@ -1,7 +1,7 @@
 'use client';
 import type { FC } from 'react';
 import dynamic from 'next/dynamic';
-const NewsCard = dynamic(() => import('./newscard').then((mod) => mod.NewsCard),
+const NewsCard = dynamic(() => import('./newscardhightlight').then((mod) => mod.NewsCard),
 {ssr: false, loading: () => <p>Loading...</p>});
 
 interface NewsItem {
