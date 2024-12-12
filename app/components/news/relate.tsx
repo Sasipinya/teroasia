@@ -18,7 +18,6 @@ function RelateNews({ data_relate }: { data_relate?: any }) {
                             className="w-full md:h-full md:w-48 object-cover rounded-l-md"
                             width={500}
                             height={300}
-                            style={{ height: 'auto' }}
                             
                         /></Link>
                         <div className="md:my-4 p-3 flex flex-col justify-between">
