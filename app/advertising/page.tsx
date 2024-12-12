@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AutoHeightIFrame from "../components/utils/autoheightiframe"
 
 export const metadata: Metadata = {
     title: "Tero Advertising",
@@ -9,10 +10,9 @@ export const metadata: Metadata = {
 const PageAdvertising = () => {
 
     return (
-        <>
-        <iframe  src="/advertising/index.html"  width="100%"
-        height="100%" />
-        </>
+        <div>
+        <AutoHeightIFrame src="/advertising/index.html" title="Advertising" />
+        </div>
     )
 }
 export default PageAdvertising
