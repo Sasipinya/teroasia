@@ -37,7 +37,7 @@ function UpdateNews({ data }: UpdateNewsProps) {
                   <span className="rounded-full py-1 text-sm font-semibold text-gray-600 mr-1 mb-2">
                     {item.news_strdate}
                   </span>
-                  <div className="mt-2 mb-2">
+                  <div >
                     <Link href={`/news/${item.news_id}`} className=' text-md text-gray-600 hover:text-red-700 line-clamp-2 cursor-pointer'>
                       {item.news_title}
                     </Link>
