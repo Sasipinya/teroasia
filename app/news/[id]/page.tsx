@@ -83,12 +83,12 @@ export default async function Page({
                                     <RenderVideo data={data} />
                                 </div>
                                 <div className='flex mt-3'>
-                                    <div className='w-3/5'>
+                                    <div className='w-4/5'>
                                         <InfoNews data={data} />
                                         <ContentNews data={data} />
                                         <TagsNews data={data} />
                                     </div>
-                                    <div className='w-2/5'>
+                                    <div className='w-1/5'>
                                         <ShareNews data={data} />
                                         <RelateNews data_relate={data_relate} />
                                     </div>
