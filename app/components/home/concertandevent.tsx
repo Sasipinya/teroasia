@@ -32,7 +32,7 @@ function Concertandevent({ data }: ConcertandeventProps) {
             <Swiper
                 modules={[Navigation]}
                 spaceBetween={30}
-                slidesPerView={3}
+                slidesPerView={2}
                 navigation
             >
                 {data.items && data.items.length > 0 && data.items.map((item: any, index: number) => (
@@ -43,14 +43,10 @@ function Concertandevent({ data }: ConcertandeventProps) {
                             </Link>
                             <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white p-4 flex flex-col justify-between leading-normal rounded-tr-md rounded-br-md flex-1">
                                 <div className="mb-8">
-                                    <span className="rounded-full py-1 text-4xl text-gray-600 mr-1 mb-2">
-                                        0{index + 1}.
-                                    </span>
-                                    <span className="rounded-full py-1 text-sm font-semibold text-gray-600 mr-1 mb-2">
-                                        {item.news_strdate}
-                                    </span>
+                                   
+                                  
                                     <div >
-                                        <Link href={`/news/${item.news_id}`} className=' text-md text-gray-600 hover:text-red-700 line-clamp-2 cursor-pointer'>
+                                        <Link href={`/news/${item.news_id}`} className=' text-base text-gray-600 hover:text-red-700 line-clamp-2 cursor-pointer'>
                                             {item.news_title}
                                         </Link>
                                     </div>
