@@ -6,15 +6,17 @@ import { kanit } from "./fonts";
 import Header from "./components/templates/header";
 import Footer from "./components/templates/footer";
 
-import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true
-  }
+
+import type { Viewport } from 'next'
+ 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  // Also supported by less commonly used
+  // interactiveWidget: 'resizes-visual',
 }
 
 export default function RootLayout({
