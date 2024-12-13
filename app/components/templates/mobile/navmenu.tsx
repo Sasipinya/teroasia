@@ -43,11 +43,12 @@ const NavbarMobile: React.FC = () => {
               >
                 <FontAwesomeIcon icon={faSearch} className="text-l h-9 w-10" />
               </button>
+              <a href="/auth/signin">
               <button
                 className=" hover:text-red-600 text-gray-300 font-bold" aria-label="Login"
               >
                 <FontAwesomeIcon icon={faUserCircle} className="text-l h-9 w-10" />
-              </button>
+              </button></a>
             </div>
             <SearchModal
               isOpen={isModalOpen}
@@ -55,11 +56,7 @@ const NavbarMobile: React.FC = () => {
               onSearch={handleSearch}
             />
 
-            {searchTerm && (
-              <div className="mt-4">
-                <p>ผลการค้นหาสำหรับ: {searchTerm}</p>
-              </div>
-            )}
+           
 
           </div>
         </div>

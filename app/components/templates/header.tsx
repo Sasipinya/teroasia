@@ -50,7 +50,7 @@ export default function Header() {
               <Image src={"/images/logo_tero.png"} alt={"logoteroasia"} width={150} height={48} style={{ height: '48px' , width:'150px'}} loading="lazy" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(150, 48))}`} />
             </div>
             <div className="w-1/3 flex items-center justify-end">
-              <a href="" className="text-gray-600 md:text-black font-semibold">เข้าสู่ระบบ</a>
+              <a href="/auth/signin" className="text-gray-600 md:text-black font-semibold">เข้าสู่ระบบ</a>
 
               <p className="ml-1 bg-gray-700 text-white rounded-3xl p-1 pl-3 pr-3 text-sm">{thaiDate(datenow)}</p>
 
