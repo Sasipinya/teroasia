@@ -52,6 +52,7 @@ export default async function Page({
                 <div className='container mx-auto'>
                     <TagsListNews data={data} />
                 </div>
+                
             </main >
 
 
