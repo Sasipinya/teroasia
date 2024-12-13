@@ -41,9 +41,9 @@ function ProgramsListNews({ data }: { data: any }) {
         <div className="w-full  md:w-[320px] p-2 pb-2 md:pb-0">
           <div
             style={{ backgroundColor: data.info.tvp_color }}
-            className={`h-full rounded-tr-[200px] flex flex-col justify-between`}
+            className={`h-full rounded flex flex-col justify-between`}
           >
-            <div className="w-full flex justify-center">
+            <div className=" p-3 mt-3 w-full flex justify-center">
               <OptimizedImage
                 src={data.info.tvp_logo}
                 width={400}
