@@ -23,9 +23,8 @@ export default async function Page({
     params: Promise<{ keyword: string }>
 }) {
 
-    const keyword = (await params).keyword
-
-
+    const keyword = decodeURIComponent((await params).keyword)
+  
 
     return (
         <>

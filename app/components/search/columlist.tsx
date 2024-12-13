@@ -69,9 +69,8 @@ const Columnlist: React.FC<ColumnlistProps> = ({ key_for_search, index }) => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await getNewsInSearch(key_for_search);
-      const res = response?.data.data;
-      const result_keyword = res[0];
-      setNewsData(result_keyword.items);
+    console.log(response?.data[0].items)
+      setNewsData(response?.data[0].items);
     };
 
     fetchData();

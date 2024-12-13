@@ -1,6 +1,5 @@
+'use client'
 import React, { useState } from 'react';
-
-
 interface SearchModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -9,11 +8,13 @@ interface SearchModalProps {
 
 const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose, onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
-
   const handleSearch = () => {
     onSearch(searchTerm);
     setSearchTerm('');
     onClose();
+    window.open('/search/'+searchTerm, '_blank')
+    
+    
   };
 
   if (!isOpen) {

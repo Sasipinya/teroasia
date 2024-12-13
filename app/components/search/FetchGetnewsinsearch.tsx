@@ -4,5 +4,8 @@ export default async function getNewsInSearch(
 ) {
   const url = "https://backend.teroasia.com/apis2/index.php?a=search&k=" + encodeURI(keyword);
   const response = await fetch(url);
+  console.log(response);
+  
   return response.json();
+
 }

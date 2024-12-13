@@ -76,11 +76,7 @@ export default function Header() {
               onSearch={handleSearch}
             />
 
-            {searchTerm && (
-              <div className="mt-4">
-                <p>ผลการค้นหาสำหรับ: {searchTerm}</p>
-              </div>
-            )}
+            
           </div>
         </div>
 
