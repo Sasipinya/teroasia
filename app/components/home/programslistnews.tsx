@@ -63,7 +63,7 @@ const ProgramsListNews = ({ data }: { data: any }) => {
               style={{ backgroundColor: program.info.tvp_color }}
               className="h-full rounded-md flex flex-col justify-between"
             >
-              <div className="w-full flex justify-center">
+              <div className="p-3 mt-3 w-full flex justify-center">
                 <OptimizedImage
                   src={program.info.tvp_logo}
                   width={400}
