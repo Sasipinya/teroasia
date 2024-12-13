@@ -69,17 +69,21 @@ const Columnlist: React.FC<ColumnlistProps> = ({ key_for_search, index }) => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await getNewsInSearch(key_for_search);
-    console.log(response?.data[0].items)
+   if(response?.data[0]?.items) {
       setNewsData(response?.data[0].items);
+   }
     };
 
     fetchData();
   }, [key_for_search, index]); 
 
-
+if(!newsData) {
+  return (<div className='text-base  text-gray-700'>ไม่พบผลการค้นหา</div>)
+}
   return (
     <>
-      <SectionProgram data={newsData} />
+      {newsData && <SectionProgram data={newsData} />}
+      
     </>
   );
 };
