@@ -15,6 +15,7 @@ import HighlightNews from "./components/home/mobile/hightlightnews";
 import NewsUpdate from "./components/home/mobile/newsupdate";
 import NewsTopWeek from "./components/home/mobile/newstopweek";
 import { Suspense } from "react";
+import TopHighightAdvertising from "./components/home/ads/topHightlight";
 
 export const metadata: Metadata = {
   title: "TeroAsia เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย จากช่อง 7HD ช่อง 7HD เช้านี้ที่หมอชิต ถกไม่เถียง ข่าวเย็นประเด็นร้อน มวย One Championship การ์ตูนดังสุดสัปดาห์",
@@ -41,6 +42,7 @@ export default async function Home() {
     <>
       {/* Desktop */}
       <main className="hidden md:flex flex-col">
+        <TopHighightAdvertising />
         {data.data.top_head_news && <HightlightTopNews data={data.data.top_head_news} />}
         {data.data.highlight && <HightlightSliderNews data={data.data.highlight} />}
         {data.data.news_update && <UpdateNews data={data.data.news_update[0].items} />}

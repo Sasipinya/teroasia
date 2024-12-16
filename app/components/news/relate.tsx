@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Calendar, Eye } from 'lucide-react';
-import { NumberFormat } from '@/app/components/utils/kformat';
-import { OptimizedImage } from '@/app/components/utils/optimizesimage';
+import { NumberFormat } from '@/lib/utils/kformat';
+import { OptimizedImage } from '@/lib/utils/optimizesimage';
 function RelateNews({ data_relate }: { data_relate?: any }) {
     return (
 

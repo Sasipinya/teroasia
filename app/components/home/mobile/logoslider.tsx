@@ -11,7 +11,7 @@ import { FreeMode } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
-import { OptimizedImage } from '../../utils/optimizesimage';
+import { OptimizedImage } from '../../../../lib/utils/optimizesimage';
   export const LogoSlider = ({ programs }: { programs: Program[] }) => {
     return (
       <Swiper

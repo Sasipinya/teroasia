@@ -1,6 +1,6 @@
 
-import IVSPlayer from '@/app/components/utils/ivsplayer'
-import Showheroes from "@/app/components/utils/showheroes";
+import IVSPlayer from '@/lib/utils/ivsplayer'
+import Showheroes from "@/lib/utils/showheroes";
 import Image from 'next/image';
 function RenderVideo({ data }: { data: any }) {
     const renderVideo = (result: any) => {

@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import Image from "next/image";
-import { shimmer, toBase64 } from '../utils/shimer';
+import { shimmer, toBase64 } from '../../../lib/utils/shimer';
 import { Navigation } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -16,8 +16,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
-import { NumberFormat } from '../utils/kformat';
-import { OptimizedImage } from '../utils/optimizesimage';
+import { NumberFormat } from '../../../lib/utils/kformat';
+import { OptimizedImage } from '../../../lib/utils/optimizesimage';
 import { Calendar, Eye } from 'lucide-react';
 function HightlightSliderNews({ data }: { data: any }) {
 

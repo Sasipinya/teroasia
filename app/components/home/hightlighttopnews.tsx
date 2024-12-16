@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { OptimizedImage } from '../utils/optimizesimage';
+import { OptimizedImage } from '../../../lib/utils/optimizesimage';
 interface HightlightTopNewsProps {
   data: Array<{
     news_id: number;

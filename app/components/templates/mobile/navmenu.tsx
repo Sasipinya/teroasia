@@ -6,7 +6,7 @@ import { Menu, Transition } from '@headlessui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark, faSearch, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import Image from "next/image";
-import { shimmer, toBase64 } from '../../utils/shimer';
+import { shimmer, toBase64 } from '@/lib/utils/shimer';
 import SearchModal from '../SearchModal';
 import { faTv } from '@fortawesome/free-solid-svg-icons';
 

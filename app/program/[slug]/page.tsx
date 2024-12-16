@@ -4,7 +4,7 @@
 import { Metadata } from 'next'
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link'
-import { OptimizedImage } from '@/app/components/utils/optimizesimage';
+import { OptimizedImage } from '@/lib/utils/optimizesimage';
 import ShareProgram from '@/app/components/program/share';
 import SlideNews from '@/app/components/program/slidenews';
 import parse from 'html-react-parser';

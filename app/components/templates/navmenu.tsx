@@ -5,7 +5,7 @@ import React from 'react';
 import { Menu } from '@headlessui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
-import { shimmer, toBase64 } from '../utils/shimer';
+import { shimmer, toBase64 } from '../../../lib/utils/shimer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';

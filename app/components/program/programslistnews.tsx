@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { OptimizedImage } from '../utils/optimizesimage';
+import { OptimizedImage } from '../../../lib/utils/optimizesimage';
 import Columnlist from './columlist';
 import getCountNewsInProgram from './FetchGetcountnewsinprogram';
 import Link from 'next/link';

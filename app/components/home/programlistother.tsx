@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import Link from 'next/link';
-import { OptimizedImage } from '../utils/optimizesimage';
+import { OptimizedImage } from '../../../lib/utils/optimizesimage';
 interface ProgramListOtherProps {
   data: {
     program_slug: string;

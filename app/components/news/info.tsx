@@ -1,7 +1,7 @@
 import { Calendar, ChevronRight, Eye } from 'lucide-react';
-import { NumberFormat } from '@/app/components/utils/kformat';
+import { NumberFormat } from '@/lib/utils/kformat';
 import Link from 'next/link'
-import { OptimizedImage } from '../utils/optimizesimage';
+import { OptimizedImage } from '../../../lib/utils/optimizesimage';
 function InfoNews({ data }: { data?: any }) {
     return (
 

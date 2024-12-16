@@ -37,7 +37,7 @@ import { notFound, redirect } from 'next/navigation';
 import { Metadata } from 'next';
 import Pagination from "@/app/components/allnews/allnews_pagination";
 
-import { NumberFormat } from '@/app/components/utils/kformat';
+import { NumberFormat } from '@/lib/utils/kformat';
 import Link from 'next/link';
 import { Calendar, Eye } from 'lucide-react';
 import Head from 'next/head';

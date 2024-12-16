@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import AutoHeightIFrame from "../components/utils/autoheightiframe"
+import AutoHeightIFrame from "../../lib/utils/autoheightiframe"
 
 export const metadata: Metadata = {
     title: "Tero Advertising",

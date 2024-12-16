@@ -2,7 +2,7 @@
 
 import { Metadata } from 'next'
 import { headers } from 'next/headers';
-import IVideoSmartScripts from '@/app/components/utils/ivsscript';
+import IVideoSmartScripts from '@/lib/utils/ivsscript';
 import RenderVideo from '@/app/components/news/rendervideo';
 
 import InfoNews from '@/app/components/news/info';
@@ -13,7 +13,7 @@ import RelateNews from '@/app/components/news/relate';
 import TitleNews from '@/app/components/news/mobile/titlenews';
 import Breadcrumb from '@/app/components/news/mobile/breadcrumb';
 import Headtitle from '@/app/components/news/mobile/headtitle';
-import { NumberFormat } from '@/app/components/utils/kformat';
+import { NumberFormat } from '@/lib/utils/kformat';
 
 async function fetchNewsItem(id: string) {
     const headersList = headers();

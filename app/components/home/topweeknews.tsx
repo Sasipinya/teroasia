@@ -7,8 +7,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import Link from 'next/link';
-import { NumberFormat } from '../utils/kformat';
-import { OptimizedImage } from '../utils/optimizesimage';
+import { NumberFormat } from '../../../lib/utils/kformat';
+import { OptimizedImage } from '../../../lib/utils/optimizesimage';
 import { Calendar, Eye } from 'lucide-react';
 interface TopWeekNewsProps {
     data: {

@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { OptimizedImage } from '../../utils/optimizesimage';
+import { OptimizedImage } from '../../../../lib/utils/optimizesimage';
 interface NewsItem {
     news_id: string;
     top_image: string;

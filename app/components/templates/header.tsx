@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons'
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { shimmer, toBase64 } from '../utils/shimer';
-import { thaiDate } from '../utils/thaidate';
+import { shimmer, toBase64 } from '../../../lib/utils/shimer';
+import { thaiDate } from '../../../lib/utils/thaidate';
 import NavMenu from './navmenu';
 import SearchModal from './SearchModal';
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
