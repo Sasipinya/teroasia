@@ -39,6 +39,7 @@ const TopHighightAdvertising: FC = () => {
   }, [])
 
   return (
+    <div className="container mx-auto">
     <div className="w-full max-w-[1200px] mx-auto px-2">
       <div className="mx-2">
         <div className="desktop_ads">
@@ -55,6 +56,7 @@ const TopHighightAdvertising: FC = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   )
 }
