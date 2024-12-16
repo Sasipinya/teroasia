@@ -24,19 +24,19 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const headersResult = await headers();
-  const nonce = headersResult.get('x-nonce');
+  // const nonce = headersResult.get('x-nonce');
   return (
     <html lang="en">
        <head>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
           strategy="afterInteractive"
-          nonce={nonce ?? ''}
+          // nonce={nonce ?? ''}
         />
         <Script 
           id="google-analytics" 
           strategy="afterInteractive"
-          nonce={nonce ?? ''}
+          // nonce={nonce ?? ''}
         >
           {`
             window.dataLayer = window.dataLayer || [];
