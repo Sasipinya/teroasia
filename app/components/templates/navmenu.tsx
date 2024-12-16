@@ -6,9 +6,8 @@ import { Menu } from '@headlessui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import { shimmer, toBase64 } from '../../../lib/utils/shimer';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
+import { ChevronDown } from 'lucide-react'
 
 interface MenuItem {
   label: string;
@@ -139,7 +138,8 @@ const NavMenu: React.FC = () => {
                   <>
                     {menuGroup.href ? <Link href={`${menuGroup.href}`}>{menuGroup.label}</Link> :<>{menuGroup.label}</>}
                     {menuGroup.showArrow && (
-                      <FontAwesomeIcon icon={faAngleDown} className="text-[8px] ml-1" />
+                      
+                      <ChevronDown className="w-1.5 h-1.5 ml-1" />
                     )}
                   </>
                 )}
