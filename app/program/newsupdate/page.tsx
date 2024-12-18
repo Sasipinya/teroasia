@@ -2,10 +2,10 @@
 
 
 import { Metadata } from 'next'
-import ProgramsListNews from '@/app/components/program/programslistnews';
+import ProgramsListNewsUpdate from '@/app/components/program/programslistnewsupdate';
 
 async function fetchProgramItem(slug: string) {
-    // Your data fetching logic
+    
 
     const url =
         `https://backend.teroasia.com/apis2/index_test.php?a=tvprogram_info&permalink=${slug}`;
@@ -40,10 +40,8 @@ export default async function Page() {
             <main className="flex flex-col">
             <h1 className="text-gray-700 text-3xl font-medium mb-2">ข่าวอัปเดต</h1>
                 <div className='container mx-auto'>
-                    <ProgramsListNews data={data} />
+                    <ProgramsListNewsUpdate data={data} />
                 </div>
-
-
             </main >
            
 
