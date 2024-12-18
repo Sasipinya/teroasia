@@ -16,10 +16,10 @@ const callFunction = (program_id: number, count: number) => {
   return <div className="container">{pages}</div>;
 };
 
-function ProgramsListNews({ data }: { data: any }) {
+function ProgramsListNewsUpdate({ data }: { data: any }) {
   const [count, setCount] = useState(0);
   const [dataCount, setDataCount] = useState(0); 
-  const [flagShowButton, setFlagShowButton] = useState('show');
+  const [flagShowButton, setFlagShowButton] = useState('hide');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,42 +32,15 @@ function ProgramsListNews({ data }: { data: any }) {
   useEffect(() => {
     if (count > dataCount) {
       setFlagShowButton('hide');
+    }else{
+      setFlagShowButton('show');
     }
   }, [count, dataCount]); // Update flagShowButton when count or dataCount changes
 
   return (
     <div className="container mx-auto p-2 text-gray-600 mb-10">
-      <div className="flex flex-col md:flex-row justify-between">
-        <div className="w-full  md:w-[320px] p-2 pb-2 md:pb-0">
-          <div
-            style={{ backgroundColor: data.info.tvp_color }}
-            className={`h-full rounded-md flex flex-col justify-between`}
-          >
-            <div className=" p-3 mt-3 w-full flex justify-center">
-              <OptimizedImage
-                src={data.info.tvp_logo}
-                width={400}
-                height={500}
-                style={{ height: 'auto' }}
-                alt={data.info.program_name}
-                
-              />
-            </div>
-            <div className="text-center px-3 mb-5">
-              <h1 className=" text-xl font-bold text-white">
-                {data.info.program_name}
-              </h1>
-              <h2 className=" text-sm text-white mb-4">
-                {data.info.program_desc}{' '}
-              </h2>
-              <Link href={`/allnews/${data.info.program_slug}?page=1`} >
-                  <button className="bg-gray-300 text-black hover:bg-red-600 hover:text-white font-bold py-3 px-10 rounded-3xl ">
-                    ดูทั้งหมด
-                  </button>
-                </Link>
-            </div>
-          </div>
-        </div>
+      <div className="flex ">
+       
         <div className="flex-1">
           <div className="flex">{callFunction(data.info.program_id, count)}</div>
           {flagShowButton == 'show' ? (
@@ -89,4 +62,4 @@ function ProgramsListNews({ data }: { data: any }) {
   );
 }
 
-export default ProgramsListNews;
+export default ProgramsListNewsUpdate;
