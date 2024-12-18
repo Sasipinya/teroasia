@@ -61,9 +61,12 @@ function UpdateNews({ data }: UpdateNewsProps) {
             </div>
           ))}
           <div className="w-full flex justify-end">
+            <Link href="/program/newsupdate">
             <button className="font-bold bg-gray-300 text-black hover:bg-red-600 hover:text-white py-3 px-12 rounded-3xl">
               ดูทั้งหมด
             </button>
+            </Link>
+
           </div>
         </div>
         <div className="flex-1"></div>
