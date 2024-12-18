@@ -118,7 +118,7 @@ const NavMenu: React.FC = () => {
         <Menu as="div" className="relative" key={index}>
           {({ open }) => (
             <>
-              <Menu.Button className="text-gray-600 mr-4 text-sm font-medium">
+              <Menu.Button className="flex align-items-center text-gray-600 mr-4 text-sm font-medium">
                 {menuGroup.image ? (
                   <Link href={`${menuGroup.href}`}>
                     <Image
