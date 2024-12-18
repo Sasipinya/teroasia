@@ -39,13 +39,13 @@ export default  function RootLayout({
         suppressHydrationWarning={true}
       >
        
-        <AuthProvider>
+        {/* <AuthProvider> */}
           <Header/>
           <div className="min-h-screen my-auto">
             {children}
           </div>
           <Footer/>
-        </AuthProvider>
+        {/* </AuthProvider> */}
       </body>
     </html>
   );
