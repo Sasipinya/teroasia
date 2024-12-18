@@ -15,7 +15,7 @@ async function fetchProgramItem(slug: string) {
 
 
 
-export async function generateMetadata() {
+export async function generateMetadata(): Promise<Metadata> {
 
     try {
         const { data } = await fetchProgramItem('newsupdate');
