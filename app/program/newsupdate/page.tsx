@@ -38,8 +38,9 @@ export default async function Page() {
         <>
 
             <main className="flex flex-col">
-            <h1 className="text-gray-700 text-3xl font-medium mb-2">ข่าวอัปเดต</h1>
+           
                 <div className='container mx-auto'>
+                <h1 className="text-gray-700 text-3xl font-medium my-2">ข่าวอัปเดต</h1>
                     <ProgramsListNewsUpdate data={data} />
                 </div>
             </main >
