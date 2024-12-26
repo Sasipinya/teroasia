@@ -23,7 +23,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose, onSearch }) 
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white p-8 rounded-md">
+      <div className="bg-white w-1/2 p-8 rounded-lg">
         <h2 className="text-gray-600 text-xl font-bold mb-4">ค้นหา</h2>
         <input
           type="text"

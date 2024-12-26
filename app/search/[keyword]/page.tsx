@@ -6,7 +6,7 @@ export async function generateMetadata({ params }: {
     params: Promise<{ keyword: string }>
 }): Promise<Metadata> {
     try {
-        const keyword = (await params).keyword
+        const keyword = decodeURIComponent((await params).keyword)
         return {
             title: keyword,
             description: keyword
@@ -30,7 +30,7 @@ export default async function Page({
         <>
 
             <main className="flex flex-col">
-                <div className='container mx-auto px-4 md:p-0'>
+                <div className='container mx-auto p-4'>
                     <div className='flex'>
                         <h1 className='text-2xl  text-gray-700  md:text-3xl  flex align-item-center'>ผลการค้นหา :  <span className='ml-3 text-red-600'>{keyword}</span> </h1>
                     </div>

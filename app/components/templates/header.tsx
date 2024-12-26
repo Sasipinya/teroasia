@@ -11,6 +11,7 @@ import NavMenu from './navmenu';
 import SearchModal from './SearchModal';
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import NavbarMobile from './mobile/navmenu';
+import Link from 'next/link';
 
 
 
@@ -36,15 +37,15 @@ export default function Header() {
         <div className="container mx-auto pt-1 pb-0">
           <div className="flex flex-row  items-center">
             <div className="p-2 w-1/3 flex items-center justify-start">
-              <div className="mr-1 w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-blue-500">
-                <FontAwesomeIcon icon={faFacebookF} className="text-l " />
-              </div>
-              <div className="mr-1 w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all duration-300 ease-in-out hover:bg-black">
+              <Link href="https://www.facebook.com/TERODigital" className="mr-1 w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-blue-500">
+              <FontAwesomeIcon icon={faFacebookF} className="text-l " />
+              </Link>
+              <Link href="https://x.com/tero_asia" className="mr-1 w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all duration-300 ease-in-out hover:bg-black">
                 <FontAwesomeIcon icon={faXTwitter} className="text-l " />
-              </div>
-              <div className=" w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-red-500">
+              </Link>
+              <Link href="https://www.instagram.com/terodigital/" className=" w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-red-500">
                 <FontAwesomeIcon icon={faInstagram} className="text-l " />
-              </div>
+              </Link>
             </div>
             <div className="w-1/3 flex items-center justify-center">
               <Image src={"/images/logo_tero.png"} alt={"logoteroasia"} width={150} height={48} style={{ height: '48px' , width:'150px'}} loading="lazy" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(150, 48))}`} />
