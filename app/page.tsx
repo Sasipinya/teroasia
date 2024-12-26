@@ -16,6 +16,7 @@ import NewsUpdate from "./components/home/mobile/newsupdate";
 import NewsTopWeek from "./components/home/mobile/newstopweek";
 import { Suspense } from "react";
 import TopHighightAdvertising from "./components/home/ads/topHightlight";
+import AdUnit from "./components/AdUnit";
 
 export const metadata: Metadata = {
   title: "TeroAsia เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย จากช่อง 7HD ช่อง 7HD เช้านี้ที่หมอชิต ถกไม่เถียง ข่าวเย็นประเด็นร้อน มวย One Championship การ์ตูนดังสุดสัปดาห์",
@@ -42,6 +43,16 @@ export default async function Home() {
     <>
       {/* Desktop */}
       <main className="hidden md:flex flex-col">
+        <AdUnit adUnitPath="/33368840/TA_Desktop_Homepage_Billboard"
+          size={[[970, 250],
+            [970, 90],
+            [1120, 300],
+            [728, 90]]}
+          id="div-gpt-ad-1676441812031-0"
+          targeting={{
+            position: 'sidebar'
+          }}
+        />
         <TopHighightAdvertising />
         {data.data.top_head_news && <HightlightTopNews data={data.data.top_head_news} />}
         {data.data.highlight && <HightlightSliderNews data={data.data.highlight} />}
