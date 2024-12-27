@@ -15,7 +15,6 @@ import HighlightNews from "./components/home/mobile/hightlightnews";
 import NewsUpdate from "./components/home/mobile/newsupdate";
 import NewsTopWeek from "./components/home/mobile/newstopweek";
 import { Suspense } from "react";
-import TopHighightAdvertising from "./components/home/ads/topHightlight";
 import AdUnit from "./components/AdUnit";
 
 export const metadata: Metadata = {
@@ -43,6 +42,9 @@ export default async function Home() {
     <>
       {/* Desktop */}
       <main className="hidden md:flex flex-col">
+
+        {/* Ads Billboard */}
+        <div className="container mx-auto px-4">
         <AdUnit adUnitPath="/33368840/TA_Desktop_Homepage_Billboard"
           size={[[970, 250],
             [970, 90],
@@ -53,7 +55,8 @@ export default async function Home() {
             position: 'sidebar'
           }}
         />
-        <TopHighightAdvertising />
+        </div>
+      
         {data.data.top_head_news && <HightlightTopNews data={data.data.top_head_news} />}
         {data.data.highlight && <HightlightSliderNews data={data.data.highlight} />}
         {data.data.news_update && <UpdateNews data={data.data.news_update[0].items} />}

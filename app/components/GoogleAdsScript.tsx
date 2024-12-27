@@ -5,7 +5,9 @@ import { useEffect } from 'react';
 const GoogleAdsScript: React.FC = () => {
   useEffect(() => {
     // Initialize GPT
+    if (window.googletag) {
     window.googletag = window.googletag || { cmd: [] };
+    }
   }, []);
 
   return (

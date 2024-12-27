@@ -1,24 +1,17 @@
 'use client';
 import React from 'react';
-import Image from "next/image";
-import { shimmer, toBase64 } from '../../../lib/utils/shimer';
 import { Navigation } from 'swiper/modules';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye } from '@fortawesome/free-solid-svg-icons';
-import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import { NumberFormat } from '../../../lib/utils/kformat';
 import { OptimizedImage } from '../../../lib/utils/optimizesimage';
 import { Calendar, Eye } from 'lucide-react';
+import AdUnit from '../AdUnit';
 function HightlightSliderNews({ data }: { data: any }) {
 
     return (
@@ -36,9 +29,19 @@ function HightlightSliderNews({ data }: { data: any }) {
                 >
                     {data && data.length > 0 && data.map((item: any, index: number) => (
                         <SwiperSlide key={index}>
+                            {index == 3 ? 
+                            <div className="max-w-sm rounded overflow-hidden shadow-lg ">
+                                <AdUnit adUnitPath="/33368840/TA_Desktop_Homepage_Native"
+                                    size={[]}
+                                    id="div-gpt-ad-1676441812031-0"
+                                    targeting={{
+                                        position: 'sidebar'
+                                    }}
+                                />
+                            </div> : <></>}
                             <div className="max-w-sm rounded overflow-hidden shadow-lg ">
                                 <Link href={`/news/${item.news_id}`} className='cursor-pointer'>
-                                <OptimizedImage src={item.image_url} alt={item.news_title} width={300} height={100} style={{ height: 'auto' }} className='w-full rounded-md'  />
+                                    <OptimizedImage src={item.image_url} alt={item.news_title} width={300} height={100} style={{ height: 'auto' }} className='w-full rounded-md' />
                                 </Link>
                                 <div className=" py-4">
                                     <p className="">
@@ -47,7 +50,7 @@ function HightlightSliderNews({ data }: { data: any }) {
                                 </div>
                                 <div className=" pt-4 pb-2 flex justify-between">
                                     <div className="px-3 py-1 flex mr-1 mb-2">
-                                        <Calendar className=" w-[16px] h-[16px] text-gray-200 mr-1"  />
+                                        <Calendar className=" w-[16px] h-[16px] text-gray-200 mr-1" />
                                         <span className="    text-xs text-gray-200 ">
                                             {item.news_strdate} </span>
 

@@ -1,6 +1,18 @@
 'use client';
 import { useEffect, useRef } from 'react';
 
+// Define types
+type SingleSize = [number, number];
+type MultiSize = SingleSize[];
+type GeneralSize = SingleSize | MultiSize;
+
+// Declare window.googletag
+declare global {
+  interface Window {
+    googletag?: Googletag;
+  }
+}
+
 // Define Googletag interface
 interface Googletag {
   cmd: any[];
@@ -11,13 +23,12 @@ interface Googletag {
   enableServices: () => void;
 }
 
-
 interface AdUnitProps {
-    adUnitPath: string;
-    size: GeneralSize;  // ใช้ type จาก global.d.ts
-    id: string;
-    targeting?: Record<string, string | string[]>;
-  }
+  adUnitPath: string;
+  size: GeneralSize;
+  id: string;
+  targeting?: Record<string, string | string[]>;
+}
 
 const AdUnit: React.FC<AdUnitProps> = ({ adUnitPath, size, id, targeting }) => {
   const adRef = useRef<HTMLDivElement>(null);
@@ -25,20 +36,24 @@ const AdUnit: React.FC<AdUnitProps> = ({ adUnitPath, size, id, targeting }) => {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    window.googletag = window.googletag || { 
-      cmd: [],
-      pubads: () => ({}),
-      defineSlot: () => null,
-      display: () => {},
-      destroySlots: () => true,
-      enableServices: () => {}
-    };
+    // Initialize googletag
+    if (!window.googletag) {
+      window.googletag = {
+        cmd: [],
+        pubads: () => ({}),
+        defineSlot: () => null,
+        display: () => {},
+        destroySlots: () => true,
+        enableServices: () => {}
+      };
+    }
 
     window.googletag.cmd.push(() => {
       try {
-        const slot = window.googletag.defineSlot(adUnitPath, size, id);
+       
+        const slot = window.googletag?.defineSlot(adUnitPath, size, id);
         if (slot) {
-          slot.addService(window.googletag.pubads());
+          slot.addService(window.googletag?.pubads());
 
           if (targeting) {
             Object.entries(targeting).forEach(([key, value]) => {
@@ -46,17 +61,18 @@ const AdUnit: React.FC<AdUnitProps> = ({ adUnitPath, size, id, targeting }) => {
             });
           }
 
-          window.googletag.enableServices();
-          window.googletag.display(id);
+          window.googletag?.enableServices();
+          window.googletag?.display(id);
         }
+        
       } catch (error) {
         console.error('Error initializing ad slot:', error);
       }
     });
 
     return () => {
-      window.googletag.cmd.push(() => {
-        window.googletag.destroySlots();
+      window.googletag?.cmd.push(() => {
+        window.googletag?.destroySlots();
       });
     };
   }, [adUnitPath, size, id, targeting]);
