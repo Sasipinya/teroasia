@@ -50,12 +50,24 @@ const AdsTopLeftRight: React.FC<SponsorProps> = ({ data_page, program_slug }) =>
     };
 
     const handleScroll = () => {
-        setScrollY(window.pageYOffset);
+        if (typeof window !== 'undefined') {
+            const currentScrollY = window.scrollY || window.pageYOffset;
+            setScrollY(currentScrollY);
+            calculateBodyHeight(); // เรียกคำนวณความสูงทุกครั้งที่ scroll
+        }
     };
 
     const calculateBodyHeight = () => {
         const html = document.documentElement;
-        setBodyHeight(html.scrollHeight - html.clientHeight - 612);
+        const body = document.body;
+        const height = Math.max(
+            body.scrollHeight,
+            body.offsetHeight,
+            html.clientHeight,
+            html.scrollHeight,
+            html.offsetHeight
+        );
+        setBodyHeight(height - window.innerHeight - 612);
     };
 
     const checkHeightOfDiv = () => {
@@ -65,17 +77,24 @@ const AdsTopLeftRight: React.FC<SponsorProps> = ({ data_page, program_slug }) =>
     };
 
     useEffect(() => {
-        const widthBody = document.documentElement.clientWidth;
-        setBodyWidth(widthBody);
+        const handleResize = () => {
+            if (typeof window !== 'undefined') {
+                setBodyWidth(window.innerWidth);
+                calculateBodyHeight();
+            }
+        };
 
-        window.addEventListener("scroll", handleScroll);
-        window.addEventListener("scroll", calculateBodyHeight);
-
+        // Initial setup
+        handleResize();
         checkHeightOfDiv();
 
+        // Event listeners
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('resize', handleResize);
+
         return () => {
-            window.removeEventListener("scroll", handleScroll);
-            window.removeEventListener("scroll", calculateBodyHeight);
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleResize);
         };
     }, []);
 
@@ -114,9 +133,9 @@ const AdsTopLeftRight: React.FC<SponsorProps> = ({ data_page, program_slug }) =>
                 <div
                     className="pos_l"
                     style={{
-                        top: scrollY > sponsorAHeight ? (scrollY < bodyHeight ? '69px' : `${diff}px`) : '300px',
+                        top: scrollY > sponsorAHeight ? (scrollY < bodyHeight ? '69px' : `${diff}px`) : '0px',
                         position: scrollY > sponsorAHeight ? 'fixed' : 'absolute',
-                        left: `${width_lr}px`
+                        left: `0px`
                     }}
                 >
                     {adsConfig.path_ads_l && (
@@ -135,9 +154,9 @@ const AdsTopLeftRight: React.FC<SponsorProps> = ({ data_page, program_slug }) =>
                 <div
                     className="pos_r"
                     style={{
-                        top: scrollY > sponsorAHeight ? (scrollY < bodyHeight ? '69px' : `${diff}px`) : '300px',
+                        top: scrollY > sponsorAHeight ? (scrollY < bodyHeight ? '69px' : `${diff}px`) : '0px',
                         position: scrollY > sponsorAHeight ? 'fixed' : 'absolute',
-                        right: `${width_lr}px`
+                        right: `0px`
                     }}
                 >
                     {adsConfig.path_ads_r && (
