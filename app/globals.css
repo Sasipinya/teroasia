@@ -121,3 +121,31 @@ body {
 .nav-header-mobile .swiper-slide:first-child{
   margin-left: 10px;
 }
+.sponsor-ads {
+   
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  display: block;
+  height: 100%;
+}
+.pos_r{
+/* width: 170px;
+height: 800px; */
+background: #fff;
+position: absolute;
+z-index: -1;
+right: -170px;
+top: 300px;
+}
+
+.pos_l{
+  /* width: 170px;
+  height: 800px; */
+  background: #fff;
+  position: absolute;
+  z-index: -1;
+  left: -170px;
+  top: 300px;
+}

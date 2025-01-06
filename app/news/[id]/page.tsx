@@ -14,6 +14,7 @@ import TitleNews from '@/app/components/news/mobile/titlenews';
 import Breadcrumb from '@/app/components/news/mobile/breadcrumb';
 import Headtitle from '@/app/components/news/mobile/headtitle';
 import { NumberFormat } from '@/lib/utils/kformat';
+import AdsTopLeftRight from '@/app/components/news/AdsTopLeftRight';
 
 async function fetchNewsItem(id: string) {
     const headersList = headers();
@@ -75,6 +76,7 @@ export default async function Page({
             <IVideoSmartScripts />
             {/* Desktop */}
             <main className="hidden md:flex flex-col">
+                <AdsTopLeftRight data_page='news'/>
                 <div className='container mx-auto '>
                     <div className='flex'>
                         <div className='flex-1 flex'>
