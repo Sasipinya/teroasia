@@ -4,10 +4,10 @@ import Script from 'next/script';
 
 const GliaPlayer = () => {
   return (
-    <div>
+    <div className='md:my-8'>
       {/* Desktop Player */}
       <div 
-        className="gliaplayer-container"
+        className="gliaplayer-container "
         data-slot="teroasia_desktop"
       />
       <Script
@@ -18,7 +18,7 @@ const GliaPlayer = () => {
 
       {/* Mobile Player */}
       <div 
-        className="gliaplayer-container"
+        className="gliaplayer-container "
         data-slot="teroasia_mobile"
       />
       <Script
