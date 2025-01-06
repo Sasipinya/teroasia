@@ -77,7 +77,7 @@ export default async function Page({
             {/* Desktop */}
             <main className="hidden md:flex flex-col">
                 <AdsTopLeftRight data_page='news'/>
-                <div className='container mx-auto '>
+                <div className='container mx-auto bg-white'>
                     <div className='flex'>
                         <div className='flex-1 flex'>
                             <div className='flex flex-col'>
