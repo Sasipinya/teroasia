@@ -16,6 +16,7 @@ import NewsUpdate from "./components/home/mobile/newsupdate";
 import NewsTopWeek from "./components/home/mobile/newstopweek";
 import { Suspense } from "react";
 import AdUnit from "./components/AdUnit";
+import GliaPlayer from "./components/utils/GliaPlayer";
 
 export const metadata: Metadata = {
   title: "TeroAsia เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย จากช่อง 7HD ช่อง 7HD เช้านี้ที่หมอชิต ถกไม่เถียง ข่าวเย็นประเด็นร้อน มวย One Championship การ์ตูนดังสุดสัปดาห์",
@@ -47,23 +48,23 @@ export default async function Home() {
         <div className="container mx-auto p-2">
           <AdUnit adUnitPath="/33368840/TA_Desktop_Homepage_Billboard"
             size={[[970, 250],
-              [970, 90],
-              [1120, 300],
-              [728, 90]]}
+            [970, 90],
+            [1120, 300],
+            [728, 90]]}
             id="div-gpt-ad-1676441812031-0"
             targeting={{
               position: 'sidebar'
             }}
           />
         </div>
-      
+
         {data.data.top_head_news && <HightlightTopNews data={data.data.top_head_news} />}
         {data.data.highlight && <HightlightSliderNews data={data.data.highlight} />}
         {data.data.news_update && <UpdateNews data={data.data.news_update[0].items} />}
         {data_topnews.data && <TopWeekNews data={data_topnews.data} />}
 
         {/* Ads MidLeaderboard After TopWeekNews */}
-        <div className="container mx-auto p-2">
+        <div className="container mx-auto p-2 mb-10">
           <AdUnit adUnitPath="/33368840/TA_Desktop_Homepage_MidLeaderboard"
             size={[[300, 250], [728, 90], [336, 280]]}
             id="div-gpt-ad-1676442558130-0"
@@ -78,6 +79,7 @@ export default async function Home() {
         {data.data.concert_and_music && <Concertandevent data={data.data.concert_and_music[0]} />}
         {data.data.concert_and_music && <MusicNews data={data.data.concert_and_music[1]} />}
         <Filmbkk />
+        <GliaPlayer/>
       </main>
 
       {/* Mobile */}
