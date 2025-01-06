@@ -2,7 +2,7 @@
 import { useEffect, useRef } from 'react';
 
 // Define types
-type SingleSize = [number, number];
+type SingleSize = [number, number] |[string];
 type MultiSize = SingleSize[];
 type GeneralSize = SingleSize | MultiSize;
 

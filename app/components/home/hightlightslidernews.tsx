@@ -14,6 +14,15 @@ import { Calendar, Eye } from 'lucide-react';
 import AdUnit from '../AdUnit';
 function HightlightSliderNews({ data }: { data: any }) {
 
+    const slidesWithAds = React.useMemo(() => {
+        const newSlides = [...data];
+        newSlides.splice(2, 0, { 
+          id: -1, // ใช้ id พิเศษสำหรับ ad
+          content: 'ad' 
+        });
+        return newSlides;
+      }, [data]);
+
     return (
         <div className='hidden md:block bg-black'>
             <div className="container mx-auto my-6 p-2">
@@ -27,12 +36,12 @@ function HightlightSliderNews({ data }: { data: any }) {
                     slidesPerView={4}
                     navigation
                 >
-                    {data && data.length > 0 && data.map((item: any, index: number) => (
+                    {slidesWithAds.map((item: any, index: number) => (
                         <SwiperSlide key={index}>
-                            {index == 3 ? 
+                            {index === -1 ? 
                             <div className="max-w-sm rounded overflow-hidden shadow-lg ">
                                 <AdUnit adUnitPath="/33368840/TA_Desktop_Homepage_Native"
-                                    size={[]}
+                                    size={['fluid']}
                                     id="div-gpt-ad-1676441812031-0"
                                     targeting={{
                                         position: 'sidebar'
