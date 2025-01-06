@@ -94,7 +94,7 @@ const ProgramsListNews = ({ data }: { data: any }) => {
             </div>
           </div>
           {/* Ads After ProgramsListNews 1 */}
-          {index===0?
+          {index==0?
           <div className="container mx-auto">
             <AdUnit
               adUnitPath="/33368840/TA_Desktop_Homepage_MidLeaderboard"
@@ -107,7 +107,7 @@ const ProgramsListNews = ({ data }: { data: any }) => {
         
           </div>:<></>}
           {/* Ads After ProgramsListNews 2 */}
-          {index===1?
+          {index==1?
           <div className="container mx-auto">
             <AdUnit
               adUnitPath="/33368840/HVR_1x1"
