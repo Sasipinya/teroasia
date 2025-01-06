@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { NumberFormat } from '../../../lib/utils/kformat';
 import { OptimizedImage } from '../../../lib/utils/optimizesimage';
 import { Calendar, Eye } from 'lucide-react';
+import AdUnit from '../AdUnit';
 
 interface UpdateNewsProps {
   data: Array<{
@@ -18,7 +19,20 @@ interface UpdateNewsProps {
 function UpdateNews({ data }: UpdateNewsProps) {
   return (
     <div className="hidden md:block container mx-auto my-6 p-2">
-      <div className="flex">
+
+      {/* Ads Left UpdateNews */}
+      <div className="z-[-1] min-w-[300px] min-h-[600px] absolute left-0 mt-2.5 ml-2.5" >
+        <AdUnit
+          adUnitPath="/33368840/TA_Desktop_Homepage_SideSkyscraper_Left_L"
+          size={[[300, 600], [160, 600]]}
+          id="div-gpt-ad-1686132027161-0"
+          targeting={{
+            position: 'sidebar'
+          }}
+        />
+      </div>
+
+      <div className="flex bg-white">
         <div className="flex-1 ">
           <div className='flex'>
             <h3 className="mb-6 text-2xl font-bold  text-gray-600 mr-4">ข่าวอัปเดต</h3><div className='flex-1 my-4 border-t border-gray-600'></div>
@@ -62,15 +76,42 @@ function UpdateNews({ data }: UpdateNewsProps) {
           ))}
           <div className="w-full flex justify-end">
             <Link href="/program/newsupdate">
-            <button className="font-bold bg-gray-300 text-black hover:bg-red-600 hover:text-white py-3 px-12 rounded-3xl">
-              ดูทั้งหมด
-            </button>
+              <button className="font-bold bg-gray-300 text-black hover:bg-red-600 hover:text-white py-3 px-12 rounded-3xl">
+                ดูทั้งหมด
+              </button>
             </Link>
 
           </div>
         </div>
-        <div className="flex-1"></div>
+        <div className="flex-1">
+          {/* Ads SidebarMrec Between UpdateNews */}
+          <div className="text-center mx-auto my-[8px]">
+            <div className="z-[-1] min-w-[300px] min-h-[250px]">
+              <AdUnit
+                id="div-gpt-ad-1676442505505-0"
+                adUnitPath="/33368840/TA_Desktop_Homepage_SidebarMrec"
+                size={[[300, 250]]}
+                targeting={{
+                  position: 'sidebar'
+                }}
+              />
+            </div>
+          </div>
+        </div>
       </div>
+
+       {/* Ads Right UpdateNews */}
+      <div className="z-[-1] min-w-[300px] min-h-[600px] absolute right-0 mt-2.5 ml-2.5" >
+        <AdUnit
+          adUnitPath="/33368840/TA_Desktop_Homepage_SideSkyscraper_Right"
+          size={[[300, 600], [160, 600]]}
+          id="div-gpt-ad-1686132061197-0"
+          targeting={{
+            position: 'sidebar'
+          }}
+        />
+      </div>
+      
     </div>
   );
 }

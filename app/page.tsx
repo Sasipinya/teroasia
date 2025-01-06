@@ -44,17 +44,17 @@ export default async function Home() {
       <main className="hidden md:flex flex-col">
 
         {/* Ads Billboard */}
-        <div className="container mx-auto px-4">
-        <AdUnit adUnitPath="/33368840/TA_Desktop_Homepage_Billboard"
-          size={[[970, 250],
-            [970, 90],
-            [1120, 300],
-            [728, 90]]}
-          id="div-gpt-ad-1676441812031-0"
-          targeting={{
-            position: 'sidebar'
-          }}
-        />
+        <div className="container mx-auto p-2">
+          <AdUnit adUnitPath="/33368840/TA_Desktop_Homepage_Billboard"
+            size={[[970, 250],
+              [970, 90],
+              [1120, 300],
+              [728, 90]]}
+            id="div-gpt-ad-1676441812031-0"
+            targeting={{
+              position: 'sidebar'
+            }}
+          />
         </div>
       
         {data.data.top_head_news && <HightlightTopNews data={data.data.top_head_news} />}
