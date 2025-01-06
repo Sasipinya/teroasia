@@ -18,10 +18,10 @@ interface UpdateNewsProps {
 
 function UpdateNews({ data }: UpdateNewsProps) {
   return (
-    <div className="hidden md:block container mx-auto my-6 p-2">
+    <div className="hidden md:flex container mx-auto my-6 ">
 
       {/* Ads Left UpdateNews */}
-      <div className="z-[-1] min-w-[300px] min-h-[600px] absolute left-0 mt-2.5 ml-2.5" >
+      <div className="p-2 z-[-1] min-w-[300px] min-h-[600px] absolute left-0 mt-2.5 ml-2.5" >
         <AdUnit
           adUnitPath="/33368840/TA_Desktop_Homepage_SideSkyscraper_Left_L"
           size={[[300, 600], [160, 600]]}
@@ -32,7 +32,7 @@ function UpdateNews({ data }: UpdateNewsProps) {
         />
       </div>
 
-      <div className="flex bg-white">
+      <div className="flex bg-white px-2">
         <div className="flex-1 ">
           <div className='flex'>
             <h3 className="mb-6 text-2xl font-bold  text-gray-600 mr-4">ข่าวอัปเดต</h3><div className='flex-1 my-4 border-t border-gray-600'></div>
@@ -101,7 +101,7 @@ function UpdateNews({ data }: UpdateNewsProps) {
       </div>
 
        {/* Ads Right UpdateNews */}
-      <div className="z-[-1] min-w-[300px] min-h-[600px] absolute right-0 mt-2.5 ml-2.5" >
+      <div className="p-2 z-[-1] min-w-[300px] min-h-[600px] absolute right-0 mt-2.5 ml-2.5" >
         <AdUnit
           adUnitPath="/33368840/TA_Desktop_Homepage_SideSkyscraper_Right"
           size={[[300, 600], [160, 600]]}
@@ -111,7 +111,7 @@ function UpdateNews({ data }: UpdateNewsProps) {
           }}
         />
       </div>
-      
+
     </div>
   );
 }
