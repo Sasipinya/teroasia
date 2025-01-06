@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import React from 'react';
 import FooterM from './mobile/footer';
-
+import Link from 'next/link'
 
 
 export default function Footer() {
@@ -58,31 +58,25 @@ export default function Footer() {
           <div className="">
             <p className="text-lg font-medium">Tero Entertainment Public Company Limited.</p>
             <div className="container mx-auto flex justify-center mt-4">
-              <a href="#" className="flex flex-col items-center mx-3">
-                <Image src={"/images/iconf02.png"} alt="Concerts & Events" className="" width={183} height={34} />
-
-              </a>
-              <a href="#" className="flex flex-col items-center mx-3">
-                <Image src={"/images/iconf01.png"} alt="TV" className="" width={133} height={34} />
-
-              </a>
-              <a href="#" className="flex flex-col items-center mx-3">
-                <Image src={"/images/iconf04.png"} alt="Radio" className="" width={99} height={34} />
-
-              </a>
-              <a href="#" className="flex flex-col items-center mx-3">
-                <Image src={"/images/iconf03.png"} alt="Music" className="" width={99} height={34} />
-
-              </a>
-              <a href="#" className="flex flex-col items-center mx-3">
-                <Image src={"/images/iconf052.png"} alt="Service" className="" width={109} height={34} />
-
-              </a>
-              <a href="#" className="flex flex-col items-center mx-3">
-                <Image src={"/images/iconf06.png"} alt="Sports" className="" width={109} height={34} />
-
-              </a>
-            </div>
+ <Link href="//corporate.teroasia.com/concerts-events/" className="flex flex-col items-center mx-3">
+   <Image src={"/images/iconf02.png"} alt="Concerts & Events" className="" width={183} height={34} />
+ </Link>
+ <Link href="//corporate.teroasia.com/tv/" className="flex flex-col items-center mx-3">
+   <Image src={"/images/iconf01.png"} alt="TV" className="" width={133} height={34} />
+ </Link>
+ <Link href="//teroradio.com/" className="flex flex-col items-center mx-3">
+   <Image src={"/images/iconf04.png"} alt="Radio" className="" width={99} height={34} />
+ </Link>
+ <Link href="//teromusic.com/" className="flex flex-col items-center mx-3">
+   <Image src={"/images/iconf03.png"} alt="Music" className="" width={99} height={34} />
+ </Link>
+ <Link href="//corporate.teroasia.com/index.php#services" className="flex flex-col items-center mx-3">
+   <Image src={"/images/iconf052.png"} alt="Service" className="" width={109} height={34} />
+ </Link>
+ <Link href="//corporate.teroasia.com/index.php#sports" className="flex flex-col items-center mx-3">
+   <Image src={"/images/iconf06.png"} alt="Sports" className="" width={109} height={34} />
+ </Link>
+</div>
 
 
 
