@@ -27,7 +27,7 @@ export default function Content({ data }: ContentNewsProps) {
     const MainAd = () => (
         <div className="flex justify-center items-center w-full my-4">
             <div id="grf_teroasiacom_2" className="relative">
-                <AdUnit adUnitPath='/33368840/inImageAd' id='div-gpt-ad-1677147138448-0' size={[[1, 1]]} />
+                <AdUnit adUnitPath='/33368840/inImageAd' id='div-gpt-ad-1677147138448-0' size={[[1, 1]]} Mxauto='mx-auto' />
             </div>
         </div>
     );
@@ -35,7 +35,7 @@ export default function Content({ data }: ContentNewsProps) {
     const InReadAd1 = () => (
         <>
             <div className="text-center hidden md:block">
-                <AdUnit id="div-gpt-ad-1676443237190-0" adUnitPath='/33368840/TA_Desktop_News_InArticle_P2' size={[[336, 280], [1, 1], [300, 250]]} />
+                <AdUnit id="div-gpt-ad-1676443237190-0" adUnitPath='/33368840/TA_Desktop_News_InArticle_P2' size={[[336, 280], [1, 1], [300, 250]]} Mxauto='mx-auto' />
             </div>
            
         </>
@@ -44,7 +44,7 @@ export default function Content({ data }: ContentNewsProps) {
     const InReadAd2 = () => (
         <>
             <div className="text-center hidden md:block">
-                <AdUnit id="div-gpt-ad-1676443285791-0" adUnitPath='/33368840/TA_Desktop_News_InArticle_P4' size={[[336, 280], [1, 1], [300, 250]]} />
+                <AdUnit id="div-gpt-ad-1676443285791-0" adUnitPath='/33368840/TA_Desktop_News_InArticle_P4' size={[[336, 280], [1, 1], [300, 250]]} Mxauto='mx-auto' />
             </div>
         </>
     );
