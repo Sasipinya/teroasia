@@ -94,6 +94,7 @@ function UpdateNews({ data }: UpdateNewsProps) {
                 targeting={{
                   position: 'sidebar'
                 }}
+                Mxauto='mx-auto'
               />
             </div>
           </div>

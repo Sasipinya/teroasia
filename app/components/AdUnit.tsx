@@ -28,9 +28,10 @@ interface AdUnitProps {
   size: GeneralSize;
   id: string;
   targeting?: Record<string, string | string[]>;
+  Mxauto?:string;
 }
 
-const AdUnit: React.FC<AdUnitProps> = ({ adUnitPath, size, id, targeting }) => {
+const AdUnit: React.FC<AdUnitProps> = ({ adUnitPath, size, id, targeting,Mxauto }) => {
   const adRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -88,7 +89,7 @@ const AdUnit: React.FC<AdUnitProps> = ({ adUnitPath, size, id, targeting }) => {
         width: typeof containerWidth === 'number' ? `${containerWidth}px` : containerWidth,
         height: Array.isArray(containerHeight) ? `${containerHeight[0]}px` : typeof containerHeight === 'number' ? `${containerHeight}px` : containerHeight,
       }}
-      className="mx-auto"
+      className={Mxauto=='mx-auto'?"mx-auto":""}
       data-testid="ad-unit-container"
     />
   );

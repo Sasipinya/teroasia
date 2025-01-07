@@ -55,6 +55,7 @@ export default async function Home() {
             targeting={{
               position: 'sidebar'
             }}
+            Mxauto="mx-auto"
           />
         </div>
 
@@ -71,6 +72,7 @@ export default async function Home() {
             targeting={{
               position: 'sidebar'
             }}
+            Mxauto="mx-auto"
           />
         </div>
 

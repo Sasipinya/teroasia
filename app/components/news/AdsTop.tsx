@@ -41,6 +41,7 @@ const AdsTop =() => {
                                     id={adsConfig.id_ads_bg}
                                     adUnitPath={adsConfig.path_ads_bg}
                                     size={[[970, 250], [1120, 300]]}
+                                    Mxauto='mx-auto'
                                 />
                             </div>
 
