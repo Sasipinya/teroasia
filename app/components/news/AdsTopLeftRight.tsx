@@ -81,11 +81,11 @@ const AdsTopLeftRight: React.FC<SponsorProps> = ({ base,id_ads,path_ads }) => {
            
             
                 <div
-                    className=" z-[-1] min-w-[300px] min-h-[600px] absolute right-0 ${base}"
+                    className={`z-[-1] min-w-[300px] min-h-[600px] absolute ${base}`} 
                     style={{
                         top: scrollY > sponsorAHeight ? (scrollY < bodyHeight ? '69px' : `${diff}px`) : '0px',
                         position: scrollY > sponsorAHeight ? 'fixed' : 'absolute',
-                        left: `0px`
+                        
                     }}
                 >
                      {/* AdsNews */}
