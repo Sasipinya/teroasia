@@ -1,5 +1,6 @@
 import parse from 'html-react-parser';
 import { sarabun } from '@/app/fonts';
+import { useRef } from 'react';
 interface ContentNewsProps {
     data?: {
         news_content: string
