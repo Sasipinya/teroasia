@@ -9,73 +9,13 @@ interface SponsorProps {
    path_ads:string;
 }
 
-interface AdsConfig {
-    id_ads: string;
-    path_ads: string;
-}
+
 
 const AdsTopLeftRight: React.FC<SponsorProps> = ({ base,id_ads,path_ads }) => {
-    const [bodyHeight, setBodyHeight] = useState<number>(0);
-    const [bodyWidth, setBodyWidth] = useState<number>(0);
-    const [scrollY, setScrollY] = useState<number>(0);
-    const [sponsorAHeight, setSponsorAHeight] = useState<number>(0);
-    const divElement = useRef<HTMLDivElement>(null);
-
+ 
   
 
-    const handleScroll = () => {
-        if (typeof window !== 'undefined') {
-            const currentScrollY = window.scrollY || window.pageYOffset;
-            setScrollY(currentScrollY);
-            calculateBodyHeight(); // เรียกคำนวณความสูงทุกครั้งที่ scroll
-        }
-    };
-
-    const calculateBodyHeight = () => {
-        const html = document.documentElement;
-        const body = document.body;
-        const height = Math.max(
-            body.scrollHeight,
-            body.offsetHeight,
-            html.clientHeight,
-            html.scrollHeight,
-            html.offsetHeight
-        );
-        setBodyHeight(height - window.innerHeight - 612);
-    };
-
-    const checkHeightOfDiv = () => {
-        if (divElement.current) {
-            setSponsorAHeight(divElement.current.clientHeight);
-        }
-    };
-
-    useEffect(() => {
-        const handleResize = () => {
-            if (typeof window !== 'undefined') {
-                setBodyWidth(window.innerWidth);
-                calculateBodyHeight();
-            }
-        };
-
-        // Initial setup
-        handleResize();
-        checkHeightOfDiv();
-
-        // Event listeners
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-
-    
-    const diff = 69 + (bodyHeight - scrollY);
-    const width_lr = 990 + ((bodyWidth - 990) / 2);
-
+  
     return (
      
            
