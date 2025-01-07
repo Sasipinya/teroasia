@@ -4,9 +4,10 @@ import { Metadata } from 'next'
 import { headers } from 'next/headers';
 import IVideoSmartScripts from '@/lib/utils/ivsscript';
 import RenderVideo from '@/app/components/news/rendervideo';
-
+import RenderVideoMobile from '@/app/components/news/mobile/rendervideo';
 import InfoNews from '@/app/components/news/info';
 import ContentNews from '@/app/components/news/content';
+import ContentNewsMobile from '@/app/components/news/mobile/content';
 import TagsNews from '@/app/components/news/tags';
 import ShareNews from '@/app/components/news/share';
 import RelateNews from '@/app/components/news/relate';
@@ -113,7 +114,7 @@ export default async function Page({
             {/* Mobile */}
             <main className="flex flex-col md:hidden">
                 <TitleNews data={data} />
-                <RenderVideo data={data} />
+                <RenderVideoMobile data={data} />
                 <section className="inner-blog b-details-p ">
                     <div className="container">
                         <div className="row">
@@ -134,7 +135,7 @@ export default async function Page({
                                         <Headtitle countnews={NumberFormat(data?.news_count)} datenews={data?.news_strdate} />
 
                                         {/* <ContentMobile data={result?.news_content} /> */}
-                                        <ContentNews data={data} />
+                                        <ContentNewsMobile data={data} />
 
                                         <div className="row">
                                             <div className="col-xl-12 col-md-12">
