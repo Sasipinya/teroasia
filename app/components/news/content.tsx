@@ -1,3 +1,4 @@
+'use client';
 import parse from 'html-react-parser';
 import { sarabun } from '@/app/fonts';
 import { useRef } from 'react';
