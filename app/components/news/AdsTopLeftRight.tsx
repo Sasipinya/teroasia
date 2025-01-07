@@ -83,7 +83,7 @@ const AdsTopLeftRight: React.FC<SponsorProps> = ({ base,id_ads,path_ads }) => {
                 <div
                     className={`z-[-1] min-w-[300px] min-h-[600px] absolute ${base}`} 
                     style={{
-                        top: scrollY > sponsorAHeight ? (scrollY < bodyHeight ? '69px' : `${diff}px`) : '0px',
+                        top: scrollY > sponsorAHeight ? (scrollY < bodyHeight ? '69px' : `${diff}px`) : '69px',
                         position: scrollY > sponsorAHeight ? 'fixed' : 'absolute',
                         
                     }}
@@ -91,9 +91,9 @@ const AdsTopLeftRight: React.FC<SponsorProps> = ({ base,id_ads,path_ads }) => {
                      {/* AdsNews */}
                      
                         <AdUnit
-                        adUnitPath="/33368840/TA_Desktop_News_SideSkyscraper_Right"
+                        adUnitPath={path_ads}
                         size={[[160,600],[300,600]]}
-                        id="div-gpt-ad-1676443074339-0"
+                        id={id_ads}
                         
                         />
                     
