@@ -61,7 +61,8 @@ export default async function Page({
                 <div className='flex container mx-auto '>
                     {/* Ads Left News */}
                     <AdsLeftRight id_ads='div-gpt-ad-1676442847735-0' path_ads='/33368840/TA_Desktop_Program_SideSkyscraper_Left' base='left-0' />
-                    <div className='px-4 md:p-0 bg-white'>
+                    <div>
+                    <div className='container mx-auto px-4 md:p-0 bg-white'>
                         <div className='flex align-items-center'>
                             <div><OptimizedImage className={` border  rounded-xl w-[80px] h-[80px] md:w-[120px] md:h-[120px]    mr-2 shadow-lg`} src={data.info.program_mini_icon} width={150} height={150} alt={data.info.program_name} /></div>
                             <div className='flex flex-col my-auto '>
@@ -74,22 +75,23 @@ export default async function Page({
                             </div>
                         </div>
                     </div>
-                    <div className='bg-white'>
+                    <div className='container mx-auto bg-white'>
                         <OptimizedImage className={`    w-full h-full  shadow-lg`} src={data.info.tvp_img_main} width={700} height={550} alt={data.info.program_name} />
                     </div>
-                    <div className='bg-white text-center my-10'>
+                    <div className='container mx-auto bg-white text-center my-10'>
                         <h1 className='text-gray-700 font-bold text-3xl'>{data.info.program_name}</h1>
                         <h2 className='text-gray-600 text-xl'>{data.info.program_desc}</h2>
                     </div>
-                    <div className='bg-white'>
+                    <div className='container mx-auto bg-white'>
                         <SlideNews data={data.news_feature.items} />
                     </div>
                     <AdUnit id='div-gpt-ad-1676443162388-0' adUnitPath='/33368840/TA_Desktop_Program_MidLeaderboard' size={[[728, 90], [970, 250], [970, 90], [1120, 300]]} Mxauto='mx-auto' />
-                    <div className='bg-white text-gray-700 text-xl p-4 md:p-0 md:text-3xl'>
+                    <div className='container mx-auto bg-white text-gray-700 text-xl p-4 md:p-0 md:text-3xl'>
                         {parse(data.info.tvp_profile_html)}
                     </div>
-                    <div className='bg-white'>
+                    <div className='container mx-auto bg-white'>
                         <ProgramsListNews data={data} />
+                    </div>
                     </div>
                     {/* Ads Right News */}
                     <AdsLeftRight id_ads='div-gpt-ad-1676442884131-0' path_ads='/33368840/TA_Desktop_Program_SideSkyscraper_Right' base='right-0' />
