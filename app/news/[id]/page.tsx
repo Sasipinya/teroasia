@@ -16,7 +16,7 @@ import Breadcrumb from '@/app/components/news/mobile/breadcrumb';
 import Headtitle from '@/app/components/news/mobile/headtitle';
 import { NumberFormat } from '@/lib/utils/kformat';
 import AdsTop from '@/app/components/news/AdsTop';
-import AdsTopLeftRight from '@/app/components/news/AdsTopLeftRight';
+import AdsLeftRight from '@/app/components/news/AdsLeftRight';
 
 async function fetchNewsItem(id: string) {
     const headersList = headers();
@@ -81,7 +81,7 @@ export default async function Page({
                 <AdsTop/>
                 <div className='flex container mx-auto bg-white'>
                     {/* Ads Left News */}
-                    <AdsTopLeftRight id_ads='div-gpt-ad-1676443015698-0' path_ads='/33368840/TA_Desktop_News_SideSkyscraper_Left' base='left-0'/>
+                    <AdsLeftRight id_ads='div-gpt-ad-1676443015698-0' path_ads='/33368840/TA_Desktop_News_SideSkyscraper_Left' base='left-0'/>
                     <div className='flex bg-white px-2'>
                         <div className='flex-1 flex'>
                             <div className='flex flex-col'>
@@ -107,7 +107,7 @@ export default async function Page({
 
                     </div>
                      {/* Ads Right News */}
-                     <AdsTopLeftRight id_ads='div-gpt-ad-1676443074339-0' path_ads='/33368840/TA_Desktop_News_SideSkyscraper_Right' base='right-0'/>
+                     <AdsLeftRight id_ads='div-gpt-ad-1676443074339-0' path_ads='/33368840/TA_Desktop_News_SideSkyscraper_Right' base='right-0'/>
                      
                 </div>
             </main >
