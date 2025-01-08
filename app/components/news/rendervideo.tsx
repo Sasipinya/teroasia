@@ -9,7 +9,7 @@ function RenderVideo({ data }: { data: any }) {
             case '1':
                 if (result?.showheroes_signature) {
                     return (
-                        <Showheroes showheroes_signature={result?.showheroes_signature} device='mobile' />
+                        <Showheroes showheroes_signature={result?.showheroes_signature}  />
                     );
                 }
                 return (<>{result?.ivs_key ? <IVSPlayer data={result} /> : (<Image width={600} height={400} src={result?.image_url} loading="lazy" alt={result?.news_title} />)}</>);
@@ -26,7 +26,7 @@ function RenderVideo({ data }: { data: any }) {
             case '7'://ch7
                 if (result?.showheroes_signature) {
                     return (
-                        <Showheroes showheroes_signature={result?.showheroes_signature} device='mobile' />
+                        <Showheroes showheroes_signature={result?.showheroes_signature}  />
                     );
                 }
                 return (<>{result?.ivs_key ? <IVSPlayer data={result} /> : (<Image width={600} height={400} src={result?.image_url} loading="lazy" alt={result?.news_title} />)}</>);

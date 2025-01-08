@@ -33,23 +33,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link
-          href="https://player.ivideosmart.com/ivshotspots/css/external/skin-takeover.css"
-          rel="stylesheet"
-        />
-        <Script
-          id="ivs-hotspots"
-          src="https://player.ivideosmart.com/ivshotspots/js/external/skin-takeover.js"
-          strategy="lazyOnload"
-        />
-        <Script
-          id="ivs-player"
-          src="https://player.ivideosmart.com/ivsplayer/v4/dist/js/loader.js"
-          strategy="lazyOnload"
-          onLoad={() => {
-            console.log('IVS Player loaded');
-          }}
-        />
         <Script dangerouslySetInnerHTML={{
           __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
