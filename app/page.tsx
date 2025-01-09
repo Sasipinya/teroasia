@@ -84,8 +84,8 @@ export default async function Home() {
   return (
     <>
 
-      <JsonLdSchema />
-      {createHomeCarouselJsonLd()}
+      {/* <JsonLdSchema />
+      {createHomeCarouselJsonLd()} */}
       {/* Desktop */}
       <main className="hidden md:flex flex-col">
 

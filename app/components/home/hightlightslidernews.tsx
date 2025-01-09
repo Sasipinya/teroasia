@@ -41,7 +41,7 @@ function HightlightSliderNews({ data }: { data: any }) {
                             {index === -1 ? 
                             <div className="max-w-sm rounded overflow-hidden shadow-lg ">
                                 <AdUnit adUnitPath="/33368840/TA_Desktop_Homepage_Native"
-                                    size={['fluid']}
+                                    size={[[300,250]]}
                                     id="div-gpt-ad-1676441812031-0"
                                     targeting={{
                                         position: 'sidebar'
