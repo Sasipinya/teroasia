@@ -11,7 +11,7 @@ import Link from 'next/link';
 import { NumberFormat } from '../../../lib/utils/kformat';
 import { OptimizedImage } from '../../../lib/utils/optimizesimage';
 import { Calendar, Eye } from 'lucide-react';
-import AdUnit from '../AdUnit';
+import AdUnit from '../utils/AdUnit';
 function HightlightSliderNews({ data }: { data: any }) {
 
     const slidesWithAds = React.useMemo(() => {

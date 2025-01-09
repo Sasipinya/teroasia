@@ -11,7 +11,7 @@ interface SponsorProps {
 
 
 
-const AdsLeftRight: React.FC<SponsorProps> = ({ base,id_ads,path_ads }) => {
+const AdsTopLeftRight: React.FC<SponsorProps> = ({ base,id_ads,path_ads }) => {
  
   
 
@@ -41,4 +41,4 @@ const AdsLeftRight: React.FC<SponsorProps> = ({ base,id_ads,path_ads }) => {
     );
 };
 
-export default AdsLeftRight;
+export default AdsTopLeftRight;

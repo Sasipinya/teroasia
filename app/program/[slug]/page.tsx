@@ -11,7 +11,7 @@ import parse from 'html-react-parser';
 import ProgramsListNews from '@/app/components/program/programslistnews';
 import AdsTop from '@/app/components/program/AdsTop';
 import AdsLeftRight from '@/app/components/program/AdsLeftRight';
-import AdUnit from '@/app/components/AdUnit';
+import AdUnit from '@/app/components/utils/AdUnit';
 
 async function fetchProgramItem(slug: string) {
     // Your data fetching logic

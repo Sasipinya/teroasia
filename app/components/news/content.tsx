@@ -6,7 +6,7 @@
 import React, { useEffect, useRef } from 'react';
 import parse from 'html-react-parser';
 import { sarabun } from '@/app/fonts';
-import AdUnit from '../AdUnit';
+import AdUnit from '../utils/AdUnit';
 interface ContentNewsProps {
     data?: {
         news_content: string

@@ -15,7 +15,7 @@ import HighlightNews from "./components/home/mobile/hightlightnews";
 import NewsUpdate from "./components/home/mobile/newsupdate";
 import NewsTopWeek from "./components/home/mobile/newstopweek";
 import { Suspense } from "react";
-import AdUnit from "./components/AdUnit";
+import AdUnit from "./components/utils/AdUnit";
 import GliaPlayer from "./components/utils/GliaPlayer";
 
 export const metadata: Metadata = {
@@ -87,10 +87,27 @@ export default async function Home() {
       {/* Mobile */}
       <main className="flex flex-col md:hidden ">
         {data_mobile_dev && (<MenuHeadPrograms items={data_mobile_dev.data.top_navigate} />)}
+        {/* Ads Before MenuCategory */}
+        <div className="container mx-auto p-2">
+          <AdUnit adUnitPath="/33368840/TA_Mobile_Mrec_1"
+            size={[[300, 250], [336, 280]]}
+            id="div-gpt-ad-1676443420932-0"
+           
+          
+          />
+        </div>
         {data_mobile_dev && (<MenuCategory data={data_mobile_dev.data} />)}
         <Suspense fallback={<div>Loading...</div>}>
           {data_mobile_dev.data.top_head_news && (<HighlightNews data={data_mobile_dev.data.top_head_news} />)}
         </Suspense>
+         {/* Ads Before HighlightNews */}
+         <div className="container mx-auto p-2">
+          <AdUnit adUnitPath="/33368840/TA_Mobile_Mrec_2"
+            size={[[300, 250], [336, 280]]}
+            id="div-gpt-ad-1676444017967-0"
+            
+          />
+        </div>
         <Suspense fallback={<div>Loading...</div>}>
           {data_mobile_dev.data.news_update && (<NewsUpdate data={data_mobile_dev.data.news_update} />)}
         </Suspense>

@@ -3,6 +3,7 @@
 'use client'
 import type { FC } from 'react';
 import dynamic from 'next/dynamic';
+import AdUnit from '../../utils/AdUnit';
 const NewsCard = dynamic(() => import('./newscardtopweekandupdate').then((mod) => mod.NewsCard), {
     ssr: false,
 });
@@ -22,9 +23,11 @@ interface NewsUpdateProps {
 
 
 
-const AdUnit: FC = () => (
-    <div className="mx-auto my-4 text-center text-gray-700">
-        ADS
+const AdsUnit: FC = () => (
+    <div className="container mx-auto ">
+        <AdUnit adUnitPath='/33368840/TA_Mobile_Leaderboard'
+            size={[[300, 250], [336, 280]]}
+            id="div-gpt-ad-1676444017967-1"/>
     </div>
 );
 
@@ -53,7 +56,7 @@ const NewsUpdate: FC<NewsUpdateProps> = ({ data }) => {
                             imageWidth={imageWidth}
                         />
                         {/* Insert ad after third item */}
-                        {index === 2 && <AdUnit />}
+                        {index === 2 && <AdsUnit />}
                     </div>
                 ))}
             </div>

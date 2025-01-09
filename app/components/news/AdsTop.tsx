@@ -1,5 +1,5 @@
 
-import AdUnit from '../AdUnit';
+import AdUnit from '../utils/AdUnit';
 
 
 

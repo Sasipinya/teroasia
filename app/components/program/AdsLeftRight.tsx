@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import AdUnit from '../AdUnit';
+import AdUnit from '../utils/AdUnit';
 
 interface SponsorProps {
    base?: 'left-0' | 'right-0';
