@@ -9,7 +9,6 @@ import { headers } from 'next/headers'
 import { GA_TRACKING_ID } from '@/lib/gtag'
 import Script from 'next/script'
 import type { Viewport } from 'next'
-import GoogleAdsScript from "./components/utils/GoogleAdsScript";
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -57,7 +56,11 @@ export default function RootLayout({
           })();`,
         }}>
         </Script>
-        <GoogleAdsScript/>
+        <Script
+          id="googletagservices"
+          strategy="afterInteractive"
+          src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
+        />
       </head>
       <body
         className={`${kanit.className} antialiased bg-white overflow-x-hidden`}
