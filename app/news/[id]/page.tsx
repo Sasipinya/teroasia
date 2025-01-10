@@ -76,7 +76,7 @@ export default async function Page({
     const data_relate = await fetchNewsRelate(news_id)
     return (
         <>
-            <IVideoSmartScripts />
+           
             {/* Desktop */}
             <main className="hidden md:flex flex-col">
                 <AdsTop/>
