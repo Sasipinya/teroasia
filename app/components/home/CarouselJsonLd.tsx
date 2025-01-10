@@ -11,7 +11,7 @@ interface CarouselItem {
 }
 
 interface CarouselProps {
-  data_carousel: {
+  data_carousel?: {
     title: string;
     items: CarouselItem[];
   } | null;
