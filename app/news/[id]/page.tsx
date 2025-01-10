@@ -17,6 +17,7 @@ import Headtitle from '@/app/components/news/mobile/headtitle';
 import { NumberFormat } from '@/lib/utils/kformat';
 import AdsTop from '@/app/components/news/AdsTop';
 import AdsLeftRight from '@/app/components/news/AdsLeftRight';
+import MobileOnly from '@/app/components/utils/MobileCheck';
 
 async function fetchNewsItem(id: string) {
     const headersList = headers();
@@ -112,6 +113,7 @@ export default async function Page({
                 </div>
             </main >
             {/* Mobile */}
+            <MobileOnly>
             <main className="flex flex-col md:hidden">
                 <TitleNews data={data} />
                 <RenderVideoMobile data={data} />
@@ -194,6 +196,7 @@ export default async function Page({
                     </div>
                 </section>
             </main>
+            </MobileOnly>
 
         </>
 
