@@ -12,6 +12,8 @@ const ShowHeroes = ({ showheroes_signature }: { showheroes_signature: string }) 
     const script = document.createElement('script');
     script.src = adUrl;
     script.async = true;
+    script.type = 'text/javascript';
+    
     script.setAttribute('data-wid', 'auto');
 
     const container = document.getElementById(adContainerId);
