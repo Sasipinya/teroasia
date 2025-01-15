@@ -1,18 +1,79 @@
-// components/Navbar.tsx
-'use client';
 import React, { useState, Fragment } from 'react';
 import Link from 'next/link';
 import { Menu, Transition } from '@headlessui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faXmark, faSearch, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faXmark, faSearch, faUserCircle, faTv } from '@fortawesome/free-solid-svg-icons';
 import Image from "next/image";
 import { shimmer, toBase64 } from '@/lib/utils/shimer';
 import SearchModal from '../SearchModal';
-import { faTv } from '@fortawesome/free-solid-svg-icons';
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ');
+// Menu item type definition
+interface MenuItem {
+  href: string;
+  title: string;
+  image?: string;
+  external?: boolean;
 }
+
+// Menu section type definition
+interface MenuSection {
+  title: string;
+  items: MenuItem[];
+}
+
+// Menu data structure
+const menuSections: MenuSection[] = [
+  {
+    title: "รายการทีวี",
+    items: [
+      { href: "/program/thediscussion", title: "ถกไม่เถียง", image: "/images/tv-program/tdc.jpg" },
+      { href: "/program/HotNewsCh7HD", title: "ข่าวเย็นประเด็นร้อน", image: "/images/tv-program/news-02.jpg" },
+      { href: "/program/OneChampionship", title: "ONE", image: "/images/tv-program/one.jpg" },
+      { href: "/program/onelumpinee", title: "ONE Lumpinee", image: "/images/tv-program/one-lumpinee.jpg" },
+      { href: "/", title: "การ์ตูนดังรายสัปดาห์", image: "/images/tv-program/cartoon.jpg" },
+      { href: "/program/spyxfamily", title: "Spy x Family" },
+      { href: "/program/campfire-cooking", title: "Campfire Cooking in Another World with My Absurd Skill" },
+      { href: "/program/Masked-Rider-Saber", title: "มาสค์ไรเดอร์" },
+      { href: "/program/ultraman-taiga-the-movie", title: "อุลตร้าแมน" },
+      { href: "/program/gundam-build-divers-re-rise", title: "กันดั้มบิลด์ไดเวอร์ส รี:ไรซ์" },
+      { href: "/program/TSD_MoneyGuru", title: "เงินทองของจริง", image: "/images/tv-program/money.jpg" },
+      { href: "/program/FairtexFight", title: "FAIRTEX FIGHT มวยมันพันธุ์ EXTREM", image: "/images/tv-program/fairtex.jpg" },
+      { href: "/program/vnl2024", title: "VOLLEYBALL NATIONS LEAGUE 2024", image: "/images/tv-program/vnl.jpg" },
+      { href: "/program/ka-ngow", title: "ฆ่าโง่", image: "/images/tv-program/kangow.jpg" },
+      { href: "/program/HugMeCh7HD", title: "ขอกอดหน่อย", image: "/images/tv-program/hug.jpg" },
+      { href: "/program/Beartai7HD", title: "BEARTAI 7HD ไอทีและยานยนต์", image: "/images/tv-program/beartai.jpg" },
+    ]
+  },
+  {
+    title: "ดนตรี",
+    items: [
+      { href: "http://www.teromusic.com/", title: "TERO MUSIC", external: true }
+    ]
+  },
+  {
+    title: "งานแสดง",
+    items: [
+      { href: "https://corporate.teroasia.com/concerts-events/", title: "คอนเสิร์ต", external: true },
+      { href: "https://www.thaiticketmajor.com/", title: "ไทยทิคเก็ตเมเจอร์", external: true }
+    ]
+  },
+  {
+    title: "ASIA",
+    items: [
+      { href: "https://www.popolay.com", title: "Popolay (Myanmar)", external: true },
+      { href: "https://thaiwave.club/cn/", title: "Thaiwave (Chinese & English)", external: true },
+      { href: "https://filmbangkok.asia", title: "Film Bangkok", external: true }
+    ]
+  },
+  {
+    title: "CORPORATE",
+    items: [
+      { href: "https://corporate.teroasia.com/", title: "TERO ENTERTAINMENT", external: true },
+      { href: "/terohealthclinic", title: "TERO HEALTH CLINIC" },
+      { href: "/advertising", title: "ติดต่อโฆษณา" }
+    ]
+  }
+];
 
 const NavbarMobile: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,513 +81,145 @@ const NavbarMobile: React.FC = () => {
 
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
-
   const handleSearch = (term: string) => setSearchTerm(term);
+
+  // Menu Item Component
+  const MenuItem: React.FC<{ item: MenuItem; close: () => void }> = ({ item, close }) => {
+    const linkProps = item.external ? { target: "_blank", rel: "noopener noreferrer" } : {};
+    
+    return (
+      <Menu.Item>
+        {({ active }) => (
+          <Link
+            href={item.href}
+            className={`flex items-center px-4 py-2 text-xl ${
+              active ? 'bg-gray-200 text-gray-900' : 'text-gray-700'
+            } animate__animated animate__fadeInLeft animate__delay-custom-1`}
+            onClick={close}
+            {...linkProps}
+          >
+            {item.image && (
+              <Image
+                src={item.image}
+                width={100}
+                height={100}
+                alt={`${item.title} logo`}
+                className="rounded-2xl mr-3"
+                style={{ height: '100px', width: '100px' }}
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(100, 100))}`}
+              />
+            )}
+            {item.title}
+          </Link>
+        )}
+      </Menu.Item>
+    );
+  };
+
   return (
-    <nav className="">
-
-      {/* Mobile Menu */}
-      <Menu as="div" className="relative w-full inline-block text-left ">
-        <div className="container mx-auto ">
-          <div className='flex items-center justify-between pt-2 pb-0 px-2'>
-            <div className='flex items-center'>
-              <Menu.Button className="inline-flex  justify-start rounded-md bg-white bg-opacity-20  text-md font-medium text-red-600  hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-700  focus-visible:ring-opacity-75">
-                <FontAwesomeIcon icon={faBars} className="h-9 w-10 text-red-600" />
-              </Menu.Button>
-              <Image src={"/images/logo_tero.png"} alt={"logoteroasia"} width={133} height={43} style={{ height: '43px', width: '143px' }} loading="lazy" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(150, 48))}`} />
-            </div>
-            <div className='flex'>
-              <button
-                className=" hover:text-red-600 text-gray-500 font-bold" aria-label="Search"
-
-                onClick={handleOpenModal}
-              >
-                <FontAwesomeIcon icon={faSearch} className="text-l h-9 w-10" />
-              </button>
-              <a href="/auth/signin">
-              <button
-                className=" hover:text-red-600 text-gray-300 font-bold" aria-label="Login"
-              >
-                <FontAwesomeIcon icon={faUserCircle} className="text-l h-9 w-10" />
-              </button></a>
-            </div>
-            <SearchModal
-              isOpen={isModalOpen}
-              onClose={handleCloseModal}
-              onSearch={handleSearch}
-            />
-
-           
-
-          </div>
-        </div>
-
-
-        <Transition
-          as={Fragment}
-          enter="transition ease-out duration-100"
-          enterFrom="transform opacity-0   
- scale-95"
-          enterTo="transform opacity-100 scale-100"
-          leave="transition ease-in duration-75"
-          leaveFrom="transform opacity-100 scale-100"
-          leaveTo="transform opacity-0 scale-95"
-        >
-          <Menu.Items className="absolute left-0 top-0 w-[100vw] max-h-[100vh] overflow-y-auto  z-10   origin-top-right rounded-md bg-gray-100  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none  px-3">
-            <div className="py-1">
-              <div className="flex flex-row justify-between px-4 py-2">
-                <Image src={"/images/logo_tero.png"} alt={"logoteroasia"} width={150} height={48} style={{ height: 'auto', width: 'auto' }} loading="lazy" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(150, 48))}`} />
-
-                <Menu.Button as="button"> {/* ปุ่มปิดเมนู */}
-                  <FontAwesomeIcon icon={faXmark} className="h-7 w-7 text-black" />
-                </Menu.Button>
+    <nav className="relative z-50">
+      <Menu as="div" className="relative w-full">
+        {({ open, close }) => (
+          <>
+            {/* Header */}
+            <div className="container mx-auto">
+              <div className="flex items-center justify-between pt-2 pb-0 px-2">
+                <div className="flex items-center">
+                  <Menu.Button className="inline-flex justify-start rounded-md bg-white bg-opacity-20 text-md font-medium text-red-600 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-opacity-75">
+                    <FontAwesomeIcon icon={faBars} className="h-9 w-10 text-red-600" />
+                  </Menu.Button>
+                  <Image
+                    src="/images/logo_tero.png"
+                    alt="logoteroasia"
+                    width={133}
+                    height={43}
+                    style={{ height: '43px', width: '143px' }}
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(150, 48))}`}
+                  />
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    className="p-2 hover:text-red-600 text-gray-500 transition-colors"
+                    aria-label="Search"
+                    onClick={handleOpenModal}
+                  >
+                    <FontAwesomeIcon icon={faSearch} className="h-6 w-6" />
+                  </button>
+                  <Link href="/auth/signin">
+                    <button
+                      className="p-2 hover:text-red-600 text-gray-300 transition-colors"
+                      aria-label="Login"
+                    >
+                      <FontAwesomeIcon icon={faUserCircle} className="h-6 w-6" />
+                    </button>
+                  </Link>
+                </div>
               </div>
-              <Menu.Item><h3 className='text-xl text-gray-700'>  <FontAwesomeIcon icon={faTv} />  รายการทีวี</h3></Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="/program/thediscussion"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-                    <Image src="/images/tv-program/tdc.jpg" width={100} height={100} alt="logoprogram"
-                      className="rounded-2xl mr-3"
-                      style={{ height: '100px', width: '100px' }}
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                        shimmer(100, 100)
-                      )}`} />
-                    ถกไม่เถียง
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="/program/HotNewsCh7HD"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-                    <Image src="/images/tv-program/news-02.jpg" width={100} height={100} alt="logoprogram"
-                      className="rounded-2xl mr-3"
-                      style={{ height: '100px', width: '100px' }}
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                        shimmer(100, 100)
-                      )}`} />
-                    ข่าวเย็นประเด็นร้อน
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="/program/OneChampionship"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-                    <Image src="/images/tv-program/one.jpg" width={100} height={100} alt="logoprogram"
-                      className="rounded-2xl mr-3"
-                      style={{ height: '100px', width: '100px' }}
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                        shimmer(100, 100)
-                      )}`} />
-                    ONE
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="/program/onelumpinee"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-                    <Image src="/images/tv-program/one-lumpinee.jpg" width={100} height={100} alt="logoprogram"
-                      className="rounded-2xl mr-3"
-                      style={{ height: '100px', width: '100px' }}
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                        shimmer(100, 100)
-                      )}`} />
-                    ONE Lumpinee
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="/"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-                    <Image src="/images/tv-program/cartoon.jpg" width={100} height={100} alt="logoprogram"
-                      className="rounded-2xl mr-3"
-                      style={{ height: '100px', width: '100px' }}
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                        shimmer(100, 100)
-                      )}`} />
-                    การ์ตูนดังรายสัปดาห์
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="/program/spyxfamily"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-
-                    Spy x Family
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="/program/campfire-cooking"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-
-                    Campfire Cooking in Another World with My Absurd Skill
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="/program/Masked-Rider-Saber"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-
-                    มาสค์ไรเดอร์
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="/program/ultraman-taiga-the-movie"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-
-                    อุลตร้าแมน
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="/program/gundam-build-divers-re-rise"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-
-                    กันดั้มบิลด์ไดเวอร์ส รี:ไรซ์ Gundam Build Div
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="/program/TSD_MoneyGuru"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-                    <Image src="/images/tv-program/money.jpg" width={100} height={100} alt="logoprogram"
-                      className="rounded-2xl mr-3"
-                      style={{ height: '100px', width: '100px' }}
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                        shimmer(100, 100)
-                      )}`} />
-                    เงินทองของจริง
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="/program/FairtexFight"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-                    <Image src="/images/tv-program/fairtex.jpg" width={100} height={100} alt="logoprogram"
-                      className="rounded-2xl mr-3"
-                      style={{ height: '100px', width: '100px' }}
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                        shimmer(100, 100)
-                      )}`} />
-                    FAIRTEX FIGHT มวยมันพันธุ์ EXTREM
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="/program/vnl2024"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-                    <Image src="/images/tv-program/vnl.jpg" width={100} height={100} alt="logoprogram"
-                      className="rounded-2xl mr-3"
-                      style={{ height: '100px', width: '100px' }}
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                        shimmer(100, 100)
-                      )}`} />
-                    VOLLEYBALL NATIONS LEAGUE  2024
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="/program/ka-ngow"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-                    <Image src="/images/tv-program/kangow.jpg" width={100} height={100} alt="logoprogram"
-                      className="rounded-2xl mr-3"
-                      style={{ height: '100px', width: '100px' }}
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                        shimmer(100, 100)
-                      )}`} />
-                    ฆ่าโง่
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="/program/HugMeCh7HD"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-                    <Image src="/images/tv-program/hug.jpg" width={100} height={100} alt="logoprogram"
-                      className="rounded-2xl mr-3"
-                      style={{ height: '100px', width: '100px' }}
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                        shimmer(100, 100)
-                      )}`} />
-                    ขอกอดหน่อย
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="/program/Beartai7HD"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-                    <Image src="/images/tv-program/beartai.jpg" width={100} height={100} alt="logoprogram"
-                      className="rounded-2xl mr-3"
-                      style={{ height: '100px', width: '100px' }}
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                        shimmer(100, 100)
-                      )}`} />
-                    BEARTAI 7HD ไอทีและยานยนต์
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="http://www.teromusic.com/"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-xl animate__animated animate__fadeInLeft animate__delay-custom-1 '
-                    )}
-                  >
-
-                    <FontAwesomeIcon icon={faTv} /> ดนตรี
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item><h3 className='px-4 py-2 text-xl text-gray-700'>  <FontAwesomeIcon icon={faTv} />  งานแสดง</h3></Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="https://corporate.teroasia.com/concerts-events/"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-
-                    คอนเสิร์ต
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="https://www.thaiticketmajor.com/"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-
-                    ไทยทิคเก็ตเมเจอร์
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item><h3 className='px-4 py-2 text-xl text-gray-700'>  <FontAwesomeIcon icon={faTv} />  ASIA</h3></Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="https://www.popolay.com"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-
-                    Popolay (Myanmar)
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="https://thaiwave.club/cn/"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-
-                    Thaiwave (Chinese & English)
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="https://filmbangkok.asia"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-
-                    Film Bangkok
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item><h3 className='px-4 py-2 text-xl text-gray-700'>  <FontAwesomeIcon icon={faTv} />  CORPORATE</h3></Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="https://corporate.teroasia.com/"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-
-                    TERO ENTERTAINMENT
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="/terohealthclinic"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-md animate__animated animate__fadeInLeft animate__delay-custom-1 text-xl'
-                    )}
-                  >
-
-                    TERO HEALTH CLINIC
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="/advertising"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'flex items-center px-4 py-2 text-xl animate__animated animate__fadeInLeft animate__delay-custom-1 '
-                    )}
-                  >
-
-                    <FontAwesomeIcon icon={faTv} /> ติดต่อโฆษณา
-                  </Link>
-                )}
-              </Menu.Item>
-
-
-
-
-           
             </div>
-          </Menu.Items>
-        </Transition>
+
+            {/* Menu Panel */}
+            <Transition
+              show={open}
+              as={Fragment}
+              enter="transition ease-out duration-200"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-150"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
+            >
+              <Menu.Items className="fixed inset-0 bg-gray-100 overflow-y-auto">
+                <div className="px-4 py-2">
+                  {/* Menu Header */}
+                  <div className="flex justify-between items-center mb-4">
+                    <Image
+                      src="/images/logo_tero.png"
+                      alt="logoteroasia"
+                      width={150}
+                      height={48}
+                      style={{ height: 'auto', width: 'auto' }}
+                      loading="lazy"
+                      placeholder="blur"
+                      blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(150, 48))}`}
+                    />
+                    <button
+                      onClick={close}
+                      className="p-2 hover:text-red-600 transition-colors"
+                      aria-label="Close menu"
+                    >
+                      <FontAwesomeIcon icon={faXmark} className="h-6 w-6" />
+                    </button>
+                  </div>
+
+                  {/* Menu Sections */}
+                  {menuSections.map((section, index) => (
+                    <div key={index} className="mb-6">
+                      <h3 className="flex items-center gap-2 px-4 text-xl text-gray-700 font-medium mb-2">
+                        <FontAwesomeIcon icon={faTv} />
+                        {section.title}
+                      </h3>
+                      {section.items.map((item, itemIndex) => (
+                        <MenuItem key={itemIndex} item={item} close={close} />
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </Menu.Items>
+            </Transition>
+          </>
+        )}
       </Menu>
 
-
-
-
-
-
+      {/* Search Modal */}
+      <SearchModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onSearch={handleSearch}
+      />
     </nav>
   );
 };
