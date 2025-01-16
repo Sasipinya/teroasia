@@ -58,7 +58,7 @@ export default async function Page({
     return (
         <>
             {/* Desktop */}
-            <main className="flex flex-col">
+            <main className="hidden md:flex flex-col">
                 <AdsTop />
                 <div className='flex container mx-auto '>
                     {/* Ads Left News */}
@@ -105,7 +105,7 @@ export default async function Page({
             <MobileOnly>
             <main className="flex flex-col md:hidden">
                 <AdsTopMobile />
-                <div className='flex container mx-auto '>
+                <div className='flex flex-col container mx-auto '>
                     
                     <div>
                         <div className='container mx-auto px-4 md:p-0 bg-white'>
