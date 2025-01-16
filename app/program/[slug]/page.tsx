@@ -104,7 +104,7 @@ export default async function Page({
             {/* Mobile */}
             <MobileOnly>
             <main className="flex flex-col md:hidden">
-                <AdsTopMobile />
+                {/* <AdsTopMobile /> */}
                 <div className='flex flex-col container mx-auto '>
                     
                     <div>
@@ -131,9 +131,9 @@ export default async function Page({
                         <div className='container mx-auto bg-white'>
                             <SlideNews data={data.news_feature.items} />
                         </div>
-                        <div className='container mx-auto bg-white min-w-[300px] min-h-[250px]'>
+                        {/* <div className='container mx-auto bg-white min-w-[300px] min-h-[250px]'>
                             <AdUnit id='div-gpt-ad-1676443162388-0' adUnitPath='/33368840/TA_Desktop_Program_MidLeaderboard' size={[[728, 90], [970, 250], [970, 90], [1120, 300]]} />
-                        </div>
+                        </div> */}
                         <div className='container mx-auto bg-white text-gray-700 text-xl p-4 md:p-0 md:text-3xl'>
                             {parse(data.info.tvp_profile_html)}
                         </div>
