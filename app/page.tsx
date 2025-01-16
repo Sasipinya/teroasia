@@ -17,9 +17,96 @@ import NewsTopWeek from "./components/home/mobile/newstopweek";
 import { Suspense } from "react";
 import AdUnit from "./components/utils/AdUnit";
 import GliaPlayer from "./components/utils/GliaPlayer";
-import SchemaDefault from './components/Schema';
-import CarouselJsonLd from "./components/home/CarouselJsonLd";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://teroasia.com';
+const featuredPrograms = [
+  {
+    id: '1',
+    title: 'เงินทองของจริง',
+    description: 'รายการเงินทองของจริง ข้อมูลการเงินและการลงทุนที่น่าสนใจ',
+    image: '',
+    url: '/programs/money'
+  },
+  {
+    id: '2',
+    title: 'ข่าวเย็นประเด็นร้อน',
+    description: 'รายการข่าวเย็นประเด็นร้อน นำเสนอข่าวสารประเด็นที่น่าสนใจ',
+    image: '',
+    url: '/programs/evening-news'
+  },
+  {
+    id: '3',
+    title: 'Fairtex Fight ชวนมันพันธุ์ EXTREME',
+    description: 'รายการมวย Fairtex Fight การแข่งขันศิลปะการต่อสู้สุดมัน',
+    image: '',
+    url: '/programs/fairtex-fight'
+  },
+  {
+    id: '4',
+    title: 'VOLLEYBALL NATIONS LEAGUE 2024',
+    description: 'การแข่งขันวอลเลย์บอล NATIONS LEAGUE 2024',
+    image: '',
+    url: '/sports/volleyball'
+  },
+  {
+    id: '5',
+    title: 'ฉกไม่เถียง',
+    description: 'รายการฉกไม่เถียง รายการที่นำเสนอประเด็นร้อนในสังคม',
+    image: '',
+    url: '/programs/tok'
+  },
+  {
+    id: '6',
+    title: 'Spy x Family',
+    description: 'การ์ตูนยอดนิยม Spy x Family เรื่องราวของครอบครัวสายลับสุดป่วน',
+    image: '',
+    url: '/programs/spy-family'
+  },
+  {
+    id: '7',
+    title: 'Campfire cooking in another world',
+    description: 'การ์ตูน Campfire cooking in another world การผจญภัยในโลกแฟนตาซี',
+    image: '',
+    url: '/programs/campfire-cooking'
+  },
+  {
+    id: '8',
+    title: 'วูลล่าแมนน์',
+    description: 'รายการวูลล่าแมนน์ รายการบันเทิงสุดสนุก',
+    image: '',
+    url: '/programs/woolaman'
+  },
+  {
+    id: '9',
+    title: 'บาสคีไรเดอร์ สไมซ์',
+    description: 'การ์ตูน บาสคีไรเดอร์ สไมซ์',
+    image: '',
+    url: '/programs/baske-rider'
+  }
+];
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  'itemListElement': featuredPrograms.map((program, index) => ({
+    '@type': 'ListItem',
+    'position': index + 1,
+    'item': {
+      '@type': 'Article',
+      'url': `${BASE_URL}${program.url}`,
+      'name': program.title,
+      'image': `${BASE_URL}${program.image}`,
+      'description': program.description,
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'TeroAsia',
+        'logo': {
+          '@type': 'ImageObject',
+          'url': `${BASE_URL}/images/logo_tero.png`
+        }
+      }
+    }
+  }))
+};
 export const metadata: Metadata = {
   title: 'TeroAsia เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย จากช่อง 7HD ช่อง 7HD เช้านี้ที่หมอชิต ถกไม่เถียง ข่าวเย็นประเด็นร้อน มวย One Championship การ์ตูนดังสุดสัปดาห์',
   description: 'TeroAsia เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย จากช่อง 7HD ช่อง 7HD เช้านี้ที่หมอชิต ถกไม่เถียง ข่าวเย็นประเด็นร้อน มวย One Championship การ์ตูนดังสุดสัปดาห์',
@@ -58,6 +145,7 @@ export const metadata: Metadata = {
   other: {
     'fb:app_id': '1152976658386392',
     'fb:admins': '100000660497482,1032774606',
+    'application/ld+json':JSON.stringify([jsonLd])
   }
 
 };
@@ -84,8 +172,7 @@ export default async function Home() {
   return (
     <>
 
-      <SchemaDefault />
-      <CarouselJsonLd/>
+   
       {/* Desktop */}
       <main className="hidden md:flex flex-col">
 
