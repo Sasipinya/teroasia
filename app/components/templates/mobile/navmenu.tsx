@@ -154,7 +154,7 @@ const NavbarMobile: React.FC = () => {
                       className="p-2 hover:text-red-600 text-gray-300 transition-colors"
                       aria-label="Login"
                     >
-                      <FontAwesomeIcon icon={faUserCircle} className="h-6 w-6" />
+                      <FontAwesomeIcon icon={faUserCircle} className="h-8 w-8" />
                     </button>
                   </Link>
                 </div>
