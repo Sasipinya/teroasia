@@ -17,8 +17,8 @@ import NewsTopWeek from "./components/home/mobile/newstopweek";
 import { Suspense } from "react";
 import AdUnit from "./components/utils/AdUnit";
 import GliaPlayer from "./components/utils/GliaPlayer";
-import JsonLdSchema from "./components/home/JsonLdSchema";
-import createHomeCarouselJsonLd from "./components/home/CarouselJsonLd";
+import SchemaDefault from './components/Schema';
+import CarouselJsonLd from "./components/home/CarouselJsonLd";
 
 export const metadata: Metadata = {
   title: 'TeroAsia เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย จากช่อง 7HD ช่อง 7HD เช้านี้ที่หมอชิต ถกไม่เถียง ข่าวเย็นประเด็นร้อน มวย One Championship การ์ตูนดังสุดสัปดาห์',
@@ -84,8 +84,8 @@ export default async function Home() {
   return (
     <>
 
-      {/* <JsonLdSchema />
-      {createHomeCarouselJsonLd()} */}
+      <SchemaDefault />
+      <CarouselJsonLd/>
       {/* Desktop */}
       <main className="hidden md:flex flex-col">
 
