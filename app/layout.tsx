@@ -67,18 +67,7 @@ export default function RootLayout({
           strategy="afterInteractive"
           src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
         />
-        <link
-          href="https://player.ivideosmart.com/ivshotspots/css/external/skin-takeover.css"
-          rel="stylesheet"
-        />
-        <Script
-          src="https://player.ivideosmart.com/ivshotspots/js/external/skin-takeover.js"
-          strategy="lazyOnload"
-        />
-        <Script
-          src="https://player.ivideosmart.com/ivsplayer/v4/dist/js/loader.js"
-          strategy="lazyOnload"
-        />
+        
       </head>
       <body
         className={`${kanit.className} antialiased bg-white overflow-x-hidden`}

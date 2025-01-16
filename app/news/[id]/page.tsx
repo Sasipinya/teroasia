@@ -2,7 +2,6 @@
 
 import { Metadata } from 'next'
 import { headers } from 'next/headers';
-import IVideoSmartScripts from '@/lib/utils/ivsscript';
 import RenderVideo from '@/app/components/news/rendervideo';
 import RenderVideoMobile from '@/app/components/news/mobile/rendervideo';
 import InfoNews from '@/app/components/news/info';
