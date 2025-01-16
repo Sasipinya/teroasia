@@ -96,14 +96,15 @@ const ProgramsListNews = ({ data }: { data: any }) => {
           {/* Ads After ProgramsListNews 1 */}
           {index==0?
           <div className="container mx-auto">
-            <AdUnit
-              adUnitPath="/33368840/TA_Desktop_Homepage_MidLeaderboard_2"
-              size={[[300, 250], [728, 90], [336, 280]]}
-              id="div-gpt-ad-1676442558130-0"
-              targeting={{
-                position: 'sidebar'
-              }}
-            />
+            <AdUnit adUnitPath="/33368840/TA_Desktop_Homepage_MidLeaderboard"
+            size={[[300, 250], [336, 280]]}
+            id="div-gpt-ad-1676442558130-0"
+            targeting={{
+              key1: 'value1',
+              key2: ['value2', 'value3']
+            }}
+            
+          />
         
           </div>:<></>}
           {/* Ads After ProgramsListNews 2 */}

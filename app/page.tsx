@@ -202,7 +202,8 @@ export default async function Home() {
             size={[[300, 250], [728, 90], [336, 280]]}
             id="div-gpt-ad-1676442558130-0"
             targeting={{
-              position: 'sidebar'
+              key1: 'value1',
+              key2: ['value2', 'value3']
             }}
             Mxauto="mx-auto"
           />
