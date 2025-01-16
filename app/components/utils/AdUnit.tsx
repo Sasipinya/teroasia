@@ -9,19 +9,9 @@ type GeneralSize = SingleSize | MultiSize;
 // Declare window.googletag
 declare global {
   interface Window {
-    googletag?: Googletag;
+    googletag?: any;  // เปลี่ยนเป็น any เพื่อความยืดหยุ่น
     adsbygoogle?: any[];
   }
-}
-
-// Define Googletag interface  
-interface Googletag {
-  cmd: any[];
-  pubads: () => any;
-  defineSlot: (adUnitPath: string, size: any, id: string) => any;
-  display: (id: string) => void;
-  destroySlots: () => boolean;
-  enableServices: () => void;
 }
 
 interface AdUnitProps {
@@ -39,11 +29,9 @@ const AdUnit: React.FC<AdUnitProps> = ({ adUnitPath, size, id, targeting, Mxauto
 
   useEffect(() => {
     // สร้างฟังก์ชันสำหรับ initialize GPT
-    if (typeof window === 'undefined') return;
     const initGPT = () => {
-      if (!window.googletag) {
-        window.googletag = { cmd: [] };
-      }
+      window.googletag = window.googletag || {};
+      window.googletag.cmd = window.googletag.cmd || [];
 
       window.googletag.cmd.push(() => {
         try {
@@ -130,7 +118,7 @@ const AdUnit: React.FC<AdUnitProps> = ({ adUnitPath, size, id, targeting, Mxauto
       style={{
         width: typeof containerWidth === 'number' ? `${containerWidth}px` : containerWidth,
         height: Array.isArray(containerHeight) ? `${containerHeight[0]}px` : typeof containerHeight === 'number' ? `${containerHeight}px` : containerHeight,
-        margin: '0 auto' // เพิ่ม margin auto เพื่อจัดกึ่งกลาง
+        margin: '0 auto'
       }}
       className={Mxauto === 'mx-auto' ? "mx-auto" : ""}
       data-testid="ad-unit-container"
