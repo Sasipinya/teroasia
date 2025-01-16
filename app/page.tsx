@@ -224,6 +224,7 @@ export default async function Home() {
           <AdUnit adUnitPath="/33368840/TA_Mobile_Mrec_1"
             size={[[300, 250], [336, 280]]}
             id="div-gpt-ad-1676443420932-0"
+            Mxauto="mx-auto"
 
 
           />
@@ -237,6 +238,7 @@ export default async function Home() {
           <AdUnit adUnitPath="/33368840/TA_Mobile_Mrec_2"
             size={[[300, 250], [336, 280]]}
             id="div-gpt-ad-1676444017967-0"
+            Mxauto="mx-auto"
 
           />
         </div>

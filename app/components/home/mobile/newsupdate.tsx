@@ -27,7 +27,7 @@ const AdsUnit: FC = () => (
     <div className="container mx-auto ">
         <AdUnit adUnitPath='/33368840/TA_Mobile_Leaderboard'
             size={[[300, 250], [336, 280]]}
-            id="div-gpt-ad-1676444017967-1"/>
+            id="div-gpt-ad-1676444017967-1" Mxauto="mx-auto"/>
     </div>
 );
 
