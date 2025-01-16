@@ -97,7 +97,7 @@ const ProgramsListNews = ({ data }: { data: any }) => {
           {index==0?
           <div className="container mx-auto">
             <AdUnit
-              adUnitPath="/33368840/TA_Desktop_Homepage_MidLeaderboard"
+              adUnitPath="/33368840/TA_Desktop_Homepage_MidLeaderboard_2"
               size={[[300, 250], [728, 90], [336, 280]]}
               id="div-gpt-ad-1676442558130-0"
               targeting={{
