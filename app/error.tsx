@@ -4,6 +4,7 @@ export default function Error({ error, reset, }: { error: Error ,reset: () => vo
     return (
         <div>
             <h1>error, some thing went wrong!</h1>
+            {error.message}
         </div>
     );
 }
