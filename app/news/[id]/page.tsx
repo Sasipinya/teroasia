@@ -115,7 +115,7 @@ export default async function Page({
             <MobileOnly>
             <main className="flex flex-col md:hidden">
                 <TitleNews data={data} />
-                <RenderVideoMobile data={data} />
+                {/* <RenderVideoMobile data={data} /> */}
                 <section className="inner-blog b-details-p ">
                     <div className="container">
                         <div className="row">
