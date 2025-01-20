@@ -5,7 +5,7 @@ import { faFacebookF } from '@fortawesome/free-brands-svg-icons'
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faLine } from "@fortawesome/free-brands-svg-icons";
 import { faLink } from '@fortawesome/free-solid-svg-icons';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
+// import { CopyToClipboard } from 'react-copy-to-clipboard';
 function ShareProgram({ data }: { data?: any }) {
     const [stateCopy, setStateCopy] = useState(false);
     const shareFacebookLike_newtab = (url: string) => {
@@ -51,11 +51,11 @@ function ShareProgram({ data }: { data?: any }) {
                 }>
                     <FontAwesomeIcon icon={faLine} className="text-l " />
                 </button>
-                <CopyToClipboard text={data.info.program_name} onCopy={() => setStateCopy(true)}>
+                {/* <CopyToClipboard text={data.info.program_name} onCopy={() => setStateCopy(true)}> */}
                     <button className=" w-8 h-8 md:w-10 md:h-10  flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-black">
                         <FontAwesomeIcon icon={faLink} className="text-l " />
                     </button>
-                </CopyToClipboard>
+                {/* </CopyToClipboard> */}
             </div>
         </>)
 }
