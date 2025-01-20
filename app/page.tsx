@@ -138,7 +138,6 @@ export const metadata: Metadata = {
     site: '@TeroDigital',
     images: ['/images/logo_tero.png'],
   },
-  themeColor: '#ee1c25',
   verification: {
     google: 'jLVdQVpBTnxHB4Vi9rNe6Qt7MDhJPErtK7av2FQK6AI'
   },
