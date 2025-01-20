@@ -186,9 +186,9 @@ export default async function Page({
                                         async
                                     ></script> */}
 
-                                    <div id="div-gpt-ad-1671767027219-0">
-                                      ADS  {/* <GPT adUnitPath="/33368840/HVR_1x1" slotSize={[[1, 1]]} /> */}
-                                    </div>
+                                    {/* <div id="div-gpt-ad-1671767027219-0"> */}
+                                      {/* ADS  <GPT adUnitPath="/33368840/HVR_1x1" slotSize={[[1, 1]]} /> */}
+                                    {/* </div> */}
                                 </div>
                             </div>
                         </div>

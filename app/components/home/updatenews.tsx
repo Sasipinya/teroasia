@@ -35,7 +35,9 @@ function UpdateNews({ data }: UpdateNewsProps) {
       <div className="flex bg-white px-2">
         <div className="flex-1 ">
           <div className='flex'>
+          <Link href="/allnews/newsupdate?page=1`">
             <h3 className="mb-6 text-2xl font-bold  text-gray-600 mr-4">ข่าวอัปเดต</h3><div className='flex-1 my-4 border-t border-gray-600'></div>
+            </Link>
           </div>
 
           {data && data.length > 0 && data.slice(0, 5).map((item, index) => (
