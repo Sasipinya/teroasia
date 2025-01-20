@@ -76,7 +76,126 @@ export default async function Page({
     return (
         <>
            
-           
+            Desktop
+            <main className="hidden md:flex flex-col">
+                <AdsTop/>
+                <div className='flex container mx-auto bg-white'>
+                    {/* Ads Left News */}
+                    <AdsLeftRight id_ads='div-gpt-ad-1676443015698-0' path_ads='/33368840/TA_Desktop_News_SideSkyscraper_Left' base='left-0'/>
+                    <div className='flex bg-white px-2'>
+                        <div className='flex-1 flex'>
+                            <div className='flex flex-col'>
+                                <div className='flex'>
+                                    {/* <RenderVideo data={data} /> */}
+                                </div>
+                                <div className='flex mt-3'>
+                                    <div className='w-4/5'>
+                                        <InfoNews data={data} />
+                                        <ContentNews data={data} />
+                                        <TagsNews data={data} />
+                                    </div>
+                                    <div className='w-1/5'>
+                                        {/* <ShareNews data={data} /> */}
+                                        {/* <RelateNews data_relate={data_relate} /> */}
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                     {/* Ads Right News */}
+                     <AdsLeftRight id_ads='div-gpt-ad-1676443074339-0' path_ads='/33368840/TA_Desktop_News_SideSkyscraper_Right' base='right-0'/>
+                     
+                </div>
+            </main >
+            {/* Mobile */}
+            <MobileOnly>
+            <main className="flex flex-col md:hidden">
+                <TitleNews data={data} />
+                {/* <RenderVideoMobile data={data} /> */}
+                <section className="inner-blog b-details-p ">
+                    <div className="container">
+                        <div className="row">
+                            <div
+                                className="col-xl-12 col-lg-12 d-flex align-items-center p-3"
+                                style={{ background: "#eeee" }}
+                            >
+                                <Breadcrumb
+                                    title_news={data.news_title}
+                                    logo_program={data.program_mini_icon}
+                                    program_name={data.program_name}
+                                />
+                            </div>
+                            <div className="col-xl-12 col-lg-12">
+                                <div className="blog-detailss-wrap">
+                                    <div className="details__content pb-10">
+                                       
+                                        <Headtitle countnews={NumberFormat(data?.news_count)} datenews={data?.news_strdate} />
+
+                                        {/* <ContentMobile data={result?.news_content} /> */}
+                                        <ContentNewsMobile data={data} />
+
+                                        <div className="row">
+                                            <div className="col-xl-12 col-md-12">
+                                                {/* <TagsMobile data={result?.tags} /> */}
+                                                <TagsNews data={data} />
+                                                <div className="Ads-inread">
+                                                    <div id="grf_teroasiacom"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="share-area">
+                                            <ShareNews data={data} />
+                                        </div>
+                                    </div>
+
+                                    <div id="div-gpt-ad-1676444017967-0">
+                                       ADS
+                                    </div>
+
+                                    {/* <RelateMobile data={result_relate} /> */}
+                                    <>
+                                        <div className="related__post">
+                                           
+                                           
+                                                <RelateNews data_relate={data_relate} />
+                                               
+                                         
+                                        </div>
+                                    </>
+                                    {/* <div
+                                        className="gliaplayer-container"
+                                        data-slot="teroasia_desktop"
+                                    ></div>
+                                    <script
+                                        src="https://player.gliacloud.com/player/teroasia_desktop"
+                                        data-media-query="(min-width: 601px)"
+                                        async
+                                    ></script>
+
+                                    <div
+                                        className="gliaplayer-container"
+                                        data-slot="teroasia_mobile"
+                                    ></div>
+                                    <script
+                                        src="https://player.gliacloud.com/player/teroasia_mobile"
+                                        data-media-query="(max-width: 600px)"
+                                        async
+                                    ></script> */}
+
+                                    {/* <div id="div-gpt-ad-1671767027219-0"> */}
+                                      {/* ADS  <GPT adUnitPath="/33368840/HVR_1x1" slotSize={[[1, 1]]} /> */}
+                                    {/* </div> */}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            </MobileOnly>
 
         </>
 
