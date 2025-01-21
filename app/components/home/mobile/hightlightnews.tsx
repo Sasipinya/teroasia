@@ -2,7 +2,7 @@
 import type { FC } from 'react';
 import dynamic from 'next/dynamic';
 const NewsCard = dynamic(() => import('./newscardhightlight').then((mod) => mod.NewsCard),
-{ssr: false, loading: () => <p>Loading...</p>});
+{ssr: false, loading: () => <p></p>});
 
 interface NewsItem {
   news_id: string;

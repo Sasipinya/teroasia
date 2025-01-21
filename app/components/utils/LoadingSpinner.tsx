@@ -2,7 +2,7 @@ import React from 'react';
 
 const LoadingSpinner = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 :from-gradarky-900 dark:to-gray-800">
+    <div className="flex items-center justify-center min-h-screen  ">
       <div className="relative">
         {/* Outer rotating circle */}
         <div className="w-16 h-16 rounded-full border-4 border-blue-200 border-t-blue-500 animate-spin" />
@@ -14,7 +14,7 @@ const LoadingSpinner = () => {
       </div>
       
       {/* Loading text */}
-      <div className="ml-4 text-lg font-semibold text-gray-700 dark:text-gray-200 animate-pulse">
+      <div className="ml-4 text-lg font-semibold text-gray-700  animate-pulse">
         Loading...
       </div>
     </div>

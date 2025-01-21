@@ -24,7 +24,7 @@ import { Tab } from '@headlessui/react';
 import dynamic from 'next/dynamic';
 
 const LogoSlider = dynamic(() => import('./logoslider').then((mod) => mod.LogoSlider),
-{ssr: false, loading: () => <p>Loading...</p>});
+{ssr: false, loading: () => <p></p>});
 
 
 
@@ -32,7 +32,7 @@ const LogoSlider = dynamic(() => import('./logoslider').then((mod) => mod.LogoSl
 export default function MenuCategory({ data }: { data: MiddleNavigate }) {
 
 
-  if (!data) return <div>Loading...</div>;
+  if (!data) return <div></div>;
   const [tabs, setTabs] = useState<CategoryData[]>([]);
   useEffect(() => {
     const newTabs = [1, 2, 3].map(index => ({

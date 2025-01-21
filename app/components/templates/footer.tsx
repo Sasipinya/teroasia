@@ -15,37 +15,37 @@ export default function Footer() {
             <div className="flex-1">
               <h3 className="font-bold mb-2">รายการ</h3>
               <ul>
-                <li className="text-sm mb-1">› รายการ</li>
-                <li className="text-sm mb-1">› ผลบอล</li>
-                <li className="text-sm">› อื่นๆ</li>
+                <li className="text-sm mb-1"><Link href='/'>› รายการ</Link></li>
+                <li className="text-sm mb-1"><Link href='/'>› ผลบอล</Link></li>
+                <li className="text-sm"><Link href='/'>› อื่นๆ</Link></li>
               </ul>
             </div>
 
             <div className="flex-1">
               <h3 className="font-bold mb-2">ข่าว</h3>
               <ul>
-                <li className="text-sm ">› ข่าวทั้งหมด</li>
+                <li className="text-sm "><Link href='/'>› ข่าวทั้งหมด</Link></li>
               </ul>
             </div>
 
             <div className="flex-1">
               <h3 className="font-bold mb-2">LIVE</h3>
               <ul>
-                <li className="text-sm ">› ทีวีออนไลน์</li>
+                <li className="text-sm "><Link href='/'>› ทีวีออนไลน์</Link></li>
               </ul>
             </div>
 
             <div className="flex-1">
               <h3 className="font-bold mb-2">เกี่ยวกับเรา</h3>
               <ul>
-                <li className="text-sm mb-1">› Tero Entertainment</li>
-                <li className="text-sm mb-1">› รู้จักเรา</li>
-                <li className="text-sm mb-1">› ข่าวประชาสัมพันธ์</li>
-                <li className="text-sm mb-1">› นโยบายด้านลิขสิทธิ์</li>
-                <li className="text-sm mb-1">› นโยบายสิทธิส่วนบุคคล</li>
-                <li className="text-sm mb-1">› ข้อกำหนด / เงื่อนไข</li>
-                <li className="text-sm mb-1">› ร่วมงานกับเรา</li>
-                <li className="text-sm ">› ติดต่อเรา</li>
+                <li className="text-sm mb-1"><Link href='/'>› Tero Entertainment</Link></li>
+                <li className="text-sm mb-1"><Link href='/'>› รู้จักเรา</Link></li>
+                <li className="text-sm mb-1"><Link href='/'>› ข่าวประชาสัมพันธ์</Link></li>
+                <li className="text-sm mb-1"><Link href='https://corporate.teroasia.com/privacypolicy.php'>› นโยบายด้านลิขสิทธิ์</Link></li>
+                <li className="text-sm mb-1"><Link href='https://corporate.teroasia.com/privacypolicy.php'>› นโยบายสิทธิส่วนบุคคล</Link></li>
+                <li className="text-sm mb-1"><Link href='https://corporate.teroasia.com/privacypolicy.php'>› ข้อกำหนด / เงื่อนไข</Link></li>
+                <li className="text-sm mb-1"><Link href='/'>› ร่วมงานกับเรา</Link></li>
+                <li className="text-sm "><Link href='/'>› ติดต่อเรา</Link></li>
               </ul>
             </div>
           </div>

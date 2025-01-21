@@ -9,7 +9,7 @@ export default function Profile() {
   const { data: session, status } = useSession()
 
   if (status === "loading") {
-    return <div>Loading...</div>
+    return <div></div>
   }
 
   if (!session) {
