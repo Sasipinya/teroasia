@@ -8,7 +8,7 @@ import AuthProvider from './components/AuthProvider';
 import { headers } from 'next/headers'
 import { GA_TRACKING_ID } from '@/lib/gtag'
 import Script from 'next/script'
-import type { Viewport } from 'next'
+import type { Viewport,Metadata } from 'next'
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -18,7 +18,14 @@ export const viewport: Viewport = {
 }
 
 
-
+export const metadata: Metadata = {
+  title: 'TeroAsia เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย จากช่อง 7HD ช่อง 7HD เช้านี้ที่หมอชิต ถกไม่เถียง ข่าวเย็นประเด็นร้อน มวย One Championship การ์ตูนดังสุดสัปดาห์',
+  description: 'TeroAsia เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย จากช่อง 7HD ช่อง 7HD เช้านี้ที่หมอชิต ถกไม่เถียง ข่าวเย็นประเด็นร้อน มวย One Championship การ์ตูนดังสุดสัปดาห์',
+  keywords: 'TeroAsia เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย จากช่อง 7HD ช่อง 7HD เช้านี้ที่หมอชิต ถกไม่เถียง ข่าวเย็นประเด็นร้อน มวย One Championship การ์ตูนดังสุดสัปดาห์',
+  icons: {
+    icon: [{ rel: 'icon', url: '/favicon.ico' }]
+  }
+}
 export interface RootLayoutProps {
   children: React.ReactNode;
 }
@@ -33,12 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link
-          rel="icon"
-          href="/favicon.ico"
-          type="image/x-icon"
-          sizes="any"
-        />
+       
         <Script dangerouslySetInnerHTML={{
           __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

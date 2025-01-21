@@ -15,7 +15,7 @@ function RelateNews({ data_relate }: { data_relate?: any }) {
                         <OptimizedImage
                             src={item.image_url}
                             alt={item.news_title}
-                            className="w-full md:h-full md:w-48 object-cover rounded-l-md"
+                            className="w-full md:h-full md:w-48 object-cover md:rounded-l-md rounded-tl-md  rounded-tr-md"
                             width={500}
                             height={300}
                             

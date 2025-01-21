@@ -17,7 +17,7 @@ import { NumberFormat } from '@/lib/utils/kformat';
 import AdsTop from '@/app/components/news/AdsTop';
 import AdsLeftRight from '@/app/components/news/AdsLeftRight';
 import MobileOnly from '@/app/components/utils/MobileCheck';
-
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://teroasia.com';
 async function fetchNewsItem(id: string) {
     const headersList = headers();
     const xForwardedFor = (await headersList).get('x-forwarded-for');
@@ -32,6 +32,8 @@ async function fetchNewsItem(id: string) {
             ipAddress = data_ip.ip;
         }
     }
+    console.log(ipAddress);
+    
     var url = `https://backend.teroasia.com/apis2/index.php?a=detail&nid=${id}`;
     if (!ipAddress) {
         const geoResponse = await fetch(`https://get.geojs.io/v1/ip/geo.json?ip=${ipAddress}`);
@@ -47,6 +49,7 @@ async function fetchNewsRelate(id: string) {
     const response = await fetch(url);
     return response.json();
 }
+
 export async function generateMetadata({ params }: {
     params: Promise<{ id: string }>
 }): Promise<Metadata> {
@@ -54,9 +57,75 @@ export async function generateMetadata({ params }: {
     try {
         const news_id = (await params).id
         const { data } = await fetchNewsItem(news_id);
+        const cleandesc = data.news_content?.replace(/<\/?[^>]+(>|$)/g, "").replace(/["']/g, "");
+        const ogtitle = (data.seo_title ? data.seo_title : data.news_title);
+        const ogdesc = data.seo_desc ? (data.seo_desc).substring(0, 160) : cleandesc?.substring(0, 160);
+        let tags_article = '';
+        if (data.tags) {
+            tags_article = data.tags.map((rs: any, i: any) => {
+                return (
+                    rs.tag_name
+                )
+            })
+        }
+        var keywords = data.seo_keyword ? data.seo_keyword : data.tags_text;
+        const jsonLd = {
+            '@context': 'https://schema.org',
+            '@type': 'NewsArticle',
+            headline: ogtitle,
+            description: ogdesc,
+            image: [data.image_url],
+            datePublished: data.news_date,
+            dateModified: data.news_modify,
+            author: [{
+                '@type': 'Person',
+                name: data.post_by,
+            }],
+            publisher: {
+                '@type': 'Organization',
+                name: 'Tero Asia | Tero entertainment',
+                logo: {
+                    '@type': 'ImageObject',
+                    url: `${BASE_URL}/images/logo_tero.png`
+                }
+            },
+            mainEntityOfPage: {
+                '@type': 'WebPage',
+                '@id': `${BASE_URL}/news/${news_id}`
+            },
+        };
         return {
-            title: data.news_title,
-            description: data.news_title,
+            title: ogtitle,
+            description: ogdesc,
+            keywords: keywords,
+            authors: [{ name: data.author }],
+            publisher: "Tero Asia | Tero entertainment",
+            openGraph: {
+                title: ogtitle,
+                description: ogdesc,
+                type: 'article',
+                publishedTime: data.news_date,
+                authors: [data.post_by],
+                images: [{
+                    url: data.image_url,
+                    width: 1200,
+                    height: 630,
+                    alt: data.title
+                }]
+            },
+            twitter: {
+                card: 'summary_large_image',
+                title: ogtitle,
+                description: ogdesc,
+                images: [data.image_url],
+
+
+            },
+            other: {
+                'fb:app_id': '1152976658386392',
+                'fb:admins': '100000660497482,1032774606',
+                'application/ld+json': JSON.stringify([jsonLd])
+            }
         };
     } catch (error) {
         return {
@@ -75,18 +144,18 @@ export default async function Page({
     const data_relate = await fetchNewsRelate(news_id)
     return (
         <>
-           
-            Desktop
+
+            {/* Desktop */}
             <main className="hidden md:flex flex-col">
-                <AdsTop/>
+                <AdsTop />
                 <div className='flex container mx-auto bg-white'>
                     {/* Ads Left News */}
-                    <AdsLeftRight id_ads='div-gpt-ad-1676443015698-0' path_ads='/33368840/TA_Desktop_News_SideSkyscraper_Left' base='left-0'/>
+                    <AdsLeftRight id_ads='div-gpt-ad-1676443015698-0' path_ads='/33368840/TA_Desktop_News_SideSkyscraper_Left' base='left-0' />
                     <div className='flex bg-white px-2'>
                         <div className='flex-1 flex'>
                             <div className='flex flex-col'>
                                 <div className='flex'>
-                                    {/* <RenderVideo data={data} /> */}
+                                    <RenderVideo data={data} />
                                 </div>
                                 <div className='flex mt-3'>
                                     <div className='w-4/5'>
@@ -95,8 +164,8 @@ export default async function Page({
                                         <TagsNews data={data} />
                                     </div>
                                     <div className='w-1/5'>
-                                        {/* <ShareNews data={data} /> */}
-                                        {/* <RelateNews data_relate={data_relate} /> */}
+                                        <ShareNews data={data} />
+                                        <RelateNews data_relate={data_relate} />
                                     </div>
 
                                 </div>
@@ -106,67 +175,67 @@ export default async function Page({
 
 
                     </div>
-                     {/* Ads Right News */}
-                     <AdsLeftRight id_ads='div-gpt-ad-1676443074339-0' path_ads='/33368840/TA_Desktop_News_SideSkyscraper_Right' base='right-0'/>
-                     
+                    {/* Ads Right News */}
+                    <AdsLeftRight id_ads='div-gpt-ad-1676443074339-0' path_ads='/33368840/TA_Desktop_News_SideSkyscraper_Right' base='right-0' />
+
                 </div>
             </main >
             {/* Mobile */}
             <MobileOnly>
-            <main className="flex flex-col md:hidden">
-                <TitleNews data={data} />
-                {/* <RenderVideoMobile data={data} /> */}
-                <section className="inner-blog b-details-p ">
-                    <div className="container">
-                        <div className="row">
-                            <div
-                                className="col-xl-12 col-lg-12 d-flex align-items-center p-3"
-                                style={{ background: "#eeee" }}
-                            >
-                                <Breadcrumb
-                                    title_news={data.news_title}
-                                    logo_program={data.program_mini_icon}
-                                    program_name={data.program_name}
-                                />
-                            </div>
-                            <div className="col-xl-12 col-lg-12">
-                                <div className="blog-detailss-wrap">
-                                    <div className="details__content pb-10">
-                                       
-                                        <Headtitle countnews={NumberFormat(data?.news_count)} datenews={data?.news_strdate} />
+                <main className="flex flex-col md:hidden">
+                    <TitleNews data={data} />
+                    <RenderVideoMobile data={data} />
+                    <section className="inner-blog b-details-p ">
+                        <div className="container">
+                            <div className="row">
+                                <div
+                                    className="col-xl-12 col-lg-12 d-flex align-items-center p-3"
+                                    style={{ background: "#eeee" }}
+                                >
+                                    <Breadcrumb
+                                        title_news={data.news_title}
+                                        logo_program={data.program_mini_icon}
+                                        program_name={data.program_name}
+                                    />
+                                </div>
+                                <div className="col-xl-12 col-lg-12">
+                                    <div className="blog-detailss-wrap">
+                                        <div className="details__content pb-10">
 
-                                        {/* <ContentMobile data={result?.news_content} /> */}
-                                        <ContentNewsMobile data={data} />
+                                            <Headtitle countnews={NumberFormat(data?.news_count)} datenews={data?.news_strdate} />
 
-                                        <div className="row">
-                                            <div className="col-xl-12 col-md-12">
-                                                {/* <TagsMobile data={result?.tags} /> */}
-                                                <TagsNews data={data} />
-                                                <div className="Ads-inread">
-                                                    <div id="grf_teroasiacom"></div>
+                                            {/* <ContentMobile data={result?.news_content} /> */}
+                                            <ContentNewsMobile data={data} />
+
+                                            <div className="row">
+                                                <div className="col-xl-12 col-md-12">
+                                                    {/* <TagsMobile data={result?.tags} /> */}
+                                                    <TagsNews data={data} />
+                                                    <div className="Ads-inread">
+                                                        <div id="grf_teroasiacom"></div>
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <div className="share-area">
+                                                <ShareNews data={data} />
+                                            </div>
                                         </div>
-                                        <div className="share-area">
-                                            <ShareNews data={data} />
-                                        </div>
-                                    </div>
 
-                                    <div id="div-gpt-ad-1676444017967-0">
-                                       ADS
-                                    </div>
+                                        {/* <div id="div-gpt-ad-1676444017967-0">
+                                            ADS
+                                        </div> */}
 
-                                    {/* <RelateMobile data={result_relate} /> */}
-                                    <>
-                                        <div className="related__post">
-                                           
-                                           
+                                        {/* <RelateMobile data={result_relate} /> */}
+                                        <>
+                                            <div className="related__post">
+
+
                                                 <RelateNews data_relate={data_relate} />
-                                               
-                                         
-                                        </div>
-                                    </>
-                                    {/* <div
+
+
+                                            </div>
+                                        </>
+                                        {/* <div
                                         className="gliaplayer-container"
                                         data-slot="teroasia_desktop"
                                     ></div>
@@ -186,15 +255,15 @@ export default async function Page({
                                         async
                                     ></script> */}
 
-                                    {/* <div id="div-gpt-ad-1671767027219-0"> */}
-                                      {/* ADS  <GPT adUnitPath="/33368840/HVR_1x1" slotSize={[[1, 1]]} /> */}
-                                    {/* </div> */}
+                                        {/* <div id="div-gpt-ad-1671767027219-0"> */}
+                                        {/* ADS  <GPT adUnitPath="/33368840/HVR_1x1" slotSize={[[1, 1]]} /> */}
+                                        {/* </div> */}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-            </main>
+                    </section>
+                </main>
             </MobileOnly>
 
         </>

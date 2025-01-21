@@ -149,3 +149,7 @@ top: 300px;
   left: -170px;
   top: 300px;
 }
+.nav-header-mobile .swiper-slide {
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+}

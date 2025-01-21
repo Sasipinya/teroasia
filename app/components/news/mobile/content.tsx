@@ -21,15 +21,15 @@ export default function ContentMobile({ data }: ContentNewsProps) {
    const [processedContent, setProcessedContent] = useState<any>(null);
 
    const MainAd = () => (
-       <div className="flex justify-center items-center w-full my-4">
-           <AdUnit adUnitPath='/33368840/TA_Mobile_News_InArticle_P2' id='div-gpt-ad-1676443625146-0' size={[[1, 1], [300, 250], [320, 50], [336, 280]]} Mxauto='mx-auto' />
+       <div className="text-center hidden md:block">
+           <AdUnit adUnitPath='/33368840/TA_Mobile_News_InArticle_P2' id='div-gpt-ad-1676443625146-0' size={[[1, 1], [300, 250], [320, 50], [336, 280]]}  />
        </div>
    );
 
    const InReadAd1 = () => (
        <>
            <div className="text-center hidden md:block">
-               <AdUnit adUnitPath='/33368840/TA_Mobile_News_InArticle_P4' id='div-gpt-ad-1676443673637-0' size={[[1, 1], [300, 250], [320, 50], [336, 280]]} Mxauto='mx-auto' />
+               <AdUnit adUnitPath='/33368840/TA_Mobile_News_InArticle_P4' id='div-gpt-ad-1676443673637-0' size={[[1, 1], [300, 250], [320, 50], [336, 280]]}  />
            </div>
        </>
    );

@@ -51,7 +51,7 @@ const Breadcrumb: FC<BreadcrumbProps> = ({
             
             <li>
               <span 
-                className=" text-gray-700 line-clamp-2 break-words max-w-[200px]"
+                className=" text-gray-700 line-clamp-2 break-words "
                 title={title_news}
               >
                 {title_news}

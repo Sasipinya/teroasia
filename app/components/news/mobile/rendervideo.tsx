@@ -1,6 +1,6 @@
 
 import IVSPlayer from '@/lib/utils/ivsplayer'
-import ShowheroesMobile from "@/lib/utils/showheroesmobile";
+import Showheroes from "@/lib/utils/showheroes";
 import Image from 'next/image';
 function RenderVideoMobile({ data }: { data: any }) {
     const renderVideo = (result: any) => {
@@ -9,7 +9,7 @@ function RenderVideoMobile({ data }: { data: any }) {
             case '1':
                 if (result?.showheroes_signature) {
                     return (
-                        <ShowheroesMobile showheroes_signature={result?.showheroes_signature}  />
+                        <Showheroes showheroes_signature={result?.showheroes_signature}  />
                     );
                 }
                 return (<>{result?.ivs_key ? <IVSPlayer data={result} /> : (<Image width={600} height={400} src={result?.image_url} loading="lazy" alt={result?.news_title} />)}</>);
@@ -26,7 +26,7 @@ function RenderVideoMobile({ data }: { data: any }) {
             case '7'://ch7
                 if (result?.showheroes_signature) {
                     return (
-                        <ShowheroesMobile showheroes_signature={result?.showheroes_signature}  />
+                        <Showheroes showheroes_signature={result?.showheroes_signature}  />
                     );
                 }
                 return (<>{result?.ivs_key ? <IVSPlayer data={result} /> : (<Image width={600} height={400} src={result?.image_url} loading="lazy" alt={result?.news_title} />)}</>);

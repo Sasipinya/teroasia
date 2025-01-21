@@ -118,7 +118,7 @@ const AdUnit: React.FC<AdUnitProps> = ({ adUnitPath, size, id, targeting, Mxauto
       style={{
         width: typeof containerWidth === 'number' ? `${containerWidth}px` : containerWidth,
         height: Array.isArray(containerHeight) ? `${containerHeight[0]}px` : typeof containerHeight === 'number' ? `${containerHeight}px` : containerHeight,
-        margin: '0 auto'
+       
       }}
       className={Mxauto === 'mx-auto' ? "mx-auto" : ""}
       data-testid="ad-unit-container"

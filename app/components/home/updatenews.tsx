@@ -26,9 +26,7 @@ function UpdateNews({ data }: UpdateNewsProps) {
           adUnitPath="/33368840/TA_Desktop_Homepage_SideSkyscraper_Left_L"
           size={[[300, 600], [160, 600]]}
           id="div-gpt-ad-1686132027161-0"
-          targeting={{
-            position: 'sidebar'
-          }}
+          
         />
       </div>
 
@@ -109,9 +107,7 @@ function UpdateNews({ data }: UpdateNewsProps) {
           adUnitPath="/33368840/TA_Desktop_Homepage_SideSkyscraper_Right"
           size={[[300, 600], [160, 600]]}
           id="div-gpt-ad-1686132061197-0"
-          targeting={{
-            position: 'sidebar'
-          }}
+          
         />
       </div>
 

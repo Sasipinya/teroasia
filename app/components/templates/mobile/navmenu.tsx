@@ -130,6 +130,7 @@ const NavbarMobile: React.FC = () => {
                   <Menu.Button className="inline-flex justify-start rounded-md bg-white bg-opacity-20 text-md font-medium text-red-600 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-opacity-75">
                     <FontAwesomeIcon icon={faBars} className="h-9 w-10 text-red-600" />
                   </Menu.Button>
+                  <Link href='/'>
                   <Image
                     src="/images/logo_tero.png"
                     alt="logoteroasia"
@@ -140,6 +141,7 @@ const NavbarMobile: React.FC = () => {
                     placeholder="blur"
                     blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(150, 48))}`}
                   />
+                  </Link>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
@@ -176,6 +178,7 @@ const NavbarMobile: React.FC = () => {
                 <div className="px-4 py-2">
                   {/* Menu Header */}
                   <div className="flex justify-between items-center mb-4">
+                  <Link href='/'>
                     <Image
                       src="/images/logo_tero.png"
                       alt="logoteroasia"
@@ -186,6 +189,7 @@ const NavbarMobile: React.FC = () => {
                       placeholder="blur"
                       blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(150, 48))}`}
                     />
+                    </Link>
                     <button
                       onClick={close}
                       className="p-2 hover:text-red-600 transition-colors"

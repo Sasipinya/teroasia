@@ -39,14 +39,14 @@ function HightlightSliderNews({ data }: { data: any }) {
                         <SwiperSlide key={index}>
                             {item.content === 'ad' ? (
                                 <div >
-                                    <AdUnit 
+                                    {/* <AdUnit 
                                         adUnitPath="/33368840/TA_Desktop_Homepage_Native_2"
                                         size={[[300,250]]}
                                         id="div-gpt-ad-1676441812031-0"
                                         targeting={{
                                             position: 'sidebar'
                                         }}
-                                    />
+                                    /> */}
                                 </div>
                             ) : (
                                 <div className="max-w-sm rounded overflow-hidden shadow-lg">
