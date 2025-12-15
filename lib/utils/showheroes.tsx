@@ -1,37 +1,40 @@
+'use client'; 
 
-'use client';
+import React, { useEffect } from 'react';
 
-import { useEffect } from 'react';
+interface ShowHeroesProps {
+  showheroes_signature: string;
+}
 
-const ShowHeroes = ({ showheroes_signature }: { showheroes_signature: string }) => {
-
+const ShowHeroes: React.FC<ShowHeroesProps> = ({ showheroes_signature }) => {
   useEffect(() => {
-    const adContainerId = 'showheroes';
-    const adUrl = `https://content.viralize.tv/display/?zid=AAEy2QyWJ-VWLafc&cid=${showheroes_signature}&activation=adfill-onview&vip_mode=playing&vip_position=bottom-right`;
-
-    const script = document.createElement('script');
-    script.src = adUrl;
-    script.async = true;
-    script.type = 'text/javascript';
+    const text_src = `https://content.viralize.tv/display/?zid=AAEy2QyWJ-VWLafc&cid=${showheroes_signature}&activation=adfill-onview&vip_mode=playing&vip_position=bottom-right`;
     
+    const script = document.createElement('script');
+    script.src = text_src;
+    script.type = 'text/javascript';
     script.setAttribute('data-wid', 'auto');
+    script.async = true;
 
-    const container = document.getElementById(adContainerId);
+    const container = document.getElementById('showheroes');
     if (container) {
       container.appendChild(script);
-    } else {
-      console.error('Ad container not found!');
     }
 
     return () => {
-      if (container) {
+      const container = document.getElementById('showheroes');
+      if (container && script.parentNode) {
         container.removeChild(script);
       }
     };
-  }, [showheroes_signature]);
+  }, [showheroes_signature]); 
 
-  return <div id="showheroes"></div>;
-
-}
+  return (
+    <div 
+      id="showheroes" 
+      className="w-full h-full"
+    />
+  );
+};
 
 export default ShowHeroes;

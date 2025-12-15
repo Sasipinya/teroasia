@@ -34,7 +34,7 @@ function ProgramListOther({ data }: ProgramListOtherProps) {
         navigation
       >
         {data &&
-          data.length > 0 &&
+          data.length > 0 && data.filter(item => item.tvp_header_desk).length > 0 &&
           data.map((item, index) => (
             <SwiperSlide key={index}>
               <div className="max-w-sm rounded overflow-hidden shadow-lg border">

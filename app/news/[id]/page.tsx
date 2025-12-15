@@ -17,6 +17,8 @@ import { NumberFormat } from '@/lib/utils/kformat';
 import AdsTop from '@/app/components/news/AdsTop';
 import AdsLeftRight from '@/app/components/news/AdsLeftRight';
 import MobileOnly from '@/app/components/utils/MobileCheck';
+import { DesktopOnly } from '@/app/components/utils/DesktopCheck';
+import Script from 'next/script'
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://teroasia.com';
 async function fetchNewsItem(id: string) {
     const headersList = headers();
@@ -33,7 +35,7 @@ async function fetchNewsItem(id: string) {
         }
     }
     console.log(ipAddress);
-    
+
     var url = `https://backend.teroasia.com/apis2/index.php?a=detail&nid=${id}`;
     if (!ipAddress) {
         const geoResponse = await fetch(`https://get.geojs.io/v1/ip/geo.json?ip=${ipAddress}`);
@@ -49,7 +51,13 @@ async function fetchNewsRelate(id: string) {
     const response = await fetch(url);
     return response.json();
 }
-
+const toISO8601UTC = (input: Date | number) => {
+  const d = input instanceof Date ? input : (
+    // ถ้าเป็น “วินาที” ให้คูณ 1000; ถ้าเป็น “มิลลิวินาที” ให้ส่งมาเป็น Date/millis
+    String(input).length === 10 ? new Date(input * 1000) : new Date(input)
+  );
+  return d.toISOString(); // e.g. 2025-09-22T05:30:00.000Z
+};
 export async function generateMetadata({ params }: {
     params: Promise<{ id: string }>
 }): Promise<Metadata> {
@@ -69,31 +77,7 @@ export async function generateMetadata({ params }: {
             })
         }
         var keywords = data.seo_keyword ? data.seo_keyword : data.tags_text;
-        const jsonLd = {
-            '@context': 'https://schema.org',
-            '@type': 'NewsArticle',
-            headline: ogtitle,
-            description: ogdesc,
-            image: [data.image_url],
-            datePublished: data.news_date,
-            dateModified: data.news_modify,
-            author: [{
-                '@type': 'Person',
-                name: data.post_by,
-            }],
-            publisher: {
-                '@type': 'Organization',
-                name: 'Tero Asia | Tero entertainment',
-                logo: {
-                    '@type': 'ImageObject',
-                    url: `${BASE_URL}/images/logo_tero.png`
-                }
-            },
-            mainEntityOfPage: {
-                '@type': 'WebPage',
-                '@id': `${BASE_URL}/news/${news_id}`
-            },
-        };
+
         return {
             title: ogtitle,
             description: ogdesc,
@@ -124,7 +108,7 @@ export async function generateMetadata({ params }: {
             other: {
                 'fb:app_id': '1152976658386392',
                 'fb:admins': '100000660497482,1032774606',
-                'application/ld+json': JSON.stringify([jsonLd])
+
             }
         };
     } catch (error) {
@@ -142,47 +126,92 @@ export default async function Page({
     const news_id = (await params).id
     const { data } = await fetchNewsItem(news_id)
     const data_relate = await fetchNewsRelate(news_id)
+    const cleandesc = data.news_content?.replace(/<\/?[^>]+(>|$)/g, "").replace(/["']/g, "");
+    const ogtitle = (data.seo_title ? data.seo_title : data.news_title);
+    const ogdesc = data.seo_desc ? (data.seo_desc).substring(0, 160) : cleandesc?.substring(0, 160);
+
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'NewsArticle',
+        headline: ogtitle,
+        description: ogdesc,
+        image: [data.image_url],
+        datePublished: toISO8601UTC(data.news_date),
+        dateModified: toISO8601UTC(data.news_modify),
+        author: [{
+            '@type': 'Person',
+            name: data.post_by,
+        }],
+        publisher: {
+            '@type': 'Organization',
+            name: 'Tero Asia | Tero entertainment',
+            logo: {
+                '@type': 'ImageObject',
+                url: `${BASE_URL}/images/logo_tero.png`
+            }
+        },
+        mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': `${BASE_URL}/news/${news_id}`
+        },
+    };
     return (
         <>
 
             {/* Desktop */}
-            <main className="hidden md:flex flex-col">
-                <AdsTop />
-                <div className='flex container mx-auto bg-white'>
-                    {/* Ads Left News */}
-                    <AdsLeftRight id_ads='div-gpt-ad-1676443015698-0' path_ads='/33368840/TA_Desktop_News_SideSkyscraper_Left' base='left-0' />
-                    <div className='flex bg-white px-2'>
-                        <div className='flex-1 flex'>
-                            <div className='flex flex-col'>
-                                <div className='flex'>
-                                    <RenderVideo data={data} />
-                                </div>
-                                <div className='flex mt-3'>
-                                    <div className='w-4/5'>
-                                        <InfoNews data={data} />
-                                        <ContentNews data={data} />
-                                        <TagsNews data={data} />
+            <DesktopOnly>
+                <main className="hidden md:flex flex-col">
+                    <Script
+                        id="jsonld-event"
+                        type="application/ld+json"
+                        strategy="beforeInteractive"
+                        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+                    />
+                    <AdsTop />
+                    <div className=' flex container mx-auto bg-white'>
+                        {/* Ads Left News */}
+                        <AdsLeftRight id_ads='div-gpt-ad-1676443015698-0' path_ads='/33368840/TA_Desktop_News_SideSkyscraper_Left' base='left-0' lr="Left" />
+                        <div className='z-[2] relative flex bg-white px-2'>
+                            <div className='flex-1 flex'>
+                                <div className='flex flex-col'>
+                                    <div className='flex'>
+                                        <RenderVideo data={data} />
                                     </div>
-                                    <div className='w-1/5'>
-                                        <ShareNews data={data} />
-                                        <RelateNews data_relate={data_relate} />
-                                    </div>
+                                    <div className='flex mt-3'>
+                                        <div className='w-4/5'>
+                                            <InfoNews data={data} />
+                                            <ContentNews data={data} />
+                                            <TagsNews data={data} />
+                                        </div>
+                                        <div className='w-1/5'>
+                                            <ShareNews data={data} />
+                                            <RelateNews data_relate={data_relate} />
+                                        </div>
 
+                                    </div>
                                 </div>
+
                             </div>
 
-                        </div>
 
+                        </div>
+                        {/* Ads Right News */}
+                        <AdsLeftRight id_ads='div-gpt-ad-1676443074339-0' path_ads='/33368840/TA_Desktop_News_SideSkyscraper_Right' base='right-0' lr="Right" />
 
                     </div>
-                    {/* Ads Right News */}
-                    <AdsLeftRight id_ads='div-gpt-ad-1676443074339-0' path_ads='/33368840/TA_Desktop_News_SideSkyscraper_Right' base='right-0' />
+                    <div id="TA_Desktop_Anchor_detail"></div>
+                </main >
+            </DesktopOnly>
 
-                </div>
-            </main >
             {/* Mobile */}
             <MobileOnly>
                 <main className="flex flex-col md:hidden">
+                    <Script
+                        id="jsonld-event"
+                        type="application/ld+json"
+                        strategy="beforeInteractive"
+                        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+                    />
                     <TitleNews data={data} />
                     <RenderVideoMobile data={data} />
                     <section className="inner-blog b-details-p ">

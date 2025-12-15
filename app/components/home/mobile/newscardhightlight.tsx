@@ -1,7 +1,9 @@
+'use client';
 import type { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { OptimizedImage } from '../../../../lib/utils/optimizesimage';
+import { getProxiedImageUrl } from '@/lib/getProxiedImageUrl'
 interface NewsItem {
     news_id: string;
     top_image: string;
@@ -17,11 +19,13 @@ export  const NewsCard: FC<{ news: NewsItem; imageHeight: number; imageWidth: nu
       <div className="relative">
         <Link href={`/news/${news.news_id}`}>
         <OptimizedImage
-          src={news.top_image}
+          src={getProxiedImageUrl(news.top_image)}
           alt={news.top_title}
           width={imageWidth}
           height={imageHeight}
           className="h-full w-full object-cover"
+          priority={true}
+          fetchpriority="high"
       
         />
         </Link>

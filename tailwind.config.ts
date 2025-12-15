@@ -18,7 +18,11 @@ const config: Config = {
         lg: '990px', // กำหนด container ให้กว้าง 990px ที่ breakpoint 'lg'
         xl: '990px',
         '2xl': '990px',
-      }
+      },
+      fontFamily: {
+        kanit: ['var(--font-kanit)'],
+        sarabun: ['var(--font-sarabun)'],
+      },
     },
   },
   plugins: [ ],

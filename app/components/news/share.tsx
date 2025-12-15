@@ -9,7 +9,7 @@ import { faLink } from '@fortawesome/free-solid-svg-icons';
 function ShareNews({ data }: { data?: any }) {
     const [stateCopy, setStateCopy] = useState(false);
     const shareFacebookLike_newtab = (news_id: string | number, url: string) => {
-        const BASE_URL = "http://localhost:3000/"; // Replace with your actual base URL
+        const BASE_URL = "https://teroasia.com/"; // Replace with your actual base URL
 
         let url2 = news_id
             ? `${BASE_URL}news/${news_id}?utm_source=Facebook&utm_medium=social&utm_content=${news_id}&utm_campaign=sharing`
@@ -21,7 +21,7 @@ function ShareNews({ data }: { data?: any }) {
         );
     };
     const shareTwitter = (news_id: string | number, text: string, url: string) => {
-        const BASE_URL = "http://localhost:3000/";
+        const BASE_URL = "https://teroasia.com/";
         const url2 = news_id
             ? `${BASE_URL}news/${news_id}?utm_source=Twitter&utm_medium=social&utm_content=${news_id}&utm_campaign=sharing`
             : url;
@@ -33,7 +33,7 @@ function ShareNews({ data }: { data?: any }) {
     };
 
     const shareLine = (news_id: string | number, text: string, url: string) => {
-        const BASE_URL = "http://localhost:3000/";
+        const BASE_URL = "https://teroasia.com/";
         const url2 = news_id
             ? `${BASE_URL}news/${news_id}?utm_source=Line&utm_medium=social&utm_content=${news_id}&utm_campaign=sharing`
             : url;
@@ -51,21 +51,21 @@ function ShareNews({ data }: { data?: any }) {
                 <button className="mr-1 w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-blue-500" onClick={(e) =>
                     shareFacebookLike_newtab(data.news_id, window.location.href)
                 }>
-                    <FontAwesomeIcon icon={faFacebookF} className="text-l " />
+                    <FontAwesomeIcon icon={faFacebookF} className="text-l text-white" />
                 </button>
                 <button className="mr-1 w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all duration-300 ease-in-out hover:bg-black" onClick={(e) =>
                     shareTwitter(data.news_id, data.news_title, window.location.href)
                 }>
-                    <FontAwesomeIcon icon={faXTwitter} className="text-l " />
+                    <FontAwesomeIcon icon={faXTwitter} className="text-l text-white" />
                 </button>
                 <button className="mr-1 w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-green-500" onClick={(e) =>
                     shareLine(data.news_id, data.news_title, window.location.href)
                 }>
-                    <FontAwesomeIcon icon={faLine} className="text-l " />
+                    <FontAwesomeIcon icon={faLine} className="text-l text-white" />
                 </button>
                 {/* <CopyToClipboard text={data.news_title} onCopy={() => setStateCopy(true)}> */}
                     <button className=" w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-black">
-                        <FontAwesomeIcon icon={faLink} className="text-l " />
+                        <FontAwesomeIcon icon={faLink} className="text-l text-white" />
                     </button>
                 {/* </CopyToClipboard> */}
             </div></div>

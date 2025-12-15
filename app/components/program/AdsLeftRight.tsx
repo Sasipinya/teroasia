@@ -21,7 +21,7 @@ const AdsLeftRight: React.FC<SponsorProps> = ({ base,id_ads,path_ads }) => {
            
             
                 <div
-                    className={`z-[-1] min-w-[300px] min-h-[600px] absolute  ${base}`} 
+                    className={`z-[1] min-w-[300px] min-h-[600px] absolute  ${base}`} 
                     
                 >
                      {/* AdsNews */}

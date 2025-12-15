@@ -37,14 +37,14 @@ export default function Header() {
         <div className="container mx-auto pt-1 pb-0">
           <div className="flex flex-row  items-center">
             <div className="p-2 w-1/3 flex items-center justify-start">
-              <Link href="https://www.facebook.com/TERODigital" className="mr-1 w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-blue-500">
-              <FontAwesomeIcon icon={faFacebookF} className="text-l " />
+              <Link href="https://www.facebook.com/TERODigital" className="icon-button-facebook" aria-label='Go to TERODigital facebook'>
+              <FontAwesomeIcon icon={faFacebookF} className="text-l text-white" />
               </Link>
-              <Link href="https://x.com/tero_asia" className="mr-1 w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all duration-300 ease-in-out hover:bg-black">
-                <FontAwesomeIcon icon={faXTwitter} className="text-l " />
+              <Link href="https://x.com/tero_asia" className="icon-button-x" aria-label='Go to TERODigital x'>
+                <FontAwesomeIcon icon={faXTwitter} className="text-l text-white" />
               </Link>
-              <Link href="https://www.instagram.com/terodigital/" className=" w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-red-500">
-                <FontAwesomeIcon icon={faInstagram} className="text-l " />
+              <Link href="https://www.instagram.com/terodigital/" className="icon-button-ig" aria-label='Go to TERODigital ig'>
+                <FontAwesomeIcon icon={faInstagram} className="text-l text-white" />
               </Link>
             </div>
             <div className="w-1/3 flex items-center justify-center">

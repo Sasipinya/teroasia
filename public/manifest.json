@@ -1,0 +1,11 @@
+{
+    "name": "Tero Asia | Tero Entertainment",
+    "short_name": "Tero Asia",
+    "description": "Tero Asia | Tero Entertainment",
+    "theme_color": "#fff",
+    "background_color": "#fff",
+    "start_url": "/",
+    "orientation": "portrait",
+    "display": "standalone"
+  }
+  

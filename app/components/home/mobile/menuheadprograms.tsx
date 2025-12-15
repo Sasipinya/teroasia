@@ -35,7 +35,7 @@ const MenuHeadPrograms: FC<MenuHeadProgramsProps> = ({ items }) => {
       <Swiper {...swiperConfig}>
         {items.map((item, index) => (
           <SwiperSlide key={index} >
-            <div className="flex ">
+            <div className="flex w-max">
               <Link 
                 href={`/program/${item.program_permalink}`}
                 className={` text-gray-700 font-medium tablinks ${index === 0 ? 'tablinks-active' : ''}`}

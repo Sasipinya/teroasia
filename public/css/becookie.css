@@ -1,0 +1,39 @@
+#becookies-container { width: 94% !important; }
+    #becookies-banner-title {font-size: 14px !important; }
+    #becookies-banner-description {font-size: 13px !important;}
+    #becookies-cookie-setting-btn-wrapper {padding-top: 8px!important; }
+    #becookies-cookie-setting-btn{font-size: 13px!important;width: 28px!important; height: 28px!important; }
+    #becookies-content-container {padding: 18px 140px 0px 20px !important; min-height: unset!important;
+        line-height: 16px;}
+    .becookies-privacy-notice-link {font-size: 12px !important;font-weight: 400 !important;}
+    #becookies-button-accept {min-width: 100px !important;height: unset !important;padding: 2px 3px !important;
+        font-size: 12px !important;}
+    #becookies-button-reject { min-width: 80px !important;height: unset !important;padding: 2px 3px !important;
+        font-size: 12px !important;margin-right: 6px !important; }
+    #becookies-container-content {margin-bottom: 16px !important;}
+    #becookies-action-container {right: 16px !important; bottom: 12px !important; }
+    #becookies-close-modal:before, #becookies-close-modal:after{height: 16px!important;}
+    .becookies-privacy-notice-wrapper {
+        display: inline;
+    }
+    #becookies-language-switcher-container{display: none !important;}
+    div#becookies-banner-description-wrapper {
+        display: inline;
+    }
+    @media only screen and (max-width: 768px) {
+        #becookies-content-container { padding: 15px !important;padding-top: 1px !important;padding-bottom: 1px !important;}
+        #becookies-container { width: 100% !important; }
+        #becookies-button-accept {padding: 4px 3px !important;font-size: 13px !important;}
+        #becookies-button-reject {padding: 4px 3px !important;font-size: 13px !important;margin-right: 10px !important; }
+        #becookies-container-content{margin-bottom: 0px !important;}
+        #becookies-banner-description{display: inline !important;}
+        .becookies-privacy-notice-wrapper {display: inline !important;margin-left: 16px;}
+        #becookies-cookie-setting-btn-wrapper{    margin-left: 10px;}
+    }
+
+    @media only screen and (max-width: 480px) {
+        div#becookies-action-container { margin-top: 24px; }
+    }
+    #becookies-banner-header{
+        display: none!important;
+    }

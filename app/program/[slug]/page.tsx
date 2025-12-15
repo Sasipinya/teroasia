@@ -63,7 +63,7 @@ export default async function Page({
                 <div className='flex container mx-auto '>
                     {/* Ads Left News */}
                     <AdsLeftRight id_ads='div-gpt-ad-1676442847735-0' path_ads='/33368840/TA_Desktop_Program_SideSkyscraper_Left' base='left-0' />
-                    <div>
+                    <div className='z-[2] relative bg-white'>
                         <div className='container mx-auto px-4 md:p-0 bg-white'>
                             <div className='flex align-items-center'>
                                 <div><OptimizedImage className={` border  rounded-xl w-[80px] h-[80px] md:w-[120px] md:h-[120px]    mr-2 shadow-lg`} src={data.info.program_mini_icon} width={150} height={150} alt={data.info.program_name} /></div>

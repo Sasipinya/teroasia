@@ -26,10 +26,11 @@ const HighlightNews: FC<HighlightNewsProps> = ({ data }) => {
   const imageWidth = Math.floor((16 / 9) * imageHeight);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    // <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <>
       {/* Featured Article */}
       {data[0] && (
-        <div className="mb-2">
+        <div className="mb-2 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <NewsCard
             news={data[0]}
             imageHeight={imageHeight}
@@ -39,7 +40,7 @@ const HighlightNews: FC<HighlightNewsProps> = ({ data }) => {
       )}
 
       {/* Second Row */}
-      <div className="mb-2 grid grid-cols-2 gap-2 ">
+      <div className="mb-2 grid grid-cols-2 gap-2 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {data.slice(1, 3).map((news, index) => (
           <NewsCard
             key={index}
@@ -51,7 +52,7 @@ const HighlightNews: FC<HighlightNewsProps> = ({ data }) => {
       </div>
 
       {/* Third Row */}
-      <div className="grid grid-cols-2 gap-2 ">
+      <div className="grid grid-cols-2 gap-2 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {data.slice(3, 5).map((news, index) => (
           <NewsCard
             key={index}
@@ -61,7 +62,8 @@ const HighlightNews: FC<HighlightNewsProps> = ({ data }) => {
           />
         ))}
       </div>
-    </div>
+     {/* </div> */}
+    </>
   );
 };
 

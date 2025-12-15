@@ -10,7 +10,7 @@ import Link from 'next/link';
 import { NumberFormat } from '../../../lib/utils/kformat';
 import { OptimizedImage } from '../../../lib/utils/optimizesimage';
 import { Calendar, Eye } from 'lucide-react';
-import AdUnit from '../utils/AdUnit';
+
 
 function HightlightSliderNews({ data }: { data: any }) {
     const slidesWithAds = React.useMemo(() => {
@@ -50,23 +50,26 @@ function HightlightSliderNews({ data }: { data: any }) {
                                 </div>
                             ) : (
                                 <div className="max-w-sm rounded overflow-hidden shadow-lg">
-                                    <Link href={`/news/${item.news_id}`} className='cursor-pointer'>
-                                        <OptimizedImage 
-                                            src={item.image_url} 
-                                            alt={item.news_title} 
-                                            width={300} 
-                                            height={100} 
-                                            style={{ height: 'auto' }} 
-                                            className='w-full rounded-md' 
-                                        />
-                                    </Link>
+                                    {item.image_url && item.image_url.length > 0 && (
+                                        <Link href={`/news/${item.news_id}`} className='cursor-pointer'>
+                                            <OptimizedImage 
+                                                src={item.image_url} 
+                                                alt={item.news_title} 
+                                                width={300} 
+                                                height={100} 
+                                                style={{ height: 'auto' }} 
+                                                className='w-full rounded-md' 
+                                            />
+                                        </Link>
+                                    )}
+                                    
                                     <div className="py-4">
                                         <p>
                                             <Link 
                                                 href={`/news/${item.news_id}`} 
                                                 className='text-md text-white line-clamp-2 hover:text-red-700 cursor-pointer'
                                             >
-                                                {item.news_title}
+                                                {item.news_title?? ''}
                                             </Link>
                                         </p>
                                     </div>
@@ -74,13 +77,13 @@ function HightlightSliderNews({ data }: { data: any }) {
                                         <div className="px-3 py-1 flex mr-1 mb-2">
                                             <Calendar className="w-[16px] h-[16px] text-gray-200 mr-1" />
                                             <span className="text-xs text-gray-200">
-                                                {item.news_strdate}
+                                                {item.news_strdate?? ''}
                                             </span>
                                         </div>
                                         <div className="px-3 py-1 flex mr-1 mb-2">
                                             <Eye className="w-[16px] h-[16px] text-xs text-gray-200 mr-1" />
                                             <span className="text-xs text-gray-200">
-                                                {NumberFormat(item.news_count)}
+                                                {NumberFormat(item.news_count?? 0)}
                                             </span>
                                         </div>
                                     </div>

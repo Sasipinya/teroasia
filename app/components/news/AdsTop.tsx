@@ -27,7 +27,7 @@ const AdsTop =() => {
     return (
         <>
             <div
-                className={`cursor-pointer bg-none`}
+                className={`cursor-pointer bg-none py-2`}
             >
                 {adsConfig.path_ads_bg && (
                     <div className="container mx-auto">
@@ -48,7 +48,7 @@ const AdsTop =() => {
                         </div>
                     </div>
                 )}
-
+<div id="TA_Article_Leaderboard"></div>
             </div>
 
 

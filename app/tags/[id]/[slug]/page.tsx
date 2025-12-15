@@ -1,62 +1,64 @@
+import TagsListNews from "@/app/components/tags/tagslistnews";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
-
-
-import { Metadata } from 'next'
-import TagsListNews from '@/app/components/tags/tagslistnews';
-async function getTagsByLimit(tag_id: string, pageLimit: number, offset: number) {
-    const url = "https://backend.teroasia.com/apis2/index_test.php?a=get_tag&tag_id=" + tag_id + "&limit=" + pageLimit + "&o=" + offset
-    const response = await fetch(url);
-    return response.json();
+// ดึง tag info
+async function fetchTagInfo(tagId: string) {
+  const res = await fetch(
+    `https://backend.teroasia.com/apis2/index_test.php?a=get_tag&tag_id=${tagId}&limit=1&o=0`,
+    { cache: "no-store" }
+  );
+  if (!res.ok) return null;
+  const json = await res.json();
+  return json?.data?.tag_info ?? null;
 }
 
 
-export async function generateMetadata({ params }: {
-    params: Promise<{ id: string, slug: string }>
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string; slug: string }>;
 }): Promise<Metadata> {
-    try {
-        const id = (await params).id
-        const { data } = await getTagsByLimit(id, 1, 0);
-        return {
-            title: data.tag_info.tag_name,
-            description: data.tag_info.tag_name,
-        };
-    } catch (error) {
-        return {
-            title: 'Tags Not Found',
-        };
-    }
+  try {
+    const { id, slug } = await params;
+    const tagInfo = await fetchTagInfo(id);
+    if (!tagInfo) throw new Error("Not found");
+
+    return {
+      title: `แท็ก: ${tagInfo.tag_name}`,
+      description: `ข่าวที่เกี่ยวข้องกับแท็ก ${tagInfo.tag_name}`,
+    };
+  } catch (e) {
+    return { title: "Tag Not Found" };
+  }
 }
 
 export default async function Page({
-    params,
+  params,
 }: {
-    params: Promise<{ id: string, slug: string }>
+  params: Promise<{ id: string; slug: string }>;
 }) {
+  const { id, slug } = await params;
+  const tagInfo = await fetchTagInfo(id);
 
-    const id = (await params).id
-    const slug = (await params).slug
-    const { data } = await getTagsByLimit(id, 1, 0);
+  if (!tagInfo || !tagInfo.tag_name) return notFound();
 
+  const expectedSlug = decodeURIComponent(tagInfo.tag_name);
+  const currentSlug = decodeURIComponent(slug);
 
+  if (expectedSlug !== currentSlug) return notFound();
 
+  return (
+    <main className="flex flex-col">
+      <div className="container mx-auto p-4">
+        <h1 className="text-2xl md:text-3xl text-gray-700">
+          แท็ก : <span className="ml-2 text-red-600">{tagInfo.tag_name}</span>
+        </h1>
+      </div>
 
-    return (
-        <>
-
-            <main className="flex flex-col">
-                <div className='container mx-auto px-4 md:p-0'>
-                    <div className='flex'>
-                        <h1 className='text-2xl  text-gray-700  md:text-3xl  flex align-item-center'>แท็ก :  <span className='ml-3 text-red-600'>{data.tag_info.tag_name}</span> </h1>
-                    </div>
-                </div>
-                <div className='container mx-auto'>
-                    <TagsListNews data={data} />
-                </div>
-                
-            </main >
-
-
-        </>
-
-    );
+      <div className="container mx-auto">
+        <TagsListNews data={{ tag_info: tagInfo }} />
+      </div>
+    </main>
+  );
 }

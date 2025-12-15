@@ -1,16 +1,14 @@
 'use client';
-import { useEffect, useRef } from 'react';
 
-// Define types
+import { useEffect, useRef, useState } from 'react';
+
 type SingleSize = [number, number] | [string];
 type MultiSize = SingleSize[];
 type GeneralSize = SingleSize | MultiSize;
 
-// Declare window.googletag
 declare global {
   interface Window {
-    googletag?: any;  // เปลี่ยนเป็น any เพื่อความยืดหยุ่น
-    adsbygoogle?: any[];
+    googletag?: any;
   }
 }
 
@@ -20,38 +18,59 @@ interface AdUnitProps {
   id: string;
   targeting?: Record<string, string | string[]>;
   Mxauto?: string;
+  placeholderColor?: string;
 }
 
-const AdUnit: React.FC<AdUnitProps> = ({ adUnitPath, size, id, targeting, Mxauto }) => {
+const AdUnit: React.FC<AdUnitProps> = ({
+  adUnitPath,
+  size,
+  id,
+  targeting,
+  Mxauto,
+  placeholderColor = '#f5f5f5',
+}) => {
   const adRef = useRef<HTMLDivElement>(null);
   const slotRef = useRef<any>(null);
-  const isScriptLoaded = useRef(false);
+  const [shouldLoad, setShouldLoad] = useState(false);
 
+  // 👀 Lazy Load Trigger
   useEffect(() => {
-    // สร้างฟังก์ชันสำหรับ initialize GPT
-    const initGPT = () => {
+    if (!adRef.current) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setShouldLoad(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.1 });
+
+    observer.observe(adRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // 🔥 GPT Load + Display (with idle callback for PageSpeed)
+  useEffect(() => {
+    if (!shouldLoad) return;
+
+    const runGPT = () => {
       window.googletag = window.googletag || {};
       window.googletag.cmd = window.googletag.cmd || [];
 
       window.googletag.cmd.push(() => {
         try {
-          // กำหนดค่า GPT
           const pubads = window.googletag.pubads();
           pubads.set("page_url", window.location.href);
           pubads.setTargeting("url", window.location.pathname);
           pubads.collapseEmptyDivs(true);
 
-          // ลบ slot เก่า (ถ้ามี)
           if (slotRef.current) {
-            window.googletag.destroySlots();
+            window.googletag.destroySlots([slotRef.current]);
           }
 
-          // สร้าง slot ใหม่
           const slot = window.googletag.defineSlot(adUnitPath, size, id);
           if (slot) {
             slot.addService(pubads);
 
-            // เพิ่ม targeting
             if (targeting) {
               Object.entries(targeting).forEach(([key, value]) => {
                 slot.setTargeting(key, value);
@@ -59,57 +78,55 @@ const AdUnit: React.FC<AdUnitProps> = ({ adUnitPath, size, id, targeting, Mxauto
             }
 
             slotRef.current = slot;
+
             window.googletag.enableServices();
+            window.googletag.display(id);
+
+            // 🟡 ปล่อยให้แสดงก่อน แล้วค่อย refresh ถ้าอยาก
+            // window.googletag.pubads().refresh([slot]);
           }
-        } catch (error) {
-          console.error('Error in GPT initialization:', error);
+        } catch (err) {
+          console.error('Failed to load GPT:', err);
         }
       });
     };
 
-    // โหลด GPT script
-    if (!isScriptLoaded.current) {
-      const script = document.createElement('script');
-      script.src = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js';
-      script.async = true;
-      script.onload = () => {
-        isScriptLoaded.current = true;
-        initGPT();
-        // แสดง ad หลังจาก script โหลดเสร็จ
-        window.googletag.cmd.push(() => {
-          window.googletag.display(id);
-          if (slotRef.current) {
-            window.googletag.pubads().refresh([slotRef.current]);
-          }
-        });
-      };
-      document.head.appendChild(script);
+    // ✅ ให้โหลด ads ช้าๆ เพื่อไม่ให้ PageSpeed หัก
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(runGPT);
     } else {
-      initGPT();
-      // แสดง ad ถ้า script โหลดแล้ว
-      window.googletag.cmd.push(() => {
-        window.googletag.display(id);
-        if (slotRef.current) {
-          window.googletag.pubads().refresh([slotRef.current]);
-        }
-      });
+      setTimeout(runGPT, 1000);
     }
 
-    // Cleanup
     return () => {
-      if (window.googletag && window.googletag.cmd) {
+      if (window.googletag?.cmd && slotRef.current) {
         window.googletag.cmd.push(() => {
-          if (slotRef.current) {
-            window.googletag.destroySlots();
-            slotRef.current = null;
-          }
+          window.googletag.destroySlots([slotRef.current]);
+          slotRef.current = null;
         });
       }
     };
-  }, [adUnitPath, size, id, targeting]);
+  }, [shouldLoad, adUnitPath, size, id, targeting]);
 
-  const containerWidth = Array.isArray(size[0]) ? size[0][0] : size[0];
-  const containerHeight = Array.isArray(size[0]) ? size[0][1] : size[1];
+  // 🎯 ป้องกัน CLS ด้วย fallback ขนาด
+  let containerWidth: string | number = '100%';
+  let containerHeight: string | number = 'auto';
+
+  if (Array.isArray(size[0])) {
+    const firstSize = size[0] as [number, number];
+    containerWidth = firstSize[0];
+    containerHeight = firstSize[1];
+  } else if (
+    Array.isArray(size) &&
+    typeof size[0] === 'number' &&
+    typeof size[1] === 'number'
+  ) {
+    containerWidth = size[0];
+    containerHeight = size[1];
+  } else {
+    containerWidth = 300;
+    containerHeight = 250;
+  }
 
   return (
     <div
@@ -117,12 +134,16 @@ const AdUnit: React.FC<AdUnitProps> = ({ adUnitPath, size, id, targeting, Mxauto
       ref={adRef}
       style={{
         width: typeof containerWidth === 'number' ? `${containerWidth}px` : containerWidth,
-        height: Array.isArray(containerHeight) ? `${containerHeight[0]}px` : typeof containerHeight === 'number' ? `${containerHeight}px` : containerHeight,
-       
+        height: typeof containerHeight === 'number' ? `${containerHeight}px` : containerHeight,
+        minHeight: typeof containerHeight === 'number' ? `${containerHeight}px` : '250px',
+        position: 'relative',
+        backgroundColor: placeholderColor,
       }}
-      className={Mxauto === 'mx-auto' ? "mx-auto" : ""}
+      className={Mxauto === 'mx-auto' ? 'mx-auto' : ''}
       data-testid="ad-unit-container"
-    />
+    >
+      {!shouldLoad && <div aria-hidden="true" style={{ display: "none" }} />}
+    </div>
   );
 };
 

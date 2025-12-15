@@ -39,21 +39,21 @@ function ShareProgram({ data }: { data?: any }) {
                 <button className="mr-1 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-blue-500" onClick={(e) =>
                     shareFacebookLike_newtab(window.location.href)
                 }>
-                    <FontAwesomeIcon icon={faFacebookF} className="text-l " />
+                    <FontAwesomeIcon icon={faFacebookF} className="text-l text-white" />
                 </button>
                 <button className="mr-1 w-8 h-8 md:w-10 md:h-10  flex items-center justify-center rounded-full bg-gray-700 hover:transition-all duration-300 ease-in-out hover:bg-black" onClick={(e) =>
                     shareTwitter(data.info.program_name, window.location.href)
                 }>
-                    <FontAwesomeIcon icon={faXTwitter} className="text-l " />
+                    <FontAwesomeIcon icon={faXTwitter} className="text-l text-white" />
                 </button>
                 <button className="mr-1 w-8 h-8 md:w-10 md:h-10  flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-green-500" onClick={(e) =>
                     shareLine(data.info.program_name, window.location.href)
                 }>
-                    <FontAwesomeIcon icon={faLine} className="text-l " />
+                    <FontAwesomeIcon icon={faLine} className="text-l text-white" />
                 </button>
                 {/* <CopyToClipboard text={data.info.program_name} onCopy={() => setStateCopy(true)}> */}
                     <button className=" w-8 h-8 md:w-10 md:h-10  flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-black">
-                        <FontAwesomeIcon icon={faLink} className="text-l " />
+                        <FontAwesomeIcon icon={faLink} className="text-l text-white" />
                     </button>
                 {/* </CopyToClipboard> */}
             </div>

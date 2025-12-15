@@ -27,21 +27,11 @@ const menuSections: MenuSection[] = [
     title: "รายการทีวี",
     items: [
       { href: "/program/thediscussion", title: "ถกไม่เถียง", image: "/images/tv-program/tdc.jpg" },
-      { href: "/program/HotNewsCh7HD", title: "ข่าวเย็นประเด็นร้อน", image: "/images/tv-program/news-02.jpg" },
+      { href: "/program/TSD_MoneyGuru", title: "เงินทองของจริง", image: "/images/tv-program/money.jpg" },
+      { href: '/program/kidsnews', title: 'คิดฝัน Kids Fun', image: '/images/tv-program/logo_kidsfun.png' },
       { href: "/program/OneChampionship", title: "ONE", image: "/images/tv-program/one.jpg" },
       { href: "/program/onelumpinee", title: "ONE Lumpinee", image: "/images/tv-program/one-lumpinee.jpg" },
-      { href: "/", title: "การ์ตูนดังรายสัปดาห์", image: "/images/tv-program/cartoon.jpg" },
-      { href: "/program/spyxfamily", title: "Spy x Family" },
-      { href: "/program/campfire-cooking", title: "Campfire Cooking in Another World with My Absurd Skill" },
-      { href: "/program/Masked-Rider-Saber", title: "มาสค์ไรเดอร์" },
-      { href: "/program/ultraman-taiga-the-movie", title: "อุลตร้าแมน" },
-      { href: "/program/gundam-build-divers-re-rise", title: "กันดั้มบิลด์ไดเวอร์ส รี:ไรซ์" },
-      { href: "/program/TSD_MoneyGuru", title: "เงินทองของจริง", image: "/images/tv-program/money.jpg" },
       { href: "/program/FairtexFight", title: "FAIRTEX FIGHT มวยมันพันธุ์ EXTREM", image: "/images/tv-program/fairtex.jpg" },
-      { href: "/program/vnl2024", title: "VOLLEYBALL NATIONS LEAGUE 2024", image: "/images/tv-program/vnl.jpg" },
-      { href: "/program/ka-ngow", title: "ฆ่าโง่", image: "/images/tv-program/kangow.jpg" },
-      { href: "/program/HugMeCh7HD", title: "ขอกอดหน่อย", image: "/images/tv-program/hug.jpg" },
-      { href: "/program/Beartai7HD", title: "BEARTAI 7HD ไอทีและยานยนต์", image: "/images/tv-program/beartai.jpg" },
     ]
   },
   {
@@ -86,15 +76,14 @@ const NavbarMobile: React.FC = () => {
   // Menu Item Component
   const MenuItem: React.FC<{ item: MenuItem; close: () => void }> = ({ item, close }) => {
     const linkProps = item.external ? { target: "_blank", rel: "noopener noreferrer" } : {};
-    
+
     return (
       <Menu.Item>
         {({ active }) => (
           <Link
             href={item.href}
-            className={`flex items-center px-4 py-2 text-xl ${
-              active ? 'bg-gray-200 text-gray-900' : 'text-gray-700'
-            } animate__animated animate__fadeInLeft animate__delay-custom-1`}
+            className={`flex items-center px-4 py-2 text-xl ${active ? 'bg-gray-200 text-gray-900' : 'text-gray-700'
+              } animate__animated animate__fadeInLeft animate__delay-custom-1`}
             onClick={close}
             {...linkProps}
           >
@@ -127,20 +116,20 @@ const NavbarMobile: React.FC = () => {
             <div className="container mx-auto">
               <div className="flex items-center justify-between pt-2 pb-0 px-2">
                 <div className="flex items-center">
-                  <Menu.Button className="inline-flex justify-start rounded-md bg-white bg-opacity-20 text-md font-medium text-red-600 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-opacity-75">
+                  <Menu.Button aria-label="Open main menu" className="inline-flex justify-start rounded-md bg-white bg-opacity-20 text-md font-medium text-red-600 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-opacity-75">
                     <FontAwesomeIcon icon={faBars} className="h-9 w-10 text-red-600" />
                   </Menu.Button>
                   <Link href='/'>
-                  <Image
-                    src="/images/logo_tero.png"
-                    alt="logoteroasia"
-                    width={133}
-                    height={43}
-                    style={{ height: '43px', width: '143px' }}
-                    loading="lazy"
-                    placeholder="blur"
-                    blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(150, 48))}`}
-                  />
+                    <Image
+                      src="/images/logo_tero.png"
+                      alt="logoteroasia"
+                      width={133}
+                      height={43}
+                      style={{ height: '43px', width: '143px' }}
+                      loading="lazy"
+                      placeholder="blur"
+                      blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(150, 48))}`}
+                    />
                   </Link>
                 </div>
                 <div className="flex items-center gap-2">
@@ -178,17 +167,17 @@ const NavbarMobile: React.FC = () => {
                 <div className="px-4 py-2">
                   {/* Menu Header */}
                   <div className="flex justify-between items-center mb-4">
-                  <Link href='/'>
-                    <Image
-                      src="/images/logo_tero.png"
-                      alt="logoteroasia"
-                      width={150}
-                      height={48}
-                      style={{ height: 'auto', width: 'auto' }}
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(150, 48))}`}
-                    />
+                    <Link href='/'>
+                      <Image
+                        src="/images/logo_tero.png"
+                        alt="logoteroasia"
+                        width={150}
+                        height={48}
+                        style={{ height: 'auto', width: 'auto' }}
+                        loading="lazy"
+                        placeholder="blur"
+                        blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(150, 48))}`}
+                      />
                     </Link>
                     <button
                       onClick={close}

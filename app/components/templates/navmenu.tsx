@@ -29,16 +29,12 @@ interface MenuGroup {
 }
 
 const tvPrograms: MenuItem[] = [
-  { label: 'เงินทองของจริง', href: '/program/TSD_MoneyGuru' },
-  { label: 'ข่าวเย็นประเด็นร้อน', href: '/program/HotNewsCh7HD' },
-  { label: 'Fairtex Fight มวยมันพันธุ์ EXTREME', href: '/program/FairtexFight' },
-  { label: 'VOLLEYBALL NATIONS LEAGUE 2024', href: '/program/vnl2024' },
   { label: 'ถกไม่เถียง', href: '/program/thediscussion' },
-  { label: 'ฆ่าโง่', href: '/program/ka-ngow' },
-  { label: 'Spy x Family', href: '/program/spyxfamily' },
-  { label: 'Campfire cooking in another world', href: '/program/campfire-cooking' },
-  { label: 'อุลตร้าแมน', href: '/program/ultraman-taiga-the-movie' },
-  { label: 'มาสค์ไรเดอร์ รีไวซ์', href: '/program/Masked-Rider-Saber' }
+  { label: 'เงินทองของจริง', href: '/program/TSD_MoneyGuru' },
+  { label: 'คิดฝัน Kids Fun', href: '/program/kidsnews' },
+  { label: 'One', href: '/program/OneChampionship' },
+  { label: 'One Lumpinee', href: '/program/onelumpinee' },
+  { label: 'Fairtex Fight มวยมันพันธุ์ EXTREME', href: '/program/FairtexFight' },
 ];
 
 const showPrograms: MenuItem[] = [

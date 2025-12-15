@@ -9,7 +9,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="hidden md:block p-2 border-t-4 border-t-gray-500 pt-[50px]  row-start-3 md:flex gap-6 flex-wrap items-center justify-center bg-[#1f2024]">
+      <footer className="hidden md:block md:absolute md:w-full p-2 border-t-4 border-t-gray-500 pt-[50px]  row-start-3 md:flex gap-6 flex-wrap items-center justify-center bg-[#1f2024]">
         <div className="container mx-auto">
           <div className="flex w-full  text-white">
             <div className="flex-1">

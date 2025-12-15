@@ -3,7 +3,7 @@ interface Program {
     program_mini_icon: string;
     program_name: string;
   }
-
+'use client';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode } from 'swiper/modules';

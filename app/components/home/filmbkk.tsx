@@ -162,7 +162,7 @@ export default function Filmbkk() {
     return (
         <>
 
-            <div className='hidden md:block bg-black ' style={{ backgroundImage: "url(/filmbkk/images/bg-bkk-01.jpg)", backgroundSize: "cover" }}>
+            <div className='hidden md:block bg-black ' style={{ backgroundImage: "url(/filmbkk/images/bg-bkk-01.webp)", backgroundSize: "cover" }}>
                 <div className="container mx-auto pt-8">
 
                     {renderHtml()}

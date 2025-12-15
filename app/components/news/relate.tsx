@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link'
 import { Calendar, Eye } from 'lucide-react';
 import { NumberFormat } from '@/lib/utils/kformat';
@@ -11,19 +12,19 @@ function RelateNews({ data_relate }: { data_relate?: any }) {
 
                 {data_relate.data && data_relate.data.length > 0 && data_relate.data.slice(0, 5).map((item: any, index: number) => (
                     <div className=" rounded-tl-md  rounded-tr-md shadow-md border mb-2" key={index}>
-                        <Link href={`/news/${item.news_id}`} >
+                        <Link href={`/news/${item.news_id}`} prefetch={false}>
                         <OptimizedImage
                             src={item.image_url}
                             alt={item.news_title}
-                            className="w-full md:h-full md:w-48 object-cover md:rounded-l-md rounded-tl-md  rounded-tr-md"
+                            className="w-full  object-cover  rounded-tl-md  rounded-tr-md"
                             width={500}
                             height={300}
                             
                         /></Link>
                         <div className=" p-3 flex flex-col justify-between">
-                            <Link href={`/program/${item.program_slug}`} className='none text-xs  text-gray-600'>{item.program_name}</Link>
+                            <Link href={`/program/${item.program_slug}`} className='none text-xs  text-gray-600' prefetch={true}>{item.program_name}</Link>
 
-                            <h3 ><Link href={`/news/${item.news_id}`} className='text-base font-medium   text-gray-600 hover:text-red-700 line-clamp-2' >{item.news_title}</Link></h3>
+                            <h3 ><Link href={`/news/${item.news_id}`} className='text-base font-medium   text-gray-600 hover:text-red-700 line-clamp-2' prefetch={false}>{item.news_title}</Link></h3>
                             <div>
                                 <div className=" flex">
                                     <div className='px-1 py-1 mr-1 mb-2 flex align-items-center'>

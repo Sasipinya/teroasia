@@ -7,11 +7,12 @@ interface SponsorProps {
    base?: 'left-0' | 'right-0';
    id_ads: string;
    path_ads:string;
+   lr: 'Left' | 'Right';
 }
 
 
 
-const AdsLeftRight: React.FC<SponsorProps> = ({ base,id_ads,path_ads }) => {
+const AdsLeftRight: React.FC<SponsorProps> = ({ base,id_ads,path_ads,lr }) => {
  
   
 
@@ -21,7 +22,7 @@ const AdsLeftRight: React.FC<SponsorProps> = ({ base,id_ads,path_ads }) => {
            
             
                 <div
-                    className={`z-[-1] min-w-[300px] min-h-[600px] absolute  ${base}`} 
+                    className={`z-[1] min-w-[300px] min-h-[600px] absolute  ${base}`} 
                     
                 >
                      {/* AdsNews */}
@@ -32,7 +33,7 @@ const AdsLeftRight: React.FC<SponsorProps> = ({ base,id_ads,path_ads }) => {
                         id={id_ads}
                         
                         />
-                    
+                      <div id={`TA_Article_${lr}`}></div>
                 </div>
 
                 
