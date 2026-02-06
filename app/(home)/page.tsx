@@ -84,7 +84,7 @@ export default async function Home() {
 
   return (
     <>
-      <Layout headerStyle={1} footerStyle={1}>
+    
         <Head>
           <link
             rel="preload"
@@ -106,7 +106,7 @@ export default async function Home() {
             NewHomeData={safeNewHome}
           />
         </Suspense>
-      </Layout>
+      
     </>
 
   );

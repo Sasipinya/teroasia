@@ -200,7 +200,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${kanit.className} antialiased bg-white overflow-x-hidden`}
+        className={`${kanit.className} antialiased bg-white overflow-x-hidden homepage1-body`}
         suppressHydrationWarning={true}
       >
         <React.StrictMode>

@@ -44,7 +44,7 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, chil
 	return (
 		<>
 			<div id="top" />
-			<AddClassBody />
+			{/* <AddClassBody /> */}
 			<Header1 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
 			<MobileMenu isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} />
 			{children}
