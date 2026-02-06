@@ -1,6 +1,7 @@
-import HomeClient from './components/home/HomeClient';
+import Layout from "../components/home/layout/Layout"
+import HomeClient from '../components/home/HomeClient';
 import { Suspense } from 'react';
-import NewsSectionSkeleton from './components/skeletons/NewsSectionSkeleton';
+import NewsSectionSkeleton from '../components/skeletons/NewsSectionSkeleton';
 import Head from 'next/head'
 export const revalidate = 3600;
 import { Metadata } from 'next';
@@ -67,40 +68,48 @@ export default async function Home() {
       ]
     }
   };
-  const [mainData, topNews, mobileDataDev] = await Promise.all([
+  const [mainData, topNews, mobileDataDev,NewHomeData] = await Promise.all([
     fetch('https://backend.teroasia.com/apis2/index.php?a=news_main', { next: { revalidate: 0 } }).then(res => res.json()),
     fetch('https://backend.teroasia.com/apis2/index.php?a=get_top_view_set', { next: { revalidate: 3600 } }).then(res => res.json()),
-    fetch('https://backend.teroasia.com/apis2/index.php?a=news_mobile_main_dev', { next: { revalidate: 0 } }).then(res => res.json())
+    fetch('https://backend.teroasia.com/apis2/index.php?a=news_mobile_main_dev', { next: { revalidate: 0 } }).then(res => res.json()),
+    fetch('https://backend.teroasia.com/crawl/api.php', { next: { revalidate: 0 } }).then(res => res.json())
   ]);
 
   const safeMainData = mainData?.data || {};
   const safeTopNews = topNews?.data || [];
   const safeMobileDataDev = mobileDataDev?.data || {};
+  const safeNewHome = NewHomeData?.data || {};
   const lcpImage = mobileDataDev?.data.top_head_news[0].top_image || null;
+
 
   return (
     <>
+      <Layout headerStyle={1} footerStyle={1}>
+        <Head>
+          <link
+            rel="preload"
+            as="image"
+            href={`/api/image-proxy?url=${encodeURIComponent(lcpImage)}`}
+          />
 
-      <Head>
-        <link
-          rel="preload"
-          as="image"
-          href={`/api/image-proxy?url=${encodeURIComponent(lcpImage)}`}
-        />
+        </Head>
 
-      </Head>
-
-      <Suspense fallback={<NewsSectionSkeleton />}>
-        <Script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(homePage).replace(/</g, "\\u003c") }}
-        />
-        <HomeClient
-          mainData={safeMainData}
-          topNews={safeTopNews}
-          mobileDataDev={safeMobileDataDev}
-        />
-      </Suspense>
+        <Suspense fallback={<NewsSectionSkeleton />}>
+          <Script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(homePage).replace(/</g, "\\u003c") }}
+          />
+          <HomeClient
+            mainData={safeMainData}
+            topNews={safeTopNews}
+            mobileDataDev={safeMobileDataDev}
+            NewHomeData={safeNewHome}
+          />
+        </Suspense>
+      </Layout>
     </>
+
   );
 }
+
+

@@ -163,3 +163,4 @@ top: 300px;
 .icon-button-ig {
 @apply w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-red-500;
 }
+

@@ -1,21 +1,16 @@
 import './globals.css'
-import 'animate.css'
 import React from 'react';
 import { kanit } from './fonts'
 import Script from 'next/script'
-
-import Header from './components/templates/header'
-import Footer from './components/templates/footer'
 import ClientLayout from './ClientLayout'
 import { RemoveChildLogger } from './debug/remove-child-logger'
 import ATSManager from "./components/ats";
 import { ConsentProvider } from './context/ConsentContext'
-import InnityAdsMobile from "./components/InnityAdsMobile";
 
 export const metadata = {
-  title: 'TeroAsia เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย จากช่อง 7HD ช่อง 7HD เช้านี้ที่หมอชิต ถกไม่เถียง ข่าวเย็นประเด็นร้อน มวย One Championship การ์ตูนดังสุดสัปดาห์',
-  description: 'TeroAsia เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย จากช่อง 7HD ช่อง 7HD เช้านี้ที่หมอชิต ถกไม่เถียง ข่าวเย็นประเด็นร้อน มวย One Championship การ์ตูนดังสุดสัปดาห์',
-  keywords: 'TeroAsia, ข่าวบันเทิง, กีฬา, มวย, ช่อง 7HD, One Championship, การ์ตูน',
+  title: 'TeroAsia เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย',
+  description: 'TeroAsia เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย',
+  keywords: 'TeroAsia, ข่าวบันเทิง, กีฬา, มวย, ช่อง 7HD',
   icons: {
     icon: [{ rel: 'icon', url: '/images/favicon.ico' }]
   }
@@ -53,9 +48,63 @@ export default function RootLayout({
       "query-input": "required name=query"
     }
   };
+
   return (
     <html lang="th">
       <head>
+        {/* Critical CSS Inline - สำคัญมาก! */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+          * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+          }
+          body { 
+            font-family: ${kanit.style.fontFamily};
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background: #fff;
+            overflow-x: hidden;
+          }
+          img { 
+            max-width: 100%; 
+            height: auto;
+            display: block;
+          }
+          a {
+            text-decoration: none;
+            color: inherit;
+          }
+          button {
+            font-family: inherit;
+          }
+        `}} />
+
+        {/* โหลด CSS ทันที - ไม่ต้องรอ JavaScript */}
+        {/* <link rel="stylesheet" href="/assets/css/bundle.min.css" /> */}
+        
+        <link rel="stylesheet" href="/css/becookie.css?V=8" />
+
+        {/* Swiper & Animate CSS จาก CDN */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+
+        {/* Preconnect */}
+        <link rel="preconnect" href="https://securepubads.g.doubleclick.net" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://matomo.teroasia.com" />
+        <link rel="preconnect" href="https://www.becookies.tech" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+        {/* JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(org).replace(/</g, "\\u003c") }}
@@ -64,22 +113,25 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSite).replace(/</g, "\\u003c") }}
         />
+
+        {/* Block Criteo */}
         <Script id="block-criteo-iframe" strategy="beforeInteractive">
           {`
-    new MutationObserver((mutations) => {
-      for (const m of mutations) {
-        m.addedNodes.forEach((node) => {
-          if (
-            node.nodeName === "IFRAME" &&
-            node.src?.includes?.("gum.criteo.com")
-          ) {
-            node.remove();
-          }
-        });
-      }
-    }).observe(document.body, { childList: true, subtree: true });
-  `}
+            new MutationObserver((mutations) => {
+              for (const m of mutations) {
+                m.addedNodes.forEach((node) => {
+                  if (
+                    node.nodeName === "IFRAME" &&
+                    node.src?.includes?.("gum.criteo.com")
+                  ) {
+                    node.remove();
+                  }
+                });
+              }
+            }).observe(document.body, { childList: true, subtree: true });
+          `}
         </Script>
+
         {/* Google Ads / GPT */}
         <Script
           id="googletag"
@@ -119,11 +171,6 @@ export default function RootLayout({
           }}
         />
 
-
-
-
-
-
         {/* Matomo Analytics */}
         <Script
           id="matomo"
@@ -151,7 +198,6 @@ export default function RootLayout({
           src="https://www.becookies.tech/script.js"
           data-id="6594fd1b3208111d985689f9"
         />
-        <link rel="stylesheet" href="/css/becookie.css?V=8" />
       </head>
       <body
         className={`${kanit.className} antialiased bg-white overflow-x-hidden`}
@@ -159,12 +205,9 @@ export default function RootLayout({
       >
         <React.StrictMode>
           <ConsentProvider>
-            {/* AnyMind Ads */}
-
-
             <ATSManager />
-
             <RemoveChildLogger />
+
             {/* GTM Fallback (no-JS) */}
             <noscript>
               <iframe
@@ -177,16 +220,9 @@ export default function RootLayout({
 
             {/* Main App Layout */}
             <ClientLayout>
-              <Header />
-              <main className="min-h-screen">
-                {children}
-                 {/* <InnityAdsMobile /> */}
-              </main>
-              <Footer />
-
+              {children}
             </ClientLayout>
           </ConsentProvider>
-
         </React.StrictMode>
       </body>
     </html>

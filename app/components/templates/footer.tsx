@@ -5,12 +5,12 @@ import FooterM from './mobile/footer';
 import Link from 'next/link'
 
 
-export default function Footer() {
+export default function Footer({ page }: { page: string }) {
 
   return (
     <>
       <footer className="hidden md:block md:absolute md:w-full p-2 border-t-4 border-t-gray-500 pt-[50px]  row-start-3 md:flex gap-6 flex-wrap items-center justify-center bg-[#1f2024]">
-        <div className="container mx-auto">
+        {page!=='home'&&<div className="container mx-auto">
           <div className="flex w-full  text-white">
             <div className="flex-1">
               <h3 className="font-bold mb-2">รายการ</h3>
@@ -49,7 +49,7 @@ export default function Footer() {
               </ul>
             </div>
           </div>
-        </div>
+        </div>}
 
         <div className="w-full bg-black text-white py-4">
           <div className="container mx-auto flex items-center">
