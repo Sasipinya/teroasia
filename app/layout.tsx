@@ -205,7 +205,7 @@ export default function RootLayout({
       >
         <React.StrictMode>
           <ConsentProvider>
-            <ATSManager />
+            {/* <ATSManager /> */}
             <RemoveChildLogger />
 
             {/* GTM Fallback (no-JS) */}

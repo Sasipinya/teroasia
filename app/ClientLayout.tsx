@@ -7,6 +7,7 @@ import Footer from './components/templates/footer'
 import Header1 from './components/home/layout/header/Header1'
 import MobileMenu from './components/home/layout/MobileMenu'
 import BackToTop from './components/home/elements/BackToTop'
+import ATSManager from './components/ats'
 
 export default function ClientLayout({
   children,
@@ -39,9 +40,9 @@ export default function ClientLayout({
 
   useEffect(() => {
     // Debug: ตรวจสอบว่า CSS โหลดหรือไม่
-    console.log('📊 Loaded stylesheets:')
+    // console.log('📊 Loaded stylesheets:')
     document.querySelectorAll('link[rel="stylesheet"]').forEach(el => {
-      console.log('  -', el.getAttribute('href'))
+      // console.log('  -', el.getAttribute('href'))
     })
 
     // Becookie observer
@@ -105,6 +106,7 @@ export default function ClientLayout({
   // หน้าอื่น แสดง Header/Footer
   return (
     <>
+    <ATSManager/>
       <Header />
       <main className="min-h-screen">
         {children}

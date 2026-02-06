@@ -27,7 +27,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 			<div className={`mobile-sidebar mobile-sidebar1 ${isMobileMenu ? 'mobile-menu-active' : ''}`}>
 				<div className="logosicon-area">
 					<div className="logos">
-						<img src="/assets/img/logo/logo-tero.avif" alt="" />
+						<img src="/images/logo_tero.png" alt="logo" width={200} height={100} />
 					</div>
 					<div className="menu-close" onClick={handleMobileMenu}>
 						<i className="fa-solid fa-xmark" />
