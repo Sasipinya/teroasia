@@ -68,7 +68,7 @@ export default function Section4() {
 	return (
 		<>
 
-			<div className="team3-section-area sp1">
+			<div className="team3-section-area ">
 				<div className="container">
 
 					<div className="row">
