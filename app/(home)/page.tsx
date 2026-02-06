@@ -99,6 +99,7 @@ export default async function Home() {
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(homePage).replace(/</g, "\\u003c") }}
           />
+          
           <HomeClient
             mainData={safeMainData}
             topNews={safeTopNews}

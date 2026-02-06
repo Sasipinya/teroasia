@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import GoogleTranslate from '../../GoogleTranslate'
 
 
 export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSearch, handleSearch }: any) {
@@ -77,7 +78,9 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 												<Link href="https://www.youtube.com/@tero_entertainment"><i className="fa-brands fa-youtube" /></Link>
 											</li>
 										</ul>
+										
 									</div>
+									<GoogleTranslate/>
 									<div className={`header-search-form-wrapper ${isSearch ? 'open' : ''}`}>
 										<div className="tx-search-close tx-close" onClick={handleSearch}><i className="fa-solid fa-xmark" /></div>
 										<div className="header-search-container">

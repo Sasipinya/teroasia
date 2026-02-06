@@ -9329,7 +9329,7 @@ html {
 	color: var(--ztc-text-text-2);
 	display: inline-block;
 	transition: all 0.4s;
-	padding: 0 20px;
+	padding: 0 14px;
 }
 
 .homepage1-body .header-area.homepage1 .header-elements .main-menu ul li:hover>a {
@@ -9680,7 +9680,7 @@ html {
 	color: var(--ztc-text-text-1);
 	display: block;
 	transition: all 0.4s;
-	padding: 0 20px;
+	padding: 0 14px;
 }
 
 .homepage1-body .header-area.homepage1 .header-elements .main-menu ul li a i.fa-solid.fa-angle-down {
@@ -9803,16 +9803,20 @@ html {
 }
 
 .homepage1-body .header-area.homepage1 .header-elements .btn-area .search-icon {
-	padding: 0 20px 0 0;
+	padding: 0 10px 0 0;
 	border-right: 2px solid #fff;
 }
 
 .homepage1-body .header-area.homepage1 .header-elements .btn-area ul {
+	display: contents;
 	margin: 0 0 0 20px;
 }
 
 .homepage1-body .header-area.homepage1 .header-elements .btn-area ul li {
 	display: inline-block;
+}
+.homepage1-body .header-area.homepage1 .header-elements .btn-area ul li:first-child {
+	margin-left: 10px;
 }
 .homepage1-body .header-area.homepage1 .header-elements .btn-area ul li a svg{
 	   -webkit-font-smoothing: antialiased;
