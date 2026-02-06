@@ -68,9 +68,7 @@ export default function GoogleTranslate() {
         .goog-te-banner-frame { display: none !important; }
         body { top: 0 !important; position: static !important; }
         html, body { overflow-x: hidden !important; }
-        iframe.skiptranslate { display: none !important; }
-        
-        .goog-te-gadget { font-size: 0 !important; }
+       
         .goog-te-gadget > div, .goog-te-gadget span, .goog-logo-link { display: flex !important; }
         
         .goog-te-combo {
