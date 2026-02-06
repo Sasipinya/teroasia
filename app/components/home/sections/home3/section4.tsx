@@ -103,7 +103,7 @@ export default function Section4() {
 									</div>
 									<div className="space28" />
 									<div className="content-area">
-										<Link href="/speakers">3X3</Link>
+										<Link href="/#">3X3</Link>
 										<div className="space16" />
 										
 									</div>
@@ -135,7 +135,7 @@ export default function Section4() {
 									</div>
 									<div className="space28" />
 									<div className="content-area">
-										<Link href="/speakers">ONE</Link>
+										<Link href="/#">ONE</Link>
 										<div className="space16" />
 										
 									</div>
@@ -167,7 +167,7 @@ export default function Section4() {
 									</div>
 									<div className="space28" />
 									<div className="content-area">
-										<Link href="/speakers">Miss Thailand World</Link>
+										<Link href="/#">Miss Thailand World</Link>
 										<div className="space16" />
 									</div>
 								</SwiperSlide>
@@ -198,7 +198,7 @@ export default function Section4() {
 									</div>
 									<div className="space28" />
 									<div className="content-area">
-										<Link href="/speakers">TERO Entertainment</Link>
+										<Link href="/#">TERO Entertainment</Link>
 										<div className="space16" />
 									</div>
 								</SwiperSlide>
