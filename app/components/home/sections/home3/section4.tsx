@@ -34,7 +34,7 @@ const teamMembers: TeamMember[] = [
       facebook: '/#',
       twitter: '/#',
       instagram: '/#',
-      youtube: '/#'
+      youtube: 'https://www.youtube.com/@tero_entertainment'
     }
   },
   {
@@ -45,7 +45,7 @@ const teamMembers: TeamMember[] = [
       facebook: '/#',
       twitter: '/#',
       instagram: '/#',
-      youtube: '/#'
+      youtube: 'https://www.youtube.com/@tero_entertainment'
     }
   },
   {
@@ -53,10 +53,10 @@ const teamMembers: TeamMember[] = [
     name: 'Miss Thailand World',
     image: '/assets/img/logo/logo-mtw_0.jpg',
     socialLinks: {
-      facebook: '/#',
-      twitter: '/#',
-      instagram: '/#',
-      youtube: '/#'
+      facebook: 'https://www.facebook.com/MissWorldThailandOfficial',
+      twitter: 'https://x.com/MTW_Officialth',
+      instagram: 'https://www.instagram.com/missthailandworld_official',
+      youtube: 'https://www.youtube.com/@MissThailandWorldOfficial'
     }
   },
   {
@@ -67,7 +67,7 @@ const teamMembers: TeamMember[] = [
       facebook: '/#',
       twitter: '/#',
       instagram: '/#',
-      youtube: '/#'
+      youtube: 'https://www.youtube.com/@tero_entertainment'
     }
   }
 ]
