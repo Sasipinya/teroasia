@@ -21,9 +21,6 @@ import Terodigital from './Terodigital';
 import TeroServices from './TeroServices';
 
 interface HomeClientProps {
-  mainData: any;
-  topNews: any;
-  mobileDataDev: any;
   NewHomeData: any;
 }
 function ErrorFallback({ error }: { error: Error }) {
@@ -34,7 +31,7 @@ function ErrorFallback({ error }: { error: Error }) {
     </div>
   )
 }
-export default function HomeClient({ mainData, topNews, mobileDataDev, NewHomeData }: HomeClientProps) {
+export default function HomeClient({  NewHomeData }: HomeClientProps) {
   const [loadExtra, setLoadExtra] = useState(false);
   const lazyRef = useRef<HTMLDivElement | null>(null);
 
