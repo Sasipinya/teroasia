@@ -64,9 +64,9 @@ const teamMembers: TeamMember[] = [
     name: 'TERO Entertainment',
     image: '/assets/img/logo/logo-tero-ent_0.jpg',
     socialLinks: {
-      facebook: '/#',
-      twitter: '/#',
-      instagram: '/#',
+      facebook: 'https://www.facebook.com/teroasia',
+      twitter: 'https://x.com/tero_asia',
+      instagram: 'https://www.instagram.com/terodigital',
       youtube: 'https://www.youtube.com/@tero_entertainment'
     }
   }
