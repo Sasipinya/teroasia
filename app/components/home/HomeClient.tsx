@@ -12,6 +12,13 @@ import Section7 from './sections/home1/section7';
 import Section5 from './sections/home7/section5';
 import HeroVideoSection from './HeroVideoSection';
 import { ErrorBoundary } from 'react-error-boundary';
+import LogoAndSocial from './LogoAndSocial';
+import LiveNationTero from './LiveNationTero';
+import Thaiticketmajor from './Thaiticketmajor';
+import TeroMusic from './TeroMusic';
+import AboutUs from './AboutUs';
+import Terodigital from './Terodigital';
+import TeroServices from './TeroServices';
 
 interface HomeClientProps {
   mainData: any;
@@ -50,13 +57,13 @@ export default function HomeClient({ mainData, topNews, mobileDataDev, NewHomeDa
     <>
       {/* ===================== DESKTOP ===================== */}
       <VideoPlayer src='https://teroasia.com/advertising/assets/images/Media1.mp4' />
-      <Section4 />
-      <Section2 />
-      {NewHomeData.livenation && <ErrorBoundary FallbackComponent={ErrorFallback}> <Section3 data={NewHomeData.livenation} /></ErrorBoundary>}
-      {NewHomeData.thaiticket && <ErrorBoundary FallbackComponent={ErrorFallback}> <Section5 data={NewHomeData.thaiticket} /></ErrorBoundary>}
-      {NewHomeData.teromusic && <ErrorBoundary FallbackComponent={ErrorFallback}> <Section8 data={NewHomeData.teromusic} /></ErrorBoundary>}
-      <Section6 />
-      <Section7 />
+      <LogoAndSocial />
+      <AboutUs />
+      {NewHomeData.livenation && <ErrorBoundary FallbackComponent={ErrorFallback}> <LiveNationTero data={NewHomeData.livenation} /></ErrorBoundary>}
+      {NewHomeData.thaiticket && <ErrorBoundary FallbackComponent={ErrorFallback}> <Thaiticketmajor data={NewHomeData.thaiticket} /></ErrorBoundary>}
+      {NewHomeData.teromusic && <ErrorBoundary FallbackComponent={ErrorFallback}> <TeroMusic data={NewHomeData.teromusic} /></ErrorBoundary>}
+      <Terodigital />
+      <TeroServices />
       <HeroVideoSection />
       {/* ===================== MOBILE ===================== */}
 

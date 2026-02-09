@@ -1,8 +1,17 @@
 import Link from 'next/link'
 import GoogleTranslate from '../../GoogleTranslate'
+import SearchModal from '@/app/components/templates/SearchModal'
+
 
 
 export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSearch, handleSearch }: any) {
+	// ฟังก์ชันสำหรับจัดการการค้นหา
+	const handleSearchSubmit = (searchTerm: string) => {
+		if (searchTerm.trim()) {
+			window.open(`/search/${searchTerm}`, '_blank')
+		}
+	}
+
 	return (
 		<>
 			<header suppressHydrationWarning>
@@ -18,9 +27,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 										<ul>
 											<li>
 												<Link href="/#">หน้าแรก </Link>
-
 											</li>
-
 											<li>
 												<Link href="/#">รายการทีวี <i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
@@ -71,26 +78,15 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 											</li>
 											<li>
 												<Link href="https://x.com/tero_asia">
- 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M453.2 112L523.8 112L369.6 288.2L551 528L409 528L297.7 382.6L170.5 528L99.8 528L264.7 339.5L90.8 112L236.4 112L336.9 244.9L453.2 112zM428.4 485.8L467.5 485.8L215.1 152L173.1 152L428.4 485.8z"/></svg></Link>
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M453.2 112L523.8 112L369.6 288.2L551 528L409 528L297.7 382.6L170.5 528L99.8 528L264.7 339.5L90.8 112L236.4 112L336.9 244.9L453.2 112zM428.4 485.8L467.5 485.8L215.1 152L173.1 152L428.4 485.8z"/></svg>
+												</Link>
 											</li>
 											<li>
 												<Link href="https://www.youtube.com/@tero_entertainment"><i className="fa-brands fa-youtube" /></Link>
 											</li>
 										</ul>
-										
 									</div>
 									<GoogleTranslate/>
-									<div className={`header-search-form-wrapper ${isSearch ? 'open' : ''}`}>
-										<div className="tx-search-close tx-close" onClick={handleSearch}><i className="fa-solid fa-xmark" /></div>
-										<div className="header-search-container">
-											<form role="search" className="search-form">
-												<input type="search" className="search-field" placeholder="Search …" name="s" />
-												<button type="submit" className="search-submit"><img src="/assets/img/icons/search1.svg" alt="" /></button>
-											</form>
-										</div>
-									</div>
-									{isSearch && <div className="body-overlay active" onClick={handleSearch} />}
 								</div>
 							</div>
 						</div>
@@ -98,6 +94,12 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 				</div>
 			</header>
 
+			{/* ใช้ SearchModal แทน search form เดิม */}
+			<SearchModal
+				isOpen={isSearch} 
+				onClose={handleSearch} 
+				onSearch={handleSearchSubmit}
+			/>
 		</>
 	)
 }
