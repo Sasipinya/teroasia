@@ -6,13 +6,13 @@ import { useEffect } from 'react';
 export default function GoogleTranslate() {
   
 useEffect(() => {
-  document.body.classList.remove('google-translate-visible');
+
   const checkTranslateVisibility = () => {
     
     document.body.style.top = '0';
     document.body.style.position = 'static';
     
-    const skipTranslateDiv = document.querySelector('div.skiptranslate') as HTMLElement;
+    const skipTranslateDiv = document.querySelector('div.skiptranslate:has(iframe[id*="container"])') as HTMLElement;
     
     if (skipTranslateDiv) {
       const divDisplay = window.getComputedStyle(skipTranslateDiv).display;
