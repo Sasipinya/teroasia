@@ -25,33 +25,34 @@ useEffect(() => {
     }
   };
 
+  // เช็คทันที
   checkTranslateVisibility();
 
-  // เช็คหลาย events
-  const events = ['click', 'mousedown', 'touchstart', 'keydown'];
-  events.forEach(event => {
-    document.addEventListener(event, checkTranslateVisibility);
-  });
-
-  // MutationObserver ดัก style changes
+  // เช็คเมื่อคลิก
+  document.addEventListener('click', checkTranslateVisibility);
+  
+  // เช็คเมื่อมีการเปลี่ยนแปลง (สำคัญ!)
+  document.addEventListener('transitionend', checkTranslateVisibility);
+  
+  // เช็คด้วย MutationObserver
   const observer = new MutationObserver(checkTranslateVisibility);
   
-  // รอให้ Google Translate สร้าง div ก่อน
-  setTimeout(() => {
-    const targetDiv = document.querySelector('div.skiptranslate');
-    if (targetDiv) {
-      observer.observe(targetDiv, {
-        attributes: true,
-        attributeFilter: ['style']
-      });
-    }
-  }, 1000);
+  const targetDiv = document.querySelector('div.skiptranslate');
+  if (targetDiv) {
+    observer.observe(targetDiv, {
+      attributes: true,
+      attributeFilter: ['style']
+    });
+  }
+
+  // สำรอง: เช็คทุก 500ms (ถ้า observer ไม่ทำงาน)
+  const interval = setInterval(checkTranslateVisibility, 500);
 
   return () => {
-    events.forEach(event => {
-      document.removeEventListener(event, checkTranslateVisibility);
-    });
+    document.removeEventListener('click', checkTranslateVisibility);
+    document.removeEventListener('transitionend', checkTranslateVisibility);
     observer.disconnect();
+    clearInterval(interval);
     document.body.classList.remove('google-translate-visible');
   };
 }, []);
