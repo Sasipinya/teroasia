@@ -5,13 +5,13 @@ import { useEffect } from 'react';
 
 export default function GoogleTranslate() {
   
-  useEffect(() => {
+useEffect(() => {
   const checkTranslateVisibility = () => {
     document.body.style.top = '0';
     document.body.style.position = 'static';
     
-    // เช็ค div.skiptranslate ที่มี iframe ข้างใน
-    const skipTranslateDiv = document.querySelector('div.skiptranslate:has(iframe[id*="container"])') as HTMLElement;
+    // เช็ค div.skiptranslate ที่เป็น direct child ของ body
+    const skipTranslateDiv = document.querySelector('body > div.skiptranslate') as HTMLElement;
     
     if (skipTranslateDiv) {
       const divDisplay = window.getComputedStyle(skipTranslateDiv).display;
@@ -26,14 +26,18 @@ export default function GoogleTranslate() {
     }
   };
 
-  const timer = setTimeout(checkTranslateVisibility, 1500);
-  
-  document.addEventListener('click', () => {
-    setTimeout(checkTranslateVisibility, 300);
-  });
+  // เช็คทันทีเมื่อ component mount
+  checkTranslateVisibility();
+
+  // เช็คเมื่อมีการคลิก
+  const handleClick = () => {
+    checkTranslateVisibility();
+  };
+
+  document.addEventListener('click', handleClick);
 
   return () => {
-    clearTimeout(timer);
+    document.removeEventListener('click', handleClick);
     document.body.classList.remove('google-translate-visible');
   };
 }, []);
