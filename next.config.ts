@@ -40,6 +40,28 @@ const nextConfig: NextConfig = {
         protocol: 'http',
         hostname: 'www.teromusic.com',
       },
+      // Thai Ticket Major
+      {
+        protocol: 'https',
+        hostname: 'www.thaiticketmajor.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'thaiticketmajor.com',
+      },
+      // Live Nation
+      {
+        protocol: 'https',
+        hostname: 'dynamicmedia.livenationinternational.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'livenationtero.co.th',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.livenationtero.co.th',
+      },
       // External CDNs (if needed)
       {
         protocol: 'https',
