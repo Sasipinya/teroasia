@@ -11,7 +11,7 @@ useEffect(() => {
     document.body.style.position = 'static';
     
     // เช็ค div.skiptranslate ที่เป็น direct child ของ body
-    const skipTranslateDiv = document.querySelector('body > div.skiptranslate') as HTMLElement;
+    const skipTranslateDiv = document.querySelector('div.skiptranslate:has(iframe[id*="container"])') as HTMLElement;
     
     if (skipTranslateDiv) {
       const divDisplay = window.getComputedStyle(skipTranslateDiv).display;
