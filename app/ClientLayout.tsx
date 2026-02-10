@@ -6,7 +6,6 @@ import Header from './components/templates/header'
 import Footer from './components/templates/footer'
 import Header1 from './components/home/layout/header/Header1'
 import MobileMenu from './components/home/layout/MobileMenu'
-import BackToTop from './components/home/elements/BackToTop'
 import ATSManager from './components/ats'
 
 export default function ClientLayout({
@@ -97,8 +96,6 @@ export default function ClientLayout({
       <Header1 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
       <MobileMenu isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} />
       {children}
-
-      <BackToTop target="#top" />
       <Footer page="home" />
     </>
   }

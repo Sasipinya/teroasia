@@ -3,13 +3,6 @@
 import { useEffect, useState, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import VideoPlayer from './VideoPlayer';
-import Section4 from './sections/home3/section4';
-import Section2 from './sections/home4/section2';
-import Section3 from './sections/home1/section3';
-import Section8 from './sections/home1/section8';
-import Section6 from './sections/home1/section6';
-import Section7 from './sections/home1/section7';
-import Section5 from './sections/home7/section5';
 import HeroVideoSection from './HeroVideoSection';
 import { ErrorBoundary } from 'react-error-boundary';
 import LogoAndSocial from './LogoAndSocial';
@@ -52,7 +45,7 @@ export default function HomeClient({  NewHomeData }: HomeClientProps) {
 
   return (
     <>
-      {/* ===================== DESKTOP ===================== */}
+      {/* ===================== DESKTOP ===================== * AND   ===================== MOBILE ===================== */}
       <VideoPlayer src='https://teroasia.com/advertising/assets/images/Media1.mp4' />
       <LogoAndSocial />
       <AboutUs />
@@ -62,7 +55,7 @@ export default function HomeClient({  NewHomeData }: HomeClientProps) {
       <Terodigital />
       <TeroServices />
       <HeroVideoSection />
-      {/* ===================== MOBILE ===================== */}
+     
 
     </>
   );
