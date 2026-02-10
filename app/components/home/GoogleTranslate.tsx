@@ -75,6 +75,10 @@ export default function GoogleTranslate() {
         
         .goog-te-gadget-icon { display: none !important; }
 
+        .VIpgJd-ZVi9od-xl07Ob-lTBxed{
+         display: flex !important;
+        }
+
         iframe[id*="container"].skiptranslate {
           position: relative !important;
         }
