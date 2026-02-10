@@ -10,13 +10,11 @@ useEffect(() => {
     document.body.style.top = '0';
     document.body.style.position = 'static';
     
-    // เช็คแค่ div.skiptranslate
     const skipTranslateDiv = document.querySelector('div.skiptranslate') as HTMLElement;
     
     if (skipTranslateDiv) {
       const divDisplay = window.getComputedStyle(skipTranslateDiv).display;
       
-      // ถ้า div ไม่เป็น none = แสดงผล
       if (divDisplay !== 'none') {
         document.body.classList.add('google-translate-visible');
       } else {
@@ -28,10 +26,32 @@ useEffect(() => {
   };
 
   checkTranslateVisibility();
-  document.addEventListener('click', checkTranslateVisibility);
+
+  // เช็คหลาย events
+  const events = ['click', 'mousedown', 'touchstart', 'keydown'];
+  events.forEach(event => {
+    document.addEventListener(event, checkTranslateVisibility);
+  });
+
+  // MutationObserver ดัก style changes
+  const observer = new MutationObserver(checkTranslateVisibility);
+  
+  // รอให้ Google Translate สร้าง div ก่อน
+  setTimeout(() => {
+    const targetDiv = document.querySelector('div.skiptranslate');
+    if (targetDiv) {
+      observer.observe(targetDiv, {
+        attributes: true,
+        attributeFilter: ['style']
+      });
+    }
+  }, 1000);
 
   return () => {
-    document.removeEventListener('click', checkTranslateVisibility);
+    events.forEach(event => {
+      document.removeEventListener(event, checkTranslateVisibility);
+    });
+    observer.disconnect();
     document.body.classList.remove('google-translate-visible');
   };
 }, []);
