@@ -34,7 +34,7 @@ export default function TeroMusic({ data, maxDisplay = 4 }: Section8Props) {
 					<div className="row">
 						<div className="col-lg-6 m-auto">
 							<div className="blog-header text-center heading2 space-margin60">
-								<img src="http://teromusic.com/img/top-logo.png" alt="Bectero Music logo" width={300}/>
+								<img src="http://teromusic.com/img/top-logo.png" alt="Bectero Music logo" width={200}/>
 							</div>
 						</div>
 					</div>
@@ -74,7 +74,7 @@ export default function TeroMusic({ data, maxDisplay = 4 }: Section8Props) {
 				<div className="row">
 					<div className="col-lg-6 m-auto">
 						<div className="blog-header text-center heading2 space-margin60">
-							<div className='flex justify-center items-center'><img src="http://teromusic.com/img/top-logo.png" alt="Bectero Music logo" width={150}/></div>
+							<div className='flex justify-center items-center'><img src="http://teromusic.com/img/top-logo.png" alt="Bectero Music logo" width={200}/></div>
 						</div>
 					</div>
 				</div>
