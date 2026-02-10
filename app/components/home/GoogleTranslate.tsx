@@ -101,9 +101,8 @@ useEffect(() => {
           position: relative !important;
         }
 
-        body.google-translate-visible iframe[id*="container"].skiptranslate {
+        body.google-translate-visible:has(.header-area.homepage1.sticky) iframe[id*="container"].skiptranslate {
           position: fixed !important;
-          top: 0 !important;
         }
 
         body.google-translate-visible .header-area.homepage1.sticky {
