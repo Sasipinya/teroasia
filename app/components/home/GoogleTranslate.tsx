@@ -90,9 +90,23 @@ export default function GoogleTranslate() {
           display: flex;
         }
 
-        /* Sticky behavior for Google Translate iframe */
-        iframe.skiptranslate {
+        /* Google Translate iframe - เริ่มต้นเป็น relative */
+        iframe.skiptranslate,
+        iframe[id*="container"].skiptranslate {
+          position: relative !important;
+          transition: all 0.3s ease !important;
+        }
+
+        /* เมื่อ header sticky ให้ iframe เป็น fixed */
+        .header-area.homepage1.sticky ~ iframe.skiptranslate,
+        .header-area.homepage1.sticky ~ iframe[id*="container"].skiptranslate {
           position: fixed !important;
+         
+        }
+
+        /* Header sticky เลื่อนลงมา 37px */
+        .header-area.homepage1.sticky {
+          top: 37px !important;
         }
       `}</style>
     </>
