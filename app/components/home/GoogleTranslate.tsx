@@ -10,12 +10,13 @@ useEffect(() => {
     document.body.style.top = '0';
     document.body.style.position = 'static';
     
-    // เช็ค div.skiptranslate ที่เป็น direct child ของ body
-    const skipTranslateDiv = document.querySelector('div.skiptranslate:has(iframe[id*="container"])') as HTMLElement;
+    // เช็คแค่ div.skiptranslate
+    const skipTranslateDiv = document.querySelector('div.skiptranslate') as HTMLElement;
     
     if (skipTranslateDiv) {
       const divDisplay = window.getComputedStyle(skipTranslateDiv).display;
       
+      // ถ้า div ไม่เป็น none = แสดงผล
       if (divDisplay !== 'none') {
         document.body.classList.add('google-translate-visible');
       } else {
@@ -26,18 +27,11 @@ useEffect(() => {
     }
   };
 
-  // เช็คทันทีเมื่อ component mount
   checkTranslateVisibility();
-
-  // เช็คเมื่อมีการคลิก
-  const handleClick = () => {
-    checkTranslateVisibility();
-  };
-
-  document.addEventListener('click', handleClick);
+  document.addEventListener('click', checkTranslateVisibility);
 
   return () => {
-    document.removeEventListener('click', handleClick);
+    document.removeEventListener('click', checkTranslateVisibility);
     document.body.classList.remove('google-translate-visible');
   };
 }, []);
