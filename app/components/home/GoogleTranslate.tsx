@@ -93,10 +93,6 @@ export default function GoogleTranslate() {
         /* Sticky behavior for Google Translate iframe */
         iframe.skiptranslate {
           position: fixed !important;
-          top: 0 !important;
-          left: 0 !important;
-          right: 0 !important;
-          z-index: 10000 !important;
         }
       `}</style>
     </>
