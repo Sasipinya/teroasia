@@ -10,17 +10,14 @@ export default function GoogleTranslate() {
   const timer = setTimeout(() => {
     document.body.style.top = '0';
     document.body.style.position = 'static';
-    
-    const iframe = document.querySelector('iframe[id*="container"].skiptranslate') as HTMLElement;
+
     const skipTranslateDiv = document.querySelector('div.skiptranslate') as HTMLElement;
     
     // เช็คทั้ง iframe และ div ว่าแสดงผลจริงหรือไม่
-    if (iframe && skipTranslateDiv) {
-      const iframeDisplay = window.getComputedStyle(iframe).display;
+    if (skipTranslateDiv) {
       const divDisplay = window.getComputedStyle(skipTranslateDiv).display;
-      
       // ต้องทั้ง iframe และ div ไม่เป็น none ถึงจะถือว่าแสดงผล
-      if (iframeDisplay !== 'none' && divDisplay !== 'none') {
+      if (divDisplay !== 'none') {
         document.body.classList.add('google-translate-visible');
       } else {
         document.body.classList.remove('google-translate-visible');
