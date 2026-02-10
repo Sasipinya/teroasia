@@ -96,13 +96,13 @@ export default function GoogleTranslate() {
         }
 
         /* เมื่อ header sticky ให้ iframe เป็น fixed */
-        .header-area.homepage1.sticky ~ iframe[id*="container"].skiptranslate {
+        ~ iframe[id*="container"].skiptranslate {
           position: fixed !important;
          
         }
 
         /* Header sticky เลื่อนลงมา 37px */
-        .header-area.homepage1.sticky {
+        body:has(iframe[id*="container"].skiptranslate) .header-area.homepage1.sticky {
           top: 37px !important;
         }
       `}</style>
