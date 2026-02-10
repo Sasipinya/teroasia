@@ -25,16 +25,25 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Tero Asia",
+    alternateName: "เทโรเอเชีย",
     url: "https://teroasia.com",
     logo: {
       "@type": "ImageObject",
-      url: "https://teroasia.com/images/logo_tero.png"
+      url: "https://teroasia.com/images/logo_tero.png",
+      width: "600",
+      height: "60"
     },
+    description: "เชื่อมติดทุกข่าวสาร ความบันเทิง กีฬา มวย",
     sameAs: [
       "https://www.facebook.com/teroasia",
       "https://www.youtube.com/teroasia",
       "https://www.instagram.com/teroasia"
-    ]
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "Customer Service",
+      availableLanguage: ["Thai", "English"]
+    }
   };
 
   const webSite = {
@@ -47,6 +56,18 @@ export default function RootLayout({
       target: "https://teroasia.com/search?q={query}",
       "query-input": "required name=query"
     }
+  };
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "หน้าแรก",
+        item: "https://teroasia.com"
+      }
+    ]
   };
 
   return (
@@ -83,7 +104,7 @@ export default function RootLayout({
 
         {/* โหลด CSS ทันที - ไม่ต้องรอ JavaScript */}
         {/* <link rel="stylesheet" href="/assets/css/bundle.min.css" /> */}
-        
+
         <link rel="stylesheet" href="/css/becookie.css?V=8" />
 
         {/* Swiper & Animate CSS จาก CDN */}
@@ -112,6 +133,12 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSite).replace(/</g, "\\u003c") }}
+        />
+         <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ 
+            __html: JSON.stringify(breadcrumb).replace(/</g, "\\u003c") 
+          }}
         />
 
         {/* Block Criteo */}
