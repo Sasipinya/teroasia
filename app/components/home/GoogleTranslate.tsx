@@ -6,31 +6,21 @@ import { useEffect } from 'react';
 export default function GoogleTranslate() {
   
   useEffect(() => {
-    // ลบ scrollbar ที่ Google Translate สร้างมา
-    const removeGoogleTranslateScrollbar = () => {
+    let intervalId: NodeJS.Timeout;
+    let timeoutId: NodeJS.Timeout;
+
+    const init = () => {
+      // ลบ scrollbar ที่ Google Translate สร้างมา
       document.body.style.top = '0';
       document.body.style.position = 'static';
-      document.documentElement.style.overflow = 'visible';
-      document.body.style.overflow = 'visible';
-    };
-
-    // เช็คว่า Google Translate iframe แสดงผลหรือไม่
-    const checkTranslateVisibility = () => {
-      const iframe = document.querySelector('iframe[id*="container"].skiptranslate');
-      const skipTranslateDiv = document.querySelector('div.skiptranslate');
       
-      if (iframe && skipTranslateDiv) {
+      // เช็คว่า Google Translate iframe แสดงผลหรือไม่
+      const iframe = document.querySelector('iframe[id*="container"].skiptranslate') as HTMLElement;
+      
+      if (iframe) {
         const iframeStyle = window.getComputedStyle(iframe);
-        const divStyle = window.getComputedStyle(skipTranslateDiv);
+        const isVisible = iframeStyle.display !== 'none' && iframeStyle.visibility !== 'hidden';
         
-        // เช็คว่า iframe แสดงผลจริงๆ หรือไม่
-        const isVisible = 
-          iframeStyle.display !== 'none' && 
-          iframeStyle.visibility !== 'hidden' &&
-          divStyle.display !== 'none' &&
-          divStyle.visibility !== 'hidden';
-        
-        // เพิ่ม/ลบ class ตามสถานะ
         if (isVisible) {
           document.body.classList.add('google-translate-visible');
         } else {
@@ -39,33 +29,20 @@ export default function GoogleTranslate() {
       }
     };
 
-    // เช็คทุก 100ms ในช่วง 3 วินาทีแรก
-    const interval = setInterval(() => {
-      removeGoogleTranslateScrollbar();
-      checkTranslateVisibility();
-    }, 100);
-    
-    const timeout = setTimeout(() => clearInterval(interval), 3000);
-
-    // Observer เพื่อดัก style changes
-    const observer = new MutationObserver(checkTranslateVisibility);
-    observer.observe(document.body, {
-      attributes: true,
-      attributeFilter: ['style', 'class'],
-      subtree: true,
-      childList: true
-    });
+    // รันทุก 200ms แค่ 10 ครั้ง (2 วินาที)
+    let count = 0;
+    intervalId = setInterval(() => {
+      init();
+      count++;
+      if (count >= 10) {
+        clearInterval(intervalId);
+      }
+    }, 200);
 
     return () => {
-      clearInterval(interval);
-      clearTimeout(timeout);
-      observer.disconnect();
+      if (intervalId) clearInterval(intervalId);
+      if (timeoutId) clearTimeout(timeoutId);
       document.body.classList.remove('google-translate-visible');
-      
-      const translateElement = document.getElementById('google_translate_element');
-      if (translateElement) {
-        translateElement.innerHTML = '';
-      }
     };
   }, []);
 
@@ -107,9 +84,18 @@ export default function GoogleTranslate() {
       </Script>
 
       <style jsx global>{`
-        .goog-te-banner-frame { display: none !important; }
-        body { top: 0 !important; position: static !important; }
-        html, body { overflow-x: hidden !important; }
+        .goog-te-banner-frame { 
+          display: none !important; 
+        }
+        
+        body { 
+          top: 0 !important; 
+          position: static !important; 
+        }
+        
+        html, body { 
+          overflow-x: hidden !important; 
+        }
        
         .goog-te-gadget > div, 
         .goog-te-gadget span, 
@@ -126,7 +112,6 @@ export default function GoogleTranslate() {
           background: white !important;
           cursor: pointer !important;
           height: 32px !important;
-          pointer-events: auto !important;
         }
         
         .goog-te-gadget-icon {
@@ -137,51 +122,25 @@ export default function GoogleTranslate() {
           display: flex;
         }
 
-        /* Google Translate iframe - ให้สามารถคลิกได้ */
+        /* Google Translate iframe */
         iframe[id*="container"].skiptranslate {
           position: relative !important;
-          pointer-events: auto !important;
-          z-index: 9999 !important;
         }
 
-        /* div.skiptranslate ต้องให้คลิกได้ด้วย */
-        div.skiptranslate {
-          pointer-events: auto !important;
-          z-index: 9999 !important;
-        }
-
-        /* เมื่อ header sticky ให้ iframe เป็น fixed */
+        /* เมื่อ Google Translate แสดงผล ให้ iframe เป็น fixed */
         body.google-translate-visible iframe[id*="container"].skiptranslate {
           position: fixed !important;
           top: 0 !important;
-          left: 0 !important;
-          right: 0 !important;
-          width: 100% !important;
-          pointer-events: auto !important;
-          z-index: 9999 !important;
         }
 
-        /* Header sticky เลื่อนลงมา 37px - เฉพาะเมื่อ Google Translate แสดงผล */
+        /* Header sticky เลื่อนลงมา 37px เฉพาะเมื่อ Google Translate แสดงผล */
         body.google-translate-visible .header-area.homepage1.sticky {
           top: 37px !important;
-          z-index: 9998 !important;
         }
 
-        /* ถ้า iframe ถูกซ่อน ให้ header กลับมาที่ top: 0 */
+        /* ถ้าไม่แสดง ให้ header อยู่ที่ top: 0 */
         body:not(.google-translate-visible) .header-area.homepage1.sticky {
           top: 0 !important;
-        }
-
-        /* ทำให้ dropdown สามารถคลิกได้ */
-        #google_translate_element,
-        #google_translate_element * {
-          pointer-events: auto !important;
-        }
-
-        /* Dropdown menu ของ Google Translate */
-        .goog-te-menu-value,
-        .goog-te-menu-value span {
-          pointer-events: auto !important;
         }
       `}</style>
     </>
