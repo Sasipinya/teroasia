@@ -138,7 +138,7 @@ function BrandCard({ service, isClient, index }: BrandCardProps) {
         alt={service.name}
         width={200}
         height={100}
-        className="w-100 h-auto"
+        className="w-auto h-auto"
         loading={index < 8 ? 'eager' : 'lazy'}
       />
     </div>
