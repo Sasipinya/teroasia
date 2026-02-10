@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 
 export default function Footer({ page }: { page: string }) {
-
+const currentYear = new Date().getFullYear();
   return (
     <>
       <footer className="hidden md:block md:absolute md:w-full p-2 border-t-4 border-t-gray-500 pt-[50px]  row-start-3 md:flex gap-6 flex-wrap items-center justify-center bg-[#1f2024]">
@@ -87,7 +87,7 @@ export default function Footer({ page }: { page: string }) {
 
 
           <div className="border-t border-t-gray-400 container mx-auto  text-xs mt-4 pt-2">
-            © 2024 Tero Entertainment PCL. All rights reserved.
+            © {currentYear} Tero Entertainment PCL. All rights reserved.
           </div>
         </div>
       </footer>
