@@ -4,6 +4,7 @@ import Script from 'next/script';
 import { useEffect } from 'react';
 
 export default function GoogleTranslate() {
+  
   useEffect(() => {
     // ลบ scrollbar ที่ Google Translate สร้างมา
     const removeGoogleTranslateScrollbar = () => {
@@ -13,13 +14,54 @@ export default function GoogleTranslate() {
       document.body.style.overflow = 'visible';
     };
 
+    // เช็คว่า Google Translate iframe แสดงผลหรือไม่
+    const checkTranslateVisibility = () => {
+      const iframe = document.querySelector('iframe[id*="container"].skiptranslate');
+      const skipTranslateDiv = document.querySelector('div.skiptranslate');
+      
+      if (iframe && skipTranslateDiv) {
+        const iframeStyle = window.getComputedStyle(iframe);
+        const divStyle = window.getComputedStyle(skipTranslateDiv);
+        
+        // เช็คว่า iframe แสดงผลจริงๆ หรือไม่
+        const isVisible = 
+          iframeStyle.display !== 'none' && 
+          iframeStyle.visibility !== 'hidden' &&
+          divStyle.display !== 'none' &&
+          divStyle.visibility !== 'hidden';
+        
+        // เพิ่ม/ลบ class ตามสถานะ
+        if (isVisible) {
+          document.body.classList.add('google-translate-visible');
+        } else {
+          document.body.classList.remove('google-translate-visible');
+        }
+      }
+    };
+
     // เช็คทุก 100ms ในช่วง 2 วินาทีแรก
-    const interval = setInterval(removeGoogleTranslateScrollbar, 100);
+    const interval = setInterval(() => {
+      removeGoogleTranslateScrollbar();
+      checkTranslateVisibility();
+    }, 100);
+    
     const timeout = setTimeout(() => clearInterval(interval), 2000);
+
+    // Observer เพื่อดัก style changes
+    const observer = new MutationObserver(checkTranslateVisibility);
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['style', 'class'],
+      subtree: true,
+      childList: true
+    });
 
     return () => {
       clearInterval(interval);
       clearTimeout(timeout);
+      observer.disconnect();
+      document.body.classList.remove('google-translate-visible');
+      
       const translateElement = document.getElementById('google_translate_element');
       if (translateElement) {
         translateElement.innerHTML = '';
@@ -96,13 +138,19 @@ export default function GoogleTranslate() {
         }
 
         /* เมื่อ header sticky ให้ iframe เป็น fixed */
-        body:has(.header-area.homepage1.sticky) iframe[id*="container"].skiptranslate {
+        body.google-translate-visible .header-area.homepage1.sticky ~ iframe[id*="container"].skiptranslate,
+        body.google-translate-visible iframe[id*="container"].skiptranslate {
           position: fixed !important;
         }
 
-        /* Header sticky เลื่อนลงมา 37px */
-        body:has(iframe[id*="container"].skiptranslate) .header-area.homepage1.sticky {
+        /* Header sticky เลื่อนลงมา 37px - เฉพาะเมื่อ Google Translate แสดงผล */
+        body.google-translate-visible .header-area.homepage1.sticky {
           top: 37px !important;
+        }
+
+        /* ถ้า iframe ถูกซ่อน ให้ header กลับมาที่ top: 0 */
+        body:not(.google-translate-visible) .header-area.homepage1.sticky {
+          top: 0 !important;
         }
       `}</style>
     </>
