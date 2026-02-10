@@ -6,7 +6,9 @@ import { useEffect } from 'react';
 export default function GoogleTranslate() {
   
 useEffect(() => {
+  document.body.classList.remove('google-translate-visible');
   const checkTranslateVisibility = () => {
+    
     document.body.style.top = '0';
     document.body.style.position = 'static';
     
