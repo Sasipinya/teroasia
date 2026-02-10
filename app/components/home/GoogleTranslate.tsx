@@ -96,7 +96,7 @@ export default function GoogleTranslate() {
         }
 
         /* เมื่อ header sticky ให้ iframe เป็น fixed */
-        iframe[id*="container"].skiptranslate {
+        body:has(.header-area.homepage1.sticky) iframe[id*="container"].skiptranslate {
           position: fixed !important;
         }
 
