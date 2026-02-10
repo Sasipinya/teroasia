@@ -96,9 +96,8 @@ export default function GoogleTranslate() {
         }
 
         /* เมื่อ header sticky ให้ iframe เป็น fixed */
-        ~ iframe[id*="container"].skiptranslate {
+        iframe[id*="container"].skiptranslate {
           position: fixed !important;
-         
         }
 
         /* Header sticky เลื่อนลงมา 37px */
