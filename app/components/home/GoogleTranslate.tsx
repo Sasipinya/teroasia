@@ -6,21 +6,17 @@ import { useEffect } from 'react';
 export default function GoogleTranslate() {
   
   useEffect(() => {
-  // รอ Google Translate โหลดเสร็จ แล้วเช็คครั้งเดียว
-  const timer = setTimeout(() => {
+  const checkTranslateVisibility = () => {
     document.body.style.top = '0';
     document.body.style.position = 'static';
     
-    const iframe = document.querySelector('iframe[id*="container"].skiptranslate') as HTMLElement;
-    const skipTranslateDiv = document.querySelector('div.skiptranslate') as HTMLElement;
+    // เช็ค div.skiptranslate ที่มี iframe ข้างใน
+    const skipTranslateDiv = document.querySelector('div.skiptranslate:has(iframe[id*="container"])') as HTMLElement;
     
-    // เช็คทั้ง iframe และ div ว่าแสดงผลจริงหรือไม่
-    if (iframe && skipTranslateDiv) {
-      const iframeDisplay = window.getComputedStyle(iframe).display;
+    if (skipTranslateDiv) {
       const divDisplay = window.getComputedStyle(skipTranslateDiv).display;
       
-      // ต้องทั้ง iframe และ div ไม่เป็น none ถึงจะถือว่าแสดงผล
-      if (iframeDisplay !== 'none' && divDisplay !== 'none') {
+      if (divDisplay !== 'none') {
         document.body.classList.add('google-translate-visible');
       } else {
         document.body.classList.remove('google-translate-visible');
@@ -28,7 +24,13 @@ export default function GoogleTranslate() {
     } else {
       document.body.classList.remove('google-translate-visible');
     }
-  }, 1500);
+  };
+
+  const timer = setTimeout(checkTranslateVisibility, 1500);
+  
+  document.addEventListener('click', () => {
+    setTimeout(checkTranslateVisibility, 300);
+  });
 
   return () => {
     clearTimeout(timer);
