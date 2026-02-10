@@ -79,13 +79,25 @@ export default function GoogleTranslate() {
           border-radius: 4px !important;
           background: white !important;
           cursor: pointer !important;
-          height: 32px !important;}
-        .goog-te-gadget-icon{
-        display:none;!important;}
-        .VIpgJd-ZVi9od-xl07Ob-lTBxed{
-        display:flex;
+          height: 32px !important;
+        }
+        
+        .goog-te-gadget-icon {
+          display: none !important;
+        }
+        
+        .VIpgJd-ZVi9od-xl07Ob-lTBxed {
+          display: flex;
         }
 
+        /* Sticky behavior for Google Translate iframe */
+        iframe.skiptranslate {
+          position: fixed !important;
+          top: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+          z-index: 10000 !important;
+        }
       `}</style>
     </>
   );

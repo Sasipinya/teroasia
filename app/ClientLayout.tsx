@@ -86,7 +86,7 @@ export default function ClientLayout({
       <link rel="stylesheet" href="/assets/css/vendor/odometer.css" />
       <link rel="stylesheet" href="/assets/css/vendor/mobile.css" />
       <link rel="stylesheet" href="/assets/css/vendor/sidebar.css" />
-      <link rel="stylesheet" href="/assets/css/main.css" />
+      <link rel="stylesheet" href="/assets/css/main.css?v=2" />
 
       {/* Swiper & Animate */}
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
