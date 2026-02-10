@@ -22,7 +22,7 @@ const HeroVideoSection = () => {
         <img
           src="https://corporate.teroasia.com/terohealthclinic/assets/images/logo-clinic.png"
           alt="TERO Health Clinic"
-          className="w-[30%] h-32 md:h-48 lg:h-64 object-contain"
+          className="w-[30%] h-32 object-contain"
         />
       </div>
       <a href='/terohealthclinic' className='absolute w-full h-full top-0 left-0 z-20'></a>
