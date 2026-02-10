@@ -92,7 +92,7 @@ export default function ClientLayout({
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
       <div id="top" />
-      {/* <AddClassBody /> */}
+
       <Header1 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
       <MobileMenu isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} />
       {children}
