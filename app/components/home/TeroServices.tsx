@@ -14,41 +14,7 @@ interface Service {
 }
 
 const SERVICES: Service[] = [
-  { 
-    id: 1,
-    name: 'The Discussion - ถกไม่เถียง',
-    href: 'https://teroasia.com/program/thediscussion', 
-    img: '1tok.png', 
-    duration: 800 
-  },
-  { 
-    id: 2,
-    name: 'Kidsfun คิดฝัน',
-    href: 'https://terodigital.com/kidsfun', 
-    img: '2kidsfun.png', 
-    duration: 900 
-  },
-  { 
-    id: 3,
-    name: 'Money Guru - เงินทองของจริง',
-    href: 'https://teroasia.com/program/TSD_MoneyGuru', 
-    img: '3Money.png', 
-    duration: 1000 
-  },
-  { 
-    id: 4,
-    name: 'One 31',
-    href: null, 
-    img: '5One.png', 
-    duration: 1100 
-  },
-  { 
-    id: 5,
-    name: 'Tero Entertainment',
-    href: 'https://teroasia.com/', 
-    img: '8TeroEnt.png', 
-    duration: 900 
-  },
+  
   { 
     id: 6,
     name: 'Thailand Box Office',
@@ -176,7 +142,7 @@ export default function TeroServices() {
         <div className="row">
           <div className="col-lg-5 m-auto">
             <div className="brand-header heading2 space-margin60 text-center">
-              <h2 className="text-anime-style-3">Tero Services</h2>
+              <h2 className="text-anime-style-3">Tero Digital Services</h2>
             </div>
           </div>
         </div>

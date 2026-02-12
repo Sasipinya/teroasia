@@ -179,7 +179,7 @@ export default function Thaiticketmajor({ data, maxDisplay = 12 }: Thaiticketmaj
         <div className="row">
           <div className="btn-area1 text-end mt-3">
             <Link className="vl-btn8" href="https://www.thaiticketmajor.com/">
-              <span className="demo">SEE MORE</span>
+              <span className="demo">VIEW MORE</span>
               <span className="arrow">
                 <i className="fa-solid fa-arrow-right" />
               </span>

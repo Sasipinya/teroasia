@@ -62,18 +62,6 @@ const teamMembers: TeamMember[] = [
       instagram: 'https://www.instagram.com/missthailandworld_official',
       youtube: 'https://www.youtube.com/@MissThailandWorldOfficial'
     }
-  },
-  {
-    id: '4',
-    name: 'TERO Entertainment',
-    image: '/assets/img/logo/logo-tero-ent_0.jpg',
-    link_url:'https://corporate.teroasia.com/',
-    socialLinks: {
-      facebook: 'https://www.facebook.com/teroasia',
-      twitter: 'https://x.com/tero_asia',
-      instagram: 'https://www.instagram.com/terodigital',
-      youtube: 'https://www.youtube.com/@tero_entertainment'
-    }
   }
 ]
 
@@ -94,14 +82,14 @@ const swiperOptions = {
   },
   breakpoints: {
     320: {
-      slidesPerView: 2,
-      spaceBetween: 30,
+      slidesPerView: 3,
+      spaceBetween: 10,
       allowTouchMove: true,
       simulateTouch: true,
     },
     575: {
-      slidesPerView: 2,
-      spaceBetween: 30,
+      slidesPerView: 3,
+      spaceBetween: 10,
       allowTouchMove: true,
       simulateTouch: true,
     },

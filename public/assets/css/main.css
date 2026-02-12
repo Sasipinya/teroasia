@@ -16672,7 +16672,10 @@ html {
 	position: relative;
 	z-index: 1;
 }
-
+.team3-section-area .swiper-wrapper{
+	display: flex;
+	justify-content: center;
+}
 .team3-section-area .team-slider-area2 .owl-nav {
 	position: absolute;
 	right: 0;

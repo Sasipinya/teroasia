@@ -131,7 +131,7 @@ export default function TeroMusic({ data, maxDisplay = 4 }: TeroMusicProps) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="demo">SEE MORE</span>
+              <span className="demo">VIEW MORE</span>
               <span className="arrow">
                 <i className="fa-solid fa-arrow-right" />
               </span>

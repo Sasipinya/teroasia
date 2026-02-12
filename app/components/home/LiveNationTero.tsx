@@ -35,23 +35,22 @@ export default function LiveNationTero({ data = [] }: LiveNationTeroProps) {
     })
   }, [])
 
-  // Get current month and year
-  const getCurrentMonthYear = () => {
+  // Get upcoming events (future events only) and sort by start_date
+  const getUpcomingEvents = () => {
     const now = new Date()
-    const month = now.toLocaleString('en-US', { month: 'long' }).toUpperCase()
-    const year = now.getFullYear()
-    return { month, year, fullText: `${month} ${year}` }
-  }
-
-  // Filter events for current month only
-  const getCurrentMonthEvents = () => {
-    const { fullText } = getCurrentMonthYear()
-    return data.filter(event => {
-      const date = new Date(event.start_date)
-      const month = date.toLocaleString('en-US', { month: 'long' }).toUpperCase()
-      const year = date.getFullYear()
-      return `${month} ${year}` === fullText
-    })
+    now.setHours(0, 0, 0, 0) // Reset time to start of day
+    
+    return data
+      .filter(event => {
+        const eventDate = new Date(event.start_date)
+        eventDate.setHours(0, 0, 0, 0)
+        return eventDate >= now // Only future events
+      })
+      .sort((a, b) => {
+        // Sort by start_date ascending (nearest first)
+        return new Date(a.start_date).getTime() - new Date(b.start_date).getTime()
+      })
+      .slice(0, 3) // Take only first 3 events
   }
 
   // Format event date for display
@@ -72,11 +71,10 @@ export default function LiveNationTero({ data = [] }: LiveNationTeroProps) {
     return `${start.toLocaleDateString('en-US', { day: 'numeric', month: 'short' })} - ${end.toLocaleDateString('en-US', dateOptions)}`
   }
 
-  const { month, year } = getCurrentMonthYear()
-  const currentMonthEvents = getCurrentMonthEvents()
+  const upcomingEvents = getUpcomingEvents()
 
-  // Don't render if no events this month
-  if (currentMonthEvents.length === 0) {
+  // Don't render if no upcoming events
+  if (upcomingEvents.length === 0) {
     return null
   }
 
@@ -115,8 +113,8 @@ export default function LiveNationTero({ data = [] }: LiveNationTeroProps) {
                   >
                     <span className="vl-flex">
                       <span className="date">
-                        {month} <br />
-                        {year}
+                        LATEST <br />
+                        SHOW/EVENT
                       </span>
                     </span>
                   </button>
@@ -127,7 +125,7 @@ export default function LiveNationTero({ data = [] }: LiveNationTeroProps) {
             {/* Events List */}
             <div className="tab-content">
               <div className="tab-pane fade show active" role="tabpanel">
-                {currentMonthEvents.map((event, eventIndex) => (
+                {upcomingEvents.map((event, eventIndex) => (
                   <div key={event.id}>
                     <div 
                       className="tabs-widget-boxarea" 
@@ -217,7 +215,7 @@ export default function LiveNationTero({ data = [] }: LiveNationTeroProps) {
                       </div>
                     </div>
 
-                    {eventIndex < currentMonthEvents.length - 1 && (
+                    {eventIndex < upcomingEvents.length - 1 && (
                       <div className="space30" />
                     )}
                   </div>
@@ -236,7 +234,7 @@ export default function LiveNationTero({ data = [] }: LiveNationTeroProps) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="demo">SEE MORE</span>
+              <span className="demo">VIEW MORE</span>
               <span className="arrow">
                 <i className="fa-solid fa-arrow-right" />
               </span>
