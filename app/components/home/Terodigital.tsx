@@ -39,7 +39,7 @@ const programs: Program[] = [
   {
     id: 3,
     title: 'Kidsfun',
-    description: '"Kids Fun คิดฝัน" คือพื้นที่แห่งความสุขและการเรียนรู้สำหรับเด็กๆ',
+    description: 'คิดสนุกปลุกจินตนาการไปกับ Kidsfun คิดฝัน',
     thumbnail: '/assets/img/elements/kidsfun-thumb_0.jpg',
     logo: 'https://terodigital.com/wp-content/uploads/2025/07/2kidsfun.png',
     url: 'https://teroasia.com/program/kidsnews',
