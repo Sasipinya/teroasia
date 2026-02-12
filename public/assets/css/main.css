@@ -16839,6 +16839,7 @@ html {
 	width: 100%;
 	object-fit: cover;
 	border-radius: 50%;
+	    border: 1px #e0e0e0 solid;
 }
 
 .team3-section-area .team-slider-area2 .our-team-boxarea .team-widget-area .img1 .share a {
