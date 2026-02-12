@@ -86,11 +86,9 @@ export default function ClientLayout({
       <link rel="stylesheet" href="/assets/css/vendor/odometer.css" />
       <link rel="stylesheet" href="/assets/css/vendor/mobile.css" />
       <link rel="stylesheet" href="/assets/css/vendor/sidebar.css" />
-      <link rel="stylesheet" href="/assets/css/main.css?v=4" />
+      <link rel="stylesheet" href="/assets/css/main.css?v=5" />
 
-      {/* Swiper & Animate */}
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+     
       <div id="top" />
 
       <Header1 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />

@@ -42,8 +42,8 @@ const teamMembers: TeamMember[] = [
   {
     id: '2',
     name: 'ONE Lumpinee',
-    image: '/assets/img/logo/logo-one_0.jpg',
-    link_url:'https://www.onefc.com/th/',
+    image: '/assets/img/logo/one_lum.png',
+    link_url:' https://www.thaiticketmajor.com/sport/one-lumpinee-2026.html',
     socialLinks: {
       facebook: 'https://www.facebook.com/ONEChampionship/',
       twitter: 'https://x.com/onechampionship',

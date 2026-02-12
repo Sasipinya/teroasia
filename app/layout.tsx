@@ -13,7 +13,19 @@ export const metadata = {
   keywords: 'TeroAsia, ข่าวบันเทิง, กีฬา, มวย, ช่อง 7HD',
   icons: {
     icon: [{ rel: 'icon', url: '/images/favicon.ico' }]
-  }
+  },
+  links: [
+    // Swiper CSS - โหลดก่อนทุกอย่าง
+    {
+      rel: 'stylesheet',
+      href: 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css',
+    },
+    // Animate CSS
+    {
+      rel: 'stylesheet',
+      href: 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css',
+    },
+  ],
 }
 
 export default function RootLayout({

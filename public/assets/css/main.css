@@ -27354,6 +27354,10 @@ html {
 		left: 15%;
 		right: 15%;
 	}
+	.team3-section-area .team-slider-area2 .our-team-boxarea .team-widget-area {
+	
+	padding: 2px;
+	}
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
