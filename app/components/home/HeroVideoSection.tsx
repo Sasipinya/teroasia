@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function HeroVideoSection() {
   return (
-    <div className="relative w-full h-[400px] overflow-hidden">
+    <div className="relative w-full h-[550px] overflow-hidden">
       {/* Background Video */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
