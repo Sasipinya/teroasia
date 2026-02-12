@@ -82,7 +82,6 @@ const NavMenu: React.FC = () => {
     { label: 'รายการทีวี', items: tvPrograms, showArrow: true },
     { label: 'ดนตรี', href: 'http://www.teromusic.com' },
     { label: 'งานแสดง', items: showPrograms, showArrow: true },
-    { label: 'วิทยุออนไลน์', href: 'https://teroradio.com/' },
     { label: 'ASIA', items: asiaPrograms, showArrow: true },
     { label: 'CORPORATE', items: corporatePrograms, showArrow: true },
     { label: 'ติดต่อโฆษณา', href: '/advertising' },

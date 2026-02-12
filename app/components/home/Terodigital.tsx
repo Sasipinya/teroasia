@@ -165,6 +165,9 @@ export default function Terodigital() {
                       {program.title}
                     </Link>
                   </div>
+                  <a href={program.url}
+  target="_blank" 
+  className='absolute top-0 left-0 w-full h-full'></a>
                 </SwiperSlide>
               ))}
             </Swiper>

@@ -122,6 +122,22 @@ export default function TeroMusic({ data, maxDisplay = 4 }: TeroMusicProps) {
             </div>
           ))}
         </div>
+
+         <div className="row">
+          <div className="btn-area1 text-end mt-2">
+            <Link 
+              className="vl-btn8" 
+              href="https://teromusic.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="demo">SEE MORE</span>
+              <span className="arrow">
+                <i className="fa-solid fa-arrow-right" />
+              </span>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   )

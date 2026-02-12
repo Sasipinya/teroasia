@@ -54,11 +54,6 @@ const MENU_ITEMS: MenuItem[] = [
     ],
   },
   {
-    label: 'วิทยุออนไลน์',
-    href: 'http://www.teroradio.com',
-    target: '_blank',
-  },
-  {
     label: 'ASIA',
     href: '#',
     icon: 'fa-solid fa-angle-down',

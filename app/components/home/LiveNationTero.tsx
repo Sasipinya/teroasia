@@ -236,7 +236,7 @@ export default function LiveNationTero({ data = [] }: LiveNationTeroProps) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="demo">MORE INFO</span>
+              <span className="demo">SEE MORE</span>
               <span className="arrow">
                 <i className="fa-solid fa-arrow-right" />
               </span>

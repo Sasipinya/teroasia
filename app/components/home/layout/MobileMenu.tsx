@@ -61,7 +61,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 							</ul>
 						</li>
 
-						<li className="hash-has-sub"><Link href="http://www.teroradio.com" className="hash-nav">วิทยุออนไลน์</Link></li>
+					
 
 						<li className="has-sub hash-has-sub">
 							<span className={`submenu-button ${isAccordion == 3 ? "submenu-opened" : ""}`} onClick={() => handleAccordion(3)}><em /></span>

@@ -16,6 +16,7 @@ interface TeamMember {
   id: string
   name: string
   image: string
+  link_url:string
   socialLinks?: {
     facebook?: string
     twitter?: string
@@ -30,10 +31,11 @@ const teamMembers: TeamMember[] = [
     id: '1',
     name: '3X3',
     image: '/assets/img/logo/logo-3x3_0.jpg',
+    link_url:'https://3x3.teroasia.com/',
     socialLinks: {
-      facebook: '/#',
-      twitter: '/#',
-      instagram: '/#',
+      facebook: 'https://www.facebook.com/teroasia',
+      twitter: 'https://x.com/tero_asia',
+      instagram: 'https://www.instagram.com/terodigital',
       youtube: 'https://www.youtube.com/@tero_entertainment'
     }
   },
@@ -41,17 +43,19 @@ const teamMembers: TeamMember[] = [
     id: '2',
     name: 'ONE',
     image: '/assets/img/logo/logo-one_0.jpg',
+    link_url:'https://www.onefc.com/th/',
     socialLinks: {
-      facebook: '/#',
-      twitter: '/#',
-      instagram: '/#',
-      youtube: 'https://www.youtube.com/@tero_entertainment'
+      facebook: 'https://www.facebook.com/ONEChampionship/',
+      twitter: 'https://x.com/onechampionship',
+      instagram: 'http://instagram.com/onechampionship/',
+      youtube: 'https://www.youtube.com/onechampionship'
     }
   },
   {
     id: '3',
     name: 'Miss Thailand World',
     image: '/assets/img/logo/logo-mtw_0.jpg',
+    link_url:'https://corporate.teroasia.com/concerts-events/missthailandworld/',
     socialLinks: {
       facebook: 'https://www.facebook.com/MissWorldThailandOfficial',
       twitter: 'https://x.com/MTW_Officialth',
@@ -63,6 +67,7 @@ const teamMembers: TeamMember[] = [
     id: '4',
     name: 'TERO Entertainment',
     image: '/assets/img/logo/logo-tero-ent_0.jpg',
+    link_url:'https://corporate.teroasia.com/',
     socialLinks: {
       facebook: 'https://www.facebook.com/teroasia',
       twitter: 'https://x.com/tero_asia',
@@ -187,7 +192,7 @@ const TeamCard = ({ member }: TeamCardProps) => (
           className="team-img4" 
         />
         <div className="share">
-          <Link href="/#" aria-label="Share">
+          <Link href={member.link_url} aria-label="Share">
             <img src="/assets/img/icons/share1.svg" alt="Share icon" />
           </Link>
         </div>
@@ -196,7 +201,7 @@ const TeamCard = ({ member }: TeamCardProps) => (
     </div>
     <div className="space28" />
     <div className="content-area">
-      <Link href="/#">{member.name}</Link>
+      <Link href={member.link_url}>{member.name}</Link>
       <div className="space16" />
     </div>
   </div>
