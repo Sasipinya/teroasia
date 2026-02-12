@@ -13,6 +13,7 @@ import AboutUs from './AboutUs';
 import Terodigital from './Terodigital';
 import TeroServices from './TeroServices';
 import AboutUsTeroHealth from './AboutUsTeroHealth';
+import ContactUsTeroHealth from './ContactUsTeroHealth';
 
 interface HomeClientProps {
   NewHomeData: any;
@@ -55,8 +56,10 @@ export default function HomeClient({  NewHomeData }: HomeClientProps) {
       {NewHomeData.teromusic && <ErrorBoundary FallbackComponent={ErrorFallback}> <TeroMusic data={NewHomeData.teromusic} /></ErrorBoundary>}
       <Terodigital />
       <TeroServices />
-      <AboutUsTeroHealth/>
+      
       <HeroVideoSection />
+      <AboutUsTeroHealth/>
+      <ContactUsTeroHealth/>
      
 
     </>
