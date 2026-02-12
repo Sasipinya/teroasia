@@ -1,5 +1,5 @@
 .contact_us_section {
-  background-image: url('https://corporate.teroasia.com/terohealthclinic/assets/images/aboutus_background.jpg');
+  background-image: url("https://corporate.teroasia.com/terohealthclinic/assets/images/contact_us_background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -7,11 +7,11 @@
   min-height: 650px;
   display: flex;
   align-items: center;
-  padding: 80px 0;
+  padding: 40px 0;
 }
 
 .contact_us_section::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -22,15 +22,14 @@
 }
 
 .content_wrapper {
-  position: relative;
-  z-index: 2;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: grid;
-  grid-template-columns: 35% 65%;
-  align-items: center;
-  gap: 60px;
+      z-index: 2;
+    align-items: center;
+    gap: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    position: relative;
 }
 
 .image_container {
@@ -39,13 +38,10 @@
 }
 
 .circle_frame {
-  width: 450px;
-  height: 450px;
-  border-radius: 50%;
-  border: 15px solid #e63946;
+  width: 400px;
+  height: 400px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 10px 40px rgba(230, 57, 70, 0.4);
 }
 
 .team_image {
@@ -80,18 +76,17 @@
 }
 
 .contact_button {
-  width: 100%;
-  padding: 20px 40px;
-  font-size: 20px;
-  font-weight: 600;
-  color: white;
-  background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  color: #fff;
   text-align: center;
   letter-spacing: 0.5px;
+  background: 0 0;
+  border: 2px solid #fff9;
+  border-radius: 50px;
+  width: 100%;
+  padding: 20px 160px;
+  font-size: 20px;
+  font-weight: 600;
+  transition: all 0.3s;
 }
 
 .contact_button:hover {
@@ -111,7 +106,7 @@
     grid-template-columns: 38% 62%;
     gap: 40px;
   }
-  
+
   .circle_frame {
     width: 380px;
     height: 380px;
@@ -124,16 +119,16 @@
     text-align: center;
     gap: 40px;
   }
-  
+
   .contact_content {
     padding-left: 0;
   }
-  
+
   .circle_frame {
     width: 320px;
     height: 320px;
   }
-  
+
   .contact_buttons {
     max-width: 100%;
     margin: 0 auto;
@@ -144,27 +139,27 @@
   .contact_us_section {
     padding: 60px 0;
   }
-  
+
   .content_wrapper {
     padding: 0 20px;
   }
-  
+
   .circle_frame {
     width: 280px;
     height: 280px;
     border-width: 10px;
   }
-  
+
   .subtitle {
     font-size: 22px;
     margin-bottom: 35px;
   }
-  
+
   .contact_button {
     padding: 16px 30px;
     font-size: 17px;
   }
-  
+
   .contact_buttons {
     gap: 25px;
   }
@@ -176,12 +171,12 @@
     height: 220px;
     border-width: 8px;
   }
-  
+
   .contact_button {
     font-size: 15px;
     padding: 14px 25px;
   }
-  
+
   .contact_buttons {
     gap: 20px;
   }
