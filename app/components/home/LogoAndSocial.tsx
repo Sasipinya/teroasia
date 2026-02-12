@@ -41,7 +41,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: '2',
-    name: 'ONE',
+    name: 'ONE Lumpinee',
     image: '/assets/img/logo/logo-one_0.jpg',
     link_url:'https://www.onefc.com/th/',
     socialLinks: {
@@ -162,32 +162,18 @@ interface TeamCardProps {
 
 const TeamCard = ({ member }: TeamCardProps) => (
   <div className="our-team-boxarea">
+     <Link href={member.link_url}>
     <div className="team-widget-area">
-      <img 
-        src="/assets/img/elements/elements21.png" 
-        alt="" 
-        className="elements21" 
-      />
-      <img 
-        src="/assets/img/elements/elements22.png" 
-        alt="" 
-        className="elements22" 
-      />
+      
       <div className="img1">
         <img 
           src={member.image} 
           alt={member.name} 
           className="team-img4" 
         />
-        <div className="share">
-          <Link href={member.link_url} aria-label="Share">
-            <img src="/assets/img/icons/share1.svg" alt="Share icon" />
-          </Link>
-        </div>
-        <SocialLinks links={member.socialLinks} />
+       
       </div>
-    </div>
-    <div className="space28" />
+    </div></Link>
     <div className="content-area">
       <Link href={member.link_url}>{member.name}</Link>
       <div className="space16" />
