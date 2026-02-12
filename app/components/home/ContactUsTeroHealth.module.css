@@ -149,7 +149,6 @@
   .circle_frame {
     width: 280px;
     height: 280px;
-    border-width: 10px;
   }
 
   .subtitle {
@@ -171,7 +170,6 @@
   .circle_frame {
     width: 220px;
     height: 220px;
-    border-width: 8px;
   }
 
   .contact_button {
