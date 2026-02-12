@@ -15,7 +15,7 @@ const ContactUsTeroHealth: React.FC<ContactUsTeroHealthProps> = ({ className = '
         <div className={styles.image_container}>
           <div className={styles.circle_frame}>
             <Image
-              src="https://corporate.teroasia.com/terohealthclinic/assets/images/aboutus_image.png"
+              src="https://corporate.teroasia.com/terohealthclinic/assets/images/contact_us_image.png"
               alt="Tero Health Clinic Contact"
               width={400}
               height={400}
