@@ -17,8 +17,8 @@ const ContactUsTeroHealth: React.FC<ContactUsTeroHealthProps> = ({ className = '
             <Image
               src="https://corporate.teroasia.com/terohealthclinic/assets/images/contact_us_image.png"
               alt="Tero Health Clinic Contact"
-              width={400}
-              height={400}
+              width={450}
+              height={450}
               className={styles.team_image}
               priority
             />
