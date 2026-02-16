@@ -2,7 +2,8 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import AOS from 'aos'
 
 interface Event {
   id: number
@@ -20,11 +21,13 @@ interface TeroMusicProps {
 }
 
 export default function TeroMusic({ data, maxDisplay = 4 }: TeroMusicProps) {
-  const [isClient, setIsClient] = useState(false)
   const displayEvents = data?.slice(0, maxDisplay) || []
 
   useEffect(() => {
-    setIsClient(true)
+    // Refresh AOS เพื่อให้ตรวจจับ elements ในหน้านี้
+    setTimeout(() => {
+      AOS.refresh()
+    }, 150)
   }, [])
 
   if (displayEvents.length === 0) {
@@ -57,10 +60,8 @@ export default function TeroMusic({ data, maxDisplay = 4 }: TeroMusicProps) {
             <div
               key={event.id}
               className="col-lg-3 col-md-6"
-              {...(isClient && {
-                'data-aos': 'zoom-in',
-                'data-aos-duration': String(800 + index * 200),
-              })}
+              data-aos="zoom-in"
+              data-aos-duration={String(800 + index * 200)}
             >
               <div className="blog1-auhtor-boxarea">
                 {/* Event Image */}
@@ -123,7 +124,7 @@ export default function TeroMusic({ data, maxDisplay = 4 }: TeroMusicProps) {
           ))}
         </div>
 
-         <div className="row">
+        <div className="row">
           <div className="btn-area1 text-end mt-2">
             <Link 
               className="vl-btn8" 

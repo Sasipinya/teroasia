@@ -2,7 +2,8 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import AOS from 'aos'
 
 interface Service {
   id: number
@@ -14,7 +15,6 @@ interface Service {
 }
 
 const SERVICES: Service[] = [
-  
   { 
     id: 6,
     name: 'Thailand Box Office',
@@ -83,19 +83,11 @@ const SERVICES: Service[] = [
 
 interface BrandCardProps {
   service: Service
-  isClient: boolean
   index: number
 }
 
-function BrandCard({ service, isClient, index }: BrandCardProps) {
+function BrandCard({ service, index }: BrandCardProps) {
   const imgSrc = `https://terodigital.com/wp-content/uploads/${service.path || '2025/07'}/${service.img}`
-  
-  const aosProps = isClient 
-    ? { 
-        'data-aos': 'zoom-in' as const, 
-        'data-aos-duration': service.duration.toString() 
-      } 
-    : {}
 
   const imageContent = (
     <div className="brand-box">
@@ -111,7 +103,11 @@ function BrandCard({ service, isClient, index }: BrandCardProps) {
   )
 
   return (
-    <div className="col-6 col-md-6 col-lg-3" {...aosProps}>
+    <div 
+      className="col-6 col-md-6 col-lg-3"
+      data-aos="zoom-in"
+      data-aos-duration={service.duration.toString()}
+    >
       {service.href ? (
         <Link
           href={service.href}
@@ -129,10 +125,11 @@ function BrandCard({ service, isClient, index }: BrandCardProps) {
 }
 
 export default function TeroServices() {
-  const [isClient, setIsClient] = useState(false)
-
   useEffect(() => {
-    setIsClient(true)
+    // Refresh AOS เพื่อให้ตรวจจับ elements ในหน้านี้
+    setTimeout(() => {
+      AOS.refresh()
+    }, 150)
   }, [])
 
   return (
@@ -153,7 +150,6 @@ export default function TeroServices() {
             <BrandCard 
               key={service.id} 
               service={service} 
-              isClient={isClient}
               index={index}
             />
           ))}
