@@ -1,5 +1,6 @@
 'use client'
 import AOS from 'aos'
+import 'aos/dist/aos.css'
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import Header from './components/templates/header'
@@ -22,8 +23,8 @@ export default function ClientLayout({
   const handleSearch = (): void => setSearch(!isSearch)
   const cssVersion = new Date().toISOString().split('T')[0].replace(/-/g, '')
 
+ // Init AOS ครั้งเดียว
   useEffect(() => {
-    // Init AOS ครั้งเดียวตอน component mount
     AOS.init({
       duration: 800,
       once: true,
@@ -32,6 +33,7 @@ export default function ClientLayout({
     })
   }, [])
 
+  // Handle scroll
   useEffect(() => {
     const handleScroll = (): void => {
       const scrollCheck: boolean = window.scrollY > 100
@@ -48,10 +50,9 @@ export default function ClientLayout({
   }, [scroll])
 
   useEffect(() => {
-    // Debug: ตรวจสอบว่า CSS โหลดหรือไม่
-    // console.log('📊 Loaded stylesheets:')
+
     document.querySelectorAll('link[rel="stylesheet"]').forEach(el => {
-      // console.log('  -', el.getAttribute('href'))
+      
     })
 
     // Becookie observer
@@ -89,7 +90,6 @@ export default function ClientLayout({
       {/* โหลด CSS จริง */}
       <link rel="stylesheet" href="/assets/css/vendor/bootstrap.min.css" />
       <link rel="stylesheet" href="/assets/css/vendor/fontawesome.css" />
-      <link rel="stylesheet" href="/assets/css/vendor/aos.css" />
       <link rel="stylesheet" href="/assets/css/vendor/magnific-popup.css" />
       <link rel="stylesheet" href="/assets/css/vendor/slick-slider.css" />
       <link rel="stylesheet" href="/assets/css/vendor/nice-select.css" />
