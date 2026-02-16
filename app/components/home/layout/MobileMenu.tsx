@@ -10,7 +10,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 	}
 	return (
 		<>
-			<div className="mobile-header mobile-haeder1 d-block d-lg-none">
+			<div className="mobile-header mobile-haeder1 d-block d-lg-none z-50">
 				<div className="container-fluid">
 					<div className="col-12">
 						<div className="mobile-header-elements">
