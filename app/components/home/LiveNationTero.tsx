@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import AOS from 'aos'
+
 
 interface LiveNationEvent {
   id: number
@@ -29,10 +29,7 @@ export default function LiveNationTero({ data = [] }: LiveNationTeroProps) {
 
   useEffect(() => {
     setIsClient(true)
-    AOS.init({
-      duration: 800,
-      once: true,
-    })
+   
   }, [])
 
   // Get upcoming events (future events only) and sort by start_date

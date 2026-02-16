@@ -20,10 +20,19 @@ export default function ClientLayout({
   const handleMobileMenu = (): void => setMobileMenu(!isMobileMenu)
   const [isSearch, setSearch] = useState<boolean>(false)
   const handleSearch = (): void => setSearch(!isSearch)
-   const cssVersion = new Date().toISOString().split('T')[0].replace(/-/g, '')
+  const cssVersion = new Date().toISOString().split('T')[0].replace(/-/g, '')
 
   useEffect(() => {
-    AOS.init()
+    // Init AOS ครั้งเดียวตอน component mount
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 0,
+      anchorPlacement: 'top-bottom',
+    })
+  }, [])
+
+  useEffect(() => {
     const handleScroll = (): void => {
       const scrollCheck: boolean = window.scrollY > 100
       if (scrollCheck !== scroll) {
@@ -85,11 +94,11 @@ export default function ClientLayout({
       <link rel="stylesheet" href="/assets/css/vendor/slick-slider.css" />
       <link rel="stylesheet" href="/assets/css/vendor/nice-select.css" />
       <link rel="stylesheet" href="/assets/css/vendor/odometer.css" />
-      <link rel="stylesheet" href={`/assets/css/vendor/mobile.css?v=${cssVersion}`}/>
+      <link rel="stylesheet" href={`/assets/css/vendor/mobile.css?v=${cssVersion}`} />
       <link rel="stylesheet" href="/assets/css/vendor/sidebar.css" />
       <link rel="stylesheet" href={`/assets/css/main.css?v=${cssVersion}`} />
 
-     
+
       <div id="top" />
 
       <Header1 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
