@@ -53,7 +53,7 @@
 .text_content {
   flex: 1;
   color: white;
-      /* max-width: 530px; */
+      max-width: 725px;
 }
 
 .subtitle {
@@ -75,10 +75,9 @@
 
 .description {
      color: #ffffffe6;
-    max-width: 600px;
     margin-bottom: 40px;
-    font-size: 20px;
-    line-height: 1.8;
+     font-size: 24px;
+    line-height: 1.5;
 }
 
 .counter_section {
@@ -207,21 +206,15 @@
 }
 
 .services_list li {
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
-  position: relative;
-  line-height: 1.6;
-  color: #fff;
+      color: #fff;
+    margin-bottom: 1rem;
+ 
+    position: relative;
+    font-size: 20px;
+
 }
 
-.services_list li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
+
 
 .services_list li strong {
   color: #e63946;

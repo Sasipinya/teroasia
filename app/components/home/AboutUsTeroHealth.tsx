@@ -76,7 +76,7 @@ const AboutUsTeroHealth: React.FC<AboutUsTeroHealthProps> = ({ className = '' })
         <div className={styles.text_content}>
         
           <h2 className={styles.title}>
-            Tero Health Clinic
+            <span style={{color:'#e63946'}}>Tero</span> Health Clinic
           </h2>
           <p className={styles.description}>
             เทโร เฮลท์ คลินิก เป็นคลินิกกายภาพบำบัดและเวชศาสตร์ฟื้นฟูชั้นนำ 
