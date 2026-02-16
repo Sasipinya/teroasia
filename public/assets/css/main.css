@@ -23209,6 +23209,16 @@ html {
 	/* 118.182% */
 	display: inline-block;
 }
+.event1-section-area .nav.nav-pills .nav-item div span.date {
+	color: var(--ztc-text-text-1);
+	font-family: var(--grotesk);
+	font-size: var(--ztc-font-size-font-s22);
+	font-style: normal;
+	font-weight: var(--ztc-weight-bold);
+	line-height: 26px;
+	/* 118.182% */
+	display: inline-block;
+}
 
 .event1-section-area .tab-content .tab-pane .tabs-widget-boxarea {
 	background: var(--ztc-bg-bg-1);
