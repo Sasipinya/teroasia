@@ -20,6 +20,7 @@ export default function ClientLayout({
   const handleMobileMenu = (): void => setMobileMenu(!isMobileMenu)
   const [isSearch, setSearch] = useState<boolean>(false)
   const handleSearch = (): void => setSearch(!isSearch)
+   const cssVersion = new Date().toISOString().split('T')[0].replace(/-/g, '')
 
   useEffect(() => {
     AOS.init()
@@ -86,7 +87,7 @@ export default function ClientLayout({
       <link rel="stylesheet" href="/assets/css/vendor/odometer.css" />
       <link rel="stylesheet" href="/assets/css/vendor/mobile.css" />
       <link rel="stylesheet" href="/assets/css/vendor/sidebar.css" />
-      <link rel="stylesheet" href="/assets/css/main.css?v=5" />
+      <link rel="stylesheet" href={`/assets/css/main.css?v=${cssVersion}`} />
 
      
       <div id="top" />
