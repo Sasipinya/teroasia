@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   padding: 80px 0;
+  padding-bottom: 30px;
 }
 
 .aboutus_section::before {
@@ -52,6 +53,7 @@
 .text_content {
   flex: 1;
   color: white;
+      /* max-width: 530px; */
 }
 
 .subtitle {
@@ -72,11 +74,11 @@
 }
 
 .description {
-  font-size: 16px;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 40px;
-  max-width: 600px;
+     color: #ffffffe6;
+    max-width: 600px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    line-height: 1.8;
 }
 
 .counter_section {
@@ -186,4 +188,42 @@
   .counter_text {
     font-size: 16px;
   }
+}
+.services_section {
+  margin: 2rem 0;
+}
+
+.services_title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.services_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.services_list li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.services_list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.services_list li strong {
+  color: #e63946;
+  font-weight: 600;
 }

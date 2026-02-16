@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from './ContactUsTeroHealth.module.css';
+import GoogleMapEmbed from './GoogleMapEmbed';
 
 interface ContactUsTeroHealthProps {
   className?: string;
@@ -26,14 +27,16 @@ const ContactUsTeroHealth: React.FC<ContactUsTeroHealthProps> = ({ className = '
         </div>
 
         <div className={styles.contact_content}>
-          <h5 className={styles.subtitle}>ติดต่อเรา</h5>
+          <h5 className={styles.subtitle}>Tero Health Clinic Location</h5>
+
+          <GoogleMapEmbed
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.9636398302196!2d100.58149287539125!3d13.720651998013398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29f1661f8e80f%3A0xe9b8625e309a582f!2sTero%20Health%20Clinic!5e0!3m2!1sen!2sth!4v1771226174743!5m2!1sen!2sth"
+            height={450}
+          />
+          <h5 className={styles.subtitle}>สอบถามข้อมูลเพิ่มเติมเกี่ยวกับ Tero Health Clinic  เพิ่มเพื่อน Line </h5>
 
           <div className={styles.contact_buttons}>
-            <a href="tel:020880748" className={styles.contact_link}>
-              <button type="button" className={styles.contact_button}>
-                020880748
-              </button>
-            </a>
+
 
             <a href="https://lin.ee/4QsEe86" className={styles.contact_link} target="_blank" rel="noopener noreferrer">
               <button type="button" className={styles.contact_button}>
@@ -41,11 +44,7 @@ const ContactUsTeroHealth: React.FC<ContactUsTeroHealthProps> = ({ className = '
               </button>
             </a>
 
-            <a href="https://www.instagram.com/terohealthclinic.official/" className={styles.contact_link} target="_blank" rel="noopener noreferrer">
-              <button type="button" className={styles.contact_button}>
-                IG: terohealthclinic.official
-              </button>
-            </a>
+
           </div>
         </div>
       </div>

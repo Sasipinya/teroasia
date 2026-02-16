@@ -74,25 +74,38 @@ const AboutUsTeroHealth: React.FC<AboutUsTeroHealthProps> = ({ className = '' })
         </div>
 
         <div className={styles.text_content}>
-          <h5 className={styles.subtitle}>เกี่ยวกับเรา</h5>
+        
           <h2 className={styles.title}>
-            ยินดีต้อนรับสู่<br />
-            เทโร เฮลท์ คลินิก
+            Tero Health Clinic
           </h2>
           <p className={styles.description}>
-            เทโร เฮลท์ คลินิก มีความยินดีที่จะให้บริการด้านสุขภาพแก่บริษัทของคุณ 
-            โดยไม่มีค่าใช้จ่ายใดๆ เนื่องจากเรามีความมุ่งมั่นที่จะให้การศึกษาแก่ลูกค้าของเรา
-            เพื่อให้มีสุขภาพที่ดีขึ้นและปลดปล่อยความเจ็บปวด เรามุ่งเน้นในการวินิจฉัยอาการปวด 
-            รักษา และแนะนำวิธีที่ดีที่สุดเพื่อการฟื้นตัวอย่างรวดเร็ว
+            เทโร เฮลท์ คลินิก เป็นคลินิกกายภาพบำบัดและเวชศาสตร์ฟื้นฟูชั้นนำ 
+            ที่มุ่งเน้นการดูแลสุขภาพแบบองค์รวม (Holistic Care) โดยผสมผสานระหว่างเทคโนโลยีทางการแพทย์ที่ทันสมัย 
+            กับความเชี่ยวชาญของทีมนักกายภาพบำบัดมืออาชีพ เพื่อตอบโจทย์ไลฟ์สไตล์ของคนยุคใหม่ที่เผชิญกับปัญหาทางร่างกายจากการทำงานและการใช้ชีวิต
           </p>
 
-          <div className={styles.counter_section} ref={counterRef}>
-            <div className={styles.counter_number}>
-              {count.toLocaleString('th-TH')}
-              <span className={styles.plus}>+</span>
-            </div>
-            <p className={styles.counter_text}>ลูกค้าที่มาใช้บริการของเรา</p>
+          <div className={styles.services_section}>
+            <h3 className={styles.services_title}>บริการของเรา</h3>
+            <ul className={styles.services_list}>
+              <li>
+                <strong>รักษาอาการออฟฟิศซินโดรม (Office Syndrome):</strong> แก้ไขปัญหาปวดคอ บ่า ไหล่ และหลัง จากการนั่งทำงานนานๆ
+              </li>
+              <li>
+                <strong>กายภาพบำบัดทางระบบกระดูกและกล้ามเนื้อ:</strong> รักษาอาการปวดเรื้อรัง หมอนรองกระดูกทับเส้นประสาท หรือกล้ามเนื้ออักเสบ
+              </li>
+              <li>
+                <strong>ฟื้นฟูอาการบาดเจ็บจากการเล่นกีฬา (Sports Rehabilitation):</strong> ดูแลนักกีฬาหรือผู้ที่บาดเจ็บจากการออกกำลังกายให้กลับมาฟิตสมบูรณ์
+              </li>
+              <li>
+                <strong>การฝังเข็มแบบตะวันตก (Dry Needling):</strong> เพื่อคลายจุดบอดของกล้ามเนื้อ (Trigger Point) ที่เป็นสาเหตุของอาการปวดสะสม
+              </li>
+              <li>
+                <strong>โปรแกรมฟื้นฟูหลังผ่าตัด:</strong> ช่วยให้ร่างกายกลับมาเคลื่อนไหวได้อย่างปกติและปลอดภัย
+              </li>
+            </ul>
           </div>
+
+          
         </div>
       </div>
     </section>
