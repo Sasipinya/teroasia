@@ -23,55 +23,26 @@ interface MenuItem {
 
 const MENU_ITEMS: MenuItem[] = [
   {
-    label: 'หน้าแรก',
-    href: '/',
+    label: 'LIVE NATION',
+    href: 'https://www.livenationtero.co.th/',
   },
   {
-    label: 'รายการทีวี',
-    href: '#',
-    icon: 'fa-solid fa-angle-down',
-    dropdown: [
-      { label: 'ถกไม่เถียง', href: '/program/thediscussion' },
-      { label: 'เงินทองของจริง', href: '/program/TSD_MoneyGuru' },
-      { label: 'คิดฝัน Kids Fun', href: '/program/kidsnews' },
-      { label: 'One', href: '/program/OneChampionship' },
-      { label: 'One Lumpinee', href: '/program/onelumpinee' },
-      { label: 'Fairtex Fight มวยมันพันธุ์ EXTREME', href: '/program/FairtexFight' },
-    ],
+    label: 'THAI TICKET MAJOR',
+    href: 'https://www.thaiticketmajor.com/',
   },
   {
-    label: 'ดนตรี',
-    href: 'http://www.teromusic.com',
-    target: '_blank',
+    label: 'TERO MUSIC',
+    href: 'https://www.teromusic.com/',
   },
   {
-    label: 'งานแสดง',
-    href: '#',
-    icon: 'fa-solid fa-angle-down',
-    dropdown: [
-      { label: 'คอนเสิร์ต', href: 'https://corporate.teroasia.com/concerts-events/', target: '_blank' },
-      { label: 'ไทยทิคเก็ตเมเจอร์', href: 'https://www.thaiticketmajor.com/', target: '_blank' },
-    ],
+    label: 'TERO DIGITAL',
+    href: 'https://terodigital.com/',
   },
   {
-    label: 'ASIA',
-    href: '#',
-    icon: 'fa-solid fa-angle-down',
-    dropdown: [
-      { label: 'Popolay (Myanmar)', href: 'https://www.popolay.com', target: '_blank' },
-      { label: 'Thaiwave (Chinese & English)', href: 'https://thaiwave.club/cn/', target: '_blank' },
-      { label: 'Film Bangkok', href: 'https://filmbangkok.asia', target: '_blank' },
-    ],
-  },
-  {
-    label: 'CORPORATE',
-    href: '#',
-    icon: 'fa-solid fa-angle-down',
-    dropdown: [
-      { label: 'TERO Entertainment', href: 'https://corporate.teroasia.com', target: '_blank' },
-      { label: 'TERO Health Clinic', href: '/terohealthclinic' },
-    ],
-  },
+    label: 'TERO HEALTH CLINIC',
+    href: 'https://corporate.teroasia.com/terohealthclinic/',
+  }
+  
 ]
 
 const SOCIAL_LINKS = [
