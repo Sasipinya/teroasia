@@ -23144,6 +23144,9 @@ html {
 	.event1-section-area .nav.nav-pills .nav-item button .vl-flex{
 		    justify-content: center;
 	}
+	.event1-section-area .nav.nav-pills .nav-item div .vl-flex{
+		    justify-content: center;
+	}
 	.vl-btn8 span.arrow{
 		    display: none!important;
 	}
@@ -23165,6 +23168,13 @@ html {
 }
 
 .event1-section-area .nav.nav-pills .nav-item button .vl-flex {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	    padding: 6px 80px;
+
+}
+.event1-section-area .nav.nav-pills .nav-item div .vl-flex {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
