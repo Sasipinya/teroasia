@@ -5,7 +5,10 @@ import Link from 'next/link'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import type { SwiperOptions } from 'swiper/types'
-
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 interface Event {
   id: number
   event_name: string

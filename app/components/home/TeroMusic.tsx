@@ -62,6 +62,7 @@ export default function TeroMusic({ data, maxDisplay = 4 }: TeroMusicProps) {
               className="col-lg-3 col-md-6"
               data-aos="zoom-in"
               data-aos-duration={String(800 + index * 200)}
+              suppressHydrationWarning
             >
               <div className="blog1-auhtor-boxarea">
                 {/* Event Image */}

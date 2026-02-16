@@ -107,6 +107,7 @@ function BrandCard({ service, index }: BrandCardProps) {
       className="col-6 col-md-6 col-lg-3"
       data-aos="zoom-in"
       data-aos-duration={service.duration.toString()}
+      suppressHydrationWarning
     >
       {service.href ? (
         <Link

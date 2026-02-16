@@ -99,14 +99,14 @@ export default function LiveNationTero({ data = [] }: LiveNationTeroProps) {
         {/* Tab Navigation */}
         <div className="row">
           <div className="col-lg-12">
-            <div data-aos="fade-up" data-aos-duration="900">
+            <div data-aos="fade-up" data-aos-duration="900" suppressHydrationWarning>
               <ul className="nav nav-pills space-margin60" role="tablist">
                 <li className="nav-item w-full">
-                  <div className="nav-link active w-full p-3 pt-2 pb-2">
+                  <div className="nav-link active w-full p-4 pt-3 pb-3">
                     <span className="vl-flex">
                       <span className="date">
                         LATEST 
-                        SHOW/EVENT
+                        SHOWS & EVENTS
                       </span>
                     </span>
                   </div> 
@@ -123,6 +123,7 @@ export default function LiveNationTero({ data = [] }: LiveNationTeroProps) {
                       className="tabs-widget-boxarea" 
                       data-aos="fade-up"
                       data-aos-duration={String(800 + (eventIndex * 200))}
+                      suppressHydrationWarning
                     >
                       <div className="row align-items-center">
                         {/* Event Image */}

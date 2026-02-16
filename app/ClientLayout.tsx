@@ -96,7 +96,7 @@ export default function ClientLayout({
       <link rel="stylesheet" href="/assets/css/vendor/odometer.css" />
       <link rel="stylesheet" href={`/assets/css/vendor/mobile.css?v=${cssVersion}`} />
       <link rel="stylesheet" href="/assets/css/vendor/sidebar.css" />
-      <link rel="stylesheet" href={`/assets/css/main.css?v=${cssVersion}`} />
+      <link rel="stylesheet" href={`/assets/css/main.css?v=1${cssVersion}`} />
 
 
       <div id="top" />
