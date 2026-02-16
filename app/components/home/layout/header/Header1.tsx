@@ -177,7 +177,7 @@ export default function Header1({
 
                   {/* Header Actions */}
                   <div className="btn-area">
-                    {/* Search Button */}
+                    {/* Search Button
                     <button
                       className="search-icon header__search header-search-btn"
                       onClick={handleSearch}
@@ -191,7 +191,7 @@ export default function Header1({
                         height={20}
                         aria-hidden="true"
                       />
-                    </button>
+                    </button> */}
 
                     {/* Social Links */}
                     <ul>
@@ -230,11 +230,11 @@ export default function Header1({
       </header>
 
       {/* Search Modal */}
-      <SearchModal
+      {/* <SearchModal
         isOpen={isSearch} 
         onClose={handleSearch} 
         onSearch={handleSearchSubmit}
-      />
+      /> */}
     </>
   )
 }

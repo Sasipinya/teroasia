@@ -23121,8 +23121,39 @@ html {
 		width: 100%;
 	}
 }
+.event1-section-area .nav.nav-pills .nav-item div {
+	border-radius: 8px;
+	border: 1px solid rgba(26, 23, 25, 0.05);
+	background: #FFF;
+	padding: 0;
+	margin: 0 30px 0 0;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.event1-section-area .nav.nav-pills .nav-item div {
+		margin: 30px 30px 0 0;
+	}
+}
+
+@media (max-width: 767px) {
+	.event1-section-area .nav.nav-pills .nav-item div {
+		margin: 30px 0 0 0;
+		width: 100%;
+		
+	}
+	.event1-section-area .nav.nav-pills .nav-item button .vl-flex{
+		    justify-content: center;
+	}
+	.vl-btn8 span.arrow{
+		    display: none!important;
+	}
+}
 
 .event1-section-area .nav.nav-pills .nav-item button.active {
+	background: var(--ztc-bg-bg-3);
+	transition: all 0.4s;
+}
+.event1-section-area .nav.nav-pills .nav-item div.active {
 	background: var(--ztc-bg-bg-3);
 	transition: all 0.4s;
 }

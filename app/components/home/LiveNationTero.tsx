@@ -104,12 +104,9 @@ export default function LiveNationTero({ data = [] }: LiveNationTeroProps) {
           <div className="col-lg-12">
             <div {...(isClient && { 'data-aos': 'fade-up', 'data-aos-duration': '900' })}>
               <ul className="nav nav-pills space-margin60" role="tablist">
-                <li className="nav-item">
-                  <button 
-                    className="nav-link active" 
-                    type="button" 
-                    role="tab"
-                    aria-selected="true"
+                <li className="nav-item w-full" >
+                  <div
+                    className="nav-link active w-full" 
                   >
                     <span className="vl-flex">
                       <span className="date">
@@ -117,7 +114,7 @@ export default function LiveNationTero({ data = [] }: LiveNationTeroProps) {
                         SHOW/EVENT
                       </span>
                     </span>
-                  </button>
+                 </div> 
                 </li>
               </ul>
             </div>
