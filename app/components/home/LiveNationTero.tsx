@@ -106,7 +106,7 @@ export default function LiveNationTero({ data = [] }: LiveNationTeroProps) {
               <ul className="nav nav-pills space-margin60" role="tablist">
                 <li className="nav-item w-full" >
                   <div
-                    className="nav-link active w-full" 
+                    className="nav-link active w-full p-3 pt-2 pb-2" 
                   >
                     <span className="vl-flex">
                       <span className="date">
