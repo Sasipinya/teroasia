@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import AOS from 'aos' 
 
 interface LiveNationEvent {
@@ -25,21 +25,12 @@ interface LiveNationTeroProps {
 }
 
 export default function LiveNationTero({ data = [] }: LiveNationTeroProps) {
-  const [isClient, setIsClient] = useState(false)
-
   useEffect(() => {
-    setIsClient(true)
-   
+    // Refresh AOS เพื่อให้ตรวจจับ elements ในหน้านี้
+    setTimeout(() => {
+      AOS.refresh()
+    }, 150)
   }, [])
-  useEffect(() => {
-    if (isClient) {
-      const timer = setTimeout(() => {
-        AOS.refresh()
-      }, 150)
-      
-      return () => clearTimeout(timer)
-    }
-  }, [isClient])
 
   // Get upcoming events (future events only) and sort by start_date
   const getUpcomingEvents = () => {
@@ -108,19 +99,17 @@ export default function LiveNationTero({ data = [] }: LiveNationTeroProps) {
         {/* Tab Navigation */}
         <div className="row">
           <div className="col-lg-12">
-            <div {...(isClient && { 'data-aos': 'fade-up', 'data-aos-duration': '900' })}>
+            <div data-aos="fade-up" data-aos-duration="900">
               <ul className="nav nav-pills space-margin60" role="tablist">
-                <li className="nav-item w-full" >
-                  <div
-                    className="nav-link active w-full p-3 pt-2 pb-2" 
-                  >
+                <li className="nav-item w-full">
+                  <div className="nav-link active w-full p-3 pt-2 pb-2">
                     <span className="vl-flex">
                       <span className="date">
-                        LATEST <br />
+                        LATEST 
                         SHOW/EVENT
                       </span>
                     </span>
-                 </div> 
+                  </div> 
                 </li>
               </ul>
             </div>
@@ -132,10 +121,8 @@ export default function LiveNationTero({ data = [] }: LiveNationTeroProps) {
                   <div key={event.id}>
                     <div 
                       className="tabs-widget-boxarea" 
-                      {...(isClient && { 
-                        'data-aos': 'fade-up', 
-                        'data-aos-duration': String(800 + (eventIndex * 200))
-                      })}
+                      data-aos="fade-up"
+                      data-aos-duration={String(800 + (eventIndex * 200))}
                     >
                       <div className="row align-items-center">
                         {/* Event Image */}
