@@ -3,10 +3,7 @@
 import Link from 'next/link'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { 
   faXTwitter, 
