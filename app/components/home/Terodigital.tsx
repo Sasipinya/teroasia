@@ -24,7 +24,7 @@ const programs: Program[] = [
     description: 'ออกอากาศทางช่อง one31 ทุกวันจันทร์ - ศุกร์ เวลา 15.45 - 16.30 น. และรับชมรีรันได้ทางช่อง GMM25 เวลา 18.00 - 18.45 น.',
     thumbnail: '/assets/img/elements/thediscussion-thumb_0.jpg',
     logo: 'https://terodigital.com/wp-content/uploads/2025/07/1tok.png',
-    url: 'http://ถกไม่เถียง.com/',
+    url: 'https://terodigital.com/thediscussion/',
     alt: 'ถกไม่เถียง - The Discussion',
   },
   {
@@ -42,7 +42,7 @@ const programs: Program[] = [
     description: 'คิดสนุกปลุกจินตนาการไปกับ Kidsfun คิดฝัน',
     thumbnail: '/assets/img/elements/kidsfun-thumb_0.jpg',
     logo: 'https://terodigital.com/wp-content/uploads/2025/07/2kidsfun.png',
-    url: 'https://teroasia.com/program/kidsnews',
+    url: 'https://terodigital.com/kidsfun/',
     alt: 'Kidsfun คิดฝัน',
   },
 ]
