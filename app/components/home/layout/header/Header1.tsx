@@ -148,21 +148,7 @@ export default function Header1({
 
                   {/* Header Actions */}
                   <div className="btn-area">
-                    {/* Search Button
-                    <button
-                      className="search-icon header__search header-search-btn"
-                      onClick={handleSearch}
-                      aria-label="Open search"
-                      type="button"
-                    >
-                      <Image
-                        src="/assets/img/icons/search1.svg"
-                        alt=""
-                        width={20}
-                        height={20}
-                        aria-hidden="true"
-                      />
-                    </button> */}
+                    
 
                     {/* Social Links */}
                     <ul>
@@ -200,12 +186,6 @@ export default function Header1({
         </div>
       </header>
 
-      {/* Search Modal */}
-      {/* <SearchModal
-        isOpen={isSearch} 
-        onClose={handleSearch} 
-        onSearch={handleSearchSubmit}
-      /> */}
     </>
   )
 }

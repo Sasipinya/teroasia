@@ -39,8 +39,8 @@ const programs: Program[] = [
   {
     id: 3,
     title: 'Kidsfun',
-    description: 'คิดสนุกปลุกจินตนาการไปกับ Kidsfun คิดฝัน',
-    thumbnail: '/assets/img/elements/kidsfun-thumb_0.jpg',
+    description: 'คิดฝัน คิดสนุก ปลุกจินตนาการ ผ่านนิทาน อ่าน E-Book เสริมทักษะ EF เพลงกล่อมเด็กสุดไพเราะ บทความแม่และเด็ก และคลิป D.I.Y สุดสร้างสรรค์',
+    thumbnail: '/assets/img/elements/kidsfun-thumb-4.jpg',
     logo: 'https://terodigital.com/wp-content/uploads/2025/07/2kidsfun.png',
     url: 'https://terodigital.com/kidsfun/',
     alt: 'Kidsfun คิดฝัน',
