@@ -33,7 +33,7 @@ const programs: Program[] = [
     description: 'ออกอากาศทุกวันจันทร์ - ศุกร์ เวลา 07.50 - 08.00 น. ทางช่อง one31 รับชมรีรันได้ทางช่อง GMM25 เวลา 10.30 - 10.40 น. และช่องทางออนไลน์ TERO Digital',
     thumbnail: '/assets/img/elements/money-guru-thumb_0.jpg',
     logo: 'https://terodigital.com/wp-content/uploads/2025/07/3Money.png',
-    url: 'https://www.เงินทองของจริง.com/',
+    url: 'https://terodigital.com/moneyguru/',
     alt: 'เงินทองของจริง - Money Guru',
   },
   {
