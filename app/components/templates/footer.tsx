@@ -64,7 +64,7 @@ export default function Footer({ page }: { page: string }) {
                 <Link href="https://www.thaiticketmajor.com/sport/one-lumpinee-2026.html" className="flex flex-col items-center mx-3">
                   <Image src={"/assets/img/logo/one_lum.png"} alt="" className="" width={60} height={34} />
                 </Link>
-                <Link href="https://corporate.teroasia.com/concerts-events/missthailandworld/'" className="flex flex-col items-center mx-3">
+                <Link href="https://corporate.teroasia.com/concerts-events/missthailandworld/" className="flex flex-col items-center mx-3">
                   <Image src={"/assets/img/logo/logo-mtw_0.jpg'"} alt="" className="" width={60} height={34} />
                 </Link>
                 <Link href="https://livenationtero.co.th" className="flex flex-col items-center mx-3">
