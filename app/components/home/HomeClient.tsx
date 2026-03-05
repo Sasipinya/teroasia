@@ -12,6 +12,7 @@ import AboutUs from './AboutUs';
 import Terodigital from './Terodigital';
 import TeroServices from './TeroServices';
 import AboutUsTeroHealth from './AboutUsTeroHealth';
+import BannerShowImage from './BannerShowImage';
 
 interface HomeClientProps {
   NewHomeData: any;
@@ -49,6 +50,7 @@ export default function HomeClient({  NewHomeData }: HomeClientProps) {
       <VideoPlayer src='https://teroasia.com/advertising/assets/images/Media1.mp4' />
       <LogoAndSocial />
       <AboutUs />
+      <BannerShowImage src="assets/img/elements/Web banner 3x3_BKK_New (2).jpg" alt="3X3"/>
       {NewHomeData.livenation && <ErrorBoundary FallbackComponent={ErrorFallback}> <LiveNationTero data={NewHomeData.livenation} /></ErrorBoundary>}
       {NewHomeData.thaiticket && <ErrorBoundary FallbackComponent={ErrorFallback}> <Thaiticketmajor data={NewHomeData.thaiticket} /></ErrorBoundary>}
       {NewHomeData.teromusic && <ErrorBoundary FallbackComponent={ErrorFallback}> <TeroMusic data={NewHomeData.teromusic} /></ErrorBoundary>}
