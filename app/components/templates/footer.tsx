@@ -6,11 +6,11 @@ import Link from 'next/link'
 
 
 export default function Footer({ page }: { page: string }) {
-const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear();
   return (
     <>
       <footer className="hidden md:block md:absolute md:w-full p-2 border-t-4 border-t-gray-500 pt-[50px]  row-start-3 md:flex gap-6 flex-wrap items-center justify-center bg-[#1f2024]">
-        {page!=='home'&&<div className="container mx-auto">
+        {page !== 'home' && <div className="container mx-auto">
           <div className="flex w-full  text-white">
             <div className="flex-1">
               <h3 className="font-bold mb-2">รายการ</h3>
@@ -58,28 +58,31 @@ const currentYear = new Date().getFullYear();
             <div className="">
               <p className="text-lg font-medium">Tero Entertainment Public Company Limited.</p>
               <div className="container mx-auto flex justify-center mt-4">
-                <Link href="//corporate.teroasia.com/concerts-events/" className="flex flex-col items-center mx-3">
-                  <Image src={"/images/iconf02.png"} alt="Concerts & Events" className="" width={183} height={34} />
+                <Link href="https://fiba3x3.com/en/index.html" className="flex flex-col items-center mx-3">
+                  <Image src={"/assets/img/logo/logo-3x3_0.jpg"} alt="" className="" width={60} height={34} />
                 </Link>
-                <Link href="//corporate.teroasia.com/tv/" className="flex flex-col items-center mx-3">
-                  <Image src={"/images/iconf01.png"} alt="TV" className="" width={133} height={34} />
+                <Link href="https://www.thaiticketmajor.com/sport/one-lumpinee-2026.html" className="flex flex-col items-center mx-3">
+                  <Image src={"/assets/img/logo/one_lum.png"} alt="" className="" width={60} height={34} />
                 </Link>
-                <Link href="//teroradio.com/" className="flex flex-col items-center mx-3">
-                  <Image src={"/images/iconf04.png"} alt="Radio" className="" width={99} height={34} />
+                <Link href="https://corporate.teroasia.com/concerts-events/missthailandworld/'" className="flex flex-col items-center mx-3">
+                  <Image src={"/assets/img/logo/logo-mtw_0.jpg'"} alt="" className="" width={60} height={34} />
                 </Link>
-                <Link href="//teromusic.com/" className="flex flex-col items-center mx-3">
-                  <Image src={"/images/iconf03.png"} alt="Music" className="" width={99} height={34} />
+                <Link href="https://livenationtero.co.th" className="flex flex-col items-center mx-3">
+                  <Image src={"/assets/img/logo/ln-tero-logo-red-208x40px.svg"} alt="Live Nation Tero" className="" width={183} height={34} />
+                </Link>
+                <Link href="https://www.thaiticketmajor.com/" className="flex flex-col items-center mx-3">
+                  <Image src={"/assets/img/logo/logo-ttm-tm.png"} alt="Thaiticketmajor" className="" width={133} height={34} />
+                </Link>
+                <Link href="https://teromusic.com/" className="flex flex-col items-center mx-3">
+                  <Image src={"http://teromusic.com/img/top-logo.png"} alt="TeroMusic" className="" width={99} height={34} />
                 </Link>
                 <Link href="//corporate.teroasia.com/index.php#services" className="flex flex-col items-center mx-3">
-                  <Image src={"/images/iconf052.png"} alt="Service" className="" width={109} height={34} />
+                  <Image src={"https://terodigital.com/wp-content/uploads/2025/06/LogoTeroDigital_www-2.png"} alt="TeroDigital" className="" width={109} height={34} />
                 </Link>
-                <Link href="//corporate.teroasia.com/index.php#sports" className="flex flex-col items-center mx-3">
-                  <Image src={"/images/iconf06.png"} alt="Sports" className="" width={109} height={34} />
+                <Link href="https://corporate.teroasia.com/terohealthclinic/" className="flex flex-col items-center mx-3">
+                  <Image src={"https://corporate.teroasia.com/terohealthclinic/assets/images/logo-clinic.png"} alt="TeroHealthClinic" className="" width={109} height={34} />
                 </Link>
               </div>
-
-
-
 
             </div>
           </div>
