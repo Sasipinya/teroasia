@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import styles from './AboutUsTeroHealth.module.css';
+import Link from 'next/link';
 
 interface AboutUsTeroHealthProps {
   className?: string;
@@ -74,13 +75,13 @@ const AboutUsTeroHealth: React.FC<AboutUsTeroHealthProps> = ({ className = '' })
         </div>
 
         <div className={styles.text_content}>
-        
+
           <h2 className={styles.title}>
-            <span style={{color:'#e63946'}}>Tero</span> Health Clinic
+            <span style={{ color: '#e63946' }}>Tero</span> Health Clinic
           </h2>
           <p className={styles.description}>
-            เทโร เฮลท์ คลินิก เป็นคลินิกกายภาพบำบัดและเวชศาสตร์ฟื้นฟูชั้นนำ 
-            ที่มุ่งเน้นการดูแลสุขภาพแบบองค์รวม (Holistic Care) โดยผสมผสานระหว่างเทคโนโลยีทางการแพทย์ที่ทันสมัย 
+            เทโร เฮลท์ คลินิก เป็นคลินิกกายภาพบำบัดและเวชศาสตร์ฟื้นฟูชั้นนำ
+            ที่มุ่งเน้นการดูแลสุขภาพแบบองค์รวม (Holistic Care) โดยผสมผสานระหว่างเทคโนโลยีทางการแพทย์ที่ทันสมัย
             กับความเชี่ยวชาญของทีมนักกายภาพบำบัดมืออาชีพ เพื่อตอบโจทย์ไลฟ์สไตล์ของคนยุคใหม่ที่เผชิญกับปัญหาทางร่างกายจากการทำงานและการใช้ชีวิต
           </p>
 
@@ -103,9 +104,26 @@ const AboutUsTeroHealth: React.FC<AboutUsTeroHealthProps> = ({ className = '' })
                 <strong>โปรแกรมฟื้นฟูหลังผ่าตัด:</strong> ช่วยให้ร่างกายกลับมาเคลื่อนไหวได้อย่างปกติและปลอดภัย
               </li>
             </ul>
+
+          </div>
+          {/* More Info Button */}
+          <div className="row">
+            <div className="btn-area1 text-end mt-2">
+              <Link
+                className="vl-btn8"
+                href="https://corporate.teroasia.com/terohealthclinic/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="demo">VIEW MORE</span>
+                <span className="arrow">
+                  <i className="fa-solid fa-arrow-right" />
+                </span>
+              </Link>
+            </div>
           </div>
 
-          
+
         </div>
       </div>
     </section>

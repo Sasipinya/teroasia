@@ -27,7 +27,7 @@ const MENU_ITEMS: MenuItem[] = [
     href: 'https://www.livenationtero.co.th/',
   },
   {
-    label: 'THAI TICKET MAJOR',
+    label: 'THAITICKETMAJOR',
     href: 'https://www.thaiticketmajor.com/',
   },
   {

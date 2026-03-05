@@ -32,7 +32,7 @@ const teamMembers: TeamMember[] = [
     id: '1',
     name: '3X3',
     image: '/assets/img/logo/logo-3x3_0.jpg',
-    link_url:'https://3x3.teroasia.com/',
+    link_url:'https://fiba3x3.com/en/index.html',
     socialLinks: {
       facebook: 'https://www.facebook.com/teroasia',
       twitter: 'https://x.com/tero_asia',

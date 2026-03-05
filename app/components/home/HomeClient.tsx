@@ -3,7 +3,6 @@
 import { useEffect, useState, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import VideoPlayer from './VideoPlayer';
-import HeroVideoSection from './HeroVideoSection';
 import { ErrorBoundary } from 'react-error-boundary';
 import LogoAndSocial from './LogoAndSocial';
 import LiveNationTero from './LiveNationTero';
@@ -13,7 +12,6 @@ import AboutUs from './AboutUs';
 import Terodigital from './Terodigital';
 import TeroServices from './TeroServices';
 import AboutUsTeroHealth from './AboutUsTeroHealth';
-import ContactUsTeroHealth from './ContactUsTeroHealth';
 
 interface HomeClientProps {
   NewHomeData: any;
@@ -56,10 +54,7 @@ export default function HomeClient({  NewHomeData }: HomeClientProps) {
       {NewHomeData.teromusic && <ErrorBoundary FallbackComponent={ErrorFallback}> <TeroMusic data={NewHomeData.teromusic} /></ErrorBoundary>}
       <Terodigital />
       <TeroServices />
-      
-      <HeroVideoSection />
       <AboutUsTeroHealth/>
-      <ContactUsTeroHealth/>
      
 
     </>
