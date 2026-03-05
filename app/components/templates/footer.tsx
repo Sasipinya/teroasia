@@ -71,16 +71,16 @@ export default function Footer({ page }: { page: string }) {
                   <Image src={"/assets/img/logo/ln-tero-logo-red-208x40px.svg"} alt="Live Nation Tero" className="" width={183} height={34} />
                 </Link>
                 <Link href="https://www.thaiticketmajor.com/" className="flex flex-col items-center mx-3">
-                  <Image src={"/assets/img/logo/logo-ttm-tm.png"} alt="Thaiticketmajor" className="" width={133} height={34} />
+                  <Image src={"/assets/img/logo/logo-ttm-tm.png"} alt="Thaiticketmajor" className="bg-white" width={133} height={34} />
                 </Link>
                 <Link href="https://teromusic.com/" className="flex flex-col items-center mx-3">
-                  <Image src={"http://teromusic.com/img/top-logo.png"} alt="TeroMusic" className="" width={99} height={34} />
+                  <Image src={"http://teromusic.com/img/top-logo.png"} alt="TeroMusic" className="bg-white" width={99} height={34} />
                 </Link>
                 <Link href="//corporate.teroasia.com/index.php#services" className="flex flex-col items-center mx-3">
-                  <Image src={"https://terodigital.com/wp-content/uploads/2025/06/LogoTeroDigital_www-2.png"} alt="TeroDigital" className="" width={109} height={34} />
+                  <Image src={"https://terodigital.com/wp-content/uploads/2025/06/LogoTeroDigital_www-2.png"} alt="TeroDigital" className="bg-white" width={109} height={34} />
                 </Link>
                 <Link href="https://corporate.teroasia.com/terohealthclinic/" className="flex flex-col items-center mx-3">
-                  <Image src={"https://corporate.teroasia.com/terohealthclinic/assets/images/logo-clinic.png"} alt="TeroHealthClinic" className="" width={109} height={34} />
+                  <Image src={"https://corporate.teroasia.com/terohealthclinic/assets/images/logo-clinic.png"} alt="TeroHealthClinic" className="bg-white" width={109} height={34} />
                 </Link>
               </div>
 
