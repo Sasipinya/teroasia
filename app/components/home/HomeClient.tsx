@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
-import dynamic from 'next/dynamic';
 import VideoPlayer from './VideoPlayer';
 import { ErrorBoundary } from 'react-error-boundary';
 import LogoAndSocial from './LogoAndSocial';
@@ -57,8 +56,6 @@ export default function HomeClient({  NewHomeData }: HomeClientProps) {
       <Terodigital />
       <TeroServices />
       <AboutUsTeroHealth/>
-     
-
     </>
   );
 }

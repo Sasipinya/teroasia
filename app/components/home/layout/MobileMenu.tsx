@@ -37,7 +37,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 					<ul className="mobile-nav-list nav-list1">
 					
 						<li className="hash-has-sub"><Link href="https://www.livenationtero.co.th/">LIVE NATION</Link></li>
-						<li className="hash-has-sub"><Link href="https://www.thaiticketmajor.com/">THAI TICKET MAJOR</Link></li>
+						<li className="hash-has-sub"><Link href="https://www.thaiticketmajor.com/">THAI TICKETMAJOR</Link></li>
 						<li className="hash-has-sub"><Link href="https://www.teromusic.com/">TERO MUSIC</Link></li>
 						<li className="hash-has-sub"><Link href="https://terodigital.com/">TERO DIGITAL</Link></li>
 						<li className="hash-has-sub"><Link href="https://corporate.teroasia.com/terohealthclinic/">TERO HEALTH CLINIC</Link></li>
