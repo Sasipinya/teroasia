@@ -49,8 +49,8 @@ export default function HomeClient({  NewHomeData }: HomeClientProps) {
       {/* ===================== DESKTOP ===================== * AND   ===================== MOBILE ===================== */}
       <VideoPlayer src='https://teroasia.com/advertising/assets/images/Media1.mp4' />
       <LogoAndSocial />
-      <AboutUs />
       <BannerShowImage src="assets/img/elements/Web banner 3x3_BKK_New (2).jpg" alt="3X3"/>
+      <AboutUs />
       {NewHomeData.livenation && <ErrorBoundary FallbackComponent={ErrorFallback}> <LiveNationTero data={NewHomeData.livenation} /></ErrorBoundary>}
       {NewHomeData.thaiticket && <ErrorBoundary FallbackComponent={ErrorFallback}> <Thaiticketmajor data={NewHomeData.thaiticket} /></ErrorBoundary>}
       {NewHomeData.teromusic && <ErrorBoundary FallbackComponent={ErrorFallback}> <TeroMusic data={NewHomeData.teromusic} /></ErrorBoundary>}
