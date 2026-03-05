@@ -1,100 +1,40 @@
+'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
 
-interface FooterLink {
-  href: string;
-  title: string;
-  isExternal?: boolean;
-  isNoFollow?: boolean;
-}
-
-const footerLinks: FooterLink[] = [
-  {
-    href: '/',
-    title: 'Tero Entertainment',
-    isExternal: true,
-  },
-  {
-    href: '/',
-    title: 'รู้จักเรา',
-  },
-  {
-    href: '/',
-    title: 'ข่าวประชาสัมพันธ์',
-    isExternal: true,
-  },
-  {
-    href: 'https://corporate.teroasia.com/privacypolicy.php',
-    title: 'นโยบายด้านลิขสิทธิ์',
-    isNoFollow: true,
-  },
-  {
-    href: 'https://corporate.teroasia.com/privacypolicy.php',
-    title: 'นโยบายสิทธิส่วนบุคคล',
-    isNoFollow: true,
-  },
-  {
-    href: 'https://corporate.teroasia.com/privacypolicy.php',
-    title: 'ข้อกำหนด / เงื่อนไข',
-    isNoFollow: true,
-  },
-  {
-    href: '/',
-    title: 'ร่วมงานกับเรา',
-    isExternal: true,
-  },
+const partnerLogos = [
+  { href: '//fiba3x3.com/en/index.html', src: '/assets/img/logo/logo-3x3_0.jpg', alt: '', width: 60, height: 34, className: 'rounded-full' },
+  { href: '//www.thaiticketmajor.com/sport/one-lumpinee-2026.html', src: '/assets/img/logo/one_lum.png', alt: '', width: 60, height: 34, className: 'rounded-full border border-solid border-gray' },
+  { href: '//corporate.teroasia.com/concerts-events/missthailandworld/', src: '/assets/img/logo/logo-mtw_0.jpg', alt: '', width: 60, height: 34, className: 'rounded-full' },
+  { href: '//livenationtero.co.th', src: '/assets/img/logo/ln-tero-logo-red-208x40px.svg', alt: 'Live Nation Tero', width: 183, height: 34, className: '', wrapperClass: 'p-2' },
+  { href: '//www.thaiticketmajor.com/', src: '/assets/img/logo/logo-ttm-tm.png', alt: 'Thaiticketmajor', width: 133, height: 34, className: '', wrapperClass: 'p-2 bg-white rounded-xl' },
+  { href: '//teromusic.com/', src: 'http://teromusic.com/img/top-logo.png', alt: 'TeroMusic', width: 99, height: 34, className: '', wrapperClass: 'p-2 bg-white rounded-xl' },
+  { href: '//terodigital.com', src: 'https://terodigital.com/wp-content/uploads/2025/06/LogoTeroDigital_www-2.png', alt: 'TeroDigital', width: 109, height: 34, className: '', wrapperClass: 'p-2 bg-white rounded-xl' },
+  { href: '//corporate.teroasia.com/terohealthclinic/', src: 'https://corporate.teroasia.com/terohealthclinic/assets/images/logo-clinic.png', alt: 'TeroHealthClinic', width: 109, height: 34, className: '', wrapperClass: 'p-2 bg-white rounded-xl' },
 ];
-
 
 const FooterM: FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="block md:hidden bg-gray-900 text-white">
-      {/* Main Footer Section */}
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="flex justify-between">
-          <div className="w-full lg:w-1/4">
-            <div className="mb-8">
-              <h2 className="mb-6 text-xl font-semibold">เกี่ยวกับเรา</h2>
-              <nav className="space-y-4">
-                <ul className="space-y-3">
-                  {footerLinks.map((link, index) => (
-                    <li key={index}>
-                      {link.isExternal ? (
-                        <a
-                          href={link.href}
-                          title={link.title}
-                          target="_blank"
-                          rel={`${link.isNoFollow ? 'nofollow' : ''} noopener noreferrer`}
-                          className="text-gray-300 transition-colors hover:text-white"
-                        >
-                          {link.title}
-                        </a>
-                      ) : (
-                        <Link
-                          href={link.href}
-                          title={link.title}
-                          className="text-gray-300 transition-colors hover:text-white"
-                        >
-                          {link.title}
-                        </Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </div>
-          </div>
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap gap-3 items-center">
+          {partnerLogos.map((logo, index) => (
+            <Link key={index} href={logo.href} className={`flex flex-col items-center ${logo.wrapperClass ?? ''}`}>
+              <Image src={logo.src} alt={logo.alt} className={logo.className} width={logo.width} height={logo.height} />
+            </Link>
+          ))}
         </div>
       </div>
 
-      {/* Copyright Section */}
       <div className="border-t border-gray-800">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
+            <Image src="/images/logo.png" alt="Tero Entertainment Logo" width={135} height={70} />
             <div className="text-sm text-gray-400">
-              Copyright © {currentYear}. All rights reserved.
+              © {currentYear} Tero Entertainment PCL. All rights reserved.
             </div>
           </div>
         </div>
