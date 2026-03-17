@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect } from 'react'
-
+import AOS from 'aos' 
 
 interface LiveNationEvent {
   id: number
@@ -25,11 +25,12 @@ interface LiveNationTeroProps {
 }
 
 export default function LiveNationTero({ data = [] }: LiveNationTeroProps) {
-useEffect(() => {
-  import('aos').then((AosModule) => {
-    AosModule.default.refresh()
-  })
-}, [])
+  useEffect(() => {
+    // Refresh AOS เพื่อให้ตรวจจับ elements ในหน้านี้
+    setTimeout(() => {
+      AOS.refresh()
+    }, 150)
+  }, [])
 
   // Get upcoming events (future events only) and sort by start_date
   const getUpcomingEvents = () => {
@@ -173,7 +174,7 @@ useEffect(() => {
                             <div className="space20" />
 
                             <Link 
-                              href={event.event_url} 
+                              href={event.event_url || '#'} 
                               className="head"
                               target="_blank"
                               rel="noopener noreferrer"
@@ -192,7 +193,7 @@ useEffect(() => {
 
                             <div className="btn-area1">
                               <Link 
-                                href={event.ticket_url_livenation} 
+                                href={event.ticket_url_livenation || '#'} 
                                 className="vl-btn1"
                                 target="_blank"
                                 rel="noopener noreferrer"
