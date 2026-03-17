@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect } from 'react'
-import AOS from 'aos' 
+
 
 interface LiveNationEvent {
   id: number
@@ -25,12 +25,11 @@ interface LiveNationTeroProps {
 }
 
 export default function LiveNationTero({ data = [] }: LiveNationTeroProps) {
-  useEffect(() => {
-    // Refresh AOS เพื่อให้ตรวจจับ elements ในหน้านี้
-    setTimeout(() => {
-      AOS.refresh()
-    }, 150)
-  }, [])
+useEffect(() => {
+  import('aos').then((AosModule) => {
+    AosModule.default.refresh()
+  })
+}, [])
 
   // Get upcoming events (future events only) and sort by start_date
   const getUpcomingEvents = () => {
