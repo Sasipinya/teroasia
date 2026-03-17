@@ -98,7 +98,7 @@ export default function TeroMusic({ data, maxDisplay = 4 }: TeroMusicProps) {
 
                   {/* Event Name Link */}
                   <Link
-                    href={event.event_url}
+                    href={event.event_url || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="event-title"
@@ -111,7 +111,7 @@ export default function TeroMusic({ data, maxDisplay = 4 }: TeroMusicProps) {
                   {/* Read More Button */}
                   <div className="btn-area1">
                     <Link
-                      href={event.event_url}
+                      href={event.event_url || '#'}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="vl-btn2"

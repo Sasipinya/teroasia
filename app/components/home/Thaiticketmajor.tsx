@@ -121,7 +121,7 @@ export default function Thaiticketmajor({ data, maxDisplay = 12 }: Thaiticketmaj
 
                     {/* Event Name Link */}
                     <Link
-                      href={event.event_url}
+                      href={event.event_url || '#'}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="event-link"
@@ -140,7 +140,7 @@ export default function Thaiticketmajor({ data, maxDisplay = 12 }: Thaiticketmaj
                     {event.event_url && (
                       <div className="btn-area1">
                         <Link
-                          href={event.event_url}
+                          href={event.event_url || '#'}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="vl-btn1 text-white after:h-7 after:w-7 after:left-[15px] after:top-[3px]"
